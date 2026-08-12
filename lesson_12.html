@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 4, Lesson 2: make a composited subject belong by matching brightness, color temperature, and contrast with clipped adjustment layers.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 4.2: Make It Belong | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 4 • Lesson 2</span><span class="lesson-title">🌅 Make It Belong: Match Light &amp; Color</span></h1>
+                <p class="lead">A clean cutout dropped into a scene still looks wrong, and your eye knows it instantly even when you cannot say why. The reason is almost always light and color. This lesson teaches your subject to speak the scene's language.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Diagnose why a composite looks "pasted" by checking <strong>brightness, color, and contrast</strong></li>
+                        <li>Match the subject to the scene with <strong>clipped adjustment layers</strong></li>
+                        <li>Pull the scene's color into the subject with <strong>Curves</strong> and <strong>Color Balance</strong></li>
+                        <li>Use a <strong>clipping mask</strong> so each adjustment affects only the subject</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 55 minutes</p>
+                    <p><strong>🎯 Project:</strong> Take the cutout from Lesson 4.1, drop it into a background, and make it look photographed in place.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Photographed in Place</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Speak the Scene's Language</a></li>
+                        <li><a href="#panel" class="toc-link">Clipping Adjustments to the Subject</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Match the Subject</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Match Light &amp; Color</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🌇 The Goal: Photographed in Place</h2>
+                <p>Same subject, same sunset scene. On the right, the subject is cool, bright, and oversaturated: obviously pasted. On the left, its light and color have been matched to the warm scene, so it belongs. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a pasted-looking subject matched to the warm light of the scene.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Subject matched to the warm scene light">
+                                <defs><linearGradient id="c2-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9e5e"/><stop offset="1" stop-color="#ffdca6"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#c2-sky)"/>
+                                <circle cx="470" cy="250" r="46" fill="#fff3cf"/>
+                                <path d="M0 300 Q300 250 600 300 V400 H0 Z" fill="#c79a5a"/>
+                                <path d="M0 340 Q300 310 600 340 V400 H0 Z" fill="#9c7440"/>
+                                <!-- subject: warm-matched palette -->
+                                <ellipse cx="215" cy="180" rx="30" ry="36" fill="#c88a5c"/>
+                                <path d="M185 176 a30 30 0 0 1 60 0 q-4 -34 -30 -34 q-26 0 -30 34 Z" fill="#3a2b24"/>
+                                <path d="M188 232 q27 -20 54 0 v120 h-54 Z" fill="#9a5537"/>
+                                <rect x="200" y="350" width="12" height="34" fill="#4a3628"/>
+                                <rect x="218" y="350" width="12" height="34" fill="#4a3628"/>
+                                <!-- warm rim light on sun side -->
+                                <path d="M245 150 q10 30 -3 66" stroke="#ffd9a0" stroke-width="4" fill="none" opacity="0.8"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Subject looking pasted: cool and too bright for the scene">
+                                <defs><linearGradient id="c2-sky-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9e5e"/><stop offset="1" stop-color="#ffdca6"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#c2-sky-b)"/>
+                                <circle cx="470" cy="250" r="46" fill="#fff3cf"/>
+                                <path d="M0 300 Q300 250 600 300 V400 H0 Z" fill="#c79a5a"/>
+                                <path d="M0 340 Q300 310 600 340 V400 H0 Z" fill="#9c7440"/>
+                                <!-- subject: cool, bright, oversaturated (pasted) -->
+                                <ellipse cx="215" cy="180" rx="30" ry="36" fill="#f5d3b6"/>
+                                <path d="M185 176 a30 30 0 0 1 60 0 q-4 -34 -30 -34 q-26 0 -30 34 Z" fill="#4a4360"/>
+                                <path d="M188 232 q27 -20 54 0 v120 h-54 Z" fill="#2f6bd0"/>
+                                <rect x="200" y="350" width="12" height="34" fill="#33415c"/>
+                                <rect x="218" y="350" width="12" height="34" fill="#33415c"/>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the matched subject">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The scene never changed. Only the subject's brightness, warmth, and saturation moved, and suddenly it belongs.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in. A real composite drops into this same slider.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Speak the Scene's Language</h2>
+                <p>A photograph is a record of light. Every object in a real scene is lit by the same sources, so they share a visual "accent": the same warmth, the same brightness range, the same softness. When you drop in a subject shot under different light, it speaks with a foreign accent, and the eye hears it immediately.</p>
+                <p>Your job is to give the subject the scene's accent. Work through three questions in order:</p>
+                <ol>
+                    <li><strong>Brightness.</strong> Is the subject lit as brightly as things around it? A subject brighter than its surroundings always looks stuck on.</li>
+                    <li><strong>Color.</strong> What temperature is the scene? A sunset is warm, so the subject must pick up that warmth, especially on its lit side.</li>
+                    <li><strong>Contrast.</strong> Is the scene soft and hazy or punchy and crisp? The subject must match that too.</li>
+                </ol>
+
+                <div class="card card-accent">
+                    <h3>🧠 One rule beats a hundred sliders</h3>
+                    <p>Match brightness first, color second, contrast third. In that order. Most "bad composite" feelings come from brightness alone, so fixing it first often does eighty percent of the work before you touch color.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            A["Cutout dropped in&lt;br/&gt;(looks pasted)"] --> B["1 · Match&lt;br/&gt;BRIGHTNESS"]
+                            B --> C["2 · Match&lt;br/&gt;COLOR (temperature)"]
+                            C --> D["3 · Match&lt;br/&gt;CONTRAST"]
+                            D --> E["Clip each adjustment&lt;br/&gt;to the subject"]
+                            E --> F["Photographed in place"]
+                    </div>
+                    <figcaption>Figure 1: Brightness, then color, then contrast. Doing them in order keeps you from chasing your own tail.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>📎 Clipping Adjustments to the Subject</h2>
+                <p>The key move is the <strong>clipping mask</strong>. A normal adjustment layer changes everything beneath it, including your carefully matched background. Clip it and it affects only the one layer directly below. Here is the layer stack, drawn as a diagram:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:460px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Layers: matched composite</span>
+                        </div>
+                        <svg viewBox="0 0 460 250" role="img" aria-label="Curves and Color Balance adjustment layers clipped to the subject layer, above the background scene.">
+                            <rect width="460" height="250" fill="#3a3a3a"/>
+                            <!-- clipped: color balance -->
+                            <rect x="12" y="12" width="436" height="40" fill="#4a4a4a" stroke="#5a5a5a"/>
+                            <text x="70" y="37" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">↳ Color Balance  <tspan style="fill:#9aa4ad">(clipped)</tspan></text>
+                            <circle cx="34" cy="32" r="7" fill="#111"/><circle cx="34" cy="32" r="3.5" fill="#ffd23f"/>
+                            <!-- clipped: curves -->
+                            <rect x="12" y="54" width="436" height="40" fill="#454545" stroke="#5a5a5a"/>
+                            <text x="70" y="79" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">↳ Curves  <tspan style="fill:#9aa4ad">(clipped: brightness + contrast)</tspan></text>
+                            <circle cx="34" cy="74" r="7" fill="#111"/><circle cx="34" cy="74" r="3.5" fill="#ffd23f"/>
+                            <!-- subject -->
+                            <rect x="12" y="96" width="436" height="52" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="34" cy="122" r="8" fill="#111"/><circle cx="34" cy="122" r="4" fill="#ffd23f"/>
+                            <ellipse cx="60" cy="122" rx="12" ry="16" fill="#c88a5c"/>
+                            <text x="82" y="127" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">SUBJECT (cutout + mask)</text>
+                            <!-- indent bracket showing clip target -->
+                            <rect x="6" y="12" width="4" height="136" fill="#31A8FF"/>
+                            <text x="16" y="168" style="fill:#31A8FF" font-family="Segoe UI, sans-serif" font-size="10.5">↑ blue bar: these adjustments clip to SUBJECT only</text>
+                            <!-- background -->
+                            <rect x="12" y="184" width="436" height="52" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="34" cy="210" r="8" fill="#111"/><circle cx="34" cy="210" r="4" fill="#ffd23f"/>
+                            <rect x="48" y="194" width="24" height="32" fill="#e0a95a"/>
+                            <text x="82" y="215" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13">Background scene</text>
+                        </svg>
+                        <figcaption>Figure 2: The Curves and Color Balance layers are <strong>clipped</strong> to the subject (the little ↳ hook). They match the subject to the scene without touching the background.</figcaption>
+                    </div>
+                </figure>
+                <p><small>To clip: hold <kbd>Alt/⌥</kbd> and click the line between the adjustment layer and the layer below, or press <kbd>Ctrl/⌘ + Alt/⌥ + G</kbd>.</small></p>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Match the Subject</h2>
+                <p>Open your Lesson 4.1 cutout, and drag your chosen background photo in as a layer beneath the subject.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Position and size <small>· 4 min</small></h3>
+                    <ol>
+                        <li>With the subject a Smart Object, press <kbd>Ctrl/⌘ + T</kbd> and scale it to a believable size for the scene. Mind the perspective: where would the subject actually stand?</li>
+                        <li>Place its feet where the ground is, not floating.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Match brightness first <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Add a <strong>Curves</strong> adjustment layer above the subject and <strong>clip it</strong> (<kbd>Ctrl/⌘ + Alt/⌥ + G</kbd>).</li>
+                        <li>Drag the curve until the subject's overall brightness sits in the same range as nearby scene elements. Squint at the screen; squinting hides detail and reveals brightness mismatches.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Match color temperature <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Add a <strong>Color Balance</strong> (or a second clipped Curves) and push the subject toward the scene's temperature. For a sunset, add warmth: more red and yellow, especially in the midtones and highlights.</li>
+                        <li>Look at the <em>lit side</em> of the subject. It should catch the same color the scene's light is throwing.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Do not forget the shadows</h4>
+                        <p>Warm light usually means cool shadows. If you only warm the whole subject evenly, it can look dipped in orange. Add a touch of the opposite temperature to the shadow side for realism.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Match contrast and desaturate to taste <small>· 6 min</small></h3>
+                    <ol>
+                        <li>If the scene is soft and hazy, gently lower the subject's contrast with your clipped Curves so it does not look sharper than its surroundings.</li>
+                        <li>A pasted subject is often too <em>saturated</em>. A small clipped <strong>Hue/Saturation</strong> pulling saturation down a few points often seals the illusion.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ The squint-and-flick test</h4>
+                        <p>Squint at the whole image. Does the subject pop out as separate, or melt into the scene? Then toggle all your clipped layers off and on. The "off" version should look obviously wrong now. If it does, you have matched well.</p>
+                    </div>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ Subject is sized and positioned believably (feet on the ground)</li>
+                        <li>☐ Brightness matches nearby scene elements</li>
+                        <li>☐ The lit side carries the scene's color; shadows are not over-warmed</li>
+                        <li>☐ Contrast and saturation match the scene</li>
+                        <li>☐ Every adjustment is <strong>clipped</strong> to the subject, leaving the background untouched</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Take the <em>same</em> cutout and match it into two very different scenes: a warm sunset and a cool overcast day. Same subject, two accents.</li>
+                        <li>Line the two results up. Feeling how differently you had to treat the subject is the whole lesson in one glance.</li>
+                        <li>Try a deliberately hard case: a subject shot indoors placed into bright daylight.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> sample a color from the scene's light with the eyedropper, then paint it onto a clipped layer set to <strong>Soft Light</strong> at low opacity, over just the subject's lit side. That is a "light wrap," a pro trick for selling the match.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Match Light &amp; Color</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Make a subject belong</h3>
+                    <ol>
+                        <li>Size and place the subject (feet on the ground, right perspective)</li>
+                        <li>Clipped <strong>Curves</strong>: match <strong>brightness</strong> first</li>
+                        <li>Clipped <strong>Color Balance</strong>: match the scene's <strong>temperature</strong> (warm light, cool shadows)</li>
+                        <li>Clipped Curves / <strong>Hue/Saturation</strong>: match <strong>contrast</strong>, ease saturation down</li>
+                        <li>Squint test and toggle to confirm</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: brightness, then color, then contrast, all clipped to the subject.</small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Which of the three (brightness, color, contrast) was hardest for your eye to judge? That is the one worth training with a few extra composites.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>A pasted look is almost always a mismatch of <strong>brightness, color, or contrast</strong>.</li>
+                        <li>Fix them in that <strong>order</strong>: brightness first does most of the work.</li>
+                        <li><strong>Clip</strong> every adjustment to the subject so it never touches the background.</li>
+                        <li>Warm light means <strong>cool shadows</strong>; match the lit side to the scene's light.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You can now take a foreign-looking subject and teach it the scene's visual accent. This is the skill that turns a cut-and-paste into a photograph. It is also exactly how movie posters, album covers, and product ads are made, so it transfers straight to paid work.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>What is the difference between a clipping mask and a layer mask?</summary>
+                    <p>A <strong>layer mask</strong> hides parts of a layer (black hides, white reveals). A <strong>clipping mask</strong> restricts a layer to the shape of the layer directly below it. Here you use the subject's own shape to contain the adjustments, without painting a mask at all.</p>
+                </details>
+                <details>
+                    <summary>My match looks right on the face but wrong on the clothes.</summary>
+                    <p>Different materials take light differently. You can add a second set of clipped adjustments and mask them to just the clothing, or just the skin. Compositing is often several small local matches, not one global one.</p>
+                </details>
+                <details>
+                    <summary>How do I know the scene's color temperature?</summary>
+                    <p>Look at the highlights on existing objects and at the shadows. Warm highlights and cool shadows mean warm light. Sampling a neutral surface in the scene with the eyedropper gives you the exact cast to match.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>Your subject now shares the scene's light and color, but it may still feel like it is floating. <strong>Lesson 4.3 grounds and grades it</strong>: contact shadows to sit it in the world, atmosphere for depth, and one unifying grade over the whole image before export. That is the Module 4 finale.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Match one subject into three different scenes.</li>
+                    <li>Practice clipping adjustment layers until the shortcut is automatic.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/clipping-mask.html" target="_blank" rel="noopener">Adobe: Clipping masks</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/adjustment-fill-layers.html" target="_blank" rel="noopener">Adobe: Adjustment layers</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Matching light is the skill that separates people who "use Photoshop" from people who make images that fool the eye. It takes reps to train, and you just did your first serious set. Trust your squint; it gets sharper every time.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_11.html" class="prev-lesson">← Previous: Cut It Out Cleanly</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_13.html" class="next-lesson">Next: Ground It &amp; Grade It (Module 4 finale) →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

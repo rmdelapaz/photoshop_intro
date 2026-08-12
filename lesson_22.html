@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 7, Lesson 3 (course finale): present your capstone in context, critique it honestly, build a portfolio, and see where to go next.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 7.3: Present &amp; Ship | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 7 • Lesson 3</span><span class="lesson-title">🖼️ Present &amp; Ship</span></h1>
+                <p class="lead">The final lesson. Your capstone exists; now you make it land. Presentation is not decoration, it is the difference between "here is a file" and "here is a piece." This lesson gets your work seen well, critiqued honestly, and out into the world, and then we celebrate how far you have come.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <ul>
+                        <li>Export your piece correctly for its destination</li>
+                        <li>Present it <strong>in context</strong> with mockups so it reads as finished work</li>
+                        <li>Write a short <strong>artist statement</strong> and critique your piece with a rubric</li>
+                        <li>Build a <strong>portfolio</strong> entry and know where to grow next</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 45 minutes</p>
+                    <p><strong>🎯 Project:</strong> Ship your capstone: a presented image, a short statement, and a portfolio-ready entry.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: A Piece, Not a File</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Present, Critique, Ship</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Present Your Work</a></li>
+                        <li><a href="#critique" class="toc-link">The Honest Critique</a></li>
+                        <li><a href="#next" class="toc-link">Where to Go Next</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Course Wrap-Up</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🎁 The Goal: A Piece, Not a File</h2>
+                <p>Same artwork. On the right, a bare JPG on a gray void: technically fine, emotionally flat. On the left, the same image presented in context, framed on a wall with a little light and shadow, so it reads as a real, finished piece. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a bare exported file versus the same artwork presented in a framed mockup.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Artwork presented as a framed print on a wall">
+                                <defs>
+                                    <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e7ddd0"/><stop offset="1" stop-color="#d3c6b4"/></linearGradient>
+                                    <filter id="fsh" x="-40%" y="-40%" width="180%" height="180%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#000" flood-opacity="0.35"/></filter>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#wall)"/>
+                                <!-- floor line -->
+                                <rect y="330" width="600" height="70" fill="#c3b39d"/>
+                                <!-- framed print -->
+                                <g filter="url(#fsh)">
+                                    <rect x="210" y="70" width="180" height="240" fill="#241c14"/>
+                                    <rect x="222" y="82" width="156" height="216" fill="#f4efe6"/>
+                                    <rect x="238" y="98" width="124" height="184" fill="#12303a"/>
+                                    <text x="300" y="150" text-anchor="middle" style="fill:#f0a52e" font-family="Segoe UI, sans-serif" font-size="26" font-weight="800">SUMMER</text>
+                                    <text x="300" y="172" text-anchor="middle" style="fill:#eaf6fb" font-family="Segoe UI, sans-serif" font-size="9" letter-spacing="3">MUSIC FESTIVAL</text>
+                                    <circle cx="300" cy="230" r="20" fill="none" stroke="#f0a52e" stroke-width="1.5"/>
+                                    <text x="300" y="235" text-anchor="middle" style="fill:#f0a52e" font-family="Segoe UI, sans-serif" font-size="14">★</text>
+                                </g>
+                                <text x="300" y="360" text-anchor="middle" style="fill:#6b5f4e" font-family="Segoe UI, sans-serif" font-size="13">presented in context</text>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Bare exported JPG on a plain gray background">
+                                <rect width="600" height="400" fill="#d9dde1"/>
+                                <rect x="240" y="90" width="120" height="200" fill="#12303a"/>
+                                <text x="300" y="150" text-anchor="middle" style="fill:#e6b23e" font-family="Segoe UI, sans-serif" font-size="18" font-weight="800">SUMMER</text>
+                                <text x="300" y="168" text-anchor="middle" style="fill:#eaf6fb" font-family="Segoe UI, sans-serif" font-size="7" letter-spacing="2">MUSIC FESTIVAL</text>
+                                <text x="300" y="320" text-anchor="middle" style="fill:#8a9199" font-family="Segoe UI, sans-serif" font-size="13">poster_final.jpg</text>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">Presented</span>
+                        <span class="ba-label before">Bare file</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the presented version">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The artwork is identical. Presentation gives the viewer a way to <em>believe</em> in it, which is why every strong portfolio uses mockups.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in of a framed mockup.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Present, Critique, Ship</h2>
+                <p>Finishing the pixels is not the finish line. Three more moves turn a file into a piece people respond to:</p>
+                <ul>
+                    <li><strong>Present.</strong> Show the work where it would live: a poster on a wall, an app on a phone, a photo in a frame. Context tells the viewer how to read it.</li>
+                    <li><strong>Critique.</strong> Judge it honestly against a rubric before anyone else does. Self-critique is how you improve faster than time alone would allow.</li>
+                    <li><strong>Ship.</strong> Actually put it out: portfolio, socials, a print on your wall. Work that stays on your drive teaches you far less than work that meets an audience.</li>
+                </ul>
+
+                <div class="card card-accent">
+                    <h3>🧠 Done is a decision</h3>
+                    <p>No piece is ever perfect; you decide it is finished. The rubric ahead helps you make that call with confidence instead of endless fiddling. Shipping a good piece today beats polishing a slightly better one forever.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            E["Export cleanly"] --> P["Present in context&lt;br/&gt;(mockups)"]
+                            P --> C["Critique&lt;br/&gt;(honest rubric)"]
+                            C --> Q{"Ship it?"}
+                            Q -->|"one more pass"| C
+                            Q -->|"yes"| S["Ship: portfolio + share"]
+                    </div>
+                    <figcaption>Figure 1: The finish loop. Present, critique, and either take one focused pass or decide it is done and ship.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Present Your Work</h2>
+
+                <div class="card card-info">
+                    <h3>Step 1: Export for the destination <small>· 5 min</small></h3>
+                    <ol>
+                        <li>Keep your layered <code>.psd</code> master. Export a delivery copy: JPG or PNG in sRGB for screen, PDF at 300 ppi for print (Module 5's export rules).</li>
+                        <li>Name it clearly and size it for where it is going.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Present it in context <small>· 12 min</small></h3>
+                    <ol>
+                        <li>Place your export into a <strong>mockup</strong>: a frame on a wall, a phone or laptop screen, a poster on a hoarding. A Smart Object mockup (Module 2) lets you drop your art in and have it warp to fit instantly.</li>
+                        <li>Add a soft shadow and a believable setting. Suddenly it looks like a product, not homework.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ Show your process too</h4>
+                        <p>Pair the final with a before/after or a couple of process snapshots from 7.2. Viewers (and clients, and hiring managers) love seeing the journey, and it proves the skill is yours.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Write a two-sentence statement <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Sentence one: what it is and who it is for. Sentence two: one interesting decision you made and why.</li>
+                        <li>Example: "A gig poster for a local retro band. I graded it warm and added film grain so it feels like a memory of a summer night."</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ Delivery file exported correctly for its destination</li>
+                        <li>☐ Presented in at least one context mockup with a shadow</li>
+                        <li>☐ A before/after or process shot accompanies it</li>
+                        <li>☐ A two-sentence artist statement written</li>
+                        <li>☐ The layered master is saved and safe</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Critique -->
+            <section id="critique" class="lesson-section">
+                <h2>🔎 The Honest Critique</h2>
+                <p>Before you ship, run your piece through this rubric. Be the tough critic now, so the internet does not have to be:</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Ask</th><th>Looking for</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Focal point</strong></td><td>Does one thing clearly win my attention first?</td></tr>
+                            <tr><td><strong>Light &amp; color</strong></td><td>Is it consistent across the whole image? Any element that does not belong?</td></tr>
+                            <tr><td><strong>Edges &amp; masks</strong></td><td>Any fringe, halo, or chopped hair at 100%?</td></tr>
+                            <tr><td><strong>Type</strong> (if any)</td><td>Clear hierarchy, tasteful spacing, one or two fonts?</td></tr>
+                            <tr><td><strong>Believability</strong></td><td>Do shadows agree on one light? Any tell-tale AI artifacts?</td></tr>
+                            <tr><td><strong>The squint test</strong></td><td>Blurred down, does the composition still read?</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card card-info">
+                    <h4>💡 Get outside eyes, and Content Credentials</h4>
+                    <p>Show it to one honest person and ask "what is the first thing you notice, and is anything confusing?" And if your piece uses generative content, remember Adobe's <strong>Content Credentials</strong> can travel with the file; disclose AI edits where honesty matters (Module 6).</p>
+                </div>
+            </section>
+
+            <!-- Next -->
+            <section id="next" class="lesson-section">
+                <h2>🚀 Where to Go Next</h2>
+                <p>You now know the whole toolbox. From here, depth beats breadth: pick a direction that excites you and go deep.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Path</th><th>Double down on</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Photo retoucher</strong></td><td>Modules 2 &amp; 3: color, frequency separation, dodge &amp; burn</td></tr>
+                            <tr><td><strong>Compositor / matte artist</strong></td><td>Modules 1 &amp; 4: selections, masks, light matching</td></tr>
+                            <tr><td><strong>Graphic / poster designer</strong></td><td>Module 5: type, layout, layer styles (and pair with Illustrator)</td></tr>
+                            <tr><td><strong>Speed &amp; production</strong></td><td>Module 6: generative workflows, Actions, batch pipelines</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card card-accent">
+                    <h3>↔ Keep the Recipes open</h3>
+                    <p>The parallel <a href="recipes.html">Recipes</a> library is there for the rest of your journey: quick, standalone answers to "how do I do X again?" You will not memorize everything, and you do not need to. Look things up, keep making, and the fluency comes.</p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Your final entry is a big one. Take your time with it:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> from the whole course that stuck</li>
+                        <li><strong>The technique</strong> you are proudest of learning</li>
+                        <li><strong>What still feels shaky</strong> and is worth practicing</li>
+                        <li><strong>What you want to make next</strong></li>
+                    </ul>
+                    <p><strong>✍️ The final prompt:</strong> Go back and read your very first journal entry from Module 0, the one where you wrote why you wanted to learn Photoshop and what you hoped to create. Answer it now, from the other side. Did you build toward it? How does the person who wrote that entry compare to you today?</p>
+                </div>
+            </section>
+
+            <!-- Summary / Course wrap -->
+            <section id="summary" class="lesson-section">
+                <h2>🎓 Course Wrap-Up</h2>
+
+                <div class="card card-success">
+                    <h3>🎉 Look What You Can Do Now</h3>
+                    <p>Trace the whole arc. You started by fixing and exporting one photo. Now you can:</p>
+                    <ul>
+                        <li>Work <strong>non-destructively</strong> with layers, masks, adjustment layers, and Smart Objects</li>
+                        <li>Make clean <strong>selections</strong> and believable <strong>cutouts</strong></li>
+                        <li><strong>Grade</strong> light and color with Camera Raw and Curves</li>
+                        <li><strong>Retouch</strong> a portrait naturally with frequency separation and dodge &amp; burn</li>
+                        <li>Build a <strong>composite</strong> that looks like a single photograph</li>
+                        <li><strong>Design</strong> with type, shapes, and layer styles</li>
+                        <li>Use <strong>Generative Fill and Expand</strong>, and <strong>automate</strong> with Actions and batches</li>
+                        <li>Plan, build, and <strong>present</strong> a self-directed portfolio piece</li>
+                    </ul>
+                    <p>Eight modules ago, that was a wish list. Now it is a description of your skills.</p>
+                </div>
+
+                <h3>🧠 The One Idea to Keep</h3>
+                <p>If the tools fade from memory, keep this: <strong>work non-destructively, and decide what the viewer should see first.</strong> Nearly everything in this course is a variation on those two ideas. They will outlast every version update.</p>
+
+                <h3>❓ A Last Common Question</h3>
+                <details>
+                    <summary>How do I keep improving now that the course is over?</summary>
+                    <p>Make things, regularly and on purpose. Copy work you admire to learn it, then make your own. Keep the journal going. Use the Recipes when you get stuck. Skill is just reps plus reflection, and you already know how to do both.</p>
+                </details>
+
+                <h3>🙏 Thank You</h3>
+                <p>Thank you for going the whole distance. Courses are easy to start and hard to finish, and you finished. Whatever brought you here, a hobby, a job, a single image you wanted to make real, you now have the skills to chase it. Go make things you are proud of.</p>
+
+                <h3>📚 Keep Learning</h3>
+                <ul>
+                    <li><a href="recipes.html">The Recipes library</a> — quick how-tos, always open</li>
+                    <li><a href="https://helpx.adobe.com/photoshop/tutorials.html" target="_blank" rel="noopener">Adobe: Photoshop tutorials</a></li>
+                    <li><a href="index.html#path">Revisit any module</a> — the spiral rewards second passes</li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 One Last Word</h3>
+                    <p>The blank canvas used to be intimidating. Now it is an invitation. That change, from fear to invitation, is the real thing you learned here. Everything else is details you can always look up. Congratulations, and welcome to the craft. 🎉</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_21.html" class="prev-lesson">← Previous: Studio Session, Build It Well</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="recipes.html" class="next-lesson">You finished the path! Explore the Recipes →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

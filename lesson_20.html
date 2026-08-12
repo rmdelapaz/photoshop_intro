@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 7, Lesson 1: choose a capstone brief and plan it. Define the goal and audience, gather references, and map the skills before opening Photoshop.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 7.1: Choose Your Brief &amp; Plan | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 7 • Lesson 1</span><span class="lesson-title">🎯 Choose Your Brief &amp; Plan</span></h1>
+                <p class="lead">Welcome to the Capstone. There are no new tools here, only you and everything you have learned. This final module is one self-directed project, taken from idea to presented portfolio piece. It starts the way every professional project starts: not by clicking, but by planning.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <ul>
+                        <li>Choose a capstone <strong>brief</strong> that plays to your strengths and interests</li>
+                        <li>Define the <strong>goal, audience, and constraints</strong> before touching Photoshop</li>
+                        <li>Gather references and build a quick <strong>moodboard</strong></li>
+                        <li>Map the <strong>skills and layer strategy</strong> your piece will need</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 45 minutes (planning), then your own build time</p>
+                    <p><strong>🎯 Project:</strong> Produce a one-page plan and moodboard for the piece you will build in 7.2 and present in 7.3.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: A Plan, Not a Blank Canvas</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Brief Before Brush</a></li>
+                        <li><a href="#ideas" class="toc-link">Pick Your Brief</a></li>
+                        <li><a href="#panel" class="toc-link">Set Up the Document Right</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Plan &amp; Moodboard</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Commit to a Brief</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Plan a Piece</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🗺️ The Goal: A Plan, Not a Blank Canvas</h2>
+                <p>On the right is how most projects begin: a vague idea and a blank page. On the left is where you want to be before you open Photoshop: a clear plan with references, a palette, and a rough layout. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a vague blank idea versus a structured plan and moodboard.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A structured plan: references, palette, and a rough layout">
+                                <rect width="600" height="400" fill="#f2f5f8"/>
+                                <text x="24" y="34" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="17" font-weight="800">PROJECT PLAN</text>
+                                <!-- reference images -->
+                                <rect x="24" y="50" width="120" height="80" fill="#5b8fb0"/>
+                                <rect x="154" y="50" width="120" height="80" fill="#7a9e6b"/>
+                                <text x="24" y="150" style="fill:#64748b" font-family="Segoe UI, sans-serif" font-size="12">references</text>
+                                <!-- palette -->
+                                <text x="300" y="66" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">palette</text>
+                                <rect x="300" y="74" width="40" height="40" fill="#12303a"/>
+                                <rect x="344" y="74" width="40" height="40" fill="#f0a52e"/>
+                                <rect x="388" y="74" width="40" height="40" fill="#4bb3c4"/>
+                                <rect x="432" y="74" width="40" height="40" fill="#eaf6fb"/>
+                                <!-- layout sketch -->
+                                <text x="300" y="150" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">layout</text>
+                                <rect x="300" y="158" width="150" height="200" fill="#fff" stroke="#94a3b8"/>
+                                <rect x="316" y="176" width="118" height="40" fill="#dfe7ee"/><text x="375" y="200" text-anchor="middle" style="fill:#64748b" font-family="Segoe UI, sans-serif" font-size="11">TITLE</text>
+                                <rect x="316" y="226" width="118" height="90" fill="#cdd9e2"/><text x="375" y="275" text-anchor="middle" style="fill:#64748b" font-family="Segoe UI, sans-serif" font-size="11">SUBJECT</text>
+                                <rect x="316" y="326" width="118" height="18" fill="#dfe7ee"/><text x="375" y="339" text-anchor="middle" style="fill:#64748b" font-family="Segoe UI, sans-serif" font-size="10">info</text>
+                                <!-- checklist -->
+                                <text x="24" y="182" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">skills needed</text>
+                                <g style="fill:#334155" font-family="Segoe UI, sans-serif" font-size="12">
+                                    <text x="24" y="206">✓ cut out subject</text>
+                                    <text x="24" y="228">✓ match &amp; grade</text>
+                                    <text x="24" y="250">✓ type hierarchy</text>
+                                    <text x="24" y="272">✓ layer styles</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A vague blank page with a scribble">
+                                <rect width="600" height="400" fill="#f2f5f8"/>
+                                <path d="M230 190 q40 -40 80 0 q40 40 80 0" fill="none" stroke="#c2c8ce" stroke-width="4"/>
+                                <text x="300" y="240" text-anchor="middle" style="fill:#b3bcc4" font-family="Segoe UI, sans-serif" font-size="60" font-weight="800">?</text>
+                                <text x="300" y="300" text-anchor="middle" style="fill:#b3bcc4" font-family="Segoe UI, sans-serif" font-size="15">um... something cool</text>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">Planned</span>
+                        <span class="ba-label before">Vague</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the plan">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The planned side is not more talented, just more prepared. Preparation is the part of "talent" you can simply choose to have.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in of a planning page.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Brief Before Brush</h2>
+                <p>Here is the difference between a frustrating project and a smooth one. The frustrating version opens Photoshop first and hopes an idea appears. The smooth version answers three questions on paper first, and only then opens Photoshop to execute a plan it already trusts.</p>
+                <ul>
+                    <li><strong>What is it for?</strong> A poster to hang, a photo to restore, an image for a portfolio, a product shot to sell. The purpose sets every later decision.</li>
+                    <li><strong>Who is it for?</strong> The audience shapes tone, and the destination (print, web, social) sets size, resolution, and color mode.</li>
+                    <li><strong>What does "done" look like?</strong> Define success up front so you know when to stop, instead of fiddling forever.</li>
+                </ul>
+
+                <div class="card card-accent">
+                    <h3>🧠 This is where "no eye for design" goes to die</h3>
+                    <p>People who feel stuck usually skipped the plan. A moodboard and a rough layout do most of the creative deciding before the pressure of a blank canvas hits. Great work looks effortless because the effort happened in the planning.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            B["Brief&lt;br/&gt;(what / who / done?)"] --> R["Gather references"]
+                            R --> M["Moodboard&lt;br/&gt;(palette, mood, layout)"]
+                            M --> S["Skill map&lt;br/&gt;(which modules it needs)"]
+                            S --> D["Open Photoshop&lt;br/&gt;with a plan"]
+                    </div>
+                    <figcaption>Figure 1: The pre-Photoshop pipeline. By the time you open the app, the hard thinking is done.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Ideas -->
+            <section id="ideas" class="lesson-section">
+                <h2>💡 Pick Your Brief</h2>
+                <p>Choose one that excites you and shows off a range of skills. Any of these makes a strong portfolio piece:</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Brief</th><th>Leans on</th><th>Great if you liked…</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Movie / event poster</strong></td><td>Compositing + type + layer styles</td><td>Modules 4 and 5</td></tr>
+                            <tr><td><strong>Surreal photo composite</strong></td><td>Selections, masks, match light, shadows</td><td>Module 4</td></tr>
+                            <tr><td><strong>Portrait, fully retouched</strong></td><td>Frequency separation, dodge &amp; burn, grade</td><td>Modules 2 and 3</td></tr>
+                            <tr><td><strong>Old photo restoration</strong></td><td>Healing, cloning, tone, color</td><td>Modules 1 and 2</td></tr>
+                            <tr><td><strong>Product hero shot</strong></td><td>Cutout, background, light, generative</td><td>Modules 4 and 6</td></tr>
+                            <tr><td><strong>Brand mini-kit</strong> (logo lockup + social set)</td><td>Shapes, type, Smart Objects, batch</td><td>Modules 5 and 6</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card card-warning">
+                    <h4>⚠️ Ambition, calibrated</h4>
+                    <p>Pick something that stretches you by one notch, not ten. A finished, polished piece at 80% of your dream idea beats an abandoned masterpiece every time. You can always make the epic version next.</p>
+                </div>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🎛️ Set Up the Document Right</h2>
+                <p>Your destination decides your document settings, and getting them right now saves pain later. Here is the New Document dialog as a diagram:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:520px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">New Document</span>
+                        </div>
+                        <svg viewBox="0 0 520 210" role="img" aria-label="New Document dialog: preset tabs and fields for size, resolution, and color mode.">
+                            <rect width="520" height="210" fill="#3a3a3a"/>
+                            <!-- preset tabs -->
+                            <rect x="16" y="14" width="80" height="22" fill="#1473E6"/><text x="56" y="29" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="11">Print</text>
+                            <rect x="100" y="14" width="70" height="22" fill="#2f2f2f"/><text x="135" y="29" text-anchor="middle" style="fill:#cbd5e1" font-family="Segoe UI, sans-serif" font-size="11">Web</text>
+                            <rect x="174" y="14" width="70" height="22" fill="#2f2f2f"/><text x="209" y="29" text-anchor="middle" style="fill:#cbd5e1" font-family="Segoe UI, sans-serif" font-size="11">Social</text>
+                            <!-- fields -->
+                            <g font-family="Segoe UI, sans-serif" font-size="11.5">
+                                <text x="16" y="66" style="fill:#9aa4ad">Width</text><rect x="90" y="54" width="120" height="20" fill="#2f2f2f" stroke="#555"/><text x="100" y="68" style="fill:#e2e8f0">18 in</text>
+                                <text x="16" y="94" style="fill:#9aa4ad">Height</text><rect x="90" y="82" width="120" height="20" fill="#2f2f2f" stroke="#555"/><text x="100" y="96" style="fill:#e2e8f0">24 in</text>
+                                <text x="240" y="66" style="fill:#9aa4ad">Resolution</text><rect x="330" y="54" width="120" height="20" fill="#2f2f2f" stroke="#555"/><text x="340" y="68" style="fill:#e2e8f0">300 ppi</text>
+                                <text x="240" y="94" style="fill:#9aa4ad">Color Mode</text><rect x="330" y="82" width="120" height="20" fill="#2f2f2f" stroke="#555"/><text x="340" y="96" style="fill:#e2e8f0">RGB (→CMYK)</text>
+                            </g>
+                            <line x1="16" y1="120" x2="504" y2="120" stroke="#4a4a4a"/>
+                            <text x="16" y="146" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Print → 300 ppi, real-world size.</text>
+                            <text x="16" y="166" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Web / Social → 72 ppi, pixel size for the platform, RGB.</text>
+                            <rect x="404" y="176" width="100" height="24" rx="4" fill="#1473E6"/><text x="454" y="192" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">Create</text>
+                        </svg>
+                        <figcaption>Figure 2: Start from the preset that matches your destination, then set size, resolution, and color mode. This is the export knowledge from Module 5, applied at the start instead of the end.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Plan &amp; Moodboard</h2>
+                <p>This lesson's deliverable is the plan itself. Make it in a notebook, a document, or a scratch Photoshop file.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Write the one-line brief <small>· 5 min</small></h3>
+                    <p>Fill in this sentence: <em>"A [what] for [who], to be seen [where], that feels [three adjectives]."</em> For example: "A gig poster for a local band, to be seen printed on a wall, that feels loud, retro, and warm."</p>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Gather references <small>· 10 min</small></h3>
+                    <ol>
+                        <li>Collect 5 to 10 images that capture the feeling you are after: color, composition, mood, type. Screenshot them into one board.</li>
+                        <li>You are gathering <em>feeling and direction</em>, not things to copy. Note what you like about each.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Build a quick moodboard <small>· 10 min</small></h3>
+                    <ol>
+                        <li>Pull a <strong>palette</strong> of 3 to 5 colors from your references.</li>
+                        <li>Pick <strong>one or two fonts</strong> (Module 5's rule).</li>
+                        <li>Sketch a rough <strong>layout</strong>: where the focal point, title, and supporting info sit. A thumbnail scribble is enough.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Map the skills <small>· 5 min</small></h3>
+                    <ol>
+                        <li>List the moves your piece needs, tagged by module: "cut out subject (M4), match light (M4), type hierarchy (M5), grade (M2)."</li>
+                        <li>This list becomes your build checklist in Lesson 7.2. If a required skill feels shaky, do a five-minute warm-up on it first.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ Plan complete when…</h4>
+                        <p>You can describe the finished piece in one sentence, you have a palette and layout, and you know which skills you will use. If all three are true, you are ready to build with confidence.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Commit to a Brief</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Choose <em>one</em> brief and write its one-line description. Commit; do not keep a back pocket of alternatives.</li>
+                        <li>Finish your moodboard and layout sketch, and set up your Photoshop document with the right size, resolution, and color mode.</li>
+                        <li>Show your plan to one other person and ask a single question: "What do you expect this to look like?" Their answer tells you if your plan communicates.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> give yourself a real constraint (a square format, a two-color palette, a 30-minute limit). Constraints make decisions easier and results stronger.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Plan a Piece</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Before you open Photoshop</h3>
+                    <ol>
+                        <li>One-line brief: <em>a [what] for [who], seen [where], feeling [3 adjectives]</em></li>
+                        <li>Gather 5 to 10 <strong>references</strong></li>
+                        <li>Moodboard: <strong>palette</strong> + <strong>one or two fonts</strong> + <strong>layout sketch</strong></li>
+                        <li><strong>Skill map</strong>: list the moves, tagged by module</li>
+                        <li>New Document at the right size / resolution / color mode</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: brief before brush.</small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Reread your very first journal entry from Module 0, the one about what you hoped to create. Does the brief you just chose connect to it? It is fine if you have grown in a new direction; notice either way.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>Answer <strong>what / who / done</strong> before opening Photoshop.</li>
+                        <li>A <strong>moodboard</strong> (palette, fonts, layout) makes most creative decisions up front.</li>
+                        <li>A <strong>skill map</strong> turns a vague piece into a concrete checklist.</li>
+                        <li>Set the document's <strong>size, resolution, and color mode</strong> from the destination.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You have a real plan, which is the hardest and most-skipped step. Everything you built over six modules now has a target to aim at. The blank-canvas panic that stops most people is behind you before you even started.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>What if I cannot decide on a brief?</summary>
+                    <p>Pick the one that makes you slightly nervous in a good way, and set a timer. Deciding <em>is</em> the skill. A committed choice beats a perfect one you never start.</p>
+                </details>
+                <details>
+                    <summary>How finished does the moodboard need to be?</summary>
+                    <p>Rough is fine. Its only job is to make you decide on mood, palette, and layout before the canvas does. Scribbles count.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p><strong>Lesson 7.2 is your studio session</strong>: you build the piece, working non-destructively and keeping your file organized so a complex project stays manageable. Plan in hand, you are ready to make.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Finalize your one-line brief, moodboard, and skill map.</li>
+                    <li>Create and save your working document.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Choosing a brief can feel scarier than any tool, because now it is <em>your</em> vision on the line. That nervous excitement is the feeling of doing real creative work. Lean into it. You are ready.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_19.html" class="prev-lesson">← Previous: Actions, Batch &amp; Droplets (Module 6 finale)</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_21.html" class="next-lesson">Next: Studio Session, Build It Well →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

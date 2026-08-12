@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 4, Lesson 1: cut a subject out cleanly for compositing. Select & Mask, refine the edge, and kill the fringe with Decontaminate Colors.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 4.1: Cut It Out Cleanly | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 4 • Lesson 1</span><span class="lesson-title">🧩 Cut It Out Cleanly</span></h1>
+                <p class="lead">Compositing means combining two images into one that looks like a single photograph. Everything rides on the cutout, because the new background reveals every flaw the old one hid. This lesson gets your subject out cleanly, with an edge that survives being dropped anywhere.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Cut a subject out with <strong>Select &amp; Mask</strong>, tuned for compositing</li>
+                        <li>Rescue fine hair with the <strong>Refine Edge Brush</strong></li>
+                        <li>Kill the tell-tale <strong>fringe</strong> with <strong>Decontaminate Colors</strong></li>
+                        <li>Output the result as a <strong>layer with a mask</strong>, ready to drop into a scene</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 50 minutes</p>
+                    <p><strong>🎯 Project:</strong> Produce a clean, fringe-free cutout of a subject, ready to place into a new background.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: An Edge That Survives</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: The Background Tells On You</a></li>
+                        <li><a href="#panel" class="toc-link">Output Settings That Matter</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: A Composite-Ready Cutout</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Clean Cutout</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>✂️ The Goal: An Edge That Survives</h2>
+                <p>Both cutouts sit on the same new background. The right one has the classic beginner fringe: a bright halo of the old background clinging to the edge. The left has been decontaminated so it looks like it was always there. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a fringed cutout cleaned up so the edge blends into the new background.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Clean cutout with no fringe on the new background">
+                                <defs><linearGradient id="c1-bg-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#24303f"/><stop offset="1" stop-color="#3c4a5a"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#c1-bg-a)"/>
+                                <!-- subject, clean edge -->
+                                <ellipse cx="300" cy="150" rx="60" ry="72" fill="#e8b58a"/>
+                                <path d="M240 140 a60 60 0 0 1 120 0 q-8 -66 -60 -66 q-52 0 -60 66 Z" fill="#3e2d22"/>
+                                <path d="M232 250 q68 -46 136 0 v150 h-136 Z" fill="#7a5a86"/>
+                                <ellipse cx="278" cy="150" rx="9" ry="6" fill="#fff"/><circle cx="278" cy="150" r="3.5" fill="#43301f"/>
+                                <ellipse cx="322" cy="150" rx="9" ry="6" fill="#fff"/><circle cx="322" cy="150" r="3.5" fill="#43301f"/>
+                                <path d="M286 190 q14 10 28 0" stroke="#b56a5b" stroke-width="4" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Fringed cutout with a bright halo on the new background">
+                                <defs><linearGradient id="c1-bg-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#24303f"/><stop offset="1" stop-color="#3c4a5a"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#c1-bg-b)"/>
+                                <!-- fringe halo (old light background clinging to the edge) -->
+                                <ellipse cx="300" cy="150" rx="66" ry="78" fill="#d8e6c8"/>
+                                <path d="M226 252 q74 -52 148 0 v148 h-148 Z" fill="#d8e6c8"/>
+                                <!-- subject on top of halo -->
+                                <ellipse cx="300" cy="150" rx="60" ry="72" fill="#e8b58a"/>
+                                <path d="M240 140 a60 60 0 0 1 120 0 q-8 -66 -60 -66 q-52 0 -60 66 Z" fill="#3e2d22"/>
+                                <path d="M232 250 q68 -46 136 0 v150 h-136 Z" fill="#7a5a86"/>
+                                <ellipse cx="278" cy="150" rx="9" ry="6" fill="#fff"/><circle cx="278" cy="150" r="3.5" fill="#43301f"/>
+                                <ellipse cx="322" cy="150" rx="9" ry="6" fill="#fff"/><circle cx="322" cy="150" r="3.5" fill="#43301f"/>
+                                <path d="M286 190 q14 10 28 0" stroke="#b56a5b" stroke-width="4" fill="none"/>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the clean cutout">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>That pale halo on the "before" side is the old background clinging to the edge. Decontaminating it is what sells the cutout.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in. A real cutout drops into this same slider.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: The Background Tells On You</h2>
+                <p>When your subject was photographed, the edge pixels picked up color from whatever was behind them. Shoot someone against green grass and their hair edges hold a faint green. Move them onto a sunset and that green fringe screams "pasted." The old background literally clings to the border.</p>
+                <p>So a composite cutout has a harder job than a simple mask. It is not enough to choose the right pixels. You also have to <strong>clean the color out of the edge</strong> so it can adopt the new scene. That is what <strong>Decontaminate Colors</strong> does, and it is the single biggest difference between an amateur and a believable cutout.</p>
+
+                <div class="card card-accent">
+                    <h3>🧠 Spiraling up from Module 1</h3>
+                    <p>You already made selections and masks in Lesson 1.2. This is the same skill aimed at a harder target: an edge that has to hold up against a <em>brand-new</em> background instead of its original one. Same tools, higher stakes.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            A["Select the subject&lt;br/&gt;(Select Subject)"] --> B["Refine the edge&lt;br/&gt;(hair, fur)"]
+                            B --> C["Decontaminate Colors&lt;br/&gt;(strip the old fringe)"]
+                            C --> D["Output: new layer&lt;br/&gt;+ layer mask"]
+                            D --> E["Drop into any scene&lt;br/&gt;believably"]
+                    </div>
+                    <figcaption>Figure 1: The composite cutout pipeline. The decontamination step is the one beginners skip and pros never do.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🎛️ Output Settings That Matter</h2>
+                <p>Everything above happens in the <strong>Select &amp; Mask</strong> workspace you met in Lesson 1.2. For compositing, the <strong>Output Settings</strong> at the bottom are what change. Here is that panel, drawn as a diagram rather than a live screenshot:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:360px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Select &amp; Mask: Output Settings</span>
+                        </div>
+                        <svg viewBox="0 0 360 220" role="img" aria-label="Output Settings with Decontaminate Colors checked and Output To set to New Layer with Layer Mask">
+                            <rect width="360" height="220" fill="#3a3a3a"/>
+                            <text x="18" y="30" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">Output Settings</text>
+                            <!-- decontaminate checkbox -->
+                            <rect x="18" y="48" width="16" height="16" fill="#1473E6"/>
+                            <text x="26" y="61" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12">✓</text>
+                            <text x="44" y="61" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Decontaminate Colors</text>
+                            <!-- amount slider -->
+                            <text x="44" y="86" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Amount</text>
+                            <rect x="44" y="92" width="290" height="6" rx="3" fill="#555"/><circle cx="300" cy="95" r="7" fill="#1473E6"/>
+                            <text x="320" y="88" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">90%</text>
+                            <line x1="18" y1="116" x2="342" y2="116" stroke="#4a4a4a"/>
+                            <!-- output to dropdown -->
+                            <text x="18" y="140" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Output To:</text>
+                            <rect x="18" y="150" width="324" height="26" fill="#1473E6"/>
+                            <text x="180" y="167" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12">New Layer with Layer Mask ▾</text>
+                            <text x="18" y="200" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">Decontaminate forces a NEW layer (it rewrites edge pixels).</text>
+                        </svg>
+                        <figcaption>Figure 2: Tick <strong>Decontaminate Colors</strong> and set <strong>Output To: New Layer with Layer Mask</strong>. Decontamination rewrites edge pixels, so it cannot stay fully non-destructive; keep your original layer as a backup.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: A Composite-Ready Cutout</h2>
+                <p>Pick a subject shot against a plain-ish background (a portrait, a product, a pet). Save as <code>composite-working.psd</code>.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Select, then enter Select &amp; Mask <small>· 6 min</small></h3>
+                    <ol>
+                        <li><strong>Select ▸ Subject</strong> for the first pass, then click <strong>Select and Mask…</strong>.</li>
+                        <li>Set the View to <strong>On Layers</strong> or <strong>Overlay</strong> so you can judge the edge honestly.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Rescue the hair <small>· 10 min</small></h3>
+                    <ol>
+                        <li>Take the <strong>Refine Edge Brush</strong> and paint along wispy hair or fur. Photoshop rebuilds the fine strands.</li>
+                        <li>Nudge <strong>Smooth</strong> and <strong>Feather</strong> a little, and set <strong>Shift Edge</strong> slightly negative to bite off leftover background.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Don't over-brush</h4>
+                        <p>The Refine Edge Brush is for soft, wispy edges only. Drag it across a hard edge (a shoulder, a jaw) and it turns crisp detail to mush. Use it on hair, leave the solid edges alone.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Decontaminate the fringe <small>· 5 min</small></h3>
+                    <ol>
+                        <li>Open <strong>Output Settings</strong> and tick <strong>Decontaminate Colors</strong>.</li>
+                        <li>Raise <strong>Amount</strong> until the colored halo at the edge disappears. Watch the hair edges especially; that is where the old background hides.</li>
+                        <li>Set <strong>Output To: New Layer with Layer Mask</strong> and click OK.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ The believability test</h4>
+                        <p>Temporarily drop a saturated colored layer behind your cutout. If the edge stays clean against a wild color, it will stay clean against any real scene. If a fringe appears, raise the decontamination Amount.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Bank a clean copy <small>· 3 min</small></h3>
+                    <ol>
+                        <li>Group the cutout layer and its mask, name it <code>SUBJECT</code>, and keep your original photo layer hidden beneath as a backup.</li>
+                        <li>Save. You now have a portable, fringe-free subject ready for Lesson 4.2.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ Subject is on its own layer with a mask (background hidden, not deleted)</li>
+                        <li>☐ Hair edges look soft and natural, not chopped</li>
+                        <li>☐ No colored fringe survives against a saturated test background</li>
+                        <li>☐ The original layer is kept as a hidden backup</li>
+                        <li>☐ The cutout group is named and saved</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Cut out a subject that was shot against a strongly colored background (green foliage, a blue wall). The fringe will be obvious, which makes decontamination easy to see working.</li>
+                        <li>Test the cutout against three different colored backgrounds. Fix any edge that betrays the original.</li>
+                        <li>Cut out something with a tricky edge next: curly hair, fur, or a glass object.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> zoom to 200% and inspect the hair edge pixel by pixel. Learning to <em>see</em> a bad edge is half of learning to fix one.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Clean Cutout</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Composite-ready in five moves</h3>
+                    <ol>
+                        <li><strong>Select ▸ Subject</strong>, then <strong>Select and Mask…</strong></li>
+                        <li><strong>Refine Edge Brush</strong> on hair; nudge Smooth / Feather / Shift Edge</li>
+                        <li>Output Settings: tick <strong>Decontaminate Colors</strong>, raise Amount</li>
+                        <li><strong>Output To: New Layer with Layer Mask</strong></li>
+                        <li>Test against a saturated color; keep the original as a backup</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: the new background reveals every sin, so clean the edge first.</small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Before today, would you have noticed a fringe on a cutout? Now that you can see it, you cannot unsee it. Note one composite in the wild (an ad, a meme, a movie poster) where the cutout betrays itself.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>A composite cutout must survive a <strong>new</strong> background, which reveals every edge flaw.</li>
+                        <li>Edge pixels carry color from the <strong>old</strong> background; that is the fringe.</li>
+                        <li><strong>Decontaminate Colors</strong> strips that fringe so the edge adopts the new scene.</li>
+                        <li>Output to a <strong>new layer with a mask</strong> and keep the original as a backup.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You can now produce a cutout that holds up anywhere, not just against the background it was born on. That fringe-free edge is the foundation the rest of Module 4 builds on. A great composite with a bad edge is still a bad composite, and yours is now clean.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>Why can't decontamination stay non-destructive like a mask?</summary>
+                    <p>Because it actually rewrites the color of the edge pixels rather than just hiding them. That is why Photoshop forces it onto a new layer. Keep your original underneath and you still lose nothing.</p>
+                </details>
+                <details>
+                    <summary>My hair still looks chunky after refining.</summary>
+                    <p>Paint the hairline with the <strong>Refine Edge Brush</strong> specifically, not a normal brush, and make sure your original selection already included most of the hair mass. The brush rebuilds strands at the edge; it cannot invent hair that was never selected.</p>
+                </details>
+                <details>
+                    <summary>Should I always decontaminate?</summary>
+                    <p>For compositing onto a different-colored scene, yes. If you are keeping a subject on a similar background, a plain mask is often enough. Match the effort to the job.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>A clean cutout is only step one. Drop it into a scene right now and it will still look pasted, because its brightness and color do not match. <strong>Lesson 4.2 makes it belong</strong>, matching light and color so the subject looks photographed in place.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Cut out three subjects of increasing edge difficulty.</li>
+                    <li>Find a background photo you would like to drop a subject into. You will use it next lesson.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/select-mask.html" target="_blank" rel="noopener">Adobe: Select &amp; Mask workspace</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/masking-layers.html" target="_blank" rel="noopener">Adobe: Layer masks</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Compositing feels like magic until you learn its rules, and the first rule is a clean edge. You just cleared the hurdle that stops most people at the starting line. The fun part, dropping your subject into a whole new world, starts next.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_10.html" class="prev-lesson">← Previous: Dodge &amp; Burn (Module 3 finale)</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_12.html" class="next-lesson">Next: Make It Belong (Match Light &amp; Color) →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

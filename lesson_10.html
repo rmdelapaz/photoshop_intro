@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 3, Lesson 3 (finale): dodge & burn to sculpt the face with light, add subtle life to the eyes, and finish the portrait for export.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 3.3: Dodge &amp; Burn — Sculpting Light — Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 3 • Lesson 3</span><span class="lesson-title">💡 Dodge &amp; Burn: Sculpting Light</span></h1>
+                <p class="lead">The Module 3 finale. Clean, even skin is a canvas — dodge &amp; burn is where you paint <em>light</em> back onto it. By selectively brightening (dodge) and darkening (burn), you sculpt cheekbones, deepen eyes, and give a flat face dimension. It's the most artistic retouching skill, and the one that separates a snapshot from a portrait.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Sculpt a face by <strong>dodging</strong> (lightening) and <strong>burning</strong> (darkening)</li>
+                        <li>Do it non-destructively on a <strong>50% gray Soft Light layer</strong></li>
+                        <li>Add subtle life to <strong>eyes and teeth</strong> with masked adjustments</li>
+                        <li>Finish and export a complete, natural <strong>portrait retouch</strong></li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 55 minutes</p>
+                    <p><strong>🎯 Project:</strong> Finish your Module 3 portrait, sculpted, polished, and exported: the Practitioner deliverable.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Dimension from Light</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Painting with Light</a></li>
+                        <li><a href="#panel" class="toc-link">The Gray Layer Trick</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Sculpt &amp; Finish</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Dodge &amp; Burn</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Module 3 Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🌗 The Goal: Dimension from Light</h2>
+                <p>Same face, same skin. The right side is evenly lit and a little flat; the left has been sculpted: brighter down the nose and cheekbones, gently shadowed at the edges. Drag the handle and watch the face gain depth:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a flat face gains dimension from dodge and burn.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Sculpted with dodge and burn: dimensional face">
+                                <defs>
+                                    <linearGradient id="p3-bg-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe7ee"/><stop offset="1" stop-color="#b6c3cf"/></linearGradient>
+                                    <filter id="soften-a" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="10"/></filter>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#p3-bg-a)"/>
+                                <ellipse cx="300" cy="410" rx="185" ry="115" fill="#334a70"/>
+                                <rect x="272" y="272" width="56" height="66" fill="#dca77c"/>
+                                <ellipse cx="300" cy="182" rx="96" ry="116" fill="#e8b58a"/>
+                                <!-- burn (shadow) on sides -->
+                                <g filter="url(#soften-a)">
+                                    <ellipse cx="222" cy="200" rx="30" ry="80" fill="#7a4e30" opacity="0.35"/>
+                                    <ellipse cx="378" cy="200" rx="30" ry="80" fill="#7a4e30" opacity="0.35"/>
+                                    <ellipse cx="300" cy="285" rx="70" ry="26" fill="#7a4e30" opacity="0.25"/>
+                                </g>
+                                <!-- dodge (highlight) center -->
+                                <g filter="url(#soften-a)">
+                                    <ellipse cx="300" cy="120" rx="52" ry="30" fill="#fff2d8" opacity="0.5"/>
+                                    <ellipse cx="300" cy="190" rx="12" ry="56" fill="#fff2d8" opacity="0.55"/>
+                                    <ellipse cx="256" cy="200" rx="24" ry="18" fill="#fff2d8" opacity="0.4"/>
+                                    <ellipse cx="344" cy="200" rx="24" ry="18" fill="#fff2d8" opacity="0.4"/>
+                                </g>
+                                <path d="M204 152 a96 96 0 0 1 192 0 q-10 -96 -96 -96 q-86 0 -96 96 Z" fill="#3e2d22"/>
+                                <ellipse cx="262" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="262" cy="172" r="7" fill="#43301f"/><circle cx="264" cy="169" r="2" fill="#fff"/>
+                                <ellipse cx="338" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="338" cy="172" r="7" fill="#43301f"/><circle cx="340" cy="169" r="2" fill="#fff"/>
+                                <path d="M300 180 l-8 34 q8 6 16 0" stroke="#c68f65" stroke-width="3" fill="none"/>
+                                <path d="M272 240 q28 20 56 0" stroke="#b56a5b" stroke-width="5" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Flat, evenly lit face">
+                                <defs><linearGradient id="p3-bg-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe7ee"/><stop offset="1" stop-color="#b6c3cf"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#p3-bg-b)"/>
+                                <ellipse cx="300" cy="410" rx="185" ry="115" fill="#334a70"/>
+                                <rect x="272" y="272" width="56" height="66" fill="#dca77c"/>
+                                <ellipse cx="300" cy="182" rx="96" ry="116" fill="#e8b58a"/>
+                                <path d="M204 152 a96 96 0 0 1 192 0 q-10 -96 -96 -96 q-86 0 -96 96 Z" fill="#3e2d22"/>
+                                <ellipse cx="262" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="262" cy="172" r="7" fill="#43301f"/>
+                                <ellipse cx="338" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="338" cy="172" r="7" fill="#43301f"/>
+                                <path d="M300 180 l-8 34 q8 6 16 0" stroke="#cf9b70" stroke-width="3" fill="none"/>
+                                <path d="M272 240 q28 20 56 0" stroke="#b56a5b" stroke-width="5" fill="none"/>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the sculpted version">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>Highlights down the center, shadows at the edges. The face reads as three-dimensional. Same skin, better light.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in: a real portrait drops into this same slider</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Painting with Light</h2>
+                <p>Photographers have "dodged" and "burned" since the darkroom: hold back light to lighten an area (dodge), add light to darken it (burn). In Photoshop it's the same idea: you're a lighting artist adding highlights and shadows <em>after</em> the shot.</p>
+                <p>Faces read as three-dimensional because of how light falls on them: the brow, nose bridge, cheekbones, and chin catch light; the sides, eye sockets, and under the jaw fall into shadow. Dodge the catch-light areas, burn the shadow areas, and a flat face pops into 3D.</p>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            G["🎨 50% gray layer&lt;br/&gt;blend mode: Soft Light&lt;br/&gt;(invisible on its own)"] --> D["Paint WHITE&lt;br/&gt;= dodge (lighten)"]
+                            G --> B["Paint BLACK&lt;br/&gt;= burn (darken)"]
+                            D --> S["✨ Sculpted face&lt;br/&gt;(non-destructive, re-editable)"]
+                            B --> S
+                    </div>
+                    <figcaption>Figure 1: On a 50%-gray Soft Light layer, gray is invisible, so painting soft white/black adds only light and shadow.</figcaption>
+                </figure>
+
+                <div class="card card-accent">
+                    <h3>🧠 The whole course, converging</h3>
+                    <p>Look how much is coming together: this is <em>non-destructive</em> (Module 0), it's <em>black &amp; white deciding an effect</em> just like a mask (Module 1), and you can also do it with a masked <em>Curves</em> layer (Module 2). Dodge &amp; burn isn't a new idea. It's your existing ideas aimed at light.</p>
+                </div>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🩶 The Gray Layer Trick</h2>
+                <p>The classic setup is one gray layer that hides itself until you paint on it. Here's the map (a diagram, not a live screenshot):</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:460px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Layers: Dodge &amp; Burn</span>
+                        </div>
+                        <svg viewBox="0 0 460 220" role="img" aria-label="A 50% gray Soft Light dodge and burn layer above an eyes-and-teeth curves layer and the portrait.">
+                            <rect width="460" height="220" fill="#3a3a3a"/>
+                            <!-- eye/teeth curves -->
+                            <rect x="12" y="14" width="436" height="52" fill="#4a4a4a" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="40" r="8" fill="#111"/><circle cx="32" cy="40" r="4" fill="#ffd23f"/>
+                            <circle cx="70" cy="40" r="14" fill="#ddd"/><path d="M70 26 A14 14 0 0 1 70 54 Z" fill="#333"/>
+                            <rect x="92" y="30" width="26" height="20" fill="#111"/><rect x="92" y="30" width="7" height="20" fill="#fff"/>
+                            <text x="128" y="45" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5">Curves — eyes &amp; teeth (masked)</text>
+                            <!-- dodge burn gray layer -->
+                            <rect x="12" y="74" width="436" height="60" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="104" r="8" fill="#111"/><circle cx="32" cy="104" r="4" fill="#ffd23f"/>
+                            <!-- gray thumb with white & black smudges -->
+                            <rect x="52" y="84" width="42" height="40" fill="#808080"/>
+                            <circle cx="66" cy="98" r="6" fill="#fff" opacity="0.85"/><circle cx="82" cy="112" r="6" fill="#111" opacity="0.7"/>
+                            <text x="104" y="100" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5" font-weight="bold">Dodge &amp; Burn</text>
+                            <text x="104" y="118" style="fill:#31A8FF" font-family="Segoe UI, sans-serif" font-size="11">50% gray · blend: Soft Light</text>
+                            <!-- portrait -->
+                            <rect x="12" y="142" width="436" height="60" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="172" r="8" fill="#111"/><circle cx="32" cy="172" r="4" fill="#ffd23f"/>
+                            <ellipse cx="72" cy="172" rx="16" ry="20" fill="#e8b58a"/>
+                            <text x="104" y="177" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5">Portrait (retouched)</text>
+                        </svg>
+                        <figcaption>Figure 2: The gray Dodge &amp; Burn layer shows white (dodge) and black (burn) marks in its thumbnail; above it, a masked Curves layer brightens just the eyes and teeth.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Sculpt &amp; Finish</h2>
+                <p>Open your evened-out portrait from Lesson 3.2. Time to add light and finish.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Make the gray Soft Light layer <small>· 4 min</small></h3>
+                    <ol>
+                        <li><kbd>Alt/⌥</kbd>-click the New Layer button. In the dialog set <strong>Mode: Soft Light</strong> and tick <strong>Fill with Soft-Light-neutral color (50% gray)</strong>. Name it <code>D&amp;B</code>.</li>
+                        <li>It appears invisible — that's correct. Gray vanishes in Soft Light.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Dodge the highlights <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Brush (<kbd>B</kbd>), color <strong>white</strong>, <strong>Opacity ~10%</strong>, soft, large.</li>
+                        <li>Gently paint the natural catch-light zones: forehead center, down the nose bridge, tops of the cheekbones, the chin, and a little on the brow bones. Build up slowly with repeated light strokes.</li>
+                    </ol>
+                    <blockquote><strong>💡 Low opacity is the secret.</strong> Ten percent, many passes. You can always add more; you can't un-see a harsh streak.</blockquote>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Burn the shadows <small>· 6 min</small></h3>
+                    <ol>
+                        <li>Press <kbd>X</kbd> to switch to <strong>black</strong>, same low opacity.</li>
+                        <li>Deepen the natural shadow zones: the sides of the face, the temples, under the cheekbones, under the jaw, the eye sockets. This is what carves out cheekbones.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Follow the existing light</h4>
+                        <p>Don't invent lighting from scratch — <em>enhance</em> what the photo already has. If the light came from the left, dodge the left-facing planes and burn the right. Fighting the original light looks wrong instantly.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Eyes, teeth, and finish <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Add a <strong>Curves</strong> adjustment layer, brighten slightly, fill its mask black, then paint white over just the <strong>whites of the eyes</strong> and the <strong>teeth</strong>. A touch of brightness there adds instant life. Keep it subtle. Teeth should look clean, not glowing.</li>
+                        <li>Optional: a second tiny Curves layer, masked to the <strong>iris</strong>, to add a little contrast/sparkle to the eyes.</li>
+                        <li>Final look at fit-to-screen. <strong>Save</strong> the .psd, then <strong>Export As ▸ JPG 80%</strong> → <code>portrait-final.jpg</code>. Module 3 deliverable: a natural portrait retouch, done. 🏆</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ Dodge &amp; burn lives on a <strong>50% gray Soft Light</strong> layer (non-destructive)</li>
+                        <li>☐ Highlights &amp; shadows follow the photo's existing light</li>
+                        <li>☐ The face looks more three-dimensional, not painted-on</li>
+                        <li>☐ Eyes/teeth are subtly brightened with a <strong>masked Curves</strong> layer</li>
+                        <li>☐ Saved .psd master + exported finished .jpg</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Dodge &amp; burn a portrait using <em>only</em> the gray layer — no eye/teeth step — and see how far light alone carries it.</li>
+                        <li>Toggle the D&amp;B layer's 👁 for a before/after. Then double the effect (duplicate the layer) to see "too much," and dial its opacity back to taste.</li>
+                        <li>Try burning a subtle <strong>vignette</strong> around the whole frame on the same layer to draw the eye to the face.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> switch the gray layer's thumbnail view (Alt-click it) to <em>see</em> your white/black strokes on gray. Watching the "map" of your light is how you learn to sculpt faster.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Dodge &amp; Burn</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Sculpt a face with light</h3>
+                    <ol>
+                        <li><kbd>Alt/⌥</kbd>-New Layer → Mode <strong>Soft Light</strong>, fill <strong>50% gray</strong></li>
+                        <li>Soft brush, <strong>~10% opacity</strong>: paint <strong>white</strong> to dodge highlights</li>
+                        <li><kbd>X</kbd> to <strong>black</strong>: burn the shadow planes</li>
+                        <li>Follow the photo's existing light; build up slowly</li>
+                        <li>Masked <strong>Curves</strong> on eyes/teeth → Save .psd → Export JPG</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: <strong>dodge the light, burn the shadow, 10% at a time.</strong></small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> You've now finished a full portrait retouch. Compare it honestly to your very first Module 0 export. What can you do now that you couldn't three modules ago?</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Module 3 Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li><strong>Dodge</strong> lightens, <strong>burn</strong> darkens: you're painting light onto the face.</li>
+                        <li>A <strong>50% gray Soft Light</strong> layer makes it fully non-destructive.</li>
+                        <li>Follow the photo's <strong>existing light</strong>; build up at low opacity.</li>
+                        <li>Finish with subtle <strong>masked Curves</strong> on eyes and teeth.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished Across All of Module 3</h3>
+                <p>You can now retouch a portrait end to end the way professionals do: heal the temporary and respect the permanent (3.1), even skin tone without going plastic via <strong>frequency separation</strong> (3.2), and sculpt dimension with <strong>dodge &amp; burn</strong> (3.3) — all non-destructive, all built on the masks, adjustment layers, and Smart Objects from earlier modules. That's a genuine, sellable retoucher's skillset.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>Dodge &amp; Burn <em>tools</em> vs. the gray layer: which is better?</summary>
+                    <p>The gray Soft Light layer is non-destructive and re-editable, so it's the pro default. The Dodge/Burn <em>tools</em> paint directly on pixels (destructive), fine on a duplicate layer for a quick fix, but the gray layer wins for real work.</p>
+                </details>
+                <details>
+                    <summary>My sculpting looks smudgy or fake.</summary>
+                    <p>Usually opacity too high or brush too small/hard. Drop to ~10% opacity, use a big soft brush, and follow the face's real planes. Subtlety reads as skill.</p>
+                </details>
+                <details>
+                    <summary>How do I know where the highlights and shadows go?</summary>
+                    <p>Look at the light already in the photo and exaggerate it a little. Studying real portrait lighting (and even classical painting) trains your eye faster than any slider.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>You've mastered working <em>within</em> a single image. <strong>Module 4: Compositing</strong> combines <em>two</em>: you'll cut a subject out (Module 1 selections), drop it into a new scene, and — the hard part — match the light and color so it's believable. Everything you've learned about masks, grading, and light comes together there.</p>
+
+                <h3>✅ Before the Next Module</h3>
+                <ul>
+                    <li>Retouch one portrait fully: heal → frequency separation → dodge &amp; burn → export.</li>
+                    <li>Keep it subtle enough that a friend wouldn't notice it was retouched, only that it looks great.</li>
+                    <li>Write your Learning Journal entry (the "how far you've come" prompt).</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/dodge-burn-tools.html" target="_blank" rel="noopener">Adobe: Dodge &amp; Burn</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/curves-adjustment.html" target="_blank" rel="noopener">Adobe: Curves adjustment</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Three modules and a finished portrait retouch — you're solidly into Practitioner territory now. The jump from "editing a photo" to "sculpting a portrait" is a big one, and you just made it. Module 4 is where your work starts to look genuinely magical.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_09.html" class="prev-lesson">← Previous: Frequency Separation</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_11.html" class="next-lesson">Next: Module 4, Cut It Out Cleanly →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

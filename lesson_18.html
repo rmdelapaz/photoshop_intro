@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 6, Lesson 2: Generative Expand. Extend the canvas beyond the original photo and let Photoshop invent believable new space, and reframe for any aspect ratio.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 6.2: Generative Expand &amp; Reframe | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 6 • Lesson 2</span><span class="lesson-title">↔️ Generative Expand &amp; Reframe</span></h1>
+                <p class="lead">Sometimes the problem is not inside the photo, it is the edges of it: a subject cropped too tight, a portrait you need as a landscape, headroom for a title. Generative Expand extends the canvas past the original photo and invents believable new space to fill it.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li><strong>Extend the canvas</strong> with the Crop tool and fill the new space generatively</li>
+                        <li><strong>Uncrop</strong> a too-tight photo to give a subject room to breathe</li>
+                        <li><strong>Reframe</strong> a photo to a new aspect ratio for print, web, or social</li>
+                        <li>Guide the fill with an optional <strong>prompt</strong> and keep the seam invisible</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 45 minutes</p>
+                    <p><strong>🎯 Project:</strong> Take a tightly-cropped photo and expand it into a roomier, better-composed frame.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Room to Breathe</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Paint Past the Edge</a></li>
+                        <li><a href="#panel" class="toc-link">Expand With the Crop Tool</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Uncrop &amp; Reframe</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Generative Expand</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🏔️ The Goal: Room to Breathe</h2>
+                <p>Same mountain photo. On the right it is cramped into a narrow frame, with gray canvas where there is no image. On the left, the scene has been expanded to fill that space, seamlessly. The dashed lines mark where the original photo ended. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a narrow photo expanded to fill a wider canvas with generated scenery.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Expanded: scene fills the full frame">
+                                <defs><linearGradient id="e1-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ec5ec"/><stop offset="1" stop-color="#dceff8"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#e1-sky)"/>
+                                <circle cx="500" cy="80" r="30" fill="#fff4cf"/>
+                                <!-- mountains span full width -->
+                                <path d="M0 300 L120 190 L210 270 L320 150 L430 260 L520 200 L600 280 V400 H0 Z" fill="#5b7c86"/>
+                                <path d="M0 320 L160 240 L300 300 L460 230 L600 300 V400 H0 Z" fill="#3f5a63"/>
+                                <rect y="330" width="600" height="70" fill="#2b8f6a"/>
+                                <!-- dashed markers of original edges -->
+                                <line x1="200" y1="0" x2="200" y2="400" stroke="#1473E6" stroke-width="2" stroke-dasharray="7 6"/>
+                                <line x1="400" y1="0" x2="400" y2="400" stroke="#1473E6" stroke-width="2" stroke-dasharray="7 6"/>
+                                <text x="100" y="24" text-anchor="middle" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">generated</text>
+                                <text x="300" y="24" text-anchor="middle" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">original</text>
+                                <text x="500" y="24" text-anchor="middle" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">generated</text>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original: narrow photo with empty canvas on the sides">
+                                <rect width="600" height="400" fill="#cfd4d9"/>
+                                <!-- checker hint on empty canvas -->
+                                <g fill="#c2c8ce">
+                                    <rect x="0" y="0" width="200" height="400"/>
+                                    <rect x="400" y="0" width="200" height="400"/>
+                                </g>
+                                <!-- original photo only in the middle third -->
+                                <defs><linearGradient id="e1-sky-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ec5ec"/><stop offset="1" stop-color="#dceff8"/></linearGradient></defs>
+                                <rect x="200" y="0" width="200" height="400" fill="url(#e1-sky-b)"/>
+                                <path d="M200 300 L320 150 L400 250 L400 400 L200 400 Z" fill="#5b7c86"/>
+                                <path d="M200 320 L300 260 L400 300 L400 400 L200 400 Z" fill="#3f5a63"/>
+                                <rect x="200" y="330" width="200" height="70" fill="#2b8f6a"/>
+                                <text x="100" y="205" text-anchor="middle" style="fill:#7c8894" font-family="Segoe UI, sans-serif" font-size="13">empty canvas</text>
+                                <text x="500" y="205" text-anchor="middle" style="fill:#7c8894" font-family="Segoe UI, sans-serif" font-size="13">empty canvas</text>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the expanded photo">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The center is the original photo. Everything outside the dashed lines was generated to match, giving the scene room to breathe.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in. A real expanded photo drops into this same slider.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Paint Past the Edge</h2>
+                <p>Generative Fill invents content <em>inside</em> your photo. Generative Expand does the same trick <em>outside</em> it: you make the canvas bigger than the image, which leaves empty space, and Photoshop generates scenery to fill that space so it continues the photo seamlessly.</p>
+                <p>That single ability solves a surprising number of real problems:</p>
+                <ul>
+                    <li><strong>Too-tight crop.</strong> A subject jammed against the edge gets breathing room.</li>
+                    <li><strong>Wrong aspect ratio.</strong> A vertical phone photo becomes a wide banner without squishing anything.</li>
+                    <li><strong>Space for design.</strong> Add clean sky or floor for a headline to sit on, connecting straight to your Module 5 poster work.</li>
+                </ul>
+
+                <div class="card card-accent">
+                    <h3>🧠 It is still just Generative Fill</h3>
+                    <p>Under the hood, Expand is Generative Fill aimed at the empty canvas around your image. Same generative layer, same variations, same optional prompt. If you understood 6.1, you already understand 6.2. This is the spiral tightening: one idea, a new frame.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            C["Enlarge the canvas&lt;br/&gt;(Crop tool drag out)"] --> E["Empty space appears&lt;br/&gt;around the photo"]
+                            E --> G["Generate&lt;br/&gt;(optional prompt)"]
+                            G --> M["New scenery, matched&lt;br/&gt;on a generative layer"]
+                    </div>
+                    <figcaption>Figure 1: Make the canvas bigger, then generate into the empty margin. An empty prompt continues the existing scene.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🎛️ Expand With the Crop Tool</h2>
+                <p>The trick is that the <strong>Crop tool</strong> can crop <em>outward</em>. Drag its handles beyond the image and set <strong>Fill</strong> to <strong>Generative Expand</strong>. Here is that setup as a diagram:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:520px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Ps &nbsp; Crop tool: Generative Expand</span>
+                        </div>
+                        <svg viewBox="0 0 520 210" role="img" aria-label="The crop box dragged wider than the photo, with a Fill option set to Generative Expand.">
+                            <rect width="520" height="210" fill="#1c1c1c"/>
+                            <!-- options bar -->
+                            <rect x="0" y="0" width="520" height="28" fill="#3a3a3a"/>
+                            <text x="12" y="19" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Ratio: 16:9 ▾</text>
+                            <text x="150" y="19" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Fill:</text>
+                            <rect x="182" y="6" width="150" height="16" rx="3" fill="#1473E6"/>
+                            <text x="257" y="18" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="11">Generative Expand ▾</text>
+                            <!-- the crop box (wider than photo) -->
+                            <rect x="40" y="52" width="440" height="130" fill="none" stroke="#fff" stroke-width="2"/>
+                            <!-- the photo (center) -->
+                            <rect x="180" y="52" width="160" height="130" fill="#8ec5ec"/>
+                            <path d="M180 182 L260 96 L340 150 L340 182 Z" fill="#5b7c86"/>
+                            <!-- empty side panels -->
+                            <rect x="40" y="52" width="140" height="130" fill="#2b2b2b"/>
+                            <rect x="340" y="52" width="140" height="130" fill="#2b2b2b"/>
+                            <text x="110" y="122" text-anchor="middle" style="fill:#7c8894" font-family="Segoe UI, sans-serif" font-size="11">to fill</text>
+                            <text x="410" y="122" text-anchor="middle" style="fill:#7c8894" font-family="Segoe UI, sans-serif" font-size="11">to fill</text>
+                            <text x="260" y="200" text-anchor="middle" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Crop box (white) dragged wider than the photo → Enter → Generate</text>
+                        </svg>
+                        <figcaption>Figure 2: Choose a ratio or drag the crop handles outward, set <strong>Fill: Generative Expand</strong>, press Enter, then Generate. The dark side panels are the empty space Photoshop will invent.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Uncrop &amp; Reframe</h2>
+                <p>Open a photo that feels cramped or is the wrong shape for where you need it. Save as <code>expand-working.psd</code>.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Uncrop for breathing room <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Grab the <strong>Crop tool</strong> (<kbd>C</kbd>) and set <strong>Fill: Generative Expand</strong> in the options bar.</li>
+                        <li>Drag a crop handle <em>outward</em> past the edge to add empty canvas where the subject needs room.</li>
+                        <li>Press <strong>Enter</strong>, leave the prompt empty, and <strong>Generate</strong>. Photoshop continues the scene into the new space.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Reframe to a new ratio <small>· 8 min</small></h3>
+                    <ol>
+                        <li>With the Crop tool, pick a target <strong>Ratio</strong> (16:9 for a banner, 1:1 for social, 4:5 for a feed post).</li>
+                        <li>The crop box now includes empty areas to reach that shape. Generate to fill them and your vertical photo becomes a clean horizontal, no stretching.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Expand in bites</h4>
+                        <p>Huge single expansions get vague and repetitive. For a big change, expand partway, generate, then expand again. Several smaller expansions look far better than one enormous leap.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Guide it with a prompt (optional) <small>· 5 min</small></h3>
+                    <ol>
+                        <li>Leave the prompt empty to simply continue the scene. Or type a short prompt to steer the new area: <em>a calm beach</em>, <em>more forest</em>, <em>open sky</em>.</li>
+                        <li>Cycle the variations and pick the one whose horizon, light, and texture line up with the original.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Hide the seam <small>· 5 min</small></h3>
+                    <ol>
+                        <li>Zoom to 100% along the join between original and generated. If anything repeats or misaligns, select that strip and regenerate just it (6.1).</li>
+                        <li>A tiny clipped Curves or a whisper of the Module 4 unifying grade over the whole frame blends old and new into one image.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ The horizon test</h4>
+                        <p>The fastest giveaway of a bad expand is a horizon or a strong line that jumps at the seam. Check that first. If the horizon runs straight through, most viewers will never suspect the edges were invented.</p>
+                    </div>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ The canvas was expanded past the original with Generative Expand</li>
+                        <li>☐ The subject now has appropriate breathing room</li>
+                        <li>☐ The photo reaches a useful new aspect ratio with no stretching</li>
+                        <li>☐ Horizons and strong lines run continuously across the seam</li>
+                        <li>☐ A subtle grade unifies original and generated areas</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Take one vertical phone photo and produce three versions from it: a 1:1 square, a 16:9 banner, and a tall 9:16 story, all by expanding rather than cropping away.</li>
+                        <li>Expand a portrait to add clean headroom, then drop a title into that new space using your Module 5 type skills.</li>
+                        <li>Deliberately over-expand in one huge step and see it go vague, then redo it in three smaller steps. Feel the difference.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> combine 6.1 and 6.2 on one image: expand the frame, then generatively add a new element into the space you just created.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Generative Expand</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Uncrop and reframe</h3>
+                    <ol>
+                        <li><strong>Crop tool</strong> (<kbd>C</kbd>), set <strong>Fill: Generative Expand</strong></li>
+                        <li>Drag handles outward, or pick a target <strong>Ratio</strong></li>
+                        <li>Enter → empty prompt (continue) or a short prompt (steer) → Generate</li>
+                        <li>Expand in <strong>bites</strong> for big changes; pick the best variation</li>
+                        <li>Check the seam at 100%; unify with a subtle grade</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: crop outward, generate the margin, keep the horizon honest.</small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Expand quietly changes an image's composition. When does giving a photo "room to breathe" improve it, and when does it dilute a shot that was strong <em>because</em> it was tight? Note one photo of yours that each rule applies to.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>Generative Expand is Generative Fill aimed at <strong>empty canvas around</strong> the photo.</li>
+                        <li>Use the <strong>Crop tool</strong> set to <strong>Fill: Generative Expand</strong>, dragging outward or picking a ratio.</li>
+                        <li>Expand in <strong>bites</strong>, and keep <strong>horizons continuous</strong> across the seam.</li>
+                        <li>Great for uncropping, reframing aspect ratios, and adding space for design.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You are no longer limited to the pixels the camera captured. You can give a subject room, turn one photo into every aspect ratio a project needs, and manufacture clean space for type. That is a genuine production superpower, especially for social and design work.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>My expanded area looks repetitive or smeary.</summary>
+                    <p>You expanded too far in one go. Undo, expand a smaller amount, generate, then repeat. Also try adding a short prompt to give the fill something specific to build.</p>
+                </details>
+                <details>
+                    <summary>The horizon does not line up at the edge.</summary>
+                    <p>Cycle the variations; usually one lines up better. If none do, select a thin strip across the seam and regenerate just that with Generative Fill to stitch it.</p>
+                </details>
+                <details>
+                    <summary>Can I expand a photo forever?</summary>
+                    <p>Technically yes, but quality and believability drop the farther you get from real pixels. Expand for composition and framing, not to invent whole landscapes from a postage stamp.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>You have the generative half of the Advanced tier. Now the speed half. <strong>Lesson 6.3, the Module 6 finale</strong>, is about automation: record an Action once and replay it on hundreds of files with Batch and the Image Processor, so the boring work does itself.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Reframe one photo into three aspect ratios by expanding.</li>
+                    <li>Practice the expand-in-bites habit on a big reframe.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/generative-expand.html" target="_blank" rel="noopener">Adobe: Generative Expand</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/crop-straighten-photos.html" target="_blank" rel="noopener">Adobe: Crop &amp; straighten</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>The edges of a photo used to be a hard limit. Now they are a suggestion. Use that freedom to compose better, not just bigger, and your images will feel intentional rather than merely large.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_17.html" class="prev-lesson">← Previous: Generative Fill</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_19.html" class="next-lesson">Next: Actions, Batch &amp; Droplets (Module 6 finale) →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

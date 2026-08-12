@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 2, Lesson 3 (finale): Smart Objects in depth — non-destructive scaling, Smart Filters, and assembling a finished, fully re-editable grade.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 2.3: Smart Objects &amp; Finishing the Grade — Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 2 • Lesson 3</span><span class="lesson-title">📦 Smart Objects &amp; Finishing the Grade</span></h1>
+                <p class="lead">You've used Smart Objects twice already without meeting them properly. This is the Module 2 finale, so let's fix that. Smart Objects are the deepest expression of the idea this whole course is built on — <em>never destroy your original</em> — and once you understand them, you'll wrap almost everything in one.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Explain what a <strong>Smart Object</strong> is: a protective container around your pixels</li>
+                        <li>Scale, warp, and transform <strong>without losing quality</strong></li>
+                        <li>Apply <strong>Smart Filters</strong> (like blur or Camera Raw) that stay re-editable and maskable</li>
+                        <li>Assemble your Camera Raw + Curves work into a <strong>finished, fully non-destructive grade</strong> and export it</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 45 minutes</p>
+                    <p><strong>🎯 Project:</strong> Finish the graded photo you've built across Module 2 (every edit re-editable) and export the deliverable.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Edits That Never Commit</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: A Photo in a Container</a></li>
+                        <li><a href="#panel" class="toc-link">Smart Filters in the Stack</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Finish the Grade</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Wrap &amp; Filter</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Module 2 Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🔎 The Goal: Edits That Never Commit</h2>
+                <p>Both sides were scaled way down and then back up. The right side was a normal layer: the pixels were thrown away and it came back mushy. The left was a Smart Object, crisp as the day it started. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a normal layer degrades when resized, a Smart Object stays crisp.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Smart Object: crisp after resizing">
+                                <rect width="600" height="400" fill="#eef2f6"/>
+                                <rect x="150" y="90" width="300" height="220" rx="24" fill="#1473E6"/>
+                                <path d="M300 130 l24 60 64 4 -50 42 17 62 -55 -36 -55 36 17 -62 -50 -42 64 -4 Z" fill="#ffd23f"/>
+                                <text x="300" y="290" text-anchor="middle" style="fill:#ffffff" font-family="Segoe UI, sans-serif" font-size="34" font-weight="800" letter-spacing="2">CRISP</text>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Normal layer: mushy after resizing">
+                                <defs>
+                                    <filter id="mush" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="3.2"/>
+                                    </filter>
+                                </defs>
+                                <rect width="600" height="400" fill="#eef2f6"/>
+                                <g filter="url(#mush)">
+                                    <rect x="150" y="90" width="300" height="220" rx="24" fill="#1473E6"/>
+                                    <path d="M300 130 l24 60 64 4 -50 42 17 62 -55 -36 -55 36 17 -62 -50 -42 64 -4 Z" fill="#ffd23f"/>
+                                    <text x="300" y="290" text-anchor="middle" style="fill:#ffffff" font-family="Segoe UI, sans-serif" font-size="34" font-weight="800" letter-spacing="2">MUSHY</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">Smart Object</span>
+                        <span class="ba-label before">Normal layer</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the Smart Object version">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>Same transform, two fates. The Smart Object kept its original resolution sealed inside and re-rendered crisp.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in demonstrating the effect</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: A Photo Inside a Container</h2>
+                <p>A Smart Object is a <strong>sealed container</strong> with your original pixels safe inside. When you scale, rotate, warp, or filter it, Photoshop doesn't change the pixels. It writes an <em>instruction</em> on the outside of the box ("display me at 40%," "blur me by 8px") and re-renders from the pristine original each time. Change the instruction and it re-renders again, perfectly. Nothing inside is ever harmed.</p>
+                <p>That's why Camera Raw became a re-editable Smart Filter in Lesson 2.1: the filter is an instruction on the container, not a change to your pixels.</p>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart TB
+                            PX["🖼️ Original pixels&lt;br/&gt;(sealed, pristine)"] --> BOX["📦 Smart Object container"]
+                            BOX --> T["Transform instruction&lt;br/&gt;(scale / warp)"]
+                            BOX --> SF["Smart Filter instruction&lt;br/&gt;(Camera Raw, Blur…)"]
+                            T --> OUT["👁️ Re-rendered fresh&lt;br/&gt;every time — no quality loss"]
+                            SF --> OUT
+                    </div>
+                    <figcaption>Figure 1: Edits are instructions on the outside of the box. The pixels inside never degrade — that's the whole trick.</figcaption>
+                </figure>
+
+                <div class="card card-accent">
+                    <h3>🧠 The one-line definition worth memorizing</h3>
+                    <p style="font-size:1.1rem;"><strong>A Smart Object stores your pixels; everything you do to it is a re-editable instruction, not a permanent change.</strong></p>
+                </div>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🧩 Smart Filters in the Stack</h2>
+                <p>When a layer is a Smart Object, any filter you apply nests beneath it as a <strong>Smart Filter</strong>, with its own mask. Here's what your Layers panel looks like (a labeled diagram, not a live screenshot):</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:440px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Layers</span>
+                        </div>
+                        <svg viewBox="0 0 440 250" role="img" aria-label="A Smart Object layer with nested Smart Filters: Camera Raw Filter and Gaussian Blur, each with a shared filter mask">
+                            <rect width="440" height="250" fill="#3a3a3a"/>
+                            <!-- Smart Object row -->
+                            <rect x="12" y="14" width="416" height="52" fill="#4a4a4a" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="40" r="8" fill="#111"/><circle cx="32" cy="40" r="4" fill="#ffd23f"/>
+                            <!-- thumbnail with SO page-fold badge -->
+                            <rect x="52" y="24" width="40" height="32" fill="#3f8fd6"/>
+                            <path d="M84 48 h8 v8 Z" fill="#fff"/>
+                            <path d="M84 48 h8 v8" fill="none" stroke="#111" stroke-width="1"/>
+                            <text x="104" y="45" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">photo (Smart Object)</text>
+                            <text x="104" y="59" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">↑ page-fold badge = it's a Smart Object</text>
+                            <!-- Smart Filters header -->
+                            <rect x="12" y="66" width="416" height="30" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="81" r="8" fill="#111"/><circle cx="32" cy="81" r="4" fill="#ffd23f"/>
+                            <rect x="52" y="72" width="18" height="18" fill="#fff"/><rect x="52" y="72" width="18" height="18" fill="#111" opacity="0.15"/>
+                            <text x="80" y="86" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Smart Filters  <tspan style="fill:#9aa4ad">(shared mask ↑)</tspan></text>
+                            <!-- filter entries (indented) -->
+                            <rect x="12" y="96" width="416" height="28" fill="#454545"/>
+                            <text x="96" y="114" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Camera Raw Filter</text>
+                            <circle cx="416" cy="110" r="6" fill="#9aa4ad"/>
+                            <rect x="12" y="124" width="416" height="28" fill="#4a4a4a"/>
+                            <text x="96" y="142" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Gaussian Blur</text>
+                            <circle cx="416" cy="138" r="6" fill="#9aa4ad"/>
+                            <text x="96" y="166" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">double-click a filter to re-edit its settings</text>
+                            <!-- background -->
+                            <rect x="12" y="186" width="416" height="48" fill="#414141" stroke="#5a5a5a"/>
+                            <rect x="52" y="196" width="40" height="28" fill="#c9d3dc"/>
+                            <text x="104" y="214" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13">Background</text>
+                        </svg>
+                        <figcaption>Figure 2: The Smart Object carries its filters as a re-editable list underneath, sharing one filter mask. Double-click <em>Camera Raw Filter</em> to jump back into the develop panel from Lesson 2.1.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Finish the Grade</h2>
+                <p>Open your Module 2 working file, the one with the Camera Raw develop and Curves layers.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Confirm your Smart Object <small>· 2 min</small></h3>
+                    <ol>
+                        <li>Check the photo layer's thumbnail for the little <strong>page-fold badge</strong>. If it's missing, right-click ▸ <strong>Convert to Smart Object</strong> now.</li>
+                        <li>Notice your Camera Raw develop sitting underneath as a Smart Filter.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Add a Smart Filter for polish <small>· 6 min</small></h3>
+                    <ol>
+                        <li>With the Smart Object selected, choose <strong>Filter ▸ Sharpen ▸ Smart Sharpen</strong> for crisp detail, or <strong>Filter ▸ Blur ▸ Gaussian Blur</strong> for a dreamy glow.</li>
+                        <li>It appears as a re-editable Smart Filter. Double-click it to change the amount any time.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ Filter masks: local filtering for free</h4>
+                        <p>Click the white <strong>Smart Filters mask</strong> and paint black where you <em>don't</em> want the filter, e.g. sharpen the eyes but not the skin. It's the black-hides / white-reveals rule from Lesson 1.1, now controlling a filter.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Transform without fear <small>· 4 min</small></h3>
+                    <ol>
+                        <li>Press <kbd>Ctrl/⌘ + T</kbd> and scale the Smart Object down to 30%, commit, then scale it back to 100%.</li>
+                        <li>It's still crisp: the container re-rendered from the sealed original. (Try that on a normal layer and watch it turn to mush, exactly like the slider up top.)</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Finish &amp; export the deliverable <small>· 6 min</small></h3>
+                    <ol>
+                        <li>Do a final look at fit-to-screen. Tweak any Curves or the Camera Raw Smart Filter. Remember, all still live.</li>
+                        <li><strong>File ▸ Save</strong> your layered <code>.psd</code> (your re-editable master).</li>
+                        <li><strong>File ▸ Export ▸ Export As ▸ JPG 80%</strong> → <code>module2-grade-final.jpg</code>. Module 2 deliverable: a graded photo, done — and every decision reversible. 🏆</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ My photo layer is a <strong>Smart Object</strong> (page-fold badge)</li>
+                        <li>☐ Camera Raw + at least one more <strong>Smart Filter</strong> are nested under it</li>
+                        <li>☐ Scaling down and back up left the image crisp</li>
+                        <li>☐ Contrast/color come from re-editable <strong>Curves</strong> layers</li>
+                        <li>☐ I saved the .psd master and exported the finished .jpg</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Take any small logo or graphic, convert it to a Smart Object, and scale it up and down a few times. Then do the same to a duplicate that is <em>not</em> a Smart Object. Compare. This is the lesson your eyes will never forget.</li>
+                        <li>Apply a Gaussian Blur Smart Filter, then paint its filter mask so only the background blurs and your subject stays sharp (a fake shallow-depth-of-field look).</li>
+                        <li>Double-click your Camera Raw Smart Filter and re-grade: prove to yourself nothing was baked in.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> <em>Right-click ▸ Convert to Smart Object</em> on several layers at once to nest them as a group you can filter and transform as one. This is how compositors keep giant files manageable: a taste of Module 4.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Wrap &amp; Filter</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Non-destructive filtering</h3>
+                    <ol>
+                        <li>Right-click layer ▸ <strong>Convert to Smart Object</strong></li>
+                        <li>Apply any <strong>Filter</strong> → it nests as a re-editable Smart Filter</li>
+                        <li>Paint the <strong>Smart Filters mask</strong> (black hides) to filter locally</li>
+                        <li>Transform freely (<kbd>Ctrl/⌘ + T</kbd>), no quality loss</li>
+                        <li>Double-click any filter to re-edit; Save .psd → Export JPG</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: <strong>wrap it, and every edit becomes an instruction you can take back.</strong></small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Non-destructive editing has now shown up in every module: layers, masks, adjustment layers, Smart Objects. In your own words, why do professionals care so much about never committing an edit?</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Module 2 Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>A <strong>Smart Object</strong> seals your pixels; every edit is a re-editable instruction on the container.</li>
+                        <li><strong>Smart Filters</strong> (including Camera Raw) stay live and carry a mask for local control.</li>
+                        <li>Smart Objects <strong>transform without quality loss</strong>.</li>
+                        <li>A finished grade = Camera Raw develop + Curves + Smart Filters, all non-destructive.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished: Across All of Module 2</h3>
+                <p>You can now take a flat, wrongly-colored photo and make it genuinely beautiful: develop it in <strong>Camera Raw</strong>, shape its light and color with <strong>Curves</strong>, grade a region with a <strong>mask</strong>, and keep the whole thing re-editable inside a <strong>Smart Object</strong>. That's a real colorist's workflow, and you built it on the clean, controlled foundation from Module 1.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>Do Smart Objects make my file huge?</summary>
+                    <p>They add some size because they store the original pixels: that's the price of the safety net. For finished delivery you export a flat JPEG anyway; keep the layered .psd as your master.</p>
+                </details>
+                <details>
+                    <summary>When should I NOT use a Smart Object?</summary>
+                    <p>When you need pixel-level painting or retouching directly on the layer (healing, cloning): those want normal pixels. A common pattern: retouch on normal layers first, then convert to a Smart Object for filtering and transforming.</p>
+                </details>
+                <details>
+                    <summary>How do I edit what's actually inside the container?</summary>
+                    <p>Double-click the Smart Object thumbnail. It opens the original in its own tab; edit, save, and close, and the change flows back into every place that Smart Object is used.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>Your photo is clean, graded, and beautiful. <strong>Module 3: Retouching</strong> turns to people: healing skin naturally, content-aware repairs, and the pro technique of <strong>frequency separation</strong>, all built on the healing and masking skills you already have.</p>
+
+                <h3>✅ Before the Next Module</h3>
+                <ul>
+                    <li>Grade one photo start to finish: Camera Raw → Curves → masked Curves → Smart Filter → export.</li>
+                    <li>Do the Smart-Object-vs-normal resize test until the difference is obvious to you.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/create-smart-objects.html" target="_blank" rel="noopener">Adobe — Create &amp; edit Smart Objects</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/applying-smart-filters.html" target="_blank" rel="noopener">Adobe — Apply Smart Filters</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Two modules down, and you're already working like a pro: clean, controlled, graded, and completely non-destructive. Take a moment to grade an old photo of your own. You'll be surprised how far you've come. Module 3 is where it gets personal.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_06.html" class="prev-lesson">← Previous: Curves — Precise Tone &amp; Color</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_08.html" class="next-lesson">Next: Module 3 — Natural Skin Retouching →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 1, Lesson 2: make selections that hold up — Object Selection, Select Subject, and Select & Mask — then bake them into clean, editable masks.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 1.2: Selections That Hold Up — Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 1 • Lesson 2</span><span class="lesson-title">✂️ Selections That Hold Up</span></h1>
+                <p class="lead">Last lesson you painted a mask by hand. That's perfect for soft, sweeping regions like a sky — but hopeless for a person's hair or the crisp edge of a bottle. Today you let Photoshop <em>find</em> the edge for you, then bake that selection into a clean mask you can trust.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Explain the difference between a <strong>selection</strong> (a temporary request) and a <strong>mask</strong> (the saved answer)</li>
+                        <li>Select a subject automatically with <strong>Select Subject</strong> and the <strong>Object Selection</strong> tool</li>
+                        <li>Rescue tricky edges (hair, fur, motion) in the <strong>Select &amp; Mask</strong> workspace</li>
+                        <li><strong>Output a selection to a layer mask</strong> so your cutout stays non-destructive and re-editable</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 50 minutes</p>
+                    <p><strong>🎯 Project:</strong> Cleanly separate a subject from a busy background and place it on a calmer one — without a single hard, cut-out-with-scissors edge.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: A Believable Cutout</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Request vs. Answer</a></li>
+                        <li><a href="#tools" class="toc-link">The Selection Toolkit</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Cut Out a Subject</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Select → Mask</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🎯 The Goal: A Believable Cutout</h2>
+                <p>A busy background fights your subject for attention. The fix is to select the subject precisely, then drop it onto something calmer. Drag the handle — same subject, quieter backdrop:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a subject separated from a busy background and placed on a clean one.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Edited: subject on a clean studio background">
+                                <defs>
+                                    <linearGradient id="s2-bg-a" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#e9eef3"/><stop offset="1" stop-color="#c4ced8"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#s2-bg-a)"/>
+                                <!-- subject: head + shoulders (identical to 'before') -->
+                                <ellipse cx="300" cy="330" rx="140" ry="90" fill="#3a5a8c"/>
+                                <circle cx="300" cy="180" r="78" fill="#e8b58a"/>
+                                <path d="M224 168 a76 70 0 0 1 152 0 q-20 -70 -76 -70 q-56 0 -76 70 Z" fill="#4a3527"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original: subject lost against a cluttered background">
+                                <rect width="600" height="400" fill="#6b7a52"/>
+                                <rect x="20" y="30" width="120" height="180" fill="#b5622f" transform="rotate(-8 80 120)"/>
+                                <rect x="430" y="10" width="150" height="150" fill="#8a4b86"/>
+                                <rect x="380" y="230" width="220" height="170" fill="#2f6d78"/>
+                                <circle cx="120" cy="320" r="70" fill="#c9a227"/>
+                                <rect x="150" y="150" width="90" height="260" fill="#7a3b3b" transform="rotate(6 195 280)"/>
+                                <!-- same subject -->
+                                <ellipse cx="300" cy="330" rx="140" ry="90" fill="#3a5a8c"/>
+                                <circle cx="300" cy="180" r="78" fill="#e8b58a"/>
+                                <path d="M224 168 a76 70 0 0 1 152 0 q-20 -70 -76 -70 q-56 0 -76 70 Z" fill="#4a3527"/>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the edited version">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The subject never moved — only the background changed. That's a selection turned into a mask, doing its job.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in: a real portrait cutout drops into this same slider</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: A Selection Is a Request, a Mask Is the Saved Answer</h2>
+                <p>When you make a selection, Photoshop shows <strong>"marching ants"</strong>, a shimmering dotted outline. That outline is <em>temporary</em>. It's you pointing and saying "these pixels, please." The moment you click elsewhere or deselect, it's gone.</p>
+                <p>A <strong>mask</strong> is what happens when you write that request down permanently. Last lesson you learned masks are grayscale stencils: <em>black hides, white reveals</em>. A selection converts to a mask in one step: everything <em>inside</em> the marching ants becomes white (revealed), everything outside becomes black (hidden). Now your careful selection is saved, editable, and non-destructive. You can even paint on it later to fix a stray edge.</p>
+
+                <div class="card card-accent">
+                    <h3>🧠 Why this reframe matters</h3>
+                    <p>Beginners obsess over getting the selection perfect, then <em>delete</em> the background, destroying pixels they can never get back. Pros make a good-enough selection, turn it into a mask, and refine the <em>mask</em> forever after. Same tools, totally different safety net. You're learning the pro way from the start.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            A["🐜 Selection&lt;br/&gt;(marching ants — temporary)"] --> B["Refine the edge&lt;br/&gt;(Select &amp; Mask)"]
+                            B --> C["Output to&lt;br/&gt;LAYER MASK"]
+                            C --> D["⬛⬜ Editable mask&lt;br/&gt;(permanent, non-destructive)"]
+                    </div>
+                    <figcaption>Figure 1: The pipeline every cutout follows: select, refine, and <em>save the answer as a mask</em> rather than erasing.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Tools -->
+            <section id="tools" class="lesson-section">
+                <h2>🧰 The Selection Toolkit</h2>
+                <p>Photoshop gives you several ways to make the same request. Pick the one that matches your subject:</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Tool</th><th>Best for</th><th>How it thinks</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Select Subject</strong> (one button)</td><td>A clear main subject on any background</td><td>AI guesses the whole subject instantly — your best first click</td></tr>
+                            <tr><td><strong>Object Selection</strong> tool</td><td>One object among several</td><td>Draw a loose box; it snaps to the object inside</td></tr>
+                            <tr><td><strong>Quick Selection</strong> tool</td><td>Fixing/extending a selection by hand</td><td>Paint and it grows to matching edges</td></tr>
+                            <tr><td><strong>Select &amp; Mask</strong> workspace</td><td>Hair, fur, soft/motion edges</td><td>A whole room for refining the <em>edge</em> of any selection</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>Here's the <strong>Select &amp; Mask</strong> workspace you'll open in the build (a labeled diagram, not a live screenshot):</p>
+                <figure>
+                    <div class="ps-mock">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Ps &nbsp; Select &amp; Mask (simplified)</span>
+                        </div>
+                        <svg viewBox="0 0 720 380" role="img" aria-label="The Select and Mask workspace: tools at left, subject preview on an onion-skin overlay, edge-refinement sliders and Output To at right">
+                            <rect width="720" height="380" fill="#2b2b2b"/>
+                            <!-- left tools -->
+                            <rect x="0" y="0" width="46" height="380" fill="#3a3a3a"/>
+                            <g fill="#9aa4ad">
+                                <rect x="14" y="20" width="18" height="14" rx="2"/>
+                                <rect x="14" y="46" width="18" height="14" rx="2"/>
+                            </g>
+                            <rect x="12" y="72" width="22" height="18" rx="2" fill="#1473E6"/>
+                            <text x="23" y="85" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="9" font-weight="bold">Refine</text>
+                            <!-- preview with red onion-skin overlay outside subject -->
+                            <rect x="58" y="20" width="420" height="340" fill="#7a2a2a"/>
+                            <ellipse cx="268" cy="300" rx="120" ry="80" fill="#3a5a8c"/>
+                            <circle cx="268" cy="170" r="66" fill="#e8b58a"/>
+                            <path d="M204 160 a64 60 0 0 1 128 0 q-16 -60 -64 -60 q-48 0 -64 60 Z" fill="#4a3527"/>
+                            <text x="268" y="46" text-anchor="middle" style="fill:#ffd7d7" font-family="Segoe UI, sans-serif" font-size="12">red = will be hidden · clear = kept</text>
+                            <!-- right controls -->
+                            <rect x="490" y="0" width="230" height="380" fill="#3a3a3a"/>
+                            <text x="504" y="30" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Edge Detection</text>
+                            <text x="504" y="54" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Radius</text>
+                            <rect x="504" y="60" width="196" height="6" rx="3" fill="#555"/><circle cx="560" cy="63" r="7" fill="#1473E6"/>
+                            <text x="504" y="92" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Global Refinements</text>
+                            <text x="504" y="116" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Smooth</text>
+                            <rect x="504" y="122" width="196" height="6" rx="3" fill="#555"/><circle cx="540" cy="125" r="7" fill="#1473E6"/>
+                            <text x="504" y="146" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Feather</text>
+                            <rect x="504" y="152" width="196" height="6" rx="3" fill="#555"/><circle cx="600" cy="155" r="7" fill="#1473E6"/>
+                            <text x="504" y="176" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Shift Edge</text>
+                            <rect x="504" y="182" width="196" height="6" rx="3" fill="#555"/><circle cx="588" cy="185" r="7" fill="#1473E6"/>
+                            <rect x="504" y="300" width="196" height="60" fill="#2f2f2f"/>
+                            <text x="514" y="322" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Output To:</text>
+                            <rect x="514" y="332" width="176" height="20" fill="#1473E6"/>
+                            <text x="602" y="346" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="11">Layer Mask ▾</text>
+                        </svg>
+                        <figcaption>Figure 2: <strong>Select &amp; Mask</strong>. The red overlay shows what's currently masked out. The sliders refine the edge; <strong>Output To: Layer Mask</strong> is the setting that keeps everything non-destructive.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Cut Out a Subject</h2>
+                <p>Open a photo with one clear subject: a person, a pet, a product. Save it as <code>cutout-working.psd</code> first (you know the drill).</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Let AI take the first swing <small>· 4 min</small></h3>
+                    <ol>
+                        <li>With your photo layer active, go to <strong>Select ▸ Subject</strong> (or click <strong>Select Subject</strong> in the options bar of any selection tool).</li>
+                        <li>Marching ants appear around your subject. It won't be perfect, and that's expected and fine.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Patch the obvious misses <small>· 6 min</small></h3>
+                    <ol>
+                        <li>Grab the <strong>Quick Selection</strong> tool (<kbd>W</kbd>).</li>
+                        <li>Paint over any bit of subject the AI missed to <strong>add</strong> it.</li>
+                        <li>Hold <kbd>Alt/⌥</kbd> and paint over background that got included to <strong>subtract</strong> it.</li>
+                    </ol>
+                    <blockquote><strong>💡 Don't chase perfection here.</strong> Get the big shape right; we fix the fiddly edges in the next step, which is built exactly for that.</blockquote>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Refine the edge in Select &amp; Mask <small>· 10 min</small></h3>
+                    <ol>
+                        <li>Click <strong>Select and Mask…</strong> in the options bar. The workspace from Figure 2 opens.</li>
+                        <li>Set <strong>View</strong> to <em>Overlay</em> so masked-out areas show as a red film.</li>
+                        <li>For hair or fur: pick the <strong>Refine Edge Brush</strong> and gently paint along the wispy edge, and Photoshop rebuilds those strands.</li>
+                        <li>Nudge <strong>Smooth</strong> and <strong>Feather</strong> a touch for a natural edge; use <strong>Shift Edge</strong> slightly negative to bite off any leftover background halo.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ The tell-tale sign of a bad cutout</h4>
+                        <p>A bright <em>halo</em> or a razor-sharp edge screams "cut out." A believable edge is slightly soft and, on hair, slightly translucent. Feather and Shift Edge are how you kill the halo.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Output to a Layer Mask (not a delete!) <small>· 4 min</small></h3>
+                    <ol>
+                        <li>At the bottom right, set <strong>Output To: Layer Mask</strong>.</li>
+                        <li>Click <strong>OK</strong>. Your photo layer now has a mask hiding the background, exactly the black/white card from Lesson 1.</li>
+                        <li>Add a new layer <em>below</em> it filled with a calm color or another photo. Your subject now sits on the new background.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ The payoff</h4>
+                        <p>Click the mask and paint (black hides / white reveals) to fix any stray pixel — forever. You never deleted a thing. If tomorrow you want the old background back, toggle the mask off. That's the whole point of masks over erasing.</p>
+                    </div>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ My subject is selected and the background is hidden by a <strong>layer mask</strong> (not erased)</li>
+                        <li>☐ The edge has no bright halo and isn't razor-sharp</li>
+                        <li>☐ Hair/fur edges look soft, not chopped</li>
+                        <li>☐ There's a new, calmer background layer beneath the subject</li>
+                        <li>☐ I can still paint the mask to fix strays</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Cut out a <em>harder</em> subject: something with wispy hair, fur, or a leafy plant.</li>
+                        <li>Lean on the <strong>Refine Edge Brush</strong> for the wispy parts; don't try to paint them by hand.</li>
+                        <li>Place your cutout on a photo background of a different scene. Do the colors clash? Note it: matching light between subject and background is exactly what Module 4 (Compositing) is about.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> select your subject, then choose <strong>Select ▸ Inverse</strong> (<kbd>Ctrl/⌘ + Shift + I</kbd>). Now the <em>background</em> is selected instead. Feel how a selection is just a boundary you can flip.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Select → Mask</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Believable cutout, every time</h3>
+                    <ol>
+                        <li><strong>Select ▸ Subject</strong> (let AI start)</li>
+                        <li><strong>Quick Selection</strong> (<kbd>W</kbd>): paint to add, <kbd>Alt/⌥</kbd>-paint to subtract</li>
+                        <li><strong>Select and Mask…</strong> → Refine Edge Brush on hair; nudge Smooth / Feather / Shift Edge</li>
+                        <li><strong>Output To: Layer Mask</strong> → OK</li>
+                        <li>New background layer <em>beneath</em>; paint the mask to fix strays</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: <strong>mask it, don't erase it.</strong></small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Which was harder: making the selection, or making the <em>edge</em> believable? That answer tells you where to point your practice next.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>A <strong>selection</strong> (marching ants) is temporary; a <strong>mask</strong> is the saved, editable answer.</li>
+                        <li><strong>Select Subject</strong> and <strong>Object Selection</strong> get you 90% there in one click.</li>
+                        <li><strong>Select &amp; Mask</strong> is where believable edges — especially hair — are won.</li>
+                        <li>Always <strong>Output To: Layer Mask</strong>. Mask it, don't erase it.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>Cutting a subject out cleanly is one of the most-requested skills in all of Photoshop. It's behind every product shot, poster, and composite you've ever admired. You can now do it the safe, professional way, halo-free, with an edge that survives a second look.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>Select Subject grabbed the wrong thing. Is the tool broken?</summary>
+                    <p>No. It guesses the most prominent subject. On a busy photo, use the <strong>Object Selection</strong> tool and draw a box around exactly the thing you want; it'll snap to that object instead.</p>
+                </details>
+                <details>
+                    <summary>My hair edges still look chunky.</summary>
+                    <p>Use the <strong>Refine Edge Brush</strong> inside Select &amp; Mask and paint <em>along</em> the hairline, not the solid interior. That brush is specifically built to reconstruct fine strands; a normal brush can't.</p>
+                </details>
+                <details>
+                    <summary>Should I ever just use the Eraser?</summary>
+                    <p>Almost never for cutouts. The Eraser destroys pixels permanently. A mask does the same thing visually but stays reversible, which is why every technique in this course reaches for a mask instead.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>Your subject is clean, but the photo may still have blemishes: dust spots, a distracting sign, a stray tourist. In <strong>Lesson 1.3: Cleaning Up</strong>, the finale of Module 1, you'll make all of that disappear and export your finished, cleaned-up image.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Cut out two more subjects of increasing difficulty until Select &amp; Mask feels familiar.</li>
+                    <li>Practice flipping a selection with <strong>Select ▸ Inverse</strong>.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/select-mask.html" target="_blank" rel="noopener">Adobe: Select &amp; Mask workspace</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/making-selections.html" target="_blank" rel="noopener">Adobe: Making selections</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Selections used to be the thing that made people quit Photoshop. You just met the modern, AI-assisted version and turned it into a non-destructive mask on your first try. That's a genuinely marketable skill — one lesson to go in Module 1.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_02.html" class="prev-lesson">← Previous: The Layer Stack &amp; Your First Mask</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_04.html" class="next-lesson">Next: Cleaning Up — Spots, Distractions &amp; Edges →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 5, Lesson 3 (finale): layer styles, Smart Objects, and assembling a finished poster ready for print or screen.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 5.3: Layer Styles &amp; the Poster | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 5 • Lesson 3</span><span class="lesson-title">🎨 Layer Styles &amp; the Poster</span></h1>
+                <p class="lead">The Module 5 finale. You have type and shapes; now you give them polish and pull the whole poster together. Layer styles add shadows, strokes, and gradients as live, re-editable effects, and Smart Objects keep your graphics reusable. Then you assemble and export the finished piece.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Apply <strong>layer styles</strong> (Drop Shadow, Stroke, Gradient Overlay, Glow) as live effects</li>
+                        <li>Copy, paste, and reuse styles across layers</li>
+                        <li>Use <strong>Smart Objects</strong> for logos and repeated graphics</li>
+                        <li>Assemble a poster and <strong>export</strong> correctly for print vs screen</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 55 minutes</p>
+                    <p><strong>🎯 Project:</strong> Finish and export your poster. This is the Practitioner tier's final deliverable.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Flat to Finished</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Live Effects</a></li>
+                        <li><a href="#panel" class="toc-link">The Layer Style Dialog</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Finish the Poster</a></li>
+                        <li><a href="#export" class="toc-link">Export: Print vs Screen</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Layer Styles</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Module 5 Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🖼️ The Goal: Flat to Finished</h2>
+                <p>Same poster, same layout. The right side is flat: bare type on a background. The left has layer styles doing the polish, a gradient title, a drop shadow lifting it off the page, a stroked badge, a frame. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a flat poster given depth and polish with layer styles.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Finished poster with layer styles">
+                                <defs>
+                                    <linearGradient id="pf-bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c2630"/><stop offset="1" stop-color="#164250"/></linearGradient>
+                                    <linearGradient id="pf-gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#f0a52e"/></linearGradient>
+                                    <filter id="pf-sh" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.5"/></filter>
+                                    <path id="pf-badge" d="M300 300 m-34 0 a34 34 0 1 1 68 0 a34 34 0 1 1 -68 0" fill="none"/>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#pf-bg)"/>
+                                <!-- sun glow element -->
+                                <circle cx="300" cy="120" r="130" fill="#1c5364" opacity="0.5"/>
+                                <!-- frame (stroke) -->
+                                <rect x="18" y="18" width="564" height="364" fill="none" stroke="#f0a52e" stroke-width="2"/>
+                                <!-- title with gradient + drop shadow -->
+                                <g filter="url(#pf-sh)">
+                                    <text x="300" y="130" text-anchor="middle" style="fill:url(#pf-gold)" font-family="Segoe UI, sans-serif" font-size="76" font-weight="800" letter-spacing="2">SUMMER</text>
+                                </g>
+                                <text x="300" y="170" text-anchor="middle" style="fill:#eaf6fb" font-family="Segoe UI, sans-serif" font-size="26" font-weight="600" letter-spacing="10">MUSIC FESTIVAL</text>
+                                <rect x="238" y="192" width="124" height="2" fill="#4bb3c4"/>
+                                <text x="300" y="228" text-anchor="middle" style="fill:#eaf6fb" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600">July 18 · Riverside Park</text>
+                                <text x="300" y="258" text-anchor="middle" style="fill:#9fc6d2" font-family="Segoe UI, sans-serif" font-size="15">Live bands · Food trucks · All ages</text>
+                                <!-- badge with stroke + type on path -->
+                                <circle cx="300" cy="300" r="34" fill="#0c2630" stroke="#f0a52e" stroke-width="2"/>
+                                <text style="fill:#ffe27a" font-family="Segoe UI, sans-serif" font-size="10" font-weight="700" letter-spacing="2"><textPath href="#pf-badge" startOffset="25%" text-anchor="middle">EST · 2026 · LIVE</textPath></text>
+                                <text x="300" y="305" text-anchor="middle" style="fill:#f0a52e" font-family="Segoe UI, sans-serif" font-size="20">★</text>
+                                <!-- tickets pill -->
+                                <rect x="222" y="348" width="156" height="24" rx="12" fill="url(#pf-gold)"/>
+                                <text x="300" y="364" text-anchor="middle" style="fill:#0c2630" font-family="Segoe UI, sans-serif" font-size="12" font-weight="800" letter-spacing="1">TICKETS AT THE DOOR</text>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Flat poster: bare type, no effects">
+                                <rect width="600" height="400" fill="#123845"/>
+                                <text x="300" y="130" text-anchor="middle" style="fill:#e6b23e" font-family="Segoe UI, sans-serif" font-size="76" font-weight="800" letter-spacing="2">SUMMER</text>
+                                <text x="300" y="170" text-anchor="middle" style="fill:#eaf6fb" font-family="Segoe UI, sans-serif" font-size="26" font-weight="600" letter-spacing="10">MUSIC FESTIVAL</text>
+                                <text x="300" y="228" text-anchor="middle" style="fill:#eaf6fb" font-family="Segoe UI, sans-serif" font-size="22" font-weight="600">July 18 · Riverside Park</text>
+                                <text x="300" y="258" text-anchor="middle" style="fill:#9fc6d2" font-family="Segoe UI, sans-serif" font-size="15">Live bands · Food trucks · All ages</text>
+                                <circle cx="300" cy="300" r="34" fill="#0c2630"/>
+                                <text x="300" y="305" text-anchor="middle" style="fill:#e6b23e" font-family="Segoe UI, sans-serif" font-size="20">★</text>
+                                <text x="300" y="362" text-anchor="middle" style="fill:#e6b23e" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">TICKETS AT THE DOOR</text>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the finished poster">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The layout was already good (that was Lessons 5.1 and 5.2). Layer styles add the depth and finish that read as "designed."</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in built from live text and shapes.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Live Effects</h2>
+                <p>A <strong>layer style</strong> is a set of effects that live <em>on</em> a layer rather than being painted <em>into</em> it. Add a Drop Shadow and Photoshop keeps drawing it live, following the layer's shape. Change the text, and the shadow updates itself. Recolor the shape, and the stroke follows. Nothing is baked in.</p>
+                <p>If that sounds familiar, it should. Layer styles are the same non-destructive idea as adjustment layers (Module 2) and Smart Filters (Module 2), applied to effects. You have met this principle in every module, and here it is again, dressing up your type.</p>
+
+                <div class="card card-accent">
+                    <h3>🧠 The effects worth knowing</h3>
+                    <p><strong>Drop Shadow</strong> lifts an element off the page. <strong>Stroke</strong> outlines it. <strong>Gradient Overlay</strong> gives flat color richness. <strong>Outer Glow</strong> and <strong>Bevel</strong> exist too, but restraint wins: one or two effects usually beats five. Overdone layer styles are the fastest way to make work look dated.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            L["A layer&lt;br/&gt;(type or shape)"] --> FX["Add layer style&lt;br/&gt;(fx)"]
+                            FX --> D["Drop Shadow"]
+                            FX --> S["Stroke"]
+                            FX --> G["Gradient Overlay"]
+                            D --> LIVE["Edit the layer later&lt;br/&gt;→ effects update live"]
+                            S --> LIVE
+                            G --> LIVE
+                    </div>
+                    <figcaption>Figure 1: Styles attach to the layer as live "fx". Edit the layer's text or color and the effects re-render automatically.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🎛️ The Layer Style Dialog</h2>
+                <p>Double-click a layer (to the right of its name) to open <strong>Layer Style</strong>. The left column lists effects; tick one to enable it and click its name to see its controls. Here is that dialog as a diagram:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:520px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Layer Style</span>
+                        </div>
+                        <svg viewBox="0 0 520 250" role="img" aria-label="Layer Style dialog: a list of effects with checkboxes on the left, controls on the right.">
+                            <rect width="520" height="250" fill="#3a3a3a"/>
+                            <!-- left list -->
+                            <rect x="0" y="0" width="210" height="250" fill="#333"/>
+                            <text x="16" y="26" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Styles</text>
+                            <g font-family="Segoe UI, sans-serif" font-size="12">
+                                <rect x="16" y="42" width="13" height="13" fill="#1473E6"/><text x="22" y="53" text-anchor="middle" style="fill:#fff" font-size="10">✓</text>
+                                <text x="40" y="53" style="fill:#e2e8f0">Drop Shadow</text>
+                                <rect x="16" y="66" width="13" height="13" fill="#1473E6"/><text x="22" y="77" text-anchor="middle" style="fill:#fff" font-size="10">✓</text>
+                                <text x="40" y="77" style="fill:#e2e8f0">Stroke</text>
+                                <rect x="16" y="90" width="13" height="13" fill="#1473E6"/><text x="22" y="101" text-anchor="middle" style="fill:#fff" font-size="10">✓</text>
+                                <text x="40" y="101" style="fill:#e2e8f0">Gradient Overlay</text>
+                                <rect x="16" y="114" width="13" height="13" fill="none" stroke="#777"/>
+                                <text x="40" y="125" style="fill:#9aa4ad">Outer Glow</text>
+                                <rect x="16" y="138" width="13" height="13" fill="none" stroke="#777"/>
+                                <text x="40" y="149" style="fill:#9aa4ad">Bevel &amp; Emboss</text>
+                                <rect x="16" y="162" width="13" height="13" fill="none" stroke="#777"/>
+                                <text x="40" y="173" style="fill:#9aa4ad">Color Overlay</text>
+                            </g>
+                            <!-- right controls -->
+                            <text x="228" y="26" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Drop Shadow</text>
+                            <text x="228" y="52" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Opacity</text>
+                            <rect x="290" y="46" width="200" height="6" rx="3" fill="#555"/><circle cx="380" cy="49" r="7" fill="#1473E6"/>
+                            <text x="228" y="82" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Distance</text>
+                            <rect x="290" y="76" width="200" height="6" rx="3" fill="#555"/><circle cx="330" cy="79" r="7" fill="#1473E6"/>
+                            <text x="228" y="112" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Size (blur)</text>
+                            <rect x="290" y="106" width="200" height="6" rx="3" fill="#555"/><circle cx="350" cy="109" r="7" fill="#1473E6"/>
+                            <!-- mini preview -->
+                            <rect x="228" y="140" width="262" height="90" fill="#1c1c1c"/>
+                            <text x="300" y="195" text-anchor="middle" style="fill:#ffd23f" font-family="Segoe UI, sans-serif" font-size="34" font-weight="800">Aa</text>
+                            <text x="440" y="225" text-anchor="middle" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10">live preview</text>
+                        </svg>
+                        <figcaption>Figure 2: Three effects enabled (Drop Shadow, Stroke, Gradient Overlay). Each has its own controls, and the preview updates live as you drag.</figcaption>
+                    </div>
+                </figure>
+                <p><small>Right-click a layer's <strong>fx</strong> badge to <strong>Copy Layer Style</strong>, then <strong>Paste Layer Style</strong> onto another layer to reuse the exact look instantly.</small></p>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Finish the Poster</h2>
+                <p>Open your <code>poster-working.psd</code> with its type (5.1) and shapes (5.2).</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Lift the title <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Double-click the title layer to open Layer Style. Enable <strong>Gradient Overlay</strong> and pick a two-tone version of your accent color for richness.</li>
+                        <li>Enable <strong>Drop Shadow</strong>. Keep it subtle: low opacity, small distance, moderate size. The goal is a gentle lift, not a hard black outline.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Style the badge and reuse it <small>· 6 min</small></h3>
+                    <ol>
+                        <li>Give the badge a <strong>Stroke</strong> and a soft <strong>Drop Shadow</strong> so it sits above the background.</li>
+                        <li>Right-click its <strong>fx</strong> and <strong>Copy Layer Style</strong>, then paste it onto another element to keep the poster consistent. Consistency is what makes a design feel intentional.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Restraint beats effects</h4>
+                        <p>If a layer has more than two or three effects, ask what each is really doing. A tasteful poster usually uses a gradient and a soft shadow, nothing more. Bevels and heavy glows read as amateur fast.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Smart Objects for logos <small>· 6 min</small></h3>
+                    <ol>
+                        <li>If you have a sponsor logo or a graphic you will reuse, convert it to a <strong>Smart Object</strong> (Module 2's idea) so you can scale it freely and update every copy at once.</li>
+                        <li>Place a photo (a Module 4 composite, even) as a Smart Object behind the type to give the poster a hero image.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Assemble and align <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Step back and check the whole layout. Use the <strong>Move tool</strong> with smart guides to align groups. Nudge until margins feel even and the hierarchy still reads at a glance.</li>
+                        <li>Squint at the poster. The title should dominate, the accent should draw the eye to the key action, and nothing should feel crowded against the edges.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ The title has a gradient and a subtle drop shadow</li>
+                        <li>☐ A consistent style is reused (copy/paste layer style)</li>
+                        <li>☐ Reusable graphics are Smart Objects</li>
+                        <li>☐ Effects are restrained (two or three per layer at most)</li>
+                        <li>☐ Everything is aligned with even margins</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Export -->
+            <section id="export" class="lesson-section">
+                <h2>🖨️ Export: Print vs Screen</h2>
+                <p>A finished poster is exported differently depending on where it lives. This trips up beginners, so keep it simple:</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Destination</th><th>Color mode</th><th>Resolution</th><th>Format</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Print</strong></td><td>CMYK (ask the printer)</td><td>300 ppi at final size</td><td>PDF or high-quality TIFF/PDF</td></tr>
+                            <tr><td><strong>Screen / social</strong></td><td>RGB</td><td>72 ppi, pixel dimensions that fit the platform</td><td>JPG or PNG</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <ol>
+                    <li>Keep your layered <strong>.psd</strong> as the master. Always.</li>
+                    <li>For screen: <strong>File ▸ Export ▸ Export As ▸ JPG</strong> (or PNG if you need transparency).</li>
+                    <li>For print: <strong>File ▸ Save a Copy</strong> as PDF, and confirm the color mode and bleed with whoever is printing it. When in doubt, ask the printer for their spec sheet.</li>
+                </ol>
+                <div class="card card-success">
+                    <h4>✅ Module 5 deliverable</h4>
+                    <p>Export a screen version now and look at it at full size. That finished poster is the Practitioner tier's capstone piece. 🏆</p>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Restyle your poster for a completely different mood: swap the accent color and gradient, and watch the layer styles carry the change everywhere you reused them.</li>
+                        <li>Build a second, matching piece (a square social version) reusing the same styles and Smart Objects. A poster plus a social cut is a real client deliverable.</li>
+                        <li>Deliberately over-style one copy (five effects, heavy bevel) next to your tasteful one. Seeing the difference trains restraint.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> save your favorite title treatment as a reusable <strong>Style</strong> in the Styles panel so you can apply it to future projects with one click.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Layer Styles</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Polish and finish</h3>
+                    <ol>
+                        <li>Double-click a layer → <strong>Layer Style</strong></li>
+                        <li>Title: <strong>Gradient Overlay</strong> + subtle <strong>Drop Shadow</strong></li>
+                        <li>Shapes: <strong>Stroke</strong> + soft shadow; <strong>Copy/Paste Layer Style</strong> to reuse</li>
+                        <li>Reusable graphics → <strong>Smart Objects</strong>; align everything with smart guides</li>
+                        <li>Keep the .psd master; export JPG for screen, PDF for print</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: styles are live effects; two is usually plenty.</small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> You just finished your first designed piece. How does designing (type, shapes, layout) feel different from editing photos? Which did you enjoy more, and what does that tell you about where to go next?</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Module 5 Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li><strong>Layer styles</strong> are live, re-editable effects: Drop Shadow, Stroke, Gradient Overlay, and more.</li>
+                        <li><strong>Copy and paste</strong> styles to keep a design consistent.</li>
+                        <li><strong>Smart Objects</strong> keep logos and graphics reusable and crisp.</li>
+                        <li>Export <strong>RGB/JPG for screen</strong> and <strong>CMYK/PDF at 300 ppi for print</strong>; keep the .psd master.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished, Across All of Module 5</h3>
+                <p>You designed a poster from nothing: a clear type <strong>hierarchy</strong> (5.1), crisp vector <strong>shapes and Pen work</strong> (5.2), and a polished, assembled, export-ready piece with <strong>layer styles</strong> (5.3). That completes the entire Practitioner tier. You can now retouch, composite, <em>and</em> design.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>My drop shadow looks heavy and fake.</summary>
+                    <p>Lower the opacity, reduce the distance, and increase the size a little for softness. Real shadows are soft and subtle. If you can clearly "see the shadow" as a separate object, dial it back.</p>
+                </details>
+                <details>
+                    <summary>Do layer styles scale with the layer?</summary>
+                    <p>Mostly, but if you scale a layer a lot, the effect distances can look off. Right-click the fx and choose <strong>Scale Effects</strong> to resize them to match, or adjust the values by hand.</p>
+                </details>
+                <details>
+                    <summary>Print looks different from my screen. Why?</summary>
+                    <p>Screens are RGB and lit; print is CMYK ink on paper and cannot hit every screen color. Design in RGB, soft-proof if you can, and confirm the exact requirements with your printer. Bright neon colors especially shift in print.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>You have finished the Practitioner tier. <strong>Module 6 opens the Advanced tier: AI &amp; Speed</strong>. You will use Generative Fill and Expand to add and remove content by describing it, then automate repetitive work with Actions and batch processing. The craft you built now gets faster and more powerful.</p>
+
+                <h3>✅ Before the Next Module</h3>
+                <ul>
+                    <li>Finish and export your poster in both a screen and a print-ready version.</li>
+                    <li>Rebuild it in a different color mood to feel styles update everywhere.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/layer-effects-styles.html" target="_blank" rel="noopener">Adobe: Layer effects &amp; styles</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/saving-files-graphics-formats.html" target="_blank" rel="noopener">Adobe: Save &amp; export for print and web</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>You just designed a finished poster, words, shapes, polish, and all. Five modules ago you were exporting your first fixed photo. Look how far that is. The Advanced tier is where it all gets fast and a little magical.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_15.html" class="prev-lesson">← Previous: Shapes &amp; the Pen</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_17.html" class="next-lesson">Next: Module 6, Generative Fill →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

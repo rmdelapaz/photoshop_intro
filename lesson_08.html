@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 3, Lesson 1: natural skin retouching — remove temporary blemishes with the healing tools on a separate layer, and keep the person looking like themselves.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 3.1: Natural Skin — Heal, Don't Erase — Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 3 • Lesson 1</span><span class="lesson-title">🧑‍🎨 Natural Skin: Heal, Don't Erase</span></h1>
+                <p class="lead">Welcome to the Practitioner tier. Module 3 is about people, and the golden rule of portrait work is that great retouching is <em>invisible</em>. Your subject should look like themselves on their best day, not like a wax figure. We start with the everyday skill: cleanly removing the temporary stuff.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Retouch skin non-destructively on a <strong>separate empty layer</strong></li>
+                        <li>Remove <strong>temporary blemishes</strong> with the Spot Healing Brush and Healing Brush</li>
+                        <li>Decide what to fix and what to <strong>leave</strong>: the ethics of a natural retouch</li>
+                        <li>Dial back your work with <strong>layer opacity</strong> so it never looks overdone</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 50 minutes</p>
+                    <p><strong>🎯 Project:</strong> Retouch a portrait so it looks clean and natural, and pass the "would they recognize themselves?" test.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Invisible Retouching</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Temporary vs. Permanent</a></li>
+                        <li><a href="#panel" class="toc-link">Set Up Your Retouch Layer</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Retouch a Portrait</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Clean Skin</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>👤 The Goal: Invisible Retouching</h2>
+                <p>Same portrait, same person. The right side has the temporary blemishes of a normal day; the left has had two minutes of healing. Notice what <em>didn't</em> change: the freckles, the face shape, the character. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: temporary blemishes removed from a portrait while the face stays natural.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Retouched: clean, natural skin">
+                                <defs><linearGradient id="p1-bg-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe7ee"/><stop offset="1" stop-color="#b9c6d2"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#p1-bg-a)"/>
+                                <ellipse cx="300" cy="410" rx="185" ry="115" fill="#3a5a8c"/>
+                                <rect x="272" y="272" width="56" height="66" fill="#dca77c"/>
+                                <ellipse cx="300" cy="182" rx="96" ry="116" fill="#e8b58a"/>
+                                <path d="M204 152 a96 96 0 0 1 192 0 q-10 -96 -96 -96 q-86 0 -96 96 Z" fill="#4a3527"/>
+                                <ellipse cx="205" cy="188" rx="14" ry="22" fill="#e3ac80"/>
+                                <ellipse cx="395" cy="188" rx="14" ry="22" fill="#e3ac80"/>
+                                <ellipse cx="262" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="262" cy="172" r="7" fill="#43301f"/>
+                                <ellipse cx="338" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="338" cy="172" r="7" fill="#43301f"/>
+                                <path d="M244 152 q18 -10 36 0" stroke="#4a3527" stroke-width="4" fill="none"/>
+                                <path d="M320 152 q18 -10 36 0" stroke="#4a3527" stroke-width="4" fill="none"/>
+                                <path d="M300 180 l-8 34 q8 6 16 0" stroke="#cf9b70" stroke-width="3" fill="none"/>
+                                <path d="M272 240 q28 20 56 0" stroke="#b56a5b" stroke-width="5" fill="none"/>
+                                <!-- freckles KEPT (character) -->
+                                <circle cx="256" cy="205" r="1.6" fill="#c79a74"/><circle cx="268" cy="212" r="1.4" fill="#c79a74"/>
+                                <circle cx="336" cy="207" r="1.5" fill="#c79a74"/><circle cx="345" cy="200" r="1.3" fill="#c79a74"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original: same portrait with temporary blemishes">
+                                <defs><linearGradient id="p1-bg-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dfe7ee"/><stop offset="1" stop-color="#b9c6d2"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#p1-bg-b)"/>
+                                <ellipse cx="300" cy="410" rx="185" ry="115" fill="#3a5a8c"/>
+                                <rect x="272" y="272" width="56" height="66" fill="#dca77c"/>
+                                <ellipse cx="300" cy="182" rx="96" ry="116" fill="#e8b58a"/>
+                                <path d="M204 152 a96 96 0 0 1 192 0 q-10 -96 -96 -96 q-86 0 -96 96 Z" fill="#4a3527"/>
+                                <ellipse cx="205" cy="188" rx="14" ry="22" fill="#e3ac80"/>
+                                <ellipse cx="395" cy="188" rx="14" ry="22" fill="#e3ac80"/>
+                                <ellipse cx="262" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="262" cy="172" r="7" fill="#43301f"/>
+                                <ellipse cx="338" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="338" cy="172" r="7" fill="#43301f"/>
+                                <path d="M244 152 q18 -10 36 0" stroke="#4a3527" stroke-width="4" fill="none"/>
+                                <path d="M320 152 q18 -10 36 0" stroke="#4a3527" stroke-width="4" fill="none"/>
+                                <path d="M300 180 l-8 34 q8 6 16 0" stroke="#cf9b70" stroke-width="3" fill="none"/>
+                                <path d="M272 240 q28 20 56 0" stroke="#b56a5b" stroke-width="5" fill="none"/>
+                                <!-- freckles KEPT -->
+                                <circle cx="256" cy="205" r="1.6" fill="#c79a74"/><circle cx="268" cy="212" r="1.4" fill="#c79a74"/>
+                                <circle cx="336" cy="207" r="1.5" fill="#c79a74"/><circle cx="345" cy="200" r="1.3" fill="#c79a74"/>
+                                <!-- TEMPORARY blemishes (to be healed) -->
+                                <circle cx="250" cy="222" r="6" fill="#c65a4a" opacity="0.75"/>
+                                <circle cx="348" cy="230" r="7" fill="#c25246" opacity="0.7"/>
+                                <circle cx="300" cy="128" r="5" fill="#c65a4a" opacity="0.65"/>
+                                <circle cx="322" cy="250" r="5" fill="#b85040" opacity="0.6"/>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the retouched version">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The blemishes are gone; the freckles and face shape stay. That restraint is the whole skill.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in: a real portrait drops into this same slider</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Temporary vs. Permanent</h2>
+                <p>Here's the single decision that keeps a retouch natural. Before you touch anything, sort every "flaw" into two buckets:</p>
+                <ul>
+                    <li><strong>Temporary</strong> — things that wouldn't be there next week: a spot, a stray hair, a bit of shine, a piece of lint. <em>Remove these freely.</em></li>
+                    <li><strong>Permanent</strong> — the things that make the person <em>them</em>: freckles, moles, laugh lines, scars, the shape of their nose. <em>Leave these alone</em> (or reduce, never erase).</li>
+                </ul>
+                <p>Retouch the temporary; respect the permanent. Do that and your work will look like a good photo, not a filter.</p>
+
+                <div class="card card-accent">
+                    <h3>🧠 Why this matters: beyond aesthetics</h3>
+                    <p>Portrait and beauty retouching is real, paid work, but it carries responsibility. Over-smoothing sets impossible standards and, frankly, looks dated and amateur. The industry has moved decisively toward natural skin. Learning restraint now makes your work both more ethical <em>and</em> more employable.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart TD
+                            F(["A 'flaw' on the skin"]) --> Q{"Would it be there&lt;br/&gt;next week?"}
+                            Q -->|"Yes — it's part of them"| KEEP["KEEP&lt;br/&gt;(freckle, mole, scar, lines)"]
+                            Q -->|"No — it's temporary"| HEAL["HEAL it&lt;br/&gt;(spot, stray hair, shine)"]
+                            KEEP --> NAT(["Natural, recognizable portrait"])
+                            HEAL --> NAT
+                    </div>
+                    <figcaption>Figure 1: The temporary-vs-permanent test. When unsure, lean toward keeping — you can always reduce later.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🗂️ Set Up Your Retouch Layer</h2>
+                <p>Just like Module 1's cleanup, all retouching lives on its own layer so the original face is never touched. Here's the setup, a labeled diagram, not a live screenshot:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:440px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Layers</span>
+                        </div>
+                        <svg viewBox="0 0 440 210" role="img" aria-label="A retouch layer above the portrait, with Sample set to All Layers">
+                            <rect width="440" height="210" fill="#3a3a3a"/>
+                            <rect x="12" y="16" width="416" height="56" fill="#4a4a4a" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="44" r="8" fill="#111"/><circle cx="32" cy="44" r="4" fill="#ffd23f"/>
+                            <rect x="52" y="26" width="40" height="36" fill="#5a5a5a"/>
+                            <text x="72" y="49" text-anchor="middle" style="fill:#cbd5e1" font-family="Segoe UI, sans-serif" font-size="18">✓</text>
+                            <text x="104" y="42" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">retouch  (empty)</text>
+                            <text x="104" y="59" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">every heal lands here — original stays safe</text>
+                            <rect x="12" y="80" width="416" height="56" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="108" r="8" fill="#111"/><circle cx="32" cy="108" r="4" fill="#ffd23f"/>
+                            <ellipse cx="72" cy="108" rx="16" ry="20" fill="#e8b58a"/>
+                            <text x="104" y="112" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13">Portrait (Background)</text>
+                            <!-- options bar hint -->
+                            <rect x="12" y="150" width="416" height="44" fill="#2f2f2f"/>
+                            <text x="24" y="170" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Options bar — Spot Healing Brush:</text>
+                            <rect x="24" y="176" width="150" height="14" fill="#1473E6"/>
+                            <text x="99" y="187" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="10.5">Sample: All Layers ✓</text>
+                            <text x="188" y="187" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">Type: Content-Aware</text>
+                        </svg>
+                        <figcaption>Figure 2: An empty <code>retouch</code> layer on top, with the healing tool set to <strong>Sample: All Layers</strong> so it reads the face below but writes only here.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Retouch a Portrait</h2>
+                <p>Open a portrait (a friend, or a self-portrait). <strong>File ▸ Save As</strong> ▸ <code>portrait-working.psd</code>.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Survey first, tools later <small>· 5 min</small></h3>
+                    <ol>
+                        <li>Zoom to 100% and slowly pan across the face. <em>Don't touch anything yet.</em></li>
+                        <li>Mentally sort what you see into <strong>temporary</strong> (heal) and <strong>permanent</strong> (keep), using Figure 1.</li>
+                    </ol>
+                    <blockquote><strong>💡</strong> This 60-second survey is what separates a natural result from an over-edited one. Decide before you act.</blockquote>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Make a retouch layer <small>· 2 min</small></h3>
+                    <ol>
+                        <li>New empty layer, name it <code>retouch</code>.</li>
+                        <li>Spot Healing Brush (<kbd>J</kbd>): set <strong>Type: Content-Aware</strong> and <strong>Sample: All Layers</strong>.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Heal the temporary blemishes <small>· 10 min</small></h3>
+                    <ol>
+                        <li>Size the brush just larger than each blemish and <strong>single-click</strong> it. Work only on your "temporary" list.</li>
+                        <li>For a spot next to an edge (like the hairline), switch to the <strong>Healing Brush</strong> (also <kbd>J</kbd>): <kbd>Alt/⌥</kbd>-click clean skin nearby to sample, then click the blemish. You control the source, so it won't smear the edge.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Resist the "clean sweep"</h4>
+                        <p>It's tempting to remove every freckle and line "while you're in there." Don't. Those are the permanent bucket. Removing them is what makes a face look plastic.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Dial it back &amp; check <small>· 5 min</small></h3>
+                    <ol>
+                        <li>Lower the <code>retouch</code> layer's <strong>Opacity</strong> to ~85–90%. Letting a whisper of the original through keeps it believable.</li>
+                        <li>Toggle the layer's 👁 off/on. If the "off" version still clearly looks like the same person on a good day, you nailed it.</li>
+                        <li>Save the .psd. (We'll build on this file across Module 3.)</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ All healing is on a separate <code>retouch</code> layer (Sample: All Layers)</li>
+                        <li>☐ Temporary blemishes are gone</li>
+                        <li>☐ Freckles, moles, and lines are <strong>still there</strong></li>
+                        <li>☐ The retouch layer opacity is slightly under 100%</li>
+                        <li>☐ Toggling it off still looks like the same person</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Retouch a portrait <em>twice</em> on two copies: once tastefully (temporary only), once deliberately overdone (erase everything).</li>
+                        <li>Put them side by side. The overdone one will look worse — internalize <em>why</em>.</li>
+                        <li>On the tasteful version, find one distracting stray hair crossing the face and remove it with the Healing Brush.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> a blemish sits on a permanent freckle you want to keep? Reduce it instead: heal it, then lower that layer's opacity so a hint returns. Reduction, not erasure.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Clean Skin</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Natural blemish removal</h3>
+                    <ol>
+                        <li>Survey at 100% → sort <strong>temporary</strong> vs <strong>permanent</strong></li>
+                        <li>New <code>retouch</code> layer → tool <strong>Sample: All Layers</strong></li>
+                        <li><strong>Spot Healing</strong> (<kbd>J</kbd>): click temporary blemishes</li>
+                        <li>Near edges → <strong>Healing Brush</strong> (<kbd>Alt/⌥</kbd>-sample clean skin)</li>
+                        <li>Layer opacity ~85–90% → toggle to sanity-check</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: <strong>heal the temporary, keep the permanent.</strong></small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Where's your personal line between "cleanup" and "changing who someone is"? Portrait retouching is as much judgment as technique. Writing down your line now is worth revisiting later.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>Great retouching is <strong>invisible</strong>: the person looks like themselves on a good day.</li>
+                        <li>Sort flaws into <strong>temporary</strong> (heal) and <strong>permanent</strong> (keep).</li>
+                        <li>Work on a <strong>separate retouch layer</strong> with Sample: All Layers.</li>
+                        <li>Use <strong>opacity</strong> to dial the effect back so it never looks overdone.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You can now clean up a portrait the way working retouchers do: quickly, non-destructively, and with the restraint that keeps it looking real. That judgment (what to leave) is rarer and more valuable than the button-pushing.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>Spot Healing vs. Healing Brush: when do I use which?</summary>
+                    <p><strong>Spot Healing</strong> is one-click and picks its own source, perfect for isolated blemishes in open skin. The <strong>Healing Brush</strong> lets <em>you</em> choose the source (Alt-click). Use it near edges, hairlines, and anywhere Spot Healing smears.</p>
+                </details>
+                <details>
+                    <summary>The heal left a slightly different color patch.</summary>
+                    <p>Healing blends texture <em>and</em> color from nearby — if it sampled a shadow or a highlight, the color shifts. Sample from skin of the same brightness, or use the Healing Brush to pick the source deliberately.</p>
+                </details>
+                <details>
+                    <summary>How much retouching is "too much"?</summary>
+                    <p>If someone who knows the subject would say "that doesn't quite look like them," you've gone too far. The temporary-vs-permanent rule keeps you on the right side of that line.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>Healing fixes spots, but it can't even out <em>blotchy</em> skin tone without turning it to plastic — because it blurs texture and color together. <strong>Lesson 3.2: Frequency Separation</strong> solves exactly that, by splitting texture from color so you can smooth one without harming the other. It's the technique that makes pro retouching possible.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Retouch two more portraits, temporary-only, until the survey-first habit sticks.</li>
+                    <li>Practice Alt-sampling with the Healing Brush near hairlines.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/retouching-repairing-images.html" target="_blank" rel="noopener">Adobe: Retouching &amp; repairing images</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/tools.html" target="_blank" rel="noopener">Adobe: The healing tools</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Retouching faces feels intimidating because it feels personal — and it is. Leading with respect for the person is exactly the right instinct. You're already thinking like a good retoucher, not just operating like one.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_07.html" class="prev-lesson">← Previous: Smart Objects (Module 2 finale)</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_09.html" class="next-lesson">Next: Frequency Separation →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

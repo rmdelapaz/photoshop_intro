@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 2, Lesson 2: Curves — shape contrast with an S-curve, push color per channel, and mask a Curves adjustment to grade only part of the frame.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 2.2: Curves — Precise Tone &amp; Color — Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 2 • Lesson 2</span><span class="lesson-title">📈 Curves: Precise Tone &amp; Color</span></h1>
+                <p class="lead">If you learn one advanced control in all of Photoshop, make it Curves. It's a single graph that can brighten, darken, add contrast, and color-grade — and everything else (Brightness/Contrast, Levels) is just a simpler version of it. Intimidating at first glance; a friend for life once it clicks.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Read the Curves graph: <strong>input across, output up</strong>, the diagonal is "no change"</li>
+                        <li>Add contrast with a classic <strong>S-curve</strong>, and flatten it for a soft, filmic look</li>
+                        <li>Color-grade by bending the <strong>Red, Green &amp; Blue</strong> channels</li>
+                        <li>Spiral back to masks: apply a Curves <strong>adjustment layer</strong> to only part of the photo</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 55 minutes</p>
+                    <p><strong>🎯 Project:</strong> Give your developed photo a finished contrast look, then grade one region (like a sky or a subject) separately with a masked Curves layer.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Shape the Light</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: A Tone Translator</a></li>
+                        <li><a href="#read" class="toc-link">Reading the Curve</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Contrast &amp; Color</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: The S-Curve</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>✨ The Goal: Shape the Light</h2>
+                <p>Same developed photo, two tone treatments. The right side is flat; the left has a gentle S-curve giving it depth and pop. One graph, that much difference:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a flat photo gains contrast and depth from an S-curve.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="With S-curve: deeper shadows, brighter highlights">
+                                <defs>
+                                    <linearGradient id="cv-sky-a" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#1f6fc0"/><stop offset="1" stop-color="#bfe4fb"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#cv-sky-a)"/>
+                                <circle cx="470" cy="100" r="48" fill="#fff6d0"/>
+                                <path d="M0 250 Q150 210 300 245 T600 240 V400 H0 Z" fill="#5fb457"/>
+                                <path d="M0 300 Q180 258 340 300 T600 296 V400 H0 Z" fill="#2f8a3e"/>
+                                <path d="M0 350 Q160 322 320 352 T600 348 V400 H0 Z" fill="#14532a"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Flat: compressed tones, low contrast">
+                                <defs>
+                                    <linearGradient id="cv-sky-b" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#6f9dc0"/><stop offset="1" stop-color="#c7d6e0"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#cv-sky-b)"/>
+                                <circle cx="470" cy="100" r="48" fill="#e8e2c4"/>
+                                <path d="M0 250 Q150 210 300 245 T600 240 V400 H0 Z" fill="#7fa877"/>
+                                <path d="M0 300 Q180 258 340 300 T600 296 V400 H0 Z" fill="#5f8560"/>
+                                <path d="M0 350 Q160 322 320 352 T600 348 V400 H0 Z" fill="#4f6a4a"/>
+                                <rect width="600" height="400" fill="#9aa7ad" opacity="0.22"/>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the S-curve version">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The S-curve pushed the shadows down and the highlights up — more contrast, more depth, no new pixels.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in: a real graded photo drops into this same slider</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: A Tone Translator</h2>
+                <p>A curve is a <strong>translator for brightness</strong>. Every tone in your photo walks in on the horizontal axis (its <em>input</em> brightness) and walks out on the vertical axis (its <em>output</em> brightness). The line is the rulebook for the translation.</p>
+                <p>Start with a perfectly diagonal line: every tone leaves exactly as it came in: no change. <strong>Bend a point up</strong> and those tones get brighter; <strong>bend it down</strong> and they get darker. Because you choose <em>which</em> tones to bend (shadows, midtones, or highlights), a curve gives you surgical control that a single brightness slider never could.</p>
+
+                <div class="card card-accent">
+                    <h3>🧠 Why "add the word yet" applies here</h3>
+                    <p>Curves scares people because it's a graph, and graphs feel like math class. It isn't. It's a picture of "make these tones brighter, those darker." If it looks confusing right now, add <em>yet</em> — after three S-curves it becomes the most intuitive tool you own.</p>
+                </div>
+            </section>
+
+            <!-- Reading the curve -->
+            <section id="read" class="lesson-section">
+                <h2>🔍 Reading the Curve</h2>
+                <p>Here's the graph itself. The dashed diagonal is the "no change" baseline; the blue line is a classic <strong>S-curve</strong>, with shadows pulled down and highlights lifted up:</p>
+
+                <figure>
+                    <svg viewBox="0 0 360 360" role="img" aria-label="A Curves graph. The dashed diagonal is no-change; an S-shaped blue line lowers shadows and raises highlights." style="max-width:360px;width:100%;border-radius:10px;border:1px solid var(--border-color);background:var(--card-bg);padding:8px;">
+                        <!-- plot area -->
+                        <rect x="50" y="20" width="280" height="280" fill="var(--code-bg)" stroke="var(--border-color)"/>
+                        <!-- grid -->
+                        <g stroke="var(--border-color)" stroke-width="1" opacity="0.7">
+                            <line x1="120" y1="20" x2="120" y2="300"/>
+                            <line x1="190" y1="20" x2="190" y2="300"/>
+                            <line x1="260" y1="20" x2="260" y2="300"/>
+                            <line x1="50" y1="90" x2="330" y2="90"/>
+                            <line x1="50" y1="160" x2="330" y2="160"/>
+                            <line x1="50" y1="230" x2="330" y2="230"/>
+                        </g>
+                        <!-- no-change diagonal -->
+                        <line x1="50" y1="300" x2="330" y2="20" stroke="var(--text-light)" stroke-width="1.5" stroke-dasharray="5 5"/>
+                        <!-- S-curve -->
+                        <path d="M50 300 C 140 290, 150 240, 190 160 S 250 40, 330 20" fill="none" stroke="#1473E6" stroke-width="3"/>
+                        <!-- control points -->
+                        <circle cx="120" cy="248" r="5" fill="#1473E6"/>
+                        <circle cx="260" cy="72" r="5" fill="#1473E6"/>
+                        <!-- axis labels (theme-aware via svg text rule) -->
+                        <text x="190" y="330" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12">Input  (shadows → highlights)</text>
+                        <text x="18" y="160" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" transform="rotate(-90 18 160)">Output</text>
+                        <text x="118" y="270" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10.5">darken</text>
+                        <text x="262" y="60" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10.5">brighten</text>
+                    </svg>
+                    <figcaption>Figure 1: The S-curve. Lower-left point drags shadows <em>down</em>; upper-right point lifts highlights <em>up</em>. Steeper middle = more contrast.</figcaption>
+                </figure>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Curve shape</th><th>Effect</th><th>Use for</th></tr></thead>
+                        <tbody>
+                            <tr><td>Point up in the middle</td><td>Brighter overall</td><td>A dark photo</td></tr>
+                            <tr><td>Point down in the middle</td><td>Darker overall</td><td>An overexposed photo</td></tr>
+                            <tr><td><strong>S-curve</strong></td><td>More contrast &amp; punch</td><td>A flat, hazy photo</td></tr>
+                            <tr><td>Inverted / flattened S</td><td>Softer, faded, filmic</td><td>A moody, low-contrast look</td></tr>
+                            <tr><td>Lift the bottom-left corner</td><td>"Milky" faded blacks</td><td>Matte / vintage grades</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>And the Curves panel you'll actually use, a labeled diagram rather than a live screenshot:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:360px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Properties — Curves</span>
+                        </div>
+                        <svg viewBox="0 0 360 300" role="img" aria-label="The Curves adjustment panel with a channel dropdown, histogram, and the curve line">
+                            <rect width="360" height="300" fill="#3a3a3a"/>
+                            <!-- channel dropdown -->
+                            <rect x="16" y="14" width="120" height="22" fill="#2f2f2f" stroke="#555"/>
+                            <text x="26" y="30" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">RGB ▾</text>
+                            <text x="150" y="30" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">← pick a channel to color-grade</text>
+                            <!-- graph area -->
+                            <rect x="16" y="48" width="240" height="230" fill="#232323" stroke="#555"/>
+                            <!-- histogram silhouette -->
+                            <path d="M16 278 L60 210 L100 160 L150 150 L200 200 L256 278 Z" fill="#4a4a4a"/>
+                            <!-- grid -->
+                            <g stroke="#3f3f3f"><line x1="96" y1="48" x2="96" y2="278"/><line x1="176" y1="48" x2="176" y2="278"/><line x1="76" y1="128" x2="256" y2="128"/><line x1="76" y1="203" x2="256" y2="203"/></g>
+                            <!-- diagonal + S curve -->
+                            <line x1="16" y1="278" x2="256" y2="48" stroke="#6b7280" stroke-dasharray="4 4"/>
+                            <path d="M16 278 C 80 268, 92 232, 136 163 S 210 66, 256 48" fill="none" stroke="#31A8FF" stroke-width="3"/>
+                            <circle cx="96" cy="222" r="5" fill="#31A8FF"/><circle cx="196" cy="92" r="5" fill="#31A8FF"/>
+                            <text x="270" y="150" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">drag points</text>
+                            <text x="270" y="168" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">on the line</text>
+                        </svg>
+                        <figcaption>Figure 2: The Curves panel. The gray mountain is the histogram (where your tones live); drag points on the line to translate them. Switch <strong>RGB</strong> to <strong>Red/Green/Blue</strong> to color-grade.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Contrast &amp; Color</h2>
+                <p>Open the developed photo from Lesson 2.1 (or any photo that could use more life).</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Add a Curves adjustment layer <small>· 2 min</small></h3>
+                    <ol>
+                        <li>In the Layers panel click <strong>◐ ▸ Curves</strong>. (An adjustment layer. Remember, it comes with a mask.)</li>
+                        <li>You'll see the graph and your photo's histogram behind it.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Build an S-curve <small>· 6 min</small></h3>
+                    <ol>
+                        <li>Click a point about a quarter of the way up the line (the shadows) and drag it gently <strong>down</strong>.</li>
+                        <li>Click a point about three-quarters up (the highlights) and drag it gently <strong>up</strong>.</li>
+                        <li>That's an S. The steeper you make the middle, the more contrast. Keep it subtle: small moves, big results.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Protect skin and skies</h4>
+                        <p>Aggressive S-curves can make skin blotchy and skies banded. If a region suffers, that's your cue for the masked, local approach in Step 4.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Color-grade with a channel <small>· 6 min</small></h3>
+                    <ol>
+                        <li>Change the channel dropdown from <strong>RGB</strong> to <strong>Blue</strong>.</li>
+                        <li>Lift the <em>shadow</em> end slightly to push cool blue into the darks; drop the <em>highlight</em> end slightly to add warm yellow to the lights. That split — cool shadows, warm highlights — is the backbone of the cinematic "teal &amp; orange" look.</li>
+                        <li>Try the <strong>Red</strong> and <strong>Green</strong> channels too, in tiny amounts.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Grade one region only (spiral back to masks) <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Add a <em>second</em> Curves layer and brighten it noticeably.</li>
+                        <li>Click its <strong>mask</strong>, fill it black (<kbd>Alt/⌥ + Backspace</kbd> with black), then paint white over just your subject (or the foreground) with a soft brush.</li>
+                        <li>Now only that region gets the brightening: a subtle spotlight. This is dodging with Curves, and it's exactly the mask skill from Lesson 1.1, reused at a higher level.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ You just combined two modules</h4>
+                        <p>Global tone (this lesson) + a local mask (Module 1) is the core loop of nearly every professional grade. Everything else is variations on it.</p>
+                    </div>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ A Curves layer adds contrast with a subtle <strong>S-curve</strong></li>
+                        <li>☐ I nudged at least one color channel (Red/Green/Blue) for a grade</li>
+                        <li>☐ A second, <strong>masked</strong> Curves layer grades only one region</li>
+                        <li>☐ Nothing looks blotchy or banded at normal viewing size</li>
+                        <li>☐ Every edit is a re-editable adjustment layer</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Grade the same photo three ways with Curves only: <em>punchy</em> (strong S), <em>filmic</em> (lifted blacks, gentle S), and <em>moody</em> (darker mids, cool shadows).</li>
+                        <li>Save each as a JPEG and line them up. Which is "you"? That's your style forming.</li>
+                        <li>On one, add a masked Curves layer that <em>darkens</em> the edges of the frame, a subtle vignette that pulls the eye inward.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> hold the little <strong>on-image adjustment</strong> finger (the pointing-hand icon), then drag directly on a tone <em>in your photo</em>. Photoshop moves the matching point on the curve for you.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: The S-Curve</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Contrast &amp; color in one panel</h3>
+                    <ol>
+                        <li><strong>◐ ▸ Curves</strong> adjustment layer</li>
+                        <li>Shadows point <strong>down</strong>, highlights point <strong>up</strong> = S-curve (contrast)</li>
+                        <li>Channel <strong>Blue</strong>: shadows up (cool) + highlights down (warm) = teal/orange</li>
+                        <li>Second Curves layer + <strong>black mask</strong> → paint white to grade one region</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: <strong>input across, output up; the diagonal is "leave it alone."</strong></small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Did Curves feel like math or like a dimmer switch by the end? Describe the S-curve to yourself in one plain sentence — that sentence is proof it clicked.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>A curve translates <strong>input brightness → output brightness</strong>; the diagonal means "no change."</li>
+                        <li>An <strong>S-curve</strong> adds contrast; a flattened/lifted curve gives a soft, filmic look.</li>
+                        <li>Switch to the <strong>Red/Green/Blue</strong> channel to color-grade (e.g. teal shadows, warm highlights).</li>
+                        <li>A <strong>masked</strong> Curves adjustment layer grades a single region: Module 1 masks, leveled up.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You just tamed the tool that intimidates more beginners than any other, and discovered it's really a friendly picture of "brighter here, darker there." Contrast, color grading, and local dodging &amp; burning all live in this one panel now.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>Curves vs. Levels: do I need both?</summary>
+                    <p>Curves does everything Levels does and much more. Levels is a fine quick tool for setting black/white points, but once Curves clicks you'll rarely reach for anything else.</p>
+                </details>
+                <details>
+                    <summary>My colors went crazy when I dragged a channel.</summary>
+                    <p>Channel curves are potent: move them in <em>tiny</em> amounts. A few pixels of drag on the Blue channel is a strong grade. If it's wild, you've moved too far.</p>
+                </details>
+                <details>
+                    <summary>Should Curves go above or below my Camera Raw develop?</summary>
+                    <p>Above. Develop globally in Camera Raw first (the base), then stack Curves adjustment layers on top for contrast, color, and local grading. Global before local, again.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>You've now got Camera Raw and Curves stacking up as non-destructive layers. In <strong>Lesson 2.3 — Smart Objects &amp; Finishing the Grade</strong> (the Module 2 finale), you'll learn Smart Objects in depth, apply a Smart Filter, and assemble everything into a finished, fully re-editable graded image.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Make five S-curves on five photos until the shape is muscle memory.</li>
+                    <li>Do one teal-and-orange grade on the Blue channel.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/curves-adjustment.html" target="_blank" rel="noopener">Adobe — Curves adjustment</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/adjustment-fill-layers.html" target="_blank" rel="noopener">Adobe — Adjustment &amp; fill layers</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Curves is a rite of passage. Plenty of editors never get comfortable with it — you just did. From here on, "how do I get that look?" almost always has a Curves answer, and now you can find it.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_05.html" class="prev-lesson">← Previous: The Develop Step — Camera Raw</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_07.html" class="next-lesson">Next: Smart Objects &amp; Finishing the Grade →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

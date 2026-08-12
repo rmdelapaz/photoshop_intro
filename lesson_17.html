@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 6, Lesson 1: Generative Fill. Add and remove content by describing it in words, on a non-destructive generative layer.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 6.1: Generative Fill | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 6 • Lesson 1</span><span class="lesson-title">🪄 Generative Fill</span></h1>
+                <p class="lead">Welcome to the Advanced tier. Generative Fill lets you add or remove parts of an image by describing them in plain words, and Photoshop paints the result onto a new layer. It feels like magic, but it is a tool with rules, strengths, and blind spots. This lesson teaches you to drive it well.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li><strong>Remove</strong> an object by selecting it and generating with an empty prompt</li>
+                        <li><strong>Add</strong> new content by selecting an area and describing what belongs there</li>
+                        <li>Work with <strong>generative layers</strong> and cycle through <strong>variations</strong></li>
+                        <li>Write prompts that work, and know Generative Fill's <strong>limits</strong></li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 50 minutes</p>
+                    <p><strong>🎯 Project:</strong> Take one photo and both remove a distraction and add a believable new element, non-destructively.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Describe It Into Being</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Select, Then Describe</a></li>
+                        <li><a href="#panel" class="toc-link">The Generative Task Bar</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Remove &amp; Add</a></li>
+                        <li><a href="#limits" class="toc-link">Prompts, Limits &amp; Ethics</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Generative Fill</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>✨ The Goal: Describe It Into Being</h2>
+                <p>Same lake, two edits at once. On the right, an ugly sign clutters the shore and the water is empty. On the left, the sign is gone (removed with an empty prompt) and a sailboat has appeared (added with the prompt "a small sailboat"). Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a sign removed and a sailboat added with Generative Fill.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Edited: sign removed, sailboat added">
+                                <defs>
+                                    <linearGradient id="g1-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fbce8"/><stop offset="1" stop-color="#cfe8f6"/></linearGradient>
+                                    <linearGradient id="g1-water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f7fae"/><stop offset="1" stop-color="#2b6088"/></linearGradient>
+                                </defs>
+                                <rect width="600" height="230" fill="url(#g1-sky)"/>
+                                <circle cx="500" cy="70" r="34" fill="#fff4cf"/>
+                                <rect y="230" width="600" height="170" fill="url(#g1-water)"/>
+                                <rect y="222" width="600" height="16" fill="#6ea86a"/>
+                                <!-- sailboat (generated) — placed left so it shows at the default handle -->
+                                <path d="M150 232 l0 -70 46 70 Z" fill="#f4f4f4"/>
+                                <path d="M146 232 l8 -54 -30 54 Z" fill="#e0e0e0"/>
+                                <path d="M120 232 h84 l-14 20 h-56 Z" fill="#7a4a2a"/>
+                                <rect x="142" y="232" width="60" height="20" fill="#2b6088" opacity="0.4"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original: distracting sign, empty water">
+                                <defs>
+                                    <linearGradient id="g1-sky-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7fbce8"/><stop offset="1" stop-color="#cfe8f6"/></linearGradient>
+                                    <linearGradient id="g1-water-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f7fae"/><stop offset="1" stop-color="#2b6088"/></linearGradient>
+                                </defs>
+                                <rect width="600" height="230" fill="url(#g1-sky-b)"/>
+                                <circle cx="500" cy="70" r="34" fill="#fff4cf"/>
+                                <rect y="230" width="600" height="170" fill="url(#g1-water-b)"/>
+                                <rect y="222" width="600" height="16" fill="#6ea86a"/>
+                                <!-- distracting sign — placed right so it shows at the default handle -->
+                                <rect x="380" y="150" width="10" height="80" fill="#5b4636"/>
+                                <rect x="350" y="150" width="70" height="46" fill="#c9553f"/>
+                                <text x="385" y="178" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">KEEP</text>
+                                <text x="385" y="192" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="13" font-weight="700">OUT</text>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the generated edit">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>Two generative edits: a removal (empty prompt on the sign) and an addition (a described sailboat), each on its own generated layer.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in. Real generated results drop into this same slider.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Select, Then Describe</h2>
+                <p>Generative Fill always works the same way, and it is worth saying out loud because it makes everything predictable: <strong>you select an area, then you describe what should be there.</strong> Photoshop looks at the surrounding image for context, generates content to fit, and places it on a brand-new <strong>generative layer</strong> with its own mask. Your original pixels are never touched.</p>
+                <p>Two everyday jobs come straight out of that one behavior:</p>
+                <ul>
+                    <li><strong>Remove:</strong> select an object and generate with an <em>empty</em> prompt. Photoshop fills the selection with plausible background, a smarter cousin of Content-Aware Fill from Module 1.</li>
+                    <li><strong>Add:</strong> select an empty area and describe what to put there. Photoshop generates it in the scene's light and perspective.</li>
+                </ul>
+
+                <div class="card card-accent">
+                    <h3>🧠 It is a layer, not a commitment</h3>
+                    <p>Because the result lands on a generative layer, everything you know applies: hide it, mask it, lower its opacity, delete it, or stack another generation on top. Generative Fill is not a one-way button. It is one more non-destructive layer, the principle from Module 0 all over again.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            S["Select an area&lt;br/&gt;(the where)"] --> P["Type a prompt&lt;br/&gt;(the what)"]
+                            P --> G["Generate"]
+                            G --> V["3 variations&lt;br/&gt;on a generative layer"]
+                            V --> C["Keep one, regenerate,&lt;br/&gt;or mask it"]
+                    </div>
+                    <figcaption>Figure 1: The universal loop. Select where, describe what, generate, then choose from the variations. Empty prompt = remove.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🎛️ The Generative Task Bar</h2>
+                <p>When you make a selection, a floating <strong>Contextual Task Bar</strong> appears with a prompt field and a Generate button. Here it is as a diagram:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:520px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Ps &nbsp; Contextual Task Bar</span>
+                        </div>
+                        <svg viewBox="0 0 520 190" role="img" aria-label="A selection on the canvas with a floating task bar: a prompt field reading 'a small sailboat' and a Generate button.">
+                            <rect width="520" height="190" fill="#1c1c1c"/>
+                            <!-- mini scene -->
+                            <rect x="0" y="0" width="520" height="96" fill="#8fc2e6"/>
+                            <rect x="0" y="96" width="520" height="94" fill="#356f97"/>
+                            <!-- marching-ants selection -->
+                            <rect x="200" y="70" width="120" height="70" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="6 5"/>
+                            <!-- task bar -->
+                            <rect x="120" y="150" width="300" height="30" rx="15" fill="#2b2b2b" stroke="#444"/>
+                            <rect x="132" y="157" width="180" height="16" rx="8" fill="#1c1c1c"/>
+                            <text x="140" y="169" style="fill:#cbd5e1" font-family="Segoe UI, sans-serif" font-size="11">a small sailboat</text>
+                            <rect x="322" y="155" width="86" height="20" rx="10" fill="#1473E6"/>
+                            <text x="365" y="169" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700">Generate</text>
+                            <text x="270" y="60" text-anchor="middle" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="11" font-weight="700">↑ selected area (the "where")</text>
+                        </svg>
+                        <figcaption>Figure 2: Select the area, type what belongs there (or leave it empty to remove), and click <strong>Generate</strong>. Leaving the prompt empty tells Photoshop to fill with background.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Remove &amp; Add</h2>
+                <p>Open a photo with a clear distraction and some open space. Save as <code>generative-working.psd</code>. (Generative Fill needs a recent Photoshop, an internet connection, and an Adobe account; it spends generative credits.)</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Remove a distraction <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Select the object with any selection tool. A loose selection with a little margin works best.</li>
+                        <li>In the task bar, leave the prompt <strong>empty</strong> and click <strong>Generate</strong>.</li>
+                        <li>Photoshop fills the selection with background on a new generative layer. Cycle the <strong>variations</strong> and pick the cleanest.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Add a new element <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Select an empty area where something could believably go (open water, sky, a table top).</li>
+                        <li>Type a short, concrete prompt: <em>a small sailboat</em>, <em>a coffee cup</em>, <em>storm clouds</em>. Click <strong>Generate</strong>.</li>
+                        <li>Review the three variations. Keep one, or click Generate again for three more.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ Match the selection to the subject</h4>
+                        <p>Want a tall element? Make a tall selection. Generative Fill fills the shape you give it, so the selection's size and proportion strongly steer the result. Selecting the right space is half the prompt.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Blend and refine <small>· 6 min</small></h3>
+                    <ol>
+                        <li>Because it is a normal layer with a mask, refine it with everything you know: mask a rough edge (Module 1), match its light and color with clipped adjustments (Module 4), heal a small artifact (Module 3).</li>
+                        <li>Generative results are a strong <em>starting point</em>, not always a finished one. Your craft finishes the job.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ A distraction is removed via an empty-prompt generation</li>
+                        <li>☐ A new element is added via a described generation</li>
+                        <li>☐ Each result sits on its own generative layer (original untouched)</li>
+                        <li>☐ I cycled variations and picked the best</li>
+                        <li>☐ I refined the result with masks or adjustments as needed</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Limits -->
+            <section id="limits" class="lesson-section">
+                <h2>⚖️ Prompts, Limits &amp; Ethics</h2>
+                <h3>Prompts that work</h3>
+                <ul>
+                    <li><strong>Be concrete and short.</strong> "a wooden park bench" beats "something nice to sit on."</li>
+                    <li><strong>Describe the thing, not the style.</strong> The scene's existing light usually wins, so name the object and let Photoshop match the lighting.</li>
+                    <li><strong>Iterate.</strong> If three variations miss, tweak one or two words and generate again rather than rewriting from scratch.</li>
+                </ul>
+
+                <div class="card card-warning">
+                    <h4>⚠️ Know the limits</h4>
+                    <ul>
+                        <li>Fine detail (hands, text, faces at small size) can come out wrong. Zoom in and check.</li>
+                        <li>Very large or very specific generations are less reliable than small, plausible ones.</li>
+                        <li>It needs internet and credits, and results vary run to run.</li>
+                    </ul>
+                </div>
+
+                <div class="card card-info">
+                    <h4>💡 A note on honesty</h4>
+                    <p>Generative edits can change what a photo <em>says</em>, not just how it looks. For journalism, evidence, or documentary work, adding or removing content crosses a line. Adobe embeds <strong>Content Credentials</strong> to flag AI edits for exactly this reason. Use the power thoughtfully, and be transparent when it matters.</p>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Remove three different distractions from one busy photo, one selection at a time.</li>
+                        <li>Add an element and then <em>change your mind</em>: regenerate with a different prompt on the same selection. Feel how cheap iteration is.</li>
+                        <li>Try a deliberately hard prompt (a person's hands, readable text) and observe where Generative Fill struggles. Knowing its weak spots makes you a better driver.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> generate an element, then treat it as a real subject: mask it, grade it, and add a shadow with your Module 4 skills. Generative plus craft beats generative alone every time.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Generative Fill</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Add or remove by describing</h3>
+                    <ol>
+                        <li><strong>Select</strong> the area (loose, with margin)</li>
+                        <li><strong>Remove:</strong> empty prompt → Generate</li>
+                        <li><strong>Add:</strong> short concrete prompt → Generate</li>
+                        <li>Cycle the three <strong>variations</strong>; regenerate if needed</li>
+                        <li>Refine on its generative layer (mask, match, heal)</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: select the where, describe the what, then finish with craft.</small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Generative Fill is powerful and a little unsettling. Where is your personal line between "cleaning up a photo" and "changing the truth of it"? Write it down; it is worth knowing before a client asks.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>Generative Fill = <strong>select an area, then describe</strong> what belongs there.</li>
+                        <li><strong>Empty prompt removes</strong>; a described prompt adds.</li>
+                        <li>Results land on a <strong>generative layer</strong>, fully non-destructive and refinable.</li>
+                        <li>Prompts should be <strong>short and concrete</strong>; know the limits and edit ethically.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You can now add and remove content by describing it, and just as importantly, you treat the result as a layer to refine rather than a magic final answer. That combination, generative power plus real editing craft, is exactly what separates a thoughtful editor from someone mashing a button.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>Generative Fill is grayed out. Why?</summary>
+                    <p>You likely need a current version of Photoshop, an internet connection, and to be signed in to your Adobe account. The feature runs in the cloud and uses generative credits.</p>
+                </details>
+                <details>
+                    <summary>My generation looks blurry or low-detail.</summary>
+                    <p>Very large selections spread the generated detail thin. Generate in smaller pieces, or generate then sharpen and refine. Also try regenerating; quality varies between runs.</p>
+                </details>
+                <details>
+                    <summary>Can I use Generative Fill results commercially?</summary>
+                    <p>Adobe designed Firefly (which powers it) to be commercially safe, but always check the current terms for your plan and region, and disclose AI edits where honesty matters.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>Generative Fill works <em>inside</em> the frame. <strong>Lesson 6.2 works outside it</strong>: Generative Expand extends the canvas itself, so you can uncrop a photo, fix a tight composition, or change aspect ratio and let Photoshop invent the new space.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Remove five distractions and add three elements across a few photos.</li>
+                    <li>Keep a short list of prompts that worked well for you.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/generative-fill.html" target="_blank" rel="noopener">Adobe: Generative Fill</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/content-credentials.html" target="_blank" rel="noopener">Adobe: Content Credentials</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>You just used one of the most powerful features in Photoshop's history, and you used it like an editor, not a slot machine. That mindset, power in service of craft, is exactly what will keep your work valuable as the tools keep getting smarter.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_16.html" class="prev-lesson">← Previous: Layer Styles &amp; the Poster (Module 5 finale)</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_18.html" class="next-lesson">Next: Generative Expand &amp; Reframe →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 2, Lesson 1: the develop step. Fix white balance and global tone in Camera Raw, opened as a Smart Object so every setting stays re-editable.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 2.1: The Develop Step — Camera Raw — Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 2 • Lesson 1</span><span class="lesson-title">🎞️ The Develop Step: Camera Raw</span></h1>
+                <p class="lead">Module 1 got your photo clean and under control. Module 2 makes it <em>beautiful</em>. We start where every professional starts a grade: the "develop" step, setting white balance and global tone in Camera Raw before touching anything local.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Open a photo as a <strong>Smart Object</strong> so Camera Raw becomes a re-editable <strong>Smart Filter</strong></li>
+                        <li>Fix a color cast with <strong>White Balance</strong> (Temperature &amp; Tint)</li>
+                        <li>Set global tone with <strong>Exposure, Contrast, Highlights, Shadows, Whites &amp; Blacks</strong></li>
+                        <li>Explain why you develop <em>globally first</em>, before any local edits</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 50 minutes</p>
+                    <p><strong>🎯 Project:</strong> Take a flat, wrongly-colored photo and give it a clean, neutral, punchy base — non-destructively.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: A Clean Base</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: The Digital Darkroom</a></li>
+                        <li><a href="#panel" class="toc-link">The Camera Raw Panel</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Develop a Flat Photo</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Develop First</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🌅 The Goal: A Clean Base</h2>
+                <p>The right-hand photo is what a camera often hands you: a warm color cast and flat, lifeless contrast. The left is the same file after two minutes in Camera Raw. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a flat, warm-cast photo corrected to neutral white balance with punchy tone.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Developed: neutral white balance, punchy contrast">
+                                <defs>
+                                    <linearGradient id="cr-sky-a" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#3f8fd6"/><stop offset="1" stop-color="#bfe0f5"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#cr-sky-a)"/>
+                                <circle cx="470" cy="105" r="46" fill="#fff2c2"/>
+                                <path d="M0 250 Q150 210 300 245 T600 240 V400 H0 Z" fill="#6fbf62"/>
+                                <path d="M0 300 Q180 258 340 300 T600 296 V400 H0 Z" fill="#3f9147"/>
+                                <path d="M0 350 Q160 322 320 352 T600 348 V400 H0 Z" fill="#276b34"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original: warm color cast, flat contrast">
+                                <defs>
+                                    <linearGradient id="cr-sky-b" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#b8a488"/><stop offset="1" stop-color="#d8c6a4"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#cr-sky-b)"/>
+                                <circle cx="470" cy="105" r="46" fill="#e4d3a0"/>
+                                <path d="M0 250 Q150 210 300 245 T600 240 V400 H0 Z" fill="#9aa06a"/>
+                                <path d="M0 300 Q180 258 340 300 T600 296 V400 H0 Z" fill="#7c8556"/>
+                                <path d="M0 350 Q160 322 320 352 T600 348 V400 H0 Z" fill="#66703f"/>
+                                <rect width="600" height="400" fill="#caa15e" opacity="0.28"/>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the developed version">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>Neutral whites, deeper shadows, brighter highlights — the "boring but essential" base every good grade is built on.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in: a real developed photo drops into this same slider</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: The Digital Darkroom</h2>
+                <p>Think of Camera Raw as the <strong>developing station</strong> in an old photo darkroom, the chemistry stage that happens <em>before</em> anything is printed or retouched. Its whole job is to get the raw light right: neutral colors, a full range from black to white, detail rescued out of the bright and dark areas.</p>
+                <p>The golden rule of grading is <strong>global before local</strong>: fix the whole image first (white balance, overall tone), and only then make selective, local tweaks. If you dodge and burn a photo that still has an orange cast, you're just polishing a problem.</p>
+
+                <div class="card card-accent">
+                    <h3>🧠 Why open it as a Smart Object?</h3>
+                    <p>Here's the spiral coming back around. In Module 0 you learned <em>non-destructive</em>. A <strong>Smart Object</strong> is the ultimate version of that idea: it wraps your photo in a protective container, and Camera Raw becomes a <strong>Smart Filter</strong> attached to it. Double-click that filter next week and every slider is exactly where you left it — nothing baked in, ever. You'll meet Smart Objects in full in Lesson 2.3; today you just switch them on and enjoy the safety net.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            A["📷 Flat photo"] --> B["Open as&lt;br/&gt;Smart Object"]
+                            B --> C["Camera Raw&lt;br/&gt;= Smart Filter"]
+                            C --> D["1 · White Balance&lt;br/&gt;(neutral color)"]
+                            D --> E["2 · Global Tone&lt;br/&gt;(exposure → blacks)"]
+                            E --> F["✨ Clean base&lt;br/&gt;(re-editable forever)"]
+                    </div>
+                    <figcaption>Figure 1: The develop order. White balance first, then tone, working top to bottom of the panel, and re-editable because it's a Smart Filter.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🎛️ The Camera Raw Panel</h2>
+                <p>Camera Raw's Basic panel is a top-to-bottom checklist. Here's a labeled map (a diagram, not a live screenshot):</p>
+                <figure>
+                    <div class="ps-mock">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Ps &nbsp; Camera Raw: Basic panel (simplified)</span>
+                        </div>
+                        <svg viewBox="0 0 720 400" role="img" aria-label="Camera Raw: preview at left, White Balance and Tone sliders at right, in order.">
+                            <rect width="720" height="400" fill="#2b2b2b"/>
+                            <!-- preview -->
+                            <rect x="16" y="16" width="440" height="368" fill="#1c1c1c"/>
+                            <rect x="36" y="36" width="400" height="220" fill="#3f8fd6"/>
+                            <circle cx="380" cy="86" r="30" fill="#fff2c2"/>
+                            <path d="M36 200 Q160 170 280 198 T436 194 V256 H36 Z" fill="#3f9147"/>
+                            <text x="236" y="300" text-anchor="middle" style="fill:#7c8894" font-family="Segoe UI, sans-serif" font-size="13">Live preview updates as you drag</text>
+                            <!-- right panel -->
+                            <rect x="470" y="16" width="234" height="368" fill="#3a3a3a"/>
+                            <text x="484" y="40" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">White Balance</text>
+                            <text x="484" y="62" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Temperature (blue ⇄ yellow)</text>
+                            <rect x="484" y="68" width="206" height="6" rx="3" fill="url(#wbgrad)"/>
+                            <defs><linearGradient id="wbgrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3f8fd6"/><stop offset="1" stop-color="#e4c15e"/></linearGradient></defs>
+                            <circle cx="560" cy="71" r="7" fill="#fff" stroke="#1473E6" stroke-width="2"/>
+                            <text x="484" y="92" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Tint (green ⇄ magenta)</text>
+                            <rect x="484" y="98" width="206" height="6" rx="3" fill="#555"/><circle cx="587" cy="101" r="7" fill="#1473E6"/>
+                            <line x1="484" y1="120" x2="690" y2="120" stroke="#4a4a4a"/>
+                            <text x="484" y="142" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">Tone</text>
+                            <g font-family="Segoe UI, sans-serif" font-size="11">
+                                <text x="484" y="164" style="fill:#9aa4ad">Exposure</text>
+                                <rect x="484" y="170" width="206" height="6" rx="3" fill="#555"/><circle cx="600" cy="173" r="7" fill="#1473E6"/>
+                                <text x="484" y="190" style="fill:#9aa4ad">Contrast</text>
+                                <rect x="484" y="196" width="206" height="6" rx="3" fill="#555"/><circle cx="612" cy="199" r="7" fill="#1473E6"/>
+                                <text x="484" y="216" style="fill:#9aa4ad">Highlights</text>
+                                <rect x="484" y="222" width="206" height="6" rx="3" fill="#555"/><circle cx="520" cy="225" r="7" fill="#1473E6"/>
+                                <text x="484" y="242" style="fill:#9aa4ad">Shadows</text>
+                                <rect x="484" y="248" width="206" height="6" rx="3" fill="#555"/><circle cx="640" cy="251" r="7" fill="#1473E6"/>
+                                <text x="484" y="268" style="fill:#9aa4ad">Whites</text>
+                                <rect x="484" y="274" width="206" height="6" rx="3" fill="#555"/><circle cx="596" cy="277" r="7" fill="#1473E6"/>
+                                <text x="484" y="294" style="fill:#9aa4ad">Blacks</text>
+                                <rect x="484" y="300" width="206" height="6" rx="3" fill="#555"/><circle cx="556" cy="303" r="7" fill="#1473E6"/>
+                            </g>
+                        </svg>
+                        <figcaption>Figure 2: Work the panel top to bottom: White Balance, then the Tone sliders in order. That sequence <em>is</em> the develop workflow.</figcaption>
+                    </div>
+                </figure>
+
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr><th>Slider</th><th>What it does</th><th>Reach for it when…</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Temperature</strong></td><td>Warms (yellow) or cools (blue) the whole image</td><td>Whites look orange or too blue</td></tr>
+                            <tr><td><strong>Exposure</strong></td><td>Overall brightness (the midtones)</td><td>The whole photo is too dark or too bright</td></tr>
+                            <tr><td><strong>Highlights / Whites</strong></td><td>Recover or set the bright end</td><td>A blown-out sky, or flat highlights</td></tr>
+                            <tr><td><strong>Shadows / Blacks</strong></td><td>Open up or deepen the dark end</td><td>Muddy shadows, or no true black</td></tr>
+                            <tr><td><strong>Contrast</strong></td><td>Pushes darks down and lights up together</td><td>The image looks flat and hazy</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Develop a Flat Photo</h2>
+                <p>Use a photo that looks flat or slightly wrong-colored (an overcast day or an indoor shot is perfect).</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Open as a Smart Object <small>· 3 min</small></h3>
+                    <ol>
+                        <li><strong>File ▸ Open</strong>, then immediately right-click the layer ▸ <strong>Convert to Smart Object</strong>. (The thumbnail gets a little page-badge.)</li>
+                        <li><strong>Filter ▸ Camera Raw Filter…</strong> The develop workspace opens.</li>
+                    </ol>
+                    <blockquote><strong>💡</strong> Because the layer is a Smart Object, Camera Raw attaches as a <em>Smart Filter</em>, double-clickable later to re-edit every slider. Save as <code>grade-working.psd</code>.</blockquote>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Neutralize the white balance <small>· 6 min</small></h3>
+                    <ol>
+                        <li>Grab the <strong>White Balance eyedropper</strong> and click something that should be neutral gray or white (a cloud, a shirt, pavement). The cast snaps away.</li>
+                        <li>Fine-tune with <strong>Temperature</strong> (cooler if it's too orange) and <strong>Tint</strong> (nudge off any green/magenta).</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Trust your eyes, then look away</h4>
+                        <p>Your eyes adapt to a cast within seconds. Set the white balance, look at something else for a moment, then glance back. If it still looks natural, it's right.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Set global tone, top to bottom <small>· 8 min</small></h3>
+                    <ol>
+                        <li><strong>Exposure</strong>: get the overall brightness right first.</li>
+                        <li><strong>Highlights</strong> down to recover a bright sky; <strong>Shadows</strong> up to reveal dark detail.</li>
+                        <li><strong>Whites</strong> up until the brightest point is <em>just</em> shy of clipping; <strong>Blacks</strong> down until you have a true black. (Hold <kbd>Alt/⌥</kbd> while dragging Whites/Blacks to see clipping.)</li>
+                        <li><strong>Contrast</strong> last, to taste.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ The "full range" check</h4>
+                        <p>A well-developed photo uses the whole range: a real black somewhere, a clean white somewhere, and detail in between. Setting Whites and Blacks deliberately is what makes an image look crisp instead of hazy.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Commit (but not really) <small>· 3 min</small></h3>
+                    <ol>
+                        <li>Click <strong>OK</strong>. Camera Raw appears in the Layers panel as a Smart Filter beneath your Smart Object.</li>
+                        <li>Toggle its 👁 to see your before/after. Double-click the filter name to reopen and tweak. Nothing is baked in.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ My layer is a <strong>Smart Object</strong> (page-badge on the thumbnail)</li>
+                        <li>☐ Whites look neutral (no orange/blue cast)</li>
+                        <li>☐ There's a true black and a clean white in the image</li>
+                        <li>☐ Highlights and shadows both show detail</li>
+                        <li>☐ Camera Raw is a re-editable <strong>Smart Filter</strong>, not baked in</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Develop the <em>same</em> photo two ways: once cool and crisp, once warm and golden. Same file, two moods: just White Balance and tone.</li>
+                        <li>Reopen the Smart Filter and confirm your sliders are all still there. That's the Smart Object safety net in action.</li>
+                        <li>Try dragging <strong>Exposure</strong> to an extreme, clicking OK, reopening, and dialing it back. Notice there's zero quality loss — impossible without a Smart Object.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> peek at Camera Raw's <strong>Curve</strong> tab. That's exactly where Lesson 2.2 goes next — the single most powerful tone control in the program.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Develop First</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>The develop pass</h3>
+                    <ol>
+                        <li>Right-click layer ▸ <strong>Convert to Smart Object</strong></li>
+                        <li><strong>Filter ▸ Camera Raw Filter</strong></li>
+                        <li><strong>White Balance</strong>: eyedropper on a neutral → fine-tune Temp/Tint</li>
+                        <li><strong>Tone</strong>, top to bottom: Exposure → Highlights/Shadows → Whites/Blacks → Contrast</li>
+                        <li>OK → it lands as a re-editable <strong>Smart Filter</strong></li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: <strong>global before local; develop before you decorate.</strong></small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Which mattered more for your photo: fixing the color cast, or setting the tone? Grading is personal; noticing your own instinct is the start of a style.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>Camera Raw is the <strong>develop step</strong>, the digital darkroom before any local work.</li>
+                        <li><strong>Global before local:</strong> white balance and overall tone first.</li>
+                        <li>Work the Basic panel <strong>top to bottom</strong>: White Balance → Exposure → Highlights/Shadows → Whites/Blacks → Contrast.</li>
+                        <li>Open as a <strong>Smart Object</strong> so Camera Raw stays a re-editable Smart Filter.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You now start a grade the way every pro does, by getting the raw light honest before making a single creative choice. A neutral, full-range base makes everything downstream easier and better. And you did it non-destructively, so you can revisit any decision forever.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>Do I need an actual RAW file to use Camera Raw?</summary>
+                    <p>No. <strong>Filter ▸ Camera Raw Filter</strong> runs on any layer: JPEG, PNG, whatever. RAW files give you more latitude to recover highlights and shadows, but the workflow is identical.</p>
+                </details>
+                <details>
+                    <summary>Camera Raw vs. adjustment layers: when do I use which?</summary>
+                    <p>Camera Raw is ideal for the <em>global develop</em> pass in one place. Adjustment layers (next lesson) shine for <em>local</em>, masked, stackable tweaks. Most grades use both: develop in Camera Raw, refine with masked adjustment layers.</p>
+                </details>
+                <details>
+                    <summary>What does "clipping" mean?</summary>
+                    <p>Clipping is when a highlight goes pure white (or a shadow pure black) with <em>no detail left</em>. A little is fine: a spec­ular reflection should be white. Holding <kbd>Alt/⌥</kbd> on Whites/Blacks shows exactly where it happens.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p><strong>Lesson 2.2 — Curves</strong> introduces the most powerful tone tool in Photoshop. You'll shape contrast with a simple S-curve, push color per channel, and — spiraling back to Module 1 — mask a Curves adjustment so it grades only part of the frame.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Develop three different photos until the top-to-bottom order is automatic.</li>
+                    <li>Practice the <kbd>Alt/⌥</kbd>-drag clipping preview on Whites and Blacks.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/camera-raw/using/make-color-tonal-adjustments-camera.html" target="_blank" rel="noopener">Adobe: Color &amp; tonal adjustments in Camera Raw</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/edit-smart-object.html" target="_blank" rel="noopener">Adobe: Smart Objects</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Getting the base right is the least glamorous and most important skill in photo editing. And you just learned it the professional way. Everything from here is you making beautiful choices on a solid foundation.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_04.html" class="prev-lesson">← Previous: Cleaning Up (Module 1 finale)</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_06.html" class="next-lesson">Next: Curves — Precise Tone &amp; Color →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

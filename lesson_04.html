@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 1, Lesson 3: clean up a messy photo — remove spots, distractions, and stray objects with the healing family, Content-Aware Fill, and the Remove tool — then export the finished image.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 1.3: Cleaning Up — Spots, Distractions &amp; Edges — Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 1 • Lesson 3</span><span class="lesson-title">🧽 Cleaning Up: Spots, Distractions &amp; Edges</span></h1>
+                <p class="lead">This is the finale of Module 1. You'll make the little annoyances vanish — dust spots, a blemish, that one distracting object at the edge of the frame — and export a finished, cleaned-up photo. The secret is almost silly: you cover the bad pixels with good ones borrowed from nearby.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Remove small spots and blemishes with the <strong>Spot Healing Brush</strong></li>
+                        <li>Choose between <strong>healing</strong> (blends texture) and <strong>cloning</strong> (copies exactly), and know when each wins</li>
+                        <li>Erase a larger distraction with <strong>Content-Aware Fill</strong> or the <strong>Remove</strong> tool</li>
+                        <li>Work non-destructively by healing on a <strong>separate layer</strong>, then export your finished image</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 50 minutes</p>
+                    <p><strong>🎯 Project:</strong> Take the messy photo you've been building on and deliver it clean: spotless, distraction-free, and exported.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: A Clean Frame</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Borrow Good Pixels</a></li>
+                        <li><a href="#which" class="toc-link">Which Tool for Which Mess?</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Clean &amp; Export</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Clean a Photo</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Module 1 Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🧼 The Goal: A Clean Frame</h2>
+                <p>Same sky, same scene, but drag the handle and watch the dust spots and that distracting bird/pole vanish. Nothing about the photo changed except the stuff you didn't want:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: dust spots and a distracting object removed from a sky.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Edited: clean sky and shoreline">
+                                <defs>
+                                    <linearGradient id="s3-sky-a" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#3f8fd6"/><stop offset="1" stop-color="#a9d3f0"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#s3-sky-a)"/>
+                                <path d="M0 300 Q300 270 600 300 V400 H0 Z" fill="#e4d2a6"/>
+                                <path d="M0 300 Q300 270 600 300 V330 Q300 300 0 330 Z" fill="#3f7a86"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original: same scene with dust spots and a distracting object">
+                                <defs>
+                                    <linearGradient id="s3-sky-b" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0" stop-color="#3f8fd6"/><stop offset="1" stop-color="#a9d3f0"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#s3-sky-b)"/>
+                                <path d="M0 300 Q300 270 600 300 V400 H0 Z" fill="#e4d2a6"/>
+                                <path d="M0 300 Q300 270 600 300 V330 Q300 300 0 330 Z" fill="#3f7a86"/>
+                                <!-- dust spots -->
+                                <circle cx="140" cy="90" r="5" fill="#274b66" opacity="0.55"/>
+                                <circle cx="360" cy="60" r="4" fill="#274b66" opacity="0.5"/>
+                                <circle cx="480" cy="150" r="6" fill="#274b66" opacity="0.5"/>
+                                <circle cx="250" cy="130" r="3.5" fill="#274b66" opacity="0.5"/>
+                                <!-- distracting object: a pole with a bird -->
+                                <rect x="418" y="120" width="8" height="180" fill="#3a3a3a"/>
+                                <ellipse cx="200" cy="80" rx="16" ry="7" fill="#2b2b2b"/>
+                                <path d="M186 80 q14 -12 28 0" stroke="#2b2b2b" stroke-width="3" fill="none"/>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the edited version">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The clean side isn't a different photo — it's the same one with its distractions healed away.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in: a real "before/after cleanup" photo drops into this same slider</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Borrow Good Pixels to Cover Bad Ones</h2>
+                <p>Every cleanup tool in Photoshop does the same simple thing: it takes pixels from a <em>good</em> part of the image and lays them over a <em>bad</em> part. The tools differ only in <strong>how</strong> they blend what they borrow:</p>
+                <ul>
+                    <li><strong>Cloning</strong> copies the borrowed pixels <em>exactly</em>: same color, same brightness. Great for hard edges and patterns; ruthless if the lighting doesn't match.</li>
+                    <li><strong>Healing</strong> copies the borrowed <em>texture</em> but then blends its color and brightness into the surroundings. Magic on skin and skies; it makes the repair invisible.</li>
+                    <li><strong>Content-Aware</strong> tools do this automatically over a whole region. Photoshop looks around, invents a plausible fill, and blends it in.</li>
+                </ul>
+
+                <div class="card card-accent">
+                    <h3>🧠 The one habit that saves you every time</h3>
+                    <p>Do all your cleanup on a <strong>separate, empty layer</strong> with "Sample: All Layers" turned on. If a heal goes wrong, you erase it off that layer. The original photo underneath is never touched. It's the tracing-paper principle from Module 0, applied to retouching.</p>
+                </div>
+            </section>
+
+            <!-- Which tool -->
+            <section id="which" class="lesson-section">
+                <h2>🧭 Which Tool for Which Mess?</h2>
+                <p>Don't memorize tools — memorize this decision. Match the <em>mess</em> to the <em>tool</em>:</p>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart TD
+                            START(["What are you removing?"]) --> Q1{"How big&lt;br/&gt;is it?"}
+                            Q1 -->|"Tiny spot / blemish"| SPOT["Spot Healing Brush&lt;br/&gt;(just click it)"]
+                            Q1 -->|"A whole object"| Q2{"Is the background&lt;br/&gt;busy or simple?"}
+                            Q2 -->|"Simple / repeating"| CLONE["Clone Stamp&lt;br/&gt;(match the pattern)"]
+                            Q2 -->|"Anything else"| CAF["Content-Aware Fill&lt;br/&gt;or the Remove tool"]
+                            SPOT --> DONE(["Blend &amp; check at 100%"])
+                            CLONE --> DONE
+                            CAF --> DONE
+                    </div>
+                    <figcaption>Figure 1: A quick decision tree. When in doubt, try the Remove tool first: it's the most forgiving.</figcaption>
+                </figure>
+
+                <p>Here's where the cleanup tools live in the toolbar, a labeled diagram, not a live screenshot:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:520px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Ps &nbsp; Retouch tools (simplified)</span>
+                        </div>
+                        <svg viewBox="0 0 520 250" role="img" aria-label="A toolbar flyout showing the healing and cloning tools grouped together">
+                            <rect width="520" height="250" fill="#2b2b2b"/>
+                            <rect x="0" y="0" width="60" height="250" fill="#3a3a3a"/>
+                            <!-- the retouch group button -->
+                            <rect x="16" y="24" width="28" height="24" rx="3" fill="#1473E6"/>
+                            <text x="30" y="40" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12">🩹</text>
+                            <!-- flyout -->
+                            <rect x="60" y="20" width="360" height="200" fill="#454545" stroke="#5a5a5a"/>
+                            <g font-family="Segoe UI, sans-serif" font-size="13">
+                                <rect x="60" y="20" width="360" height="38" fill="#1473E6"/>
+                                <text x="80" y="44" style="fill:#fff">🩹 Spot Healing Brush — click tiny spots</text>
+                                <text x="80" y="84" style="fill:#e2e8f0">🩹 Healing Brush — Alt-sample, then paint</text>
+                                <text x="80" y="120" style="fill:#e2e8f0">🩹 Patch — lasso a mess, drag to clean area</text>
+                                <text x="80" y="156" style="fill:#e2e8f0">✨ Remove — brush over it, AI fills (2024+)</text>
+                                <text x="80" y="192" style="fill:#e2e8f0">🔁 Clone Stamp — copy pixels exactly</text>
+                            </g>
+                        </svg>
+                        <figcaption>Figure 2: The retouch tools share one toolbar slot. Click and hold to see the flyout. The blue one is selected.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Clean &amp; Export</h2>
+                <p>Open your messy photo and <strong>File ▸ Save As</strong> ▸ <code>cleanup-working.psd</code>.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Make a retouch layer <small>· 2 min</small></h3>
+                    <ol>
+                        <li>Click the <strong>New Layer</strong> icon in the Layers panel. Name it <code>retouch</code>.</li>
+                        <li>Pick the <strong>Spot Healing Brush</strong> (<kbd>J</kbd>) and in the options bar set <strong>Sample: All Layers</strong>.</li>
+                    </ol>
+                    <blockquote><strong>💡 Why the empty layer:</strong> everything you fix lands on <code>retouch</code>, not the photo. Hide or erase that layer and your original is pristine: non-destructive retouching.</blockquote>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Zap the spots <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Zoom to 100% (<kbd>Ctrl/⌘ + 1</kbd>) and scan across the sky/skin for dust spots and blemishes.</li>
+                        <li>Set your brush just a little larger than each spot, and <strong>single-click</strong> it. The Spot Healing Brush samples nearby texture and blends automatically. 🎉</li>
+                        <li>Work methodically left-to-right, top-to-bottom, so you don't miss any.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Remove the big distraction <small>· 10 min</small></h3>
+                    <p><strong>Option A, the Remove tool (Photoshop 2024+):</strong></p>
+                    <ol>
+                        <li>Pick <strong>Remove</strong> (in the healing group) and simply <strong>brush over the whole object</strong>.</li>
+                        <li>Release. Photoshop fills it in with plausible background. Touch up any leftover with a second pass.</li>
+                    </ol>
+                    <p><strong>Option B, Content-Aware Fill:</strong></p>
+                    <ol>
+                        <li>Loosely select the object (Lasso tool, <kbd>L</kbd>), leaving a little margin.</li>
+                        <li><strong>Edit ▸ Content-Aware Fill…</strong> A workspace opens with a live preview.</li>
+                        <li>Green-brush the areas Photoshop should sample <em>from</em>; set <strong>Output To: New Layer</strong>; click OK.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Watch for smears and repeats</h4>
+                        <p>Content-aware tools sometimes clone a recognizable shape twice, or smear a soft blob. Check at 100%. If it repeats, redo it with a <em>smaller</em> selection or clean up the remnant with the Clone Stamp.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Clone for the stubborn bits, then export <small>· 8 min</small></h3>
+                    <ol>
+                        <li>For a hard edge the healing tools smeared, grab the <strong>Clone Stamp</strong> (<kbd>S</kbd>). <kbd>Alt/⌥</kbd>-click a clean area to <em>sample</em>, then paint over the flaw. It copies exactly, keeping edges crisp.</li>
+                        <li>Do a final 100% pass across the whole image.</li>
+                        <li><strong>File ▸ Save</strong> (your layered .psd), then <strong>File ▸ Export ▸ Export As ▸ JPG 80%</strong> → <code>cleanup-final.jpg</code>. Module 1 deliverable: done. 🏆</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ All cleanup lives on a separate <code>retouch</code> (or Content-Aware) layer</li>
+                        <li>☐ Dust spots and blemishes are gone at 100% zoom</li>
+                        <li>☐ The main distraction is removed with no obvious smear or repeat</li>
+                        <li>☐ Edges near the repair are still crisp</li>
+                        <li>☐ I saved the .psd and exported a finished .jpg</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Find a photo with a <em>person or object you want gone</em>: a photobomber, a trash can, a power line.</li>
+                        <li>Remove it two different ways: once with the <strong>Remove</strong> tool, once with <strong>Content-Aware Fill</strong>. Which looked better here?</li>
+                        <li>Zoom to 100% and hunt for the tell-tale signs — smears, repeats, halos — and clean them with the Clone Stamp.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> combine this lesson with the last one: cut out your subject (Lesson 1.2), clean the background behind them (this lesson), and you've done a mini version of what Module 4 calls compositing.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Clean a Photo</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Distraction-free in five moves</h3>
+                    <ol>
+                        <li>New empty layer named <code>retouch</code> → tool set to <strong>Sample: All Layers</strong></li>
+                        <li><strong>Spot Healing Brush</strong> (<kbd>J</kbd>): click each tiny spot at 100% zoom</li>
+                        <li>Big object → <strong>Remove</strong> tool (brush over) or <strong>Edit ▸ Content-Aware Fill</strong></li>
+                        <li>Stubborn edge → <strong>Clone Stamp</strong> (<kbd>S</kbd>, <kbd>Alt/⌥</kbd>-sample) </li>
+                        <li>100% final pass → Save .psd → Export JPG</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: <strong>heal to blend, clone to copy, always on a fresh layer.</strong></small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Look back at your Module 0 journal entry: the image you dreamed of making. After finishing Module 1, which specific skill from these three lessons gets you closest to it?</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Module 1 Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>Every cleanup tool <strong>borrows good pixels to cover bad ones</strong>.</li>
+                        <li><strong>Heal</strong> to blend texture into its surroundings; <strong>clone</strong> to copy pixels exactly.</li>
+                        <li><strong>Content-Aware Fill</strong> and the <strong>Remove</strong> tool erase whole objects automatically.</li>
+                        <li>Always retouch on a <strong>separate layer</strong>: non-destructive to the end.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished Across All of Module 1</h3>
+                <p>Step back and look at the arc. You went from a single "first win" in Module 0 to a real working method: you can read a <strong>layer stack</strong>, target an edit with a <strong>mask</strong> (black hides, white reveals), make a believable <strong>selection</strong> and bake it into a mask, and <strong>clean up</strong> a photo without destroying a pixel. That's the entire foundation the rest of the course builds on. Your messy photo is now a finished, deliverable image.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>My heal looks blurry or smeared. Why?</summary>
+                    <p>The Spot Healing Brush blends with whatever's nearby. If that includes a hard edge or a different color, it smears. Near edges, switch to the <strong>Clone Stamp</strong> (copies exactly) or the <strong>Healing Brush</strong> where you pick the sample point yourself.</p>
+                </details>
+                <details>
+                    <summary>Content-Aware Fill invented something weird.</summary>
+                    <p>It samples from the surrounding area by default. In its workspace, paint the green "sampling" overlay only over the <em>clean</em> areas you want it to copy from, and it'll stop borrowing the weird stuff.</p>
+                </details>
+                <details>
+                    <summary>How do I know when a photo is "clean enough"?</summary>
+                    <p>Do one pass at 100% zoom, then step back and view it fit-to-screen. If nothing pulls your eye away from the subject, you're done. Perfect at 400% that no one will ever see is wasted effort.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>Your photo is clean and controlled. Now let's make it <em>beautiful</em>. <strong>Module 2 — Light &amp; Color</strong> takes a flat image and grades it with Camera Raw, Curves, and adjustment layers, and introduces <strong>Smart Objects</strong>: layers that remember their edits so you can change your mind at any time.</p>
+
+                <h3>✅ Before the Next Module</h3>
+                <ul>
+                    <li>Run the full Module 1 workflow on one fresh photo end to end: mask an adjustment, cut out the subject, clean the frame, export.</li>
+                    <li>Save your best result. You'll re-grade it in Module 2.</li>
+                    <li>Write your Learning Journal entry (the "closest to your dream image" prompt).</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/retouching-repairing-images.html" target="_blank" rel="noopener">Adobe — Retouching &amp; repairing images</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/content-aware-fill.html" target="_blank" rel="noopener">Adobe — Content-Aware Fill</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>You've finished an entire module — four lessons, a real foundation, a photo you took from messy to finished. That's not beginner luck; that's a method you now own. Rest, then meet me in Module 2, where things start to get genuinely beautiful.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_03.html" class="prev-lesson">← Previous: Selections That Hold Up</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_05.html" class="next-lesson">Next: Module 2 — The Develop Step (Camera Raw) →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

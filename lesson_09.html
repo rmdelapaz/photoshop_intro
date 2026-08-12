@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 3, Lesson 2: frequency separation — split a photo into texture and color so you can even out skin tone without destroying pores.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 3.2: Frequency Separation — Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 3 • Lesson 2</span><span class="lesson-title">🔬 Frequency Separation</span></h1>
+                <p class="lead">This is the technique that makes people say "how did you do that?" Frequency separation splits your photo into two layers: one holding <em>texture</em> (pores, hair, detail) and one holding <em>color &amp; tone</em> (the blotches and shading). Fix each independently and you can even out skin without ever blurring away the pores. It sounds like wizardry; it's really just two sheets.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Explain <strong>high frequency</strong> (texture) vs. <strong>low frequency</strong> (color/tone)</li>
+                        <li>Build a frequency-separation setup with <strong>Gaussian Blur</strong> + <strong>Apply Image</strong></li>
+                        <li>Even out blotchy skin tone on the <strong>color layer</strong>, texture untouched</li>
+                        <li>Fix stray texture on the <strong>texture layer</strong>, color untouched</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 60 minutes</p>
+                    <p><strong>🎯 Project:</strong> Even out uneven skin on your portrait so it looks smooth <em>and</em> real — no plastic, all pores intact.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Smooth but Real</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Two Sheets of Skin</a></li>
+                        <li><a href="#panel" class="toc-link">The Two-Layer Setup</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Separate &amp; Smooth</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Frequency Separation</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>✨ The Goal: Smooth but Real</h2>
+                <p>The right side has blotchy, uneven skin tone. The left has been evened out with frequency separation, and if you look closely, the pores and freckles are <em>still there</em>. That's the difference between retouching and a blur filter. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: blotchy skin tone evened out while texture is preserved.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Even skin tone with texture kept">
+                                <defs><linearGradient id="p2-bg-a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2e9ef"/><stop offset="1" stop-color="#bcc8d3"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#p2-bg-a)"/>
+                                <ellipse cx="300" cy="410" rx="185" ry="115" fill="#7a5a86"/>
+                                <rect x="272" y="272" width="56" height="66" fill="#dca77c"/>
+                                <ellipse cx="300" cy="182" rx="96" ry="116" fill="#e8b58a"/>
+                                <path d="M204 152 a96 96 0 0 1 192 0 q-10 -96 -96 -96 q-86 0 -96 96 Z" fill="#3e2d22"/>
+                                <ellipse cx="262" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="262" cy="172" r="7" fill="#43301f"/>
+                                <ellipse cx="338" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="338" cy="172" r="7" fill="#43301f"/>
+                                <path d="M300 180 l-8 34 q8 6 16 0" stroke="#cf9b70" stroke-width="3" fill="none"/>
+                                <path d="M272 240 q28 20 56 0" stroke="#b56a5b" stroke-width="5" fill="none"/>
+                                <!-- texture KEPT: subtle pore speckle -->
+                                <g fill="#d3a074" opacity="0.5">
+                                    <circle cx="250" cy="205" r="1.1"/><circle cx="262" cy="215" r="1"/><circle cx="275" cy="200" r="1.1"/>
+                                    <circle cx="330" cy="205" r="1"/><circle cx="344" cy="212" r="1.1"/><circle cx="322" cy="198" r="1"/>
+                                    <circle cx="300" cy="232" r="1.1"/><circle cx="288" cy="224" r="1"/><circle cx="312" cy="226" r="1"/>
+                                    <circle cx="256" cy="150" r="1"/><circle cx="344" cy="150" r="1"/><circle cx="300" cy="140" r="1.1"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Blotchy, uneven skin tone">
+                                <defs><linearGradient id="p2-bg-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2e9ef"/><stop offset="1" stop-color="#bcc8d3"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#p2-bg-b)"/>
+                                <ellipse cx="300" cy="410" rx="185" ry="115" fill="#7a5a86"/>
+                                <rect x="272" y="272" width="56" height="66" fill="#dca77c"/>
+                                <ellipse cx="300" cy="182" rx="96" ry="116" fill="#e8b58a"/>
+                                <path d="M204 152 a96 96 0 0 1 192 0 q-10 -96 -96 -96 q-86 0 -96 96 Z" fill="#3e2d22"/>
+                                <!-- blotches: uneven tone patches -->
+                                <ellipse cx="252" cy="208" rx="28" ry="20" fill="#cf8a63" opacity="0.55"/>
+                                <ellipse cx="346" cy="212" rx="30" ry="22" fill="#f2c89c" opacity="0.5"/>
+                                <ellipse cx="300" cy="244" rx="34" ry="17" fill="#d68f66" opacity="0.5"/>
+                                <ellipse cx="292" cy="150" rx="26" ry="15" fill="#c98f6c" opacity="0.45"/>
+                                <ellipse cx="330" cy="170" rx="18" ry="12" fill="#e6a877" opacity="0.5"/>
+                                <ellipse cx="262" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="262" cy="172" r="7" fill="#43301f"/>
+                                <ellipse cx="338" cy="172" rx="20" ry="12" fill="#fff"/><circle cx="338" cy="172" r="7" fill="#43301f"/>
+                                <path d="M300 180 l-8 34 q8 6 16 0" stroke="#cf9b70" stroke-width="3" fill="none"/>
+                                <path d="M272 240 q28 20 56 0" stroke="#b56a5b" stroke-width="5" fill="none"/>
+                                <!-- texture speckle also present -->
+                                <g fill="#d3a074" opacity="0.5">
+                                    <circle cx="250" cy="205" r="1.1"/><circle cx="262" cy="215" r="1"/><circle cx="275" cy="200" r="1.1"/>
+                                    <circle cx="330" cy="205" r="1"/><circle cx="344" cy="212" r="1.1"/><circle cx="322" cy="198" r="1"/>
+                                    <circle cx="300" cy="232" r="1.1"/><circle cx="288" cy="224" r="1"/><circle cx="312" cy="226" r="1"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the evened-out version">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>Even tone, pores intact. A blur would have smoothed the blotches <em>and</em> wiped the pores — this doesn't.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in: a real portrait drops into this same slider</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Two Sheets of Skin</h2>
+                <p>Every image is secretly two things layered together:</p>
+                <ul>
+                    <li><strong>Low frequency</strong>, the slow, soft stuff: overall color, shading, the blotches and uneven tone. Think of it as the <em>paint</em>.</li>
+                    <li><strong>High frequency</strong>, the fast, fine stuff: pores, fine hairs, crisp edges. Think of it as the <em>texture stamped into the paint</em>.</li>
+                </ul>
+                <p>Frequency separation literally puts these on two different layers. Now blotchy tone lives <em>only</em> on the color sheet, so you can smooth it with a soft brush while the texture sheet keeps every pore perfectly sharp. That's the trick, and it's why the result looks real.</p>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            IMG["🖼️ The photo"] --> LOW["🎨 LOW frequency&lt;br/&gt;color &amp; tone (the blotches)"]
+                            IMG --> HIGH["🔎 HIGH frequency&lt;br/&gt;texture (pores, hairs)"]
+                            LOW --> FIXC["Smooth blotches here&lt;br/&gt;(soft brush / blur)"]
+                            HIGH --> FIXT["Fix stray texture here&lt;br/&gt;(heal / clone)"]
+                            FIXC --> DONE["👁️ Recombined:&lt;br/&gt;smooth tone + real pores"]
+                            FIXT --> DONE
+                    </div>
+                    <figcaption>Figure 1: Split into two sheets, fix each on its own terms, and they recombine into a natural whole.</figcaption>
+                </figure>
+
+                <div class="card card-accent">
+                    <h3>🧠 If the math words scare you, don't let them</h3>
+                    <p>"Frequency," "Apply Image," "Linear Light" sound technical, but you'll set them once and forget them. Ninety percent of this technique is just "paint softly on the color layer." Learn the setup as a recipe; the understanding follows.</p>
+                </div>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🧱 The Two-Layer Setup</h2>
+                <p>After setup, your Layers panel holds two duplicates of the skin. Here's the map (a diagram, not a live screenshot):</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:460px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Layers — Frequency Separation</span>
+                        </div>
+                        <svg viewBox="0 0 460 220" role="img" aria-label="Two layers: a High Frequency texture layer in Linear Light on top, and a Low Frequency color layer below.">
+                            <rect width="460" height="220" fill="#3a3a3a"/>
+                            <!-- HIGH layer -->
+                            <rect x="12" y="14" width="436" height="58" fill="#4a4a4a" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="43" r="8" fill="#111"/><circle cx="32" cy="43" r="4" fill="#ffd23f"/>
+                            <rect x="52" y="24" width="40" height="38" fill="#8a8a8a"/>
+                            <text x="72" y="48" text-anchor="middle" style="fill:#222" font-family="Segoe UI, sans-serif" font-size="9">pores</text>
+                            <text x="104" y="40" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">HIGH — Texture</text>
+                            <text x="104" y="58" style="fill:#31A8FF" font-family="Segoe UI, sans-serif" font-size="11">blend mode: Linear Light</text>
+                            <!-- LOW layer -->
+                            <rect x="12" y="80" width="436" height="58" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="109" r="8" fill="#111"/><circle cx="32" cy="109" r="4" fill="#ffd23f"/>
+                            <rect x="52" y="90" width="40" height="38" fill="#e0b184"/>
+                            <text x="104" y="106" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">LOW — Color &amp; Tone</text>
+                            <text x="104" y="124" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">blend mode: Normal (blurred)</text>
+                            <!-- background -->
+                            <rect x="12" y="146" width="436" height="58" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="175" r="8" fill="#111"/><circle cx="32" cy="175" r="4" fill="#ffd23f"/>
+                            <ellipse cx="72" cy="175" rx="16" ry="20" fill="#e8b58a"/>
+                            <text x="104" y="180" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13">Original (untouched backup)</text>
+                        </svg>
+                        <figcaption>Figure 2: <strong>HIGH</strong> (texture) sits on top in <em>Linear Light</em>; <strong>LOW</strong> (color) sits below in <em>Normal</em>. Together they look identical to the original — until you edit one.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Separate &amp; Smooth</h2>
+                <p>Open your retouched portrait from Lesson 3.1 (blemishes already gone; now we even the tone). Flatten a copy to a single layer to start from.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Make the LOW (color) layer <small>· 6 min</small></h3>
+                    <ol>
+                        <li>Duplicate the skin layer twice. Name the lower copy <strong>LOW</strong>, the upper copy <strong>HIGH</strong>; hide HIGH for now.</li>
+                        <li>Select <strong>LOW</strong> and apply <strong>Filter ▸ Blur ▸ Gaussian Blur</strong>. Raise the radius until the blotches are gone and the pores just disappear, often ~6–12px on a portrait. Remember this radius.</li>
+                    </ol>
+                    <blockquote><strong>💡</strong> LOW now holds only color and shading: smooth, no texture. That's your "paint" sheet.</blockquote>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Make the HIGH (texture) layer <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Show and select <strong>HIGH</strong>. Choose <strong>Image ▸ Apply Image</strong>.</li>
+                        <li>Set Layer to <strong>LOW</strong>, and for a 8-bit photo: Blending <strong>Subtract</strong>, Scale <strong>2</strong>, Offset <strong>128</strong>. Click OK. HIGH turns flat gray with faint texture.</li>
+                        <li>Set HIGH's blend mode to <strong>Linear Light</strong>. The image snaps back to normal, but now texture and color live on separate layers. 🎉</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Match the Apply Image settings to your bit depth</h4>
+                        <p>The Subtract / Scale 2 / Offset 128 recipe is for <strong>8-bit</strong> images. For 16-bit, use Blending <strong>Add</strong>, Scale 2, Offset 0, and tick <strong>Invert</strong>. Wrong recipe = a gray mess; it's the one place beginners trip.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Even the tone on LOW <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Select the <strong>LOW</strong> layer. Grab the <strong>Lasso</strong>, loosely circle a blotchy area, and add a tiny <strong>Gaussian Blur</strong>, or paint with a soft <strong>Mixer/normal Brush</strong> sampling good nearby color at low opacity.</li>
+                        <li>Watch the blotches even out while the pores (up on HIGH) stay razor sharp. Work gently; you're evening, not erasing.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Fix stray texture on HIGH <small>· 5 min</small></h3>
+                    <ol>
+                        <li>Select <strong>HIGH</strong>. Use the <strong>Healing Brush</strong> or <strong>Clone Stamp</strong> to remove a rogue flyaway hair or a bit of rough texture, <em>without</em> affecting color at all.</li>
+                        <li>Save the .psd. Your portrait is smooth and real.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ LOW is blurred (color only); HIGH is Linear Light (texture only)</li>
+                        <li>☐ Together they look identical to the original at first</li>
+                        <li>☐ Blotchy tone is evened on LOW</li>
+                        <li>☐ Pores/texture are still crisp (nothing looks plastic)</li>
+                        <li>☐ Any stray texture was fixed on HIGH without shifting color</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Frequency-separate a new portrait and even <em>only</em> the forehead and cheeks. Leave everything else.</li>
+                        <li>Toggle the HIGH layer off to <em>see</em> your pure color sheet, then on again. Understanding beats memorizing.</li>
+                        <li>Compare against a lazy version: duplicate the original and just run a big Gaussian Blur on the whole face. The plastic result is exactly what frequency separation avoids.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> put your LOW-layer smoothing inside a <strong>group with a black mask</strong> and paint the smoothing in only where needed. Module 1 masks, riding on top of frequency separation.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Frequency Separation</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Split texture from color</h3>
+                    <ol>
+                        <li>Duplicate skin ×2 → name <strong>LOW</strong> (lower) and <strong>HIGH</strong> (upper)</li>
+                        <li><strong>LOW</strong>: Gaussian Blur until blotches &amp; pores vanish (note the radius)</li>
+                        <li><strong>HIGH</strong>: <strong>Image ▸ Apply Image</strong> → 8-bit: Subtract, Scale 2, Offset 128 → blend mode <strong>Linear Light</strong></li>
+                        <li>Even tone on <strong>LOW</strong> (soft brush / small blur); fix texture on <strong>HIGH</strong> (heal/clone)</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: <strong>color on LOW, texture on HIGH: never mix them.</strong></small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Frequency separation is the first technique in this course that feels genuinely "advanced." How did it feel to pull it off? Note any step you'd want to re-read — that's your cue for a second practice run.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>Images = <strong>low frequency</strong> (color/tone) + <strong>high frequency</strong> (texture).</li>
+                        <li>Separate them with <strong>Gaussian Blur</strong> (LOW) + <strong>Apply Image</strong> → <strong>Linear Light</strong> (HIGH).</li>
+                        <li>Even blotchy tone on <strong>LOW</strong>; fix stray texture on <strong>HIGH</strong>, never the wrong sheet.</li>
+                        <li>The result is smooth <em>and</em> real, because pores are never blurred away.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You just performed the technique that intimidates most intermediate editors, and you now understand <em>why</em> it works, not just the button order. Frequency separation is a genuine portfolio-and-résumé skill; beauty and commercial retouchers use it every day.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>My HIGH layer looks flat gray and won't come back.</summary>
+                    <p>You almost certainly missed the <strong>Linear Light</strong> blend mode, or used the wrong Apply Image recipe for your bit depth. Re-check: 8-bit = Subtract/Scale 2/Offset 128; 16-bit = Add/Scale 2/Offset 0/Invert.</p>
+                </details>
+                <details>
+                    <summary>How strong a blur should LOW get?</summary>
+                    <p>Just enough that the blotches disappear and pores vanish — no more. Too much blur and your color sheet loses the natural shading of the face. It varies with image size; judge by eye.</p>
+                </details>
+                <details>
+                    <summary>Isn't this overkill for a quick edit?</summary>
+                    <p>For a snapshot, yes: Lesson 3.1's healing is plenty. Reach for frequency separation when skin tone is genuinely <em>uneven</em> (redness, patchiness) and you need it smooth without going plastic.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>Skin is clean and even. Now we add dimension. <strong>Lesson 3.3: Dodge &amp; Burn</strong> (the Module 3 finale) sculpts the face with light and shadow, adds subtle life to the eyes, and finishes the portrait for export. It leans on masks and Curves from earlier modules, so you're ready.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Run the full setup two more times until the Apply Image recipe is memorized.</li>
+                    <li>Do a side-by-side vs. a plain Gaussian blur to lock in why FS wins.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/blur-gallery.html" target="_blank" rel="noopener">Adobe — Blur filters</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/blending-modes.html" target="_blank" rel="noopener">Adobe — Blending modes (Linear Light)</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>If you followed that all the way through, take a real moment: you just did something most people who own Photoshop never learn. It gets easier and faster every time. One lesson left in Module 3, and it's the fun one.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_08.html" class="prev-lesson">← Previous: Natural Skin — Heal, Don't Erase</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_10.html" class="next-lesson">Next: Dodge &amp; Burn — Sculpting Light →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Stage 1, Lesson 1: the layer stack for real, and the one idea that runs all of Photoshop — a mask is a grayscale stencil where black hides and white reveals.">
+    <meta name="description" content="Module 1, Lesson 1: the layer stack for real, and the one idea that runs all of Photoshop — a mask is a grayscale stencil where black hides and white reveals.">
     <meta name="author" content="Ray de la Paz">
-    <title>Stage 1.1: The Layer Stack &amp; Your First Mask — Photoshop Course</title>
+    <title>Module 1.1: The Layer Stack &amp; Your First Mask — Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
@@ -31,7 +31,8 @@
             <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
             <div class="nav-links" id="nav-links">
                 <a href="index.html">Home</a>
-                <a href="index.html#path">All Stages</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
                 <span class="nav-divider"></span>
                 <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
                 <a href="https://rays-home.netlify.app/contact">Contact</a>
@@ -43,17 +44,17 @@
     <main id="main-content">
         <div class="container">
             <header>
-                <h1>🧱 Stage 1 · Lesson 1 — The Layer Stack &amp; Your First Mask</h1>
-                <p class="lead">In Stage 0 you added an adjustment layer that changed the <em>whole</em> photo. But the best edits are local — brighten <em>this</em>, calm down <em>that</em>. The tool for "only here, not there" is a <strong>mask</strong>, and it's the single most important idea in Photoshop. Today it stops being mysterious.</p>
+                <h1><span class="lesson-eyebrow">Module 1 • Lesson 1</span><span class="lesson-title">🧱 The Layer Stack &amp; Your First Mask</span></h1>
+                <p class="lead">In Module 0 you added an adjustment layer that changed the <em>whole</em> photo. But the best edits are local — brighten <em>this</em>, calm down <em>that</em>. The tool for "only here, not there" is a <strong>mask</strong>, and it's the single most important idea in Photoshop. Today it stops being mysterious.</p>
 
                 <div class="card card-info">
                     <h2>📚 What You'll Learn</h2>
                     <p>By the end of this lesson, you will be able to:</p>
                     <ul>
-                        <li>Read a <strong>layer stack</strong> — what's on top wins, and why order matters</li>
+                        <li>Read a <strong>layer stack</strong>: what's on top wins, and why order matters</li>
                         <li>Explain a mask in one sentence: <strong>black hides, white reveals, gray partly reveals</strong></li>
                         <li><strong>Paint on a layer mask</strong> to apply an adjustment to only part of a photo</li>
-                        <li>Recover from mistakes by painting the mask back — no undo panic required</li>
+                        <li>Recover from mistakes by painting the mask back: no undo panic required</li>
                     </ul>
                     <p><strong>⏱️ Estimated Time:</strong> 45 minutes</p>
                     <p><strong>🎯 Project:</strong> Rescue a washed-out sky in a landscape by darkening <em>only</em> the sky with a masked adjustment layer.</p>
@@ -130,14 +131,14 @@
                         <span class="ba-grabber" aria-hidden="true">⇄</span>
                     </div>
                     <figcaption>Notice the hills and tree are <em>identical</em> on both sides. Only the sky changed — that's a mask at work.</figcaption>
-                    <span class="ba-placeholder-note">Illustrated stand-in — a real landscape photo drops into this same slider</span>
+                    <span class="ba-placeholder-note">Illustrated stand-in: a real landscape photo drops into this same slider</span>
                 </figure>
             </section>
 
             <!-- Stack model -->
             <section id="stack" class="lesson-section">
                 <h2>🪟 Mental Model 1: The Stack of Glass</h2>
-                <p>In Stage 0 we called layers "sheets of tracing paper." Let's sharpen that: think of them as <strong>sheets of glass stacked in a frame</strong>, and you're looking straight down through the stack. Whatever is painted on a higher sheet covers what's below it. Clear glass lets the lower sheets show through.</p>
+                <p>In Module 0 we called layers "sheets of tracing paper." Let's sharpen that: think of them as <strong>sheets of glass stacked in a frame</strong>, and you're looking straight down through the stack. Whatever is painted on a higher sheet covers what's below it. Clear glass lets the lower sheets show through.</p>
                 <p>Two rules follow, and they explain almost everything:</p>
                 <ul>
                     <li><strong>Higher layers win</strong> where they're opaque.</li>
@@ -162,7 +163,7 @@
             <!-- Mask model -->
             <section id="mask" class="lesson-section">
                 <h2>🎭 Mental Model 2: A Mask Is a Stencil (Black Hides, White Reveals)</h2>
-                <p>Every adjustment layer comes with a <strong>layer mask</strong> — a grayscale card clipped to that sheet of glass. It has exactly one job: decide, pixel by pixel, <em>how much of this layer's effect gets through</em>.</p>
+                <p>Every adjustment layer comes with a <strong>layer mask</strong>: a grayscale card clipped to that sheet of glass. It has exactly one job: decide, pixel by pixel, <em>how much of this layer's effect gets through</em>.</p>
 
                 <div class="card card-accent">
                     <h3>🧠 The sentence to memorize</h3>
@@ -185,31 +186,31 @@
                         </defs>
                         <rect x="24" y="24" width="150" height="160" fill="url(#maskgrad)" stroke="#94a3b8"/>
                         <text x="99" y="205" text-anchor="middle" fill="var(--text-light)" font-family="Segoe UI, sans-serif" font-size="12">The mask</text>
-                        <text x="99" y="60" text-anchor="middle" fill="#111" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">WHITE = reveal</text>
-                        <text x="99" y="165" text-anchor="middle" fill="#fff" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">BLACK = hide</text>
+                        <text x="99" y="60" text-anchor="middle" style="fill:#111" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">WHITE = reveal</text>
+                        <text x="99" y="165" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">BLACK = hide</text>
                         <!-- arrow -->
                         <text x="250" y="110" text-anchor="middle" fill="var(--text-light)" font-family="Segoe UI, sans-serif" font-size="24">→</text>
                         <!-- result -->
                         <rect x="320" y="24" width="216" height="160" stroke="#94a3b8" fill="none"/>
                         <rect x="320" y="24" width="216" height="92" fill="#1e6fd0"/>
-                        <text x="428" y="74" text-anchor="middle" fill="#fff" font-family="Segoe UI, sans-serif" font-size="12">sky darkened (mask white here)</text>
+                        <text x="428" y="74" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12">sky darkened (mask white here)</text>
                         <rect x="320" y="116" width="216" height="68" fill="#4f9a54"/>
-                        <text x="428" y="154" text-anchor="middle" fill="#fff" font-family="Segoe UI, sans-serif" font-size="12">land untouched (mask black here)</text>
+                        <text x="428" y="154" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12">land untouched (mask black here)</text>
                         <text x="428" y="205" text-anchor="middle" fill="var(--text-light)" font-family="Segoe UI, sans-serif" font-size="12">The result</text>
                     </svg>
-                    <figcaption>Figure 2: A mask that's white at the top and black at the bottom lets the "darken" effect hit the sky and spares the land — with a soft gray transition between them.</figcaption>
+                    <figcaption>Figure 2: A mask that's white at the top and black at the bottom lets the "darken" effect hit the sky and spares the land, with a soft gray transition between them.</figcaption>
                 </figure>
 
                 <div class="card card-success">
                     <h4>✅ The mistake-proof superpower</h4>
-                    <p>Masks make mistakes painless. Painted over something by accident? Switch your brush color to the opposite and paint it right back. Nothing is ever destroyed — you're only adjusting a stencil. This is why pros mask instead of erase.</p>
+                    <p>Masks make mistakes painless. Painted over something by accident? Switch your brush color to the opposite and paint it right back. Nothing is ever destroyed: you're only adjusting a stencil. This is why pros mask instead of erase.</p>
                 </div>
             </section>
 
             <!-- Layers panel -->
             <section id="panel" class="lesson-section">
                 <h2>🔎 Reading the Layers Panel</h2>
-                <p>Here's what your Layers panel will look like after today's build — again, a labeled diagram, not a screenshot of your machine:</p>
+                <p>Here's what your Layers panel will look like after today's build, again a labeled diagram, not a screenshot of your machine:</p>
                 <figure>
                     <div class="ps-mock" style="max-width:420px;">
                         <div class="ps-titlebar">
@@ -260,28 +261,28 @@
                 <p>Open a landscape (or any photo with a clear "top region vs. bottom region" split). If you don't have one, a photo out a window works great.</p>
 
                 <div class="card card-info">
-                    <h3>Step 1 — Open &amp; save your working file <small>· 2 min</small></h3>
-                    <p><strong>File ▸ Open</strong>, then <strong>File ▸ Save As</strong> ▸ <strong>.psd</strong> named <code>sky-rescue-working.psd</code>. (You know this rhythm now — protect the original first.)</p>
+                    <h3>Step 1: Open &amp; save your working file <small>· 2 min</small></h3>
+                    <p><strong>File ▸ Open</strong>, then <strong>File ▸ Save As</strong> ▸ <strong>.psd</strong> named <code>sky-rescue-working.psd</code>. (You know this rhythm now: protect the original first.)</p>
                 </div>
 
                 <div class="card card-info">
-                    <h3>Step 2 — Add a Brightness/Contrast adjustment layer <small>· 3 min</small></h3>
+                    <h3>Step 2: Add a Brightness/Contrast adjustment layer <small>· 3 min</small></h3>
                     <ol>
                         <li>In the Layers panel, click <strong>◐</strong> ▸ <strong>Brightness/Contrast</strong>.</li>
-                        <li>Pull <strong>Brightness down</strong> until the <em>sky</em> looks rich. Ignore the land going too dark — we'll fix that with the mask.</li>
+                        <li>Pull <strong>Brightness down</strong> until the <em>sky</em> looks rich. Ignore the land going too dark. We'll fix that with the mask.</li>
                     </ol>
                     <p>Right now the darkening hits the whole photo, because the mask starts <strong>all white</strong> (all revealed).</p>
                 </div>
 
                 <div class="card card-info">
-                    <h3>Step 3 — Hide the effect everywhere, then reveal only the sky <small>· 8 min</small></h3>
+                    <h3>Step 3: Hide the effect everywhere, then reveal only the sky <small>· 8 min</small></h3>
                     <ol>
                         <li>Click the <strong>mask thumbnail</strong> (the white card) on your adjustment layer to select it.</li>
                         <li>Press <kbd>D</kbd> to reset colors, then flip the foreground to <strong>black</strong> (<kbd>X</kbd> toggles black/white).</li>
-                        <li>Press <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Backspace/Delete</kbd> nothing — instead choose <strong>Edit ▸ Fill ▸ Black</strong>, or press <kbd>Alt/⌥ + Backspace/Delete</kbd> with black as foreground. The whole mask goes black — your darkening vanishes.</li>
+                        <li>Press <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Backspace/Delete</kbd> nothing. Instead, choose <strong>Edit ▸ Fill ▸ Black</strong>, or press <kbd>Alt/⌥ + Backspace/Delete</kbd> with black as foreground. The whole mask goes black: your darkening vanishes.</li>
                         <li>Now grab the <strong>Brush</strong> (<kbd>B</kbd>), set foreground to <strong>white</strong> (<kbd>X</kbd>), pick a big soft brush, and <strong>paint over the sky</strong>. The darkening reappears only where you paint. 🎉</li>
                     </ol>
-                    <blockquote><strong>💡 Watch the mask thumbnail as you paint</strong> — you'll literally see a white sky-shape grow on the black card. That thumbnail <em>is</em> your stencil.</blockquote>
+                    <blockquote><strong>💡 Watch the mask thumbnail as you paint:</strong> you'll literally see a white sky-shape grow on the black card. That thumbnail <em>is</em> your stencil.</blockquote>
                     <div class="card card-warning">
                         <h4>⚠️ Painted onto the land by mistake?</h4>
                         <p>Don't undo in a panic. Press <kbd>X</kbd> to switch the brush to black and paint the mistake away. Black hides, white reveals — you can go back and forth forever.</p>
@@ -289,9 +290,9 @@
                 </div>
 
                 <div class="card card-info">
-                    <h3>Step 4 — Soften the seam &amp; export <small>· 5 min</small></h3>
+                    <h3>Step 4: Soften the seam &amp; export <small>· 5 min</small></h3>
                     <ol>
-                        <li>At the horizon, lower your brush <strong>opacity</strong> to ~30% and gently blend so the transition isn't a hard line. (This is "painting gray" — a partial reveal.)</li>
+                        <li>At the horizon, lower your brush <strong>opacity</strong> to ~30% and gently blend so the transition isn't a hard line. (This is "painting gray": a partial reveal.)</li>
                         <li>Toggle the adjustment layer's 👁 off/on to admire the before/after.</li>
                         <li><strong>File ▸ Export ▸ Export As ▸ JPG 80%</strong> → <code>sky-rescue-final.jpg</code>.</li>
                     </ol>
@@ -316,10 +317,10 @@
                     <h4>🌟 Your challenge</h4>
                     <ol>
                         <li>On a <em>portrait or object photo</em>, add a Brightness/Contrast layer and <strong>brighten</strong> it.</li>
-                        <li>Fill the mask black, then paint <strong>white only over the subject's face</strong> (or the object) so just it gets brighter — a gentle spotlight.</li>
-                        <li>Try the reverse: a second adjustment layer that <em>darkens</em>, masked so it only touches the background — pushing the subject forward.</li>
+                        <li>Fill the mask black, then paint <strong>white only over the subject's face</strong> (or the object) so just it gets brighter, a gentle spotlight.</li>
+                        <li>Try the reverse: a second adjustment layer that <em>darkens</em>, masked so it only touches the background, pushing the subject forward.</li>
                     </ol>
-                    <p><strong>Going further:</strong> select the mask thumbnail and press <kbd>Ctrl/⌘ + I</kbd> to <em>invert</em> it. White becomes black and vice-versa. Watch your reveal flip instantly — a great way to feel how total the black/white relationship is.</p>
+                    <p><strong>Going further:</strong> select the mask thumbnail and press <kbd>Ctrl/⌘ + I</kbd> to <em>invert</em> it. White becomes black and vice-versa. Watch your reveal flip instantly, a great way to feel how total the black/white relationship is.</p>
                 </div>
             </section>
 
@@ -363,16 +364,16 @@
                     <h3>🎓 Key Takeaways</h3>
                     <ul>
                         <li>A <strong>layer stack</strong> is sheets of glass viewed from above: higher layers win, and order is meaning.</li>
-                        <li>Every adjustment layer carries a <strong>mask</strong> — a grayscale stencil.</li>
+                        <li>Every adjustment layer carries a <strong>mask</strong>: a grayscale stencil.</li>
                         <li><strong>Black hides, white reveals, gray blends.</strong> Painting the mask targets an edit to "only here."</li>
                         <li>Masks make editing <strong>reversible</strong>: swap brush color to undo by hand, no destruction.</li>
                     </ul>
                 </div>
 
                 <h3>🎉 What You've Accomplished</h3>
-                <p>You just did the thing that, more than any other, makes someone go from "I push sliders" to "I edit photos." A masked adjustment layer is the atom of nearly every serious Photoshop technique — retouching, compositing, dodging and burning, color grading. You'll reuse this exact move in every stage ahead.</p>
+                <p>You just did the thing that, more than any other, makes someone go from "I push sliders" to "I edit photos." A masked adjustment layer is the atom of nearly every serious Photoshop technique: retouching, compositing, dodging and burning, color grading. You'll reuse this exact move in every module ahead.</p>
 
-                <h3>❓ Common Questions at This Stage</h3>
+                <h3>❓ Common Questions at This Module</h3>
                 <details>
                     <summary>Why fill the mask black and paint white, instead of the other way around?</summary>
                     <p>Either works. Painting <em>in</em> the effect (black mask, add white) gives you precise control over a small area. For a big area like a sky, some people start white and paint black to <em>subtract</em>. Learn both; pick whichever means less painting for the shot.</p>
@@ -387,7 +388,7 @@
                 </details>
 
                 <h3>🔭 Looking Ahead</h3>
-                <p>You painted your mask by hand today. In <strong>Lesson 1.2 — Selections That Hold Up</strong>, you'll let Photoshop find edges for you (Object Selection, Quick Selection, Select &amp; Mask) and convert those selections into clean masks instantly.</p>
+                <p>You painted your mask by hand today. In <strong>Lesson 1.2: Selections That Hold Up</strong>, you'll let Photoshop find edges for you (Object Selection, Quick Selection, Select &amp; Mask) and convert those selections into clean masks instantly.</p>
 
                 <h3>✅ Before the Next Lesson</h3>
                 <ul>
@@ -398,8 +399,8 @@
 
                 <h3>📚 Additional Resources</h3>
                 <ul>
-                    <li><a href="https://helpx.adobe.com/photoshop/using/masking-layers.html" target="_blank" rel="noopener">Adobe — Mask layers</a></li>
-                    <li><a href="https://helpx.adobe.com/photoshop/using/adjustment-fill-layers.html" target="_blank" rel="noopener">Adobe — Adjustment &amp; fill layers</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/masking-layers.html" target="_blank" rel="noopener">Adobe: Mask layers</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/adjustment-fill-layers.html" target="_blank" rel="noopener">Adobe: Adjustment &amp; fill layers</a></li>
                 </ul>
 
                 <div class="card card-accent" style="text-align: center; padding: 2rem;">
@@ -410,9 +411,9 @@
 
             <!-- Lesson Navigation -->
             <nav class="lesson-nav" aria-label="Lesson Navigation">
-                <a href="stage-0.html" class="prev-lesson">← Previous: Stage 0 — Fix &amp; Export One Photo</a>
+                <a href="lesson_01.html" class="prev-lesson">← Previous: Module 0 — Fix &amp; Export One Photo</a>
                 <a href="index.html" class="home-link">🏠 Course Home</a>
-                <a href="index.html#path" class="next-lesson">Next: Selections That Hold Up (coming soon) →</a>
+                <a href="lesson_03.html" class="next-lesson">Next: Selections That Hold Up →</a>
             </nav>
         </div>
     </main>

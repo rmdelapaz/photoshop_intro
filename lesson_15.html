@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 5, Lesson 2: shapes and the Pen tool. Build resolution-independent vector graphics that stay crisp at any size.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 5.2: Shapes &amp; the Pen | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 5 • Lesson 2</span><span class="lesson-title">✒️ Shapes &amp; the Pen</span></h1>
+                <p class="lead">Type needs company: frames, badges, dividers, icons, and custom graphics. In Photoshop those are best built as <strong>vector shapes</strong>, which stay perfectly crisp at any size. This lesson covers the Shape tools and the Pen, the tool that scares beginners and defines pros.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Explain <strong>vector vs raster</strong>, and why vectors never pixelate</li>
+                        <li>Draw and combine <strong>shape layers</strong> (rectangles, ellipses, custom shapes)</li>
+                        <li>Use the <strong>Pen tool</strong> to make clean straight and curved paths</li>
+                        <li>Turn paths into <strong>shapes, selections, or masks</strong></li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 55 minutes</p>
+                    <p><strong>🎯 Project:</strong> Add crisp vector elements to your poster: a frame, a badge, and one custom shape drawn with the Pen.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: Crisp at Any Size</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Math, Not Pixels</a></li>
+                        <li><a href="#pen" class="toc-link">How the Pen Thinks</a></li>
+                        <li><a href="#panel" class="toc-link">Shape Layers</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Vector Elements</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Pen &amp; Shapes</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🔍 The Goal: Crisp at Any Size</h2>
+                <p>This is one shape's edge, enlarged. On the right it was a raster graphic, so blowing it up reveals the pixels as a jagged staircase. On the left it is a vector, so the same enlargement stays a clean curve. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a pixelated raster edge versus a smooth vector edge, enlarged.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Vector edge: smooth curve when enlarged">
+                                <rect width="600" height="400" fill="#eef2f6"/>
+                                <path d="M60 360 L60 90 Q360 90 360 360 Z" fill="#1473E6"/>
+                                <text x="200" y="388" text-anchor="middle" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">VECTOR: smooth at 8×</text>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Raster edge: jagged pixel staircase when enlarged">
+                                <rect width="600" height="400" fill="#eef2f6"/>
+                                <!-- pixel grid -->
+                                <g stroke="#cdd6de" stroke-width="1">
+                                    <path d="M60 30 V370 M120 30 V370 M180 30 V370 M240 30 V370 M300 30 V370 M360 30 V370 M420 30 V370 M60 90 H420 M60 150 H420 M60 210 H420 M60 270 H420 M60 330 H420"/>
+                                </g>
+                                <!-- staircase approximating the same curve -->
+                                <path d="M60 360 L60 90 L120 90 L120 120 L180 120 L180 170 L240 170 L240 240 L300 240 L300 330 L360 330 L360 360 Z" fill="#1473E6"/>
+                                <text x="205" y="388" text-anchor="middle" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">RASTER: jagged at 8×</text>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">Vector</span>
+                        <span class="ba-label before">Raster</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the vector edge">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>Same shape, same zoom. The vector recomputes a clean edge at any size; the raster can only show the pixels it has.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in demonstrating the effect.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Math, Not Pixels</h2>
+                <p>A <strong>raster</strong> image (a photo) is a grid of colored squares. Enlarge it and there are no new squares to show, so Photoshop guesses, and the edges go soft or blocky. Everything you did in Modules 0 through 4 was raster work.</p>
+                <p>A <strong>vector</strong> shape is different. It is not stored as pixels at all; it is stored as <em>instructions</em>: "a circle of this radius here," "a line from this point to that one." Because it is math, Photoshop can draw it fresh at any size, from a stamp to a stadium banner, always perfectly crisp. Type is vector too, which is why your text never pixelates.</p>
+
+                <div class="card card-accent">
+                    <h3>🧠 When to use which</h3>
+                    <p>Photos are raster; there is no vector version of a sunset. But logos, icons, frames, badges, and type should be <strong>vector</strong> whenever possible, so they scale and print sharp. A poster is usually a raster photo <em>plus</em> vector type and shapes on top. Best of both.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart TD
+                            Q(["Enlarge it a lot"]) --> R["RASTER (pixels)&lt;br/&gt;no new pixels to show&lt;br/&gt;→ soft or blocky"]
+                            Q --> V["VECTOR (math)&lt;br/&gt;recomputed at new size&lt;br/&gt;→ still crisp"]
+                            R --> USE1["Use for: photos"]
+                            V --> USE2["Use for: type, logos,&lt;br/&gt;icons, shapes, frames"]
+                    </div>
+                    <figcaption>Figure 1: Raster stores pixels; vector stores instructions. That single difference decides which survives being enlarged.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Pen -->
+            <section id="pen" class="lesson-section">
+                <h2>✍️ How the Pen Thinks</h2>
+                <p>The Pen tool intimidates people because it does not draw where you drag; it places <strong>anchor points</strong> that a curve passes through, and the curve's bend is controlled by <strong>handles</strong> you pull out. Learn that one idea and the Pen becomes logical:</p>
+                <figure>
+                    <svg viewBox="0 0 520 240" role="img" aria-label="A pen path with two anchor points on a curve and bezier handles controlling the bend." style="max-width:520px;width:100%;border-radius:10px;border:1px solid var(--border-color);background:var(--code-bg);">
+                        <!-- the curve -->
+                        <path d="M70 180 C 160 40, 360 40, 450 180" fill="none" stroke="var(--primary-color)" stroke-width="3"/>
+                        <!-- handles -->
+                        <line x1="70" y1="180" x2="160" y2="60" stroke="var(--text-light)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                        <line x1="450" y1="180" x2="360" y2="60" stroke="var(--text-light)" stroke-width="1.5" stroke-dasharray="4 3"/>
+                        <circle cx="160" cy="60" r="6" fill="none" stroke="var(--text-light)" stroke-width="2"/>
+                        <circle cx="360" cy="60" r="6" fill="none" stroke="var(--text-light)" stroke-width="2"/>
+                        <!-- anchor points (filled squares) -->
+                        <rect x="63" y="173" width="14" height="14" fill="var(--primary-color)"/>
+                        <rect x="443" y="173" width="14" height="14" fill="var(--primary-color)"/>
+                        <!-- labels -->
+                        <text x="70" y="210" text-anchor="middle" style="fill:var(--text-color)" font-family="Segoe UI, sans-serif" font-size="12">anchor point</text>
+                        <text x="450" y="210" text-anchor="middle" style="fill:var(--text-color)" font-family="Segoe UI, sans-serif" font-size="12">anchor point</text>
+                        <text x="160" y="40" text-anchor="middle" style="fill:var(--text-light)" font-family="Segoe UI, sans-serif" font-size="12">handle (controls bend)</text>
+                        <text x="360" y="40" text-anchor="middle" style="fill:var(--text-light)" font-family="Segoe UI, sans-serif" font-size="12">handle</text>
+                    </svg>
+                    <figcaption>Figure 2: <strong>Click</strong> to drop a corner anchor. <strong>Click and drag</strong> to drop a smooth anchor and pull out handles that shape the curve.</figcaption>
+                </figure>
+                <div class="card card-success">
+                    <h4>✅ The two-move rule</h4>
+                    <p>Straight line: click, click. Curve: click and <em>drag</em>, then click and drag again. That is 90% of the Pen. Everything else (adding, deleting, converting points) is just tidying up afterward.</p>
+                </div>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🗂️ Shape Layers</h2>
+                <p>When you draw with a Shape tool or a Pen set to <strong>Shape</strong> mode, you get a <strong>shape layer</strong>: a vector object with its own fill and stroke, and a vector mask that keeps its edge crisp. Here is one in the Layers panel, drawn as a diagram:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:460px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Layers &amp; Shape options</span>
+                        </div>
+                        <svg viewBox="0 0 460 210" role="img" aria-label="A shape layer with a vector mask, and the Fill and Stroke options for a shape.">
+                            <rect width="460" height="210" fill="#3a3a3a"/>
+                            <!-- options bar strip -->
+                            <rect x="0" y="0" width="460" height="34" fill="#2f2f2f"/>
+                            <text x="14" y="22" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Shape:</text>
+                            <text x="60" y="22" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="11">Fill</text>
+                            <rect x="84" y="9" width="16" height="16" fill="#ffd23f"/>
+                            <text x="112" y="22" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="11">Stroke</text>
+                            <rect x="156" y="9" width="16" height="16" fill="none" stroke="#4bb3c4" stroke-width="3"/>
+                            <text x="184" y="22" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="11">3 pt</text>
+                            <text x="230" y="22" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Path ops: combine ▾</text>
+                            <!-- shape layer row -->
+                            <rect x="12" y="48" width="436" height="56" fill="#4a4a4a" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="76" r="8" fill="#111"/><circle cx="32" cy="76" r="4" fill="#ffd23f"/>
+                            <!-- shape thumb -->
+                            <rect x="52" y="56" width="40" height="40" fill="#454545"/>
+                            <path d="M72 60 l6 14 15 1 -12 10 4 15 -13 -9 -13 9 4 -15 -12 -10 15 -1 Z" fill="#ffd23f"/>
+                            <!-- vector mask thumb -->
+                            <rect x="100" y="56" width="40" height="40" fill="#fff"/>
+                            <path d="M120 60 l6 14 15 1 -12 10 4 15 -13 -9 -13 9 4 -15 -12 -10 15 -1 Z" fill="#111"/>
+                            <text x="150" y="72" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5" font-weight="bold">Star (Shape layer)</text>
+                            <text x="150" y="90" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">↑ shape thumb + vector mask (stays crisp)</text>
+                            <!-- background -->
+                            <rect x="12" y="112" width="436" height="52" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="32" cy="138" r="8" fill="#111"/><circle cx="32" cy="138" r="4" fill="#ffd23f"/>
+                            <rect x="48" y="122" width="30" height="32" fill="#2b4a5a"/>
+                            <text x="88" y="143" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5">Poster background</text>
+                            <text x="16" y="188" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">Double-click the fill swatch to recolor the shape any time. It is non-destructive.</text>
+                        </svg>
+                        <figcaption>Figure 3: A shape layer carries editable <strong>Fill</strong> and <strong>Stroke</strong> and a vector mask. Recolor or resize it forever without losing a pixel of sharpness.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Vector Elements</h2>
+                <p>Open your <code>poster-working.psd</code> from Lesson 5.1.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: A frame from a shape <small>· 5 min</small></h3>
+                    <ol>
+                        <li>Pick the <strong>Rectangle</strong> tool, set to <strong>Shape</strong> mode. Draw a border rectangle. In the options bar set <strong>Fill: none</strong> and a <strong>Stroke</strong> of a few points in your accent color.</li>
+                        <li>You now have a crisp frame that you can resize freely later.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: A badge with combined shapes <small>· 8 min</small></h3>
+                    <ol>
+                        <li>Draw an <strong>Ellipse</strong> shape for a circular badge.</li>
+                        <li>With the same shape layer active, draw a second shape and use the <strong>Path Operations</strong> menu (combine, subtract, intersect) to build a more interesting badge from simple parts.</li>
+                        <li>Add your Lesson 5.1 <strong>type on a path</strong> around it.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: One custom shape with the Pen <small>· 10 min</small></h3>
+                    <ol>
+                        <li>Set the <strong>Pen</strong> to <strong>Shape</strong> mode. Trace a simple custom graphic (a mountain, a soundwave, a leaf): click for corners, click and drag for curves.</li>
+                        <li>Do not aim for perfect on the first pass. Lay the points down, then use the <strong>Direct Selection</strong> tool (white arrow) to nudge anchors and handles until the curve is right.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Fewer points, smoother curves</h4>
+                        <p>Beginners place too many anchor points, which makes lumpy curves. A smooth curve usually needs surprisingly few points. Place one at each place the curve changes direction, and no more.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Paths do triple duty <small>· 5 min</small></h3>
+                    <ol>
+                        <li>Right-click any path and see the options: <strong>Make Selection</strong>, <strong>Fill Path</strong>, or the shape's <strong>vector mask</strong>. One path can become a selection, a filled shape, or a crisp mask.</li>
+                        <li>Try turning a Pen path into a selection, then into a layer mask, connecting this straight back to Module 1.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ The scale test</h4>
+                        <p>Zoom to 800% on a shape layer's edge. It stays razor sharp. Do the same on a rasterized copy and watch it fall apart. That is why logos and icons live as shapes.</p>
+                    </div>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ A vector frame with a stroke and no fill</li>
+                        <li>☐ A badge built from combined shapes</li>
+                        <li>☐ One custom shape drawn with the Pen (few, clean anchor points)</li>
+                        <li>☐ Edges stay crisp at 800% zoom</li>
+                        <li>☐ At least one path reused as a selection or mask</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Play "the Pen game": trace a few shapes (a heart, a cloud, a lightning bolt) using as <em>few</em> anchor points as possible.</li>
+                        <li>Rebuild a simple real logo (two or three shapes) with the Shape tools and Path Operations.</li>
+                        <li>Draw one shape, then scale it from tiny to huge. Confirm with your own eyes that it never softens.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> trace the outline of a subject with the Pen instead of Select &amp; Mask. For hard, well-defined edges (a bottle, a car), a hand-drawn Pen path can beat the automatic tools.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Pen &amp; Shapes</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Crisp vector graphics</h3>
+                    <ol>
+                        <li>Shape tools in <strong>Shape</strong> mode for frames and badges (set Fill / Stroke)</li>
+                        <li><strong>Path Operations</strong> to combine simple shapes into complex ones</li>
+                        <li><strong>Pen</strong>: click for corners, click-drag for curves; few points</li>
+                        <li><strong>Direct Selection</strong> (white arrow) to refine anchors and handles</li>
+                        <li>Right-click a path → Make Selection / Fill / vector mask</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: vector is math, so it stays crisp; use it for everything that is not a photo.</small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> The Pen tool has a reputation for being hard. After the two-move rule (click for corners, drag for curves), does it feel less mysterious? Note the shape you found hardest to trace and why.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li><strong>Raster</strong> stores pixels and softens when enlarged; <strong>vector</strong> stores math and stays crisp.</li>
+                        <li>Use vector for <strong>type, logos, icons, and shapes</strong>; raster for photos.</li>
+                        <li>The <strong>Pen</strong> places anchor points and handles: click for corners, drag for curves.</li>
+                        <li>A path can become a <strong>shape, a selection, or a mask</strong>.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You added the vector half of Photoshop to your raster skills, and you faced down the Pen tool. Frames, badges, icons, and custom graphics are now yours to build, sharp at any size. Your poster has structure as well as words.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>Should I just use Illustrator for vectors?</summary>
+                    <p>For heavy logo and illustration work, yes, Illustrator is the specialist. But Photoshop's shapes and Pen are more than enough for poster elements, and keeping everything in one file is simpler. Learn these first.</p>
+                </details>
+                <details>
+                    <summary>My Pen curves look lumpy.</summary>
+                    <p>Too many anchor points. Delete the extras and let fewer points do the work. Also make sure your handles are roughly tangent to the curve, not pointing off at odd angles.</p>
+                </details>
+                <details>
+                    <summary>What does "rasterize" a shape mean, and should I?</summary>
+                    <p>Rasterizing converts a vector shape into pixels, which lets you paint on it but throws away the crisp-at-any-size magic. Only do it when you specifically need pixel edits, and keep a vector copy first.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>You have type and shapes. Now make them shine. <strong>Lesson 5.3 is the Module 5 finale</strong>: layer styles (shadows, strokes, gradients, glows), Smart Objects for reusable graphics, and assembling everything into a finished poster ready for print or screen.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Draw five shapes with the Pen using minimal anchor points.</li>
+                    <li>Add a frame and a badge to your poster file.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/drawing-shapes.html" target="_blank" rel="noopener">Adobe: Draw shapes</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/drawing-pen-tools.html" target="_blank" rel="noopener">Adobe: Draw with the Pen tools</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>The Pen tool is a rite of passage, and you just took your first real steps with it. It rewards practice more than almost any tool in Photoshop, so trace a little every day and it will click into muscle memory sooner than you expect.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_14.html" class="prev-lesson">← Previous: Type &amp; Hierarchy</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_16.html" class="next-lesson">Next: Layer Styles &amp; the Poster (Module 5 finale) →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

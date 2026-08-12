@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 7, Lesson 2: the studio session. Build your capstone non-destructively and keep a complex file organized with named, grouped, color-labeled layers.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 7.2: Studio Session, Build It Well | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 7 • Lesson 2</span><span class="lesson-title">🛠️ Studio Session: Build It Well</span></h1>
+                <p class="lead">Plan in hand, this is the build. A capstone is bigger than any single exercise, so the skill on trial is not just editing, it is <em>working</em>: staying non-destructive, keeping the file organized, and stepping back often enough to keep the whole piece in view.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <ul>
+                        <li>Build in the right order: <strong>block in big, refine small</strong></li>
+                        <li>Keep a complex file organized with <strong>named, grouped, color-labeled</strong> layers</li>
+                        <li>Protect your work with <strong>snapshots</strong> and versioned saves</li>
+                        <li>Use a habit of <strong>stepping back</strong> to judge the whole piece</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> your own build time (plan for one or two focused sessions)</p>
+                    <p><strong>🎯 Project:</strong> Build your capstone to a finished state, in a file you would be happy to hand to someone else.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: A File You Can Hand Over</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: A Tidy File Is a Fast File</a></li>
+                        <li><a href="#panel" class="toc-link">Snapshots &amp; Safety</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: The Studio Session</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Build Your Piece</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Work Clean</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🗂️ The Goal: A File You Can Hand Over</h2>
+                <p>Two versions of the same finished artwork's Layers panel. On the right, the panel nobody wants to inherit: "Layer 12 copy 3" and no structure. On the left, named groups and color labels you could navigate blindfolded. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a chaotic layer stack versus a named, grouped, color-labeled one.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Organized Layers panel with named, color-labeled groups">
+                                <rect width="600" height="400" fill="#3a3a3a"/>
+                                <text x="20" y="30" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold">Layers</text>
+                                <g font-family="Segoe UI, sans-serif" font-size="15">
+                                    <!-- group rows with color labels -->
+                                    <rect x="0" y="46" width="600" height="52" fill="#454545"/><rect x="0" y="46" width="8" height="52" fill="#8a6ba0"/>
+                                    <circle cx="34" cy="72" r="8" fill="#111"/><circle cx="34" cy="72" r="4" fill="#ffd23f"/>
+                                    <text x="54" y="78" style="fill:#e2e8f0">▸ 📁 04 · GRADE</text>
+                                    <rect x="0" y="102" width="600" height="52" fill="#414141"/><rect x="0" y="102" width="8" height="52" fill="#4b79c4"/>
+                                    <circle cx="34" cy="128" r="8" fill="#111"/><circle cx="34" cy="128" r="4" fill="#ffd23f"/>
+                                    <text x="54" y="134" style="fill:#e2e8f0">▸ 📁 03 · TYPE</text>
+                                    <rect x="0" y="158" width="600" height="52" fill="#454545"/><rect x="0" y="158" width="8" height="52" fill="#5a9e5a"/>
+                                    <circle cx="34" cy="184" r="8" fill="#111"/><circle cx="34" cy="184" r="4" fill="#ffd23f"/>
+                                    <text x="54" y="190" style="fill:#e2e8f0">▸ 📁 02 · SUBJECT</text>
+                                    <rect x="0" y="214" width="600" height="52" fill="#414141"/><rect x="0" y="214" width="8" height="52" fill="#8a8a8a"/>
+                                    <circle cx="34" cy="240" r="8" fill="#111"/><circle cx="34" cy="240" r="4" fill="#ffd23f"/>
+                                    <text x="54" y="246" style="fill:#e2e8f0">▸ 📁 01 · BACKGROUND</text>
+                                </g>
+                                <text x="20" y="300" style="fill:#7ad07a" font-family="Segoe UI, sans-serif" font-size="13">named · grouped · color-labeled</text>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Chaotic Layers panel with generic layer names">
+                                <rect width="600" height="400" fill="#3a3a3a"/>
+                                <text x="20" y="30" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="15" font-weight="bold">Layers</text>
+                                <g font-family="Segoe UI, sans-serif" font-size="14" style="fill:#cbd5e1">
+                                    <rect x="0" y="46" width="600" height="36" fill="#444"/><text x="40" y="70">Layer 12 copy 3</text>
+                                    <rect x="0" y="84" width="600" height="36" fill="#3f3f3f"/><text x="40" y="108">Layer 12 copy 2</text>
+                                    <rect x="0" y="122" width="600" height="36" fill="#444"/><text x="40" y="146">Curves 5</text>
+                                    <rect x="0" y="160" width="600" height="36" fill="#3f3f3f"/><text x="40" y="184">Layer 8</text>
+                                    <rect x="0" y="198" width="600" height="36" fill="#444"/><text x="40" y="222">Background copy 4</text>
+                                    <rect x="0" y="236" width="600" height="36" fill="#3f3f3f"/><text x="40" y="260">Layer 1</text>
+                                    <rect x="0" y="274" width="600" height="36" fill="#444"/><text x="40" y="298">Layer 12 copy</text>
+                                </g>
+                                <text x="20" y="344" style="fill:#e0796b" font-family="Segoe UI, sans-serif" font-size="13">what does any of this do?</text>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">Organized</span>
+                        <span class="ba-label before">Chaos</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the organized panel">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>Both files can produce the same image. Only one lets you (or a teammate) change something next week without dread.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in of a Layers panel.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: A Tidy File Is a Fast File</h2>
+                <p>On a big piece, disorganization is not just ugly, it is slow and risky. You lose minutes hunting for the right layer, you edit the wrong one, and you are terrified to change anything for fear of breaking something you cannot find. Organizing as you go is not fussiness; it is speed insurance.</p>
+                <p>Three habits keep any file sane, no matter how complex:</p>
+                <ul>
+                    <li><strong>Name things immediately.</strong> The moment a layer matters, name it. "sky", "model-cutout", "title", not "Layer 9".</li>
+                    <li><strong>Group by role.</strong> Put related layers in groups: BACKGROUND, SUBJECT, TYPE, GRADE. Collapse the ones you are not using.</li>
+                    <li><strong>Color-label the groups.</strong> A glance at color tells you where you are in a stack of fifty layers.</li>
+                </ul>
+
+                <div class="card card-accent">
+                    <h3>🧠 Build big to small</h3>
+                    <p>Resist polishing early. Block in the whole composition roughly first: does the layout work? Only once the big shapes are right do you refine details. Time spent perfecting an eyelash before the composition is decided is time you will throw away.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            A["Block in&lt;br/&gt;(rough composition)"] --> B["Refine&lt;br/&gt;(work big to small)"]
+                            B --> C["Step back&lt;br/&gt;(squint, flip, fit view)"]
+                            C -->|"not there yet"| B
+                            C -->|"it works"| D["Finish&lt;br/&gt;(polish + tidy the file)"]
+                    </div>
+                    <figcaption>Figure 1: The studio loop. Refine, then step back to judge the whole, and iterate. Stepping back is a step, not a break.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🕘 Snapshots &amp; Safety</h2>
+                <p>Before a risky move (a big generative edit, a merge, a filter), take a <strong>Snapshot</strong> in the History panel. It is a saved point you can jump back to even after many other steps. Here is the History panel as a diagram:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:400px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">History</span>
+                        </div>
+                        <svg viewBox="0 0 400 210" role="img" aria-label="History panel with snapshots at the top and a list of recent steps.">
+                            <rect width="400" height="210" fill="#3a3a3a"/>
+                            <text x="16" y="24" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold">SNAPSHOTS</text>
+                            <rect x="16" y="32" width="368" height="26" fill="#454545"/>
+                            <rect x="24" y="38" width="18" height="14" fill="#5b8fb0"/><text x="52" y="49" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Before compositing</text>
+                            <rect x="16" y="60" width="368" height="26" fill="#1473E6"/>
+                            <rect x="24" y="66" width="18" height="14" fill="#7a9e6b"/><text x="52" y="77" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12">Before generative edit</text>
+                            <line x1="16" y1="96" x2="384" y2="96" stroke="#4a4a4a"/>
+                            <text x="16" y="114" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold">STEPS</text>
+                            <g font-family="Segoe UI, sans-serif" font-size="11.5" style="fill:#cbd5e1">
+                                <text x="24" y="134">Curves</text>
+                                <text x="24" y="152">Layer via Mask</text>
+                                <text x="24" y="170">Generative Fill</text>
+                                <text x="24" y="188">Move</text>
+                            </g>
+                            <text x="210" y="150" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">Click a snapshot to</text>
+                            <text x="210" y="166" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">jump back anytime.</text>
+                        </svg>
+                        <figcaption>Figure 2: Snapshots (top) are named restore points. Take one before anything hard to undo. The step list below is your recent, linear history.</figcaption>
+                    </div>
+                </figure>
+                <p><small>History is session-only (it clears when you close the file), so also <strong>Save versions</strong> to disk: <code>capstone_v1.psd</code>, <code>_v2</code>, and so on, before major changes.</small></p>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: The Studio Session</h2>
+                <p>Open the document you set up in 7.1, with your plan beside you. Work through your skill map, ticking items off.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Block in the composition <small>· first session</small></h3>
+                    <ol>
+                        <li>Place your major elements roughly: background, subject, space for type. Do not refine yet.</li>
+                        <li>Group and name them immediately: BACKGROUND, SUBJECT, TYPE. Judge the layout before going deeper.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Refine, module by module <small>· main session</small></h3>
+                    <ol>
+                        <li>Work your skill map in order. Cut out and mask (M1, M4), match light and color (M4), retouch (M3), grade (M2), set type (M5), add styles (M5), generative touches (M6).</li>
+                        <li>Keep everything non-destructive: adjustment layers, Smart Objects, masks. Take a <strong>snapshot</strong> before each risky step.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ Name as you go, not at the end</h4>
+                        <p>"I'll tidy up later" becomes forty mystery layers. Naming and grouping in the moment costs seconds; retrofitting order onto a finished mess costs an hour and your patience.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Step back, on purpose <small>· throughout</small></h3>
+                    <ol>
+                        <li>Every so often, zoom to fit, squint, and flip the canvas horizontally (<strong>Image ▸ Image Rotation ▸ Flip Horizontal</strong>, then flip back). Fresh eyes catch imbalances your familiar eyes miss.</li>
+                        <li>Ask: does it still serve the brief? Is the focal point winning? Adjust the big picture, not just the pixels.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Finish and clean up <small>· final pass</small></h3>
+                    <ol>
+                        <li>Add the unifying grade over everything (M2, M4). Do a 100% pass for stray artifacts.</li>
+                        <li>Final tidy: confirm every group is named and labeled, delete dead layers, and save a clean <code>capstone_final.psd</code> master.</li>
+                    </ol>
+                    <div class="card card-success">
+                        <h4>✅ Strong-piece rubric</h4>
+                        <p>A strong capstone usually has: a clear focal point, consistent light and color, clean edges and masks, deliberate type (if any), and no distracting artifacts. Grade yourself honestly against those five before calling it done.</p>
+                    </div>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ The piece matches the brief from 7.1</li>
+                        <li>☐ Built non-destructively (adjustment layers, Smart Objects, masks)</li>
+                        <li>☐ Layers are named, grouped, and color-labeled</li>
+                        <li>☐ Snapshots and versioned saves protected the risky steps</li>
+                        <li>☐ A clean layered master is saved</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Build Your Piece</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Build your capstone to a finished state. Give it real time, across more than one sitting if it needs it.</li>
+                        <li>Enforce the rule that every layer is named and grouped before you close the file for the day.</li>
+                        <li>Save a fresh version before any edit you are nervous about. You will use one bravely because you know you can get back.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> keep a couple of "process" snapshots exported as JPGs. They are gold for the presentation in 7.3, where showing your process is as impressive as the result.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Work Clean</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Studio habits</h3>
+                    <ol>
+                        <li><strong>Block in</strong> the composition before refining</li>
+                        <li><strong>Name</strong> layers and <strong>group by role</strong> immediately; color-label groups</li>
+                        <li>Stay non-destructive: adjustment layers, Smart Objects, masks</li>
+                        <li><strong>Snapshot</strong> before risky steps; save versioned <code>.psd</code> files</li>
+                        <li><strong>Step back</strong> often: squint, flip, fit view, re-check the brief</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: a tidy file is a fast file.</small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Which skill did your capstone lean on most, and which did you reach for and realize you needed to practice more? That gap is your next lesson, and knowing it is a sign of real growth.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Lesson Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>Build <strong>big to small</strong>: block in, then refine.</li>
+                        <li>Keep the file <strong>named, grouped, and color-labeled</strong> as you go.</li>
+                        <li><strong>Snapshots</strong> and versioned saves make risky edits safe.</li>
+                        <li><strong>Step back</strong> regularly to judge the whole against the brief.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished</h3>
+                <p>You built a real, multi-skill piece the way a professional does: organized, non-destructive, and reviewed against a plan. Managing a complex file calmly is a skill in itself, and it is exactly what makes bigger, braver work possible.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>My file is huge and slow. Help?</summary>
+                    <p>Flatten or merge finished sections into Smart Objects to lighten it, but keep a full layered version saved first. Also purge (Edit ▸ Purge) if your history is eating memory.</p>
+                </details>
+                <details>
+                    <summary>I got stuck and the piece feels worse than before.</summary>
+                    <p>Normal. Jump to an earlier snapshot or version, step back, and re-check the brief. A dip mid-project is not failure; it is the middle. Push through or reset to your last strong point.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>The piece exists. Now make it land. <strong>Lesson 7.3, the finale of the whole course</strong>, is about presentation: exporting cleanly, showing the work in context, critiquing it honestly, and building a portfolio. A great piece badly presented is a wasted piece.</p>
+
+                <h3>✅ Before the Next Lesson</h3>
+                <ul>
+                    <li>Finish your capstone and save the clean master.</li>
+                    <li>Keep one or two process snapshots for the presentation.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Finishing a self-directed piece is a different kind of hard than following steps, and you are doing it. However it turned out, you made something that did not exist before, on purpose, with skill. That is the whole game.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_20.html" class="prev-lesson">← Previous: Choose Your Brief &amp; Plan</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_22.html" class="next-lesson">Next: Present &amp; Ship (course finale) →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

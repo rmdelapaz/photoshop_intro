@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 4, Lesson 3 (finale): ground a composite with contact shadows, add atmosphere for depth, unify with one grade, and export.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Module 4.3: Ground It &amp; Grade It | Photoshop Course</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+</head>
+<body>
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">☰</button>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#path">All Modules</a>
+                <a href="recipes.html">Recipes</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <div class="container">
+            <header>
+                <h1><span class="lesson-eyebrow">Module 4 • Lesson 3</span><span class="lesson-title">🌫️ Ground It &amp; Grade It</span></h1>
+                <p class="lead">Your subject shares the scene's light now, but it may still hover like a sticker. The fix is what the eye reads as "real": a shadow that ties it to the ground, atmosphere for depth, and one grade over everything so it all feels shot on the same camera. This is the Module 4 finale.</p>
+
+                <div class="card card-info">
+                    <h2>📚 What You'll Learn</h2>
+                    <p>By the end of this lesson, you will be able to:</p>
+                    <ul>
+                        <li>Anchor a subject with a <strong>contact shadow</strong> and a soft <strong>cast shadow</strong></li>
+                        <li>Add depth with <strong>atmospheric perspective</strong> (haze)</li>
+                        <li>Tie everything together with a single <strong>unifying grade</strong></li>
+                        <li>Flatten and <strong>export</strong> a finished, believable composite</li>
+                    </ul>
+                    <p><strong>⏱️ Estimated Time:</strong> 55 minutes</p>
+                    <p><strong>🎯 Project:</strong> Finish your Module 4 composite so it reads as one photograph, and export it. This is the Practitioner deliverable.</p>
+                </div>
+            </header>
+
+            <details class="card toc-card" open>
+                <summary aria-label="Toggle table of contents">
+                    <span class="toc-icon" aria-hidden="true">📑</span>
+                    <span class="toc-label">In This Lesson</span>
+                    <span class="toc-chevron" aria-hidden="true">▾</span>
+                </summary>
+                <nav aria-label="Table of Contents">
+                    <ol>
+                        <li><a href="#hook" class="toc-link">The Goal: One Photograph</a></li>
+                        <li><a href="#model" class="toc-link">Mental Model: Shadow, Depth, Unity</a></li>
+                        <li><a href="#panel" class="toc-link">The Finishing Stack</a></li>
+                        <li><a href="#build" class="toc-link">Guided Build: Ground, Depth, Grade</a></li>
+                        <li><a href="#solo" class="toc-link">Now You: Solo Variation</a></li>
+                        <li><a href="#recipe" class="toc-link">Recipe Card: Finish a Composite</a></li>
+                        <li><a href="#journal" class="toc-link">Learning Journal</a></li>
+                        <li><a href="#summary" class="toc-link">Module 4 Summary</a></li>
+                    </ol>
+                </nav>
+            </details>
+
+            <!-- Hook -->
+            <section id="hook" class="lesson-section">
+                <h2>🎬 The Goal: One Photograph</h2>
+                <p>Same matched subject in the same scene. On the right it floats: no shadow, everything equally crisp. On the left it is grounded with a shadow, given depth with a little haze, and unified with one warm grade. Drag the handle:</p>
+
+                <figure>
+                    <div class="ba-slider" aria-label="Before and after: a floating composite grounded with shadow, atmosphere, and a unifying grade.">
+                        <div class="ba-layer ba-after" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Finished composite: grounded, atmospheric, graded">
+                                <defs>
+                                    <linearGradient id="c3-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9e5e"/><stop offset="1" stop-color="#ffdca6"/></linearGradient>
+                                    <filter id="softsh" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="7"/></filter>
+                                    <radialGradient id="vig" cx="0.5" cy="0.5" r="0.75"><stop offset="0.6" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.35"/></radialGradient>
+                                </defs>
+                                <rect width="600" height="400" fill="url(#c3-sky)"/>
+                                <circle cx="470" cy="250" r="46" fill="#fff3cf"/>
+                                <path d="M0 300 Q300 250 600 300 V400 H0 Z" fill="#c79a5a"/>
+                                <!-- atmospheric haze band near horizon (depth) -->
+                                <rect x="0" y="272" width="600" height="46" fill="#ffd9a0" opacity="0.35" filter="url(#softsh)"/>
+                                <path d="M0 340 Q300 310 600 340 V400 H0 Z" fill="#9c7440"/>
+                                <!-- contact + cast shadow under feet -->
+                                <ellipse cx="228" cy="388" rx="70" ry="12" fill="#5a3a1e" opacity="0.5" filter="url(#softsh)"/>
+                                <ellipse cx="300" cy="390" rx="120" ry="9" fill="#5a3a1e" opacity="0.3" filter="url(#softsh)"/>
+                                <!-- subject: warm-matched -->
+                                <ellipse cx="215" cy="180" rx="30" ry="36" fill="#c88a5c"/>
+                                <path d="M185 176 a30 30 0 0 1 60 0 q-4 -34 -30 -34 q-26 0 -30 34 Z" fill="#3a2b24"/>
+                                <path d="M188 232 q27 -20 54 0 v120 h-54 Z" fill="#9a5537"/>
+                                <rect x="200" y="350" width="12" height="38" fill="#4a3628"/>
+                                <rect x="218" y="350" width="12" height="38" fill="#4a3628"/>
+                                <path d="M245 150 q10 30 -3 66" stroke="#ffd9a0" stroke-width="4" fill="none" opacity="0.8"/>
+                                <!-- unifying grade wash + vignette over everything -->
+                                <rect width="600" height="400" fill="#ff8a3d" opacity="0.10"/>
+                                <rect width="600" height="400" fill="url(#vig)"/>
+                            </svg>
+                        </div>
+                        <div class="ba-layer ba-before" aria-hidden="true">
+                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Floating composite: no shadow, no atmosphere, no grade">
+                                <defs><linearGradient id="c3-sky-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9e5e"/><stop offset="1" stop-color="#ffdca6"/></linearGradient></defs>
+                                <rect width="600" height="400" fill="url(#c3-sky-b)"/>
+                                <circle cx="470" cy="250" r="46" fill="#fff3cf"/>
+                                <path d="M0 300 Q300 250 600 300 V400 H0 Z" fill="#c79a5a"/>
+                                <path d="M0 340 Q300 310 600 340 V400 H0 Z" fill="#9c7440"/>
+                                <!-- subject floats: no shadow -->
+                                <ellipse cx="215" cy="180" rx="30" ry="36" fill="#c88a5c"/>
+                                <path d="M185 176 a30 30 0 0 1 60 0 q-4 -34 -30 -34 q-26 0 -30 34 Z" fill="#3a2b24"/>
+                                <path d="M188 232 q27 -20 54 0 v120 h-54 Z" fill="#9a5537"/>
+                                <rect x="200" y="350" width="12" height="38" fill="#4a3628"/>
+                                <rect x="218" y="350" width="12" height="38" fill="#4a3628"/>
+                                <path d="M245 150 q10 30 -3 66" stroke="#ffd9a0" stroke-width="4" fill="none" opacity="0.8"/>
+                            </svg>
+                        </div>
+                        <span class="ba-label after">After</span>
+                        <span class="ba-label before">Before</span>
+                        <input type="range" class="ba-range" min="0" max="100" value="55" aria-label="Reveal the finished composite">
+                        <span class="ba-divider" aria-hidden="true"></span>
+                        <span class="ba-grabber" aria-hidden="true">⇄</span>
+                    </div>
+                    <figcaption>The shadow ties the subject to the ground, the haze adds depth, and the warm wash makes it all one image.</figcaption>
+                    <span class="ba-placeholder-note">Illustrated stand-in. A real finished composite drops into this same slider.</span>
+                </figure>
+            </section>
+
+            <!-- Model -->
+            <section id="model" class="lesson-section">
+                <h2>🧠 Mental Model: Shadow, Depth, Unity</h2>
+                <p>Three things convince the eye that separate images are one photograph, and they work at three different scales:</p>
+                <ul>
+                    <li><strong>Shadow (the object).</strong> Nothing real floats. A <em>contact shadow</em> where the subject meets the ground is the strongest single cue that it belongs. A softer <em>cast shadow</em> in the direction the light throws it adds even more.</li>
+                    <li><strong>Depth (the space).</strong> Air is not perfectly clear. Distant things are hazier, lighter, and lower in contrast than near things. A little <em>atmospheric perspective</em> restores that sense of space.</li>
+                    <li><strong>Unity (the whole).</strong> A single grade laid over everything gives the final image one shared color and mood, the way a single camera and lens would.</li>
+                </ul>
+
+                <div class="card card-accent">
+                    <h3>🧠 The whole course, in one image</h3>
+                    <p>Look at what this finale draws on: non-destructive layers (Module 0), masks (Module 1), grading with Curves (Module 2), and shadow-painting that is really dodge and burn (Module 3). A finished composite is every skill you have built, working together.</p>
+                </div>
+
+                <figure>
+                    <div class="mermaid">
+                        flowchart LR
+                            A["Matched subject&lt;br/&gt;(still floating)"] --> B["GROUND it&lt;br/&gt;contact + cast shadow"]
+                            B --> C["Add DEPTH&lt;br/&gt;atmospheric haze"]
+                            C --> D["UNIFY&lt;br/&gt;one grade over all"]
+                            D --> E["Flatten &amp; export&lt;br/&gt;one photograph"]
+                    </div>
+                    <figcaption>Figure 1: Object, space, whole. Ground the subject, give the scene depth, then unify everything with one grade.</figcaption>
+                </figure>
+            </section>
+
+            <!-- Panel -->
+            <section id="panel" class="lesson-section">
+                <h2>🗂️ The Finishing Stack</h2>
+                <p>The order of layers matters here. The shadow goes <em>under</em> the subject; the unifying grade goes <em>over</em> everything. Here is the finished stack, drawn as a diagram:</p>
+                <figure>
+                    <div class="ps-mock" style="max-width:460px;">
+                        <div class="ps-titlebar">
+                            <span class="ps-dot" style="background:#ff5f57;"></span>
+                            <span class="ps-dot" style="background:#febc2e;"></span>
+                            <span class="ps-dot" style="background:#28c840;"></span>
+                            <span style="margin-left:6px;">Layers: finished composite</span>
+                        </div>
+                        <svg viewBox="0 0 460 268" role="img" aria-label="From top: unifying grade over all, atmosphere, subject group with clipped matches, contact shadow, background.">
+                            <rect width="460" height="268" fill="#3a3a3a"/>
+                            <!-- grade over all -->
+                            <rect x="12" y="10" width="436" height="40" fill="#4a4a4a" stroke="#5a5a5a"/>
+                            <circle cx="34" cy="30" r="7" fill="#111"/><circle cx="34" cy="30" r="3.5" fill="#ffd23f"/>
+                            <rect x="52" y="18" width="24" height="24" fill="#ff8a3d"/>
+                            <text x="84" y="35" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Unifying Grade  <tspan style="fill:#9aa4ad">(over ALL)</tspan></text>
+                            <!-- atmosphere -->
+                            <rect x="12" y="52" width="436" height="38" fill="#454545" stroke="#5a5a5a"/>
+                            <circle cx="34" cy="71" r="7" fill="#111"/><circle cx="34" cy="71" r="3.5" fill="#ffd23f"/>
+                            <text x="84" y="76" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Atmosphere / haze</text>
+                            <!-- subject group -->
+                            <rect x="12" y="92" width="436" height="46" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="34" cy="115" r="7" fill="#111"/><circle cx="34" cy="115" r="3.5" fill="#ffd23f"/>
+                            <text x="52" y="112" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">▸ SUBJECT (group)</text>
+                            <text x="52" y="128" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">cutout + clipped light/color matches (Lesson 4.2)</text>
+                            <!-- contact shadow -->
+                            <rect x="12" y="140" width="436" height="40" fill="#454545" stroke="#5a5a5a"/>
+                            <circle cx="34" cy="160" r="7" fill="#111"/><circle cx="34" cy="160" r="3.5" fill="#ffd23f"/>
+                            <ellipse cx="64" cy="164" rx="14" ry="5" fill="#2a2a2a"/>
+                            <text x="88" y="165" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Contact + cast shadow  <tspan style="fill:#9aa4ad">(under subject)</tspan></text>
+                            <!-- background -->
+                            <rect x="12" y="182" width="436" height="44" fill="#414141" stroke="#5a5a5a"/>
+                            <circle cx="34" cy="204" r="7" fill="#111"/><circle cx="34" cy="204" r="3.5" fill="#ffd23f"/>
+                            <rect x="48" y="190" width="24" height="28" fill="#e0a95a"/>
+                            <text x="84" y="209" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Background scene</text>
+                            <text x="16" y="248" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">Shadow BELOW subject · grade ON TOP of everything. Order is the trick.</text>
+                        </svg>
+                        <figcaption>Figure 2: Shadow beneath the subject, atmosphere above the scene, and the unifying grade on top of the whole stack.</figcaption>
+                    </div>
+                </figure>
+            </section>
+
+            <!-- Build -->
+            <section id="build" class="lesson-section">
+                <h2>🛠️ Guided Build: Ground, Depth, Grade</h2>
+                <p>Open your matched composite from Lesson 4.2.</p>
+
+                <div class="card card-info">
+                    <h3>Step 1: Paint a contact shadow <small>· 10 min</small></h3>
+                    <ol>
+                        <li>Make a new layer <em>below</em> the subject. With a soft black brush at low opacity, paint a small, darker pool right where the subject touches the ground.</li>
+                        <li>Keep the contact point (feet, base) darkest and tightest. That first centimetre of shadow is what sells contact.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 2: Add a cast shadow <small>· 8 min</small></h3>
+                    <ol>
+                        <li>On the same layer, paint a longer, softer shadow stretching away from the light. If the sun is high-right, the shadow falls low-left.</li>
+                        <li>A cast shadow gets <em>softer and lighter</em> the farther it travels from the subject. Lower the brush opacity as you move outward, and blur the layer with a little Gaussian Blur.</li>
+                    </ol>
+                    <div class="card card-warning">
+                        <h4>⚠️ One light, one shadow direction</h4>
+                        <p>Every shadow in the scene must fall the same way, because there is one sun. A subject shadow pointing the wrong direction is as jarring as a bad edge. Check the shadows already in the background and match them.</p>
+                    </div>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 3: Add atmosphere for depth <small>· 6 min</small></h3>
+                    <ol>
+                        <li>If the subject sits in the mid or far distance, add a whisper of the sky's color between it and the camera. A low-opacity soft layer of the scene's haze color, masked to the distance, pushes it back into space.</li>
+                        <li>Near subjects get little or none. The amount of haze <em>is</em> the sense of distance.</li>
+                    </ol>
+                </div>
+
+                <div class="card card-info">
+                    <h3>Step 4: Unify and export <small>· 8 min</small></h3>
+                    <ol>
+                        <li>At the very top of the stack, add one grade over everything: a <strong>Color Lookup</strong> or a gentle <strong>Curves</strong> that gives the whole image one shared mood. A subtle warm wash and a soft vignette work wonders.</li>
+                        <li>Because this layer sits over both subject and background, it forces them to share a final look, the way a single camera would.</li>
+                        <li>Final squint test. <strong>File ▸ Save</strong> the layered master, then <strong>File ▸ Export ▸ Export As ▸ JPG</strong>. Module 4 deliverable: one believable photograph. 🏆</li>
+                    </ol>
+                </div>
+
+                <div class="card card-success">
+                    <h3>✅ Project Completion Checklist</h3>
+                    <ul>
+                        <li>☐ A dark, tight <strong>contact shadow</strong> sits where the subject meets the ground</li>
+                        <li>☐ A softer <strong>cast shadow</strong> falls in the same direction as the scene's other shadows</li>
+                        <li>☐ Distance reads through subtle <strong>atmosphere</strong></li>
+                        <li>☐ One <strong>unifying grade</strong> sits over the whole stack</li>
+                        <li>☐ Saved the layered master and exported the finished JPG</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Solo -->
+            <section id="solo" class="lesson-section">
+                <h2>🧗 Now You: Solo Variation</h2>
+                <div class="card card-warning">
+                    <h4>🌟 Your challenge</h4>
+                    <ol>
+                        <li>Finish a composite with a <em>hard</em> light source (bright sun) and again with a <em>soft</em> one (overcast). Notice how the shadow changes: hard light gives a sharp, dark shadow; soft light gives a faint, fuzzy one.</li>
+                        <li>Deliberately point your subject's shadow the wrong way, look at how instantly wrong it feels, then fix it. Feeling the error cements the rule.</li>
+                        <li>Grade the same finished composite two ways: warm and golden, then cool and moody. One image, two moods.</li>
+                    </ol>
+                    <p><strong>Going further:</strong> reflected light. Real surfaces bounce color up onto a subject (green grass tints the underside of a chin). A tiny bit of bounced scene-color on your subject's shadow side is the master's touch.</p>
+                </div>
+            </section>
+
+            <!-- Recipe -->
+            <section id="recipe" class="lesson-section">
+                <h2>🍳 Recipe Card: Finish a Composite</h2>
+                <div class="card" style="border-left:4px solid var(--primary-color);">
+                    <h3>Ground, depth, unity</h3>
+                    <ol>
+                        <li>New layer <em>below</em> subject: paint a tight, dark <strong>contact shadow</strong> at the feet</li>
+                        <li>Add a softer <strong>cast shadow</strong> in the light's direction; blur it</li>
+                        <li>Add subtle <strong>atmosphere</strong> (haze) for distance</li>
+                        <li>Top of stack: one <strong>unifying grade</strong> + soft vignette over everything</li>
+                        <li>Squint test, save master, export JPG</li>
+                    </ol>
+                    <p style="margin-bottom:0;"><small>Mantra: shadow under, grade over, one light for all.</small></p>
+                </div>
+            </section>
+
+            <!-- Journal -->
+            <section id="journal" class="lesson-section">
+                <h2>📓 Learning Journal</h2>
+                <div class="card card-info">
+                    <p>Add to your journal after this lesson:</p>
+                    <ul>
+                        <li><strong>Key concepts</strong> you learned</li>
+                        <li><strong>Techniques that clicked</strong> for you</li>
+                        <li><strong>Questions or confusion points</strong> to revisit</li>
+                        <li><strong>Ideas you want to try</strong></li>
+                        <li><strong>Your progress and feelings</strong> about learning this</li>
+                    </ul>
+                    <p><strong>✍️ This lesson's prompt:</strong> Of shadow, atmosphere, and grade, which made the biggest difference to <em>your</em> composite? That tells you which cue your eye is most sensitive to.</p>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section id="summary" class="lesson-section">
+                <h2>📝 Module 4 Summary</h2>
+
+                <div class="card card-success">
+                    <h3>🎓 Key Takeaways</h3>
+                    <ul>
+                        <li>A <strong>contact shadow</strong> is the strongest cue that a subject belongs.</li>
+                        <li><strong>Atmosphere</strong> (haze) restores the sense of distance and space.</li>
+                        <li>One <strong>unifying grade</strong> over the whole stack makes it feel like a single photo.</li>
+                        <li>There is only <strong>one light</strong>; every shadow falls the same way.</li>
+                    </ul>
+                </div>
+
+                <h3>🎉 What You've Accomplished, Across All of Module 4</h3>
+                <p>You took two separate images and made one believable photograph: a clean, fringe-free cutout (4.1), a subject matched to the scene's light and color (4.2), and a finished image grounded with shadow, given depth, and unified with a grade (4.3). Compositing is where every earlier skill converges, and you can now do the whole pipeline.</p>
+
+                <h3>❓ Common Questions at This Stage</h3>
+                <details>
+                    <summary>My shadow looks fake. What is wrong?</summary>
+                    <p>Usually it is too uniform. Real shadows are darkest and sharpest at the contact point and get softer and lighter as they travel. Vary the opacity and softness along the shadow's length.</p>
+                </details>
+                <details>
+                    <summary>How much atmosphere is right?</summary>
+                    <p>Less than you think. Atmosphere is a whisper. If you can clearly see the haze layer, it is too strong. Back it off until the depth reads without the effect announcing itself.</p>
+                </details>
+                <details>
+                    <summary>Should the unifying grade be strong?</summary>
+                    <p>No. Its job is cohesion, not drama. A subtle shared color and a gentle vignette are usually enough. If the grade is doing the heavy lifting, revisit your light and color match first.</p>
+                </details>
+
+                <h3>🔭 Looking Ahead</h3>
+                <p>You have finished the image-making tiers. <strong>Module 5 begins the design work</strong>: type, shapes, and layout, as you build a poster. Everything you know about layers, masks, Smart Objects, and grading now serves a designed piece with words on it.</p>
+
+                <h3>✅ Before the Next Module</h3>
+                <ul>
+                    <li>Build one composite end to end: cut out, match, ground, grade, export.</li>
+                    <li>Study a favorite movie poster and name its shadow direction and grade.</li>
+                    <li>Write your Learning Journal entry.</li>
+                </ul>
+
+                <h3>📚 Additional Resources</h3>
+                <ul>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/blending-modes.html" target="_blank" rel="noopener">Adobe: Blending modes</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/adjustment-fill-layers.html" target="_blank" rel="noopener">Adobe: Adjustment layers &amp; Color Lookup</a></li>
+                </ul>
+
+                <div class="card card-accent" style="text-align: center; padding: 2rem;">
+                    <h3>🌟 Encouragement for the Journey</h3>
+                    <p>Four modules in, and you can now make an image that never existed look like it was captured in a single frame. That is a genuine superpower, and you built it one skill at a time. Take a breath, then let's design something in Module 5.</p>
+                </div>
+            </section>
+
+            <nav class="lesson-nav" aria-label="Lesson Navigation">
+                <a href="lesson_12.html" class="prev-lesson">← Previous: Make It Belong</a>
+                <a href="index.html" class="home-link">🏠 Course Home</a>
+                <a href="lesson_14.html" class="next-lesson">Next: Module 5, Type &amp; Hierarchy →</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>
