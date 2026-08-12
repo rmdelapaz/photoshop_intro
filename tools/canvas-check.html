@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas Diagram QA Checker</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 1050px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+  h1 { font-size: 1.4rem; }
+  p.note { color: #555; }
+  #controls { margin: 1rem 0; }
+  button { padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+  #summary { font-weight: bold; margin: 1rem 0; padding: 0.75rem; border-radius: 6px; }
+  .ok { background: #e8f5e9; color: #1b5e20; }
+  .bad { background: #ffebee; color: #b71c1c; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+  th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: #f5f5f5; }
+  code { background: #f1f1f1; padding: 1px 4px; border-radius: 3px; }
+  .prog { color: #555; font-size: 0.85rem; }
+  .kind-overflow { color: #b71c1c; } .kind-overlap { color: #c2410c; }
+</style>
+</head>
+<body>
+<h1>🖼️ Canvas Diagram QA Checker</h1>
+<p class="note">
+  Serve your course over HTTP (e.g. <code>python3 -m http.server</code>) and open this page from the same origin.
+  It discovers every lesson from <code>/index.html</code>, loads each in a sandboxed iframe with the canvas API
+  instrumented, and flags <strong>text that overflows its box/canvas</strong> or <strong>overlaps other text</strong> —
+  the two failure modes of hand-coded <code>&lt;canvas&gt;</code> diagrams. The classic cause is
+  <code>ctx.textAlign='center'</code> set once and reused for left-positioned bullets/code (they then spill left).
+</p>
+<p class="note">
+  ⚠️ <strong>Verify hits visually before fixing.</strong> Canvases that use <code>translate</code>/<code>rotate</code>
+  are <em>skipped</em> (their coordinates aren't measurable statically). Diagrams whose visual box is a drawn
+  <em>path</em> (pillars, houses) rather than a <code>fillRect</code> can false-positive, and overflows ≤5px are
+  usually font-metric noise. This tool finds candidates; your eyes confirm them.
+</p>
+<div id="controls">
+  <button id="run">Run check</button>
+  <span class="prog" id="prog"></span>
+</div>
+<div id="summary"></div>
+<table id="results" hidden><thead><tr><th>#</th><th>Page</th><th>Canvas</th><th>Kind</th><th>Detail</th></tr></thead><tbody></tbody></table>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const prog = $('#prog'), summary = $('#summary'), table = $('#results'), tbody = table.querySelector('tbody');
+const MIN_OVERFLOW = 6;   // px past a box/canvas edge before we flag (below this = font-metric noise)
+const MIN_OVERLAP  = 4;   // px of text-text intersection in BOTH axes before we flag
+
+// Runs INSIDE each lesson iframe, before its own scripts, to record every draw call.
+const INSTRUMENT = `
+  window.__canvasDraws = {};
+  (function(){
+    var P = CanvasRenderingContext2D.prototype;
+    var of = P.fillText, os = P.strokeText, orr = P.fillRect;
+    var ot = P.translate, orot = P.rotate, ost = P.setTransform, otr = P.transform;
+    function sz(f){ var m=/(\\d+(?:\\.\\d+)?)px/.exec(f||''); return m?parseFloat(m[1]):12; }
+    function rec(ctx){ var id=ctx.canvas.id||'(no-id)';
+      return window.__canvasDraws[id] || (window.__canvasDraws[id]={texts:[],rects:[],w:ctx.canvas.width,h:ctx.canvas.height,transformed:false}); }
+    function addText(ctx,t,x,y){ var d=rec(ctx), s=sz(ctx.font), w=ctx.measureText(String(t)).width, a=ctx.textAlign||'start';
+      var left = a==='center'?x-w/2 : (a==='right'||a==='end')?x-w : x, right=left+w;
+      var b=ctx.textBaseline||'alphabetic';
+      var top = b==='middle'?y-s/2 : b==='top'?y : b==='bottom'?y-s : y-0.8*s, bottom=top+s;
+      d.texts.push({t:String(t),y:y,left:Math.round(left),right:Math.round(right),top:Math.round(top),bottom:Math.round(bottom)}); }
+    P.fillText=function(t,x,y){ try{addText(this,t,x,y);}catch(e){} return of.apply(this,arguments); };
+    P.strokeText=function(t,x,y){ try{addText(this,t,x,y);}catch(e){} return os.apply(this,arguments); };
+    P.fillRect=function(x,y,w,h){ try{ if(w>40&&h>25) rec(this).rects.push({left:x,right:x+w,top:y,bottom:y+h}); }catch(e){} return orr.apply(this,arguments); };
+    function mark(ctx){ try{ rec(ctx).transformed=true; }catch(e){} }
+    P.translate=function(){ mark(this); return ot.apply(this,arguments); };
+    P.rotate=function(){ mark(this); return orot.apply(this,arguments); };
+    P.setTransform=function(a,b,c,d,e,f){ if(!(a===1&&b===0&&c===0&&d===1&&e===0&&f===0)) mark(this); return ost.apply(this,arguments); };
+    P.transform=function(){ mark(this); return otr.apply(this,arguments); };
+  })();
+`;
+
+function analyze(id, d) {
+  if (d.transformed) return [];  // coordinates are inside a transform → not statically measurable
+  const out = [];
+  for (const t of d.texts) {
+    if (t.left < -MIN_OVERFLOW || t.right > d.w + MIN_OVERFLOW)
+      out.push(['overflow', `"${t.t}" spans ${t.left}..${t.right} — off canvas (0..${d.w})`]);
+  }
+  for (const t of d.texts) {
+    const cx = (t.left + t.right) / 2;
+    const boxes = d.rects.filter(r => cx >= r.left && cx <= r.right && t.y >= r.top - 2 && t.y <= r.bottom + 2)
+                         .sort((a, b) => (a.right-a.left)*(a.bottom-a.top) - (b.right-b.left)*(b.bottom-b.top));
+    if (boxes.length) { const r = boxes[0];
+      if (t.left < r.left - MIN_OVERFLOW || t.right > r.right + MIN_OVERFLOW)
+        out.push(['overflow', `"${t.t}" spans ${t.left}..${t.right} — past box ${r.left}..${r.right}`]);
+    }
+  }
+  for (let i = 0; i < d.texts.length; i++) for (let j = i + 1; j < d.texts.length; j++) {
+    const a = d.texts[i], b = d.texts[j];
+    const xo = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+    const yo = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+    if (xo > MIN_OVERLAP && yo > MIN_OVERLAP) out.push(['overlap', `"${a.t}" ✕ "${b.t}"`]);
+  }
+  return out;
+}
+
+async function discoverLessonUrls() {
+  const html = await (await fetch('/index.html?cb=' + Math.random())).text();
+  // accept relative ("lesson.html") and root-absolute ("/lesson.html") links; skip external + index
+  const urls = [...html.matchAll(/href="([^"#?]+\.html)(?:[?#][^"]*)?"/g)]
+    .map(m => m[1])
+    .filter(u => !/^https?:\/\//i.test(u))
+    .map(u => '/' + u.replace(/^\.?\//, ''))
+    .filter(u => u !== '/index.html');
+  return [...new Set(urls)];
+}
+
+function loadDraws(url) {
+  return new Promise(async (resolve) => {
+    let html;
+    try { html = await (await fetch(url + '?cb=' + Math.random())).text(); }
+    catch { resolve({ error: 'could not fetch' }); return; }
+    // inject <base> (so relative css/js resolve to root) + the instrument, as the first thing in <head>
+    html = html.replace(/<head([^>]*)>/i, `<head$1><base href="/"><script>${INSTRUMENT}<\/script>`);
+    const iframe = document.createElement('iframe');
+    iframe.style.cssText = 'position:absolute;width:1000px;height:800px;left:-9999px;top:0;border:0;';
+    iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+    let settled = false;
+    const finish = () => { if (settled) return; settled = true;
+      let draws = {}; try { draws = iframe.contentWindow.__canvasDraws || {}; } catch { draws = { _blocked: true }; }
+      iframe.remove(); resolve({ draws }); };
+    iframe.addEventListener('load', () => setTimeout(finish, 900));
+    setTimeout(finish, 6000); // hard timeout
+    iframe.srcdoc = html;
+    document.body.appendChild(iframe);
+  });
+}
+
+async function run() {
+  $('#run').disabled = true;
+  summary.className = ''; summary.textContent = 'Discovering lessons…';
+  table.hidden = true; tbody.innerHTML = '';
+  let urls;
+  try { urls = await discoverLessonUrls(); }
+  catch { summary.className = 'bad'; summary.textContent = 'Could not read /index.html — are you serving over HTTP?'; $('#run').disabled = false; return; }
+
+  const flags = []; let pages = 0, canvases = 0, done = 0;
+  for (const u of urls) {
+    done++; prog.textContent = `Checking ${done}/${urls.length} — ${u}`;
+    const { draws, error } = await loadDraws(u);
+    if (error) { flags.push([u, '-', 'overflow', error]); continue; }
+    pages++;
+    for (const [id, d] of Object.entries(draws)) {
+      if (id === '_blocked') continue;
+      canvases++;
+      for (const [kind, detail] of analyze(id, d)) flags.push([u, id, kind, detail]);
+    }
+  }
+
+  prog.textContent = '';
+  if (flags.length === 0) {
+    summary.className = 'ok';
+    summary.textContent = `✅ No overflow/overlap found across ${canvases} canvases on ${pages} pages (transform-using canvases skipped).`;
+  } else {
+    summary.className = 'bad';
+    summary.textContent = `⚠️ ${flags.length} candidate issue(s) across ${pages} pages — verify each visually (see caveats above).`;
+    table.hidden = false;
+    flags.forEach(([u, id, kind, detail], i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${i + 1}</td><td><a href="${u}" target="_blank">${u}</a></td><td><code>${id}</code></td>`
+        + `<td class="kind-${kind}">${kind}</td><td>${detail.replace(/</g, '&lt;')}</td>`;
+      tbody.appendChild(tr);
+    });
+  }
+  $('#run').disabled = false;
+}
+$('#run').addEventListener('click', run);
+</script>
+</body>
+</html>

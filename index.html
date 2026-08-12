@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A project-driven, spiral Photoshop course. Every stage produces a finished deliverable; skills are taught exactly when you need them.">
+    <meta name="author" content="Ray de la Paz">
+    <title>Photoshop: From First Win to Finished Work</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="skip-to-main">Skip to main content</a>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo"><span class="ps-chip">Ps</span>Photoshop Course</a>
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-expanded="false" aria-controls="nav-links">
+                ☰
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="#introduction">Introduction</a>
+                <a href="#path">The Path</a>
+                <a href="#recipes">Recipes</a>
+                <a href="#prerequisites">Prerequisites</a>
+                <span class="nav-divider"></span>
+                <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+                <a href="https://rays-home.netlify.app/contact">Contact</a>
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">🌙</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- NOTE: No breadcrumb nav — omitted per the Courseware Authoring Standard. -->
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="container">
+            <!-- Hero Section -->
+            <header>
+                <h1><span class="ps-chip">Ps</span> From First Win to Finished Work</h1>
+                <p class="lead">Learn Photoshop the way professionals actually work — one finished piece at a time. You'll make something real in your very first sitting, and every stage after that hands you a deliverable you'd be proud to show.</p>
+            </header>
+
+            <!-- Introduction Section -->
+            <section id="introduction" class="card">
+                <h2>📚 What Makes This Course Different</h2>
+                <p>Most software courses march you through menus: here's the Brush tool, here's the Clone tool, here's a dialog box you'll forget by lunch. This one doesn't. <strong>Every stage is built around a finished deliverable</strong> — a fixed photo, a cleaned-up image, a graded portrait, a poster — and you learn each skill at the exact moment the project needs it.</p>
+                <p>It's also <strong>spiral</strong>: the four ideas that make Photoshop make sense — <em>non-destructive editing</em>, <em>the layer stack</em>, <em>masks as grayscale</em>, and <em>selections</em> — come back again and again, each time a little deeper. You don't "finish" layers in week one and move on. You keep meeting them until they're second nature.</p>
+
+                <h3>You will be able to…</h3>
+                <ul>
+                    <li>Work <strong>non-destructively</strong> — make bold changes you can always dial back or undo</li>
+                    <li>Think in a <strong>layer stack</strong> and control exactly what shows through with <strong>masks</strong></li>
+                    <li>Make clean <strong>selections</strong> and cut a subject out of its background convincingly</li>
+                    <li>Grade light and color, retouch a portrait, and build a believable composite</li>
+                    <li>Use <strong>Smart Objects, Camera Raw, Actions, and Generative Fill</strong> — the things that separate Photoshop from a basic photo app</li>
+                    <li>Finish and present a <strong>portfolio piece</strong> you chose yourself</li>
+                </ul>
+
+                <h3>Who this is for</h3>
+                <ul>
+                    <li>Complete beginners who've never opened Photoshop</li>
+                    <li>Self-taught editors who can push sliders but don't feel <em>in control</em></li>
+                    <li>Anyone who's bounced off "tool tour" courses and wants to actually make things</li>
+                </ul>
+
+                <div class="card card-accent" style="margin-top: 1.5rem;">
+                    <h3>🧠 A word before you start</h3>
+                    <p>If you've ever felt like Photoshop is "too much," that feeling is normal — and temporary. You are not going to learn all of Photoshop. Nobody has. You're going to learn the handful of ideas the whole program is built on, and then use them. Add the word <em>yet</em> to anything that feels hard today.</p>
+                </div>
+            </section>
+
+            <!-- The Path -->
+            <section id="path">
+                <h2>🗺️ The Learning Path</h2>
+                <p>Eight stages, three tiers. Do them in order — each one leans on the last. Alongside them runs a parallel <a href="#recipes">Recipes</a> library you can dip into any time.</p>
+
+                <!-- How the two tracks relate -->
+                <div class="mermaid">
+                    flowchart LR
+                        subgraph PATH["📚 Learning Path (in order)"]
+                            direction TB
+                            S0["Stage 0&lt;br/&gt;First Win"] --> S1["Stage 1&lt;br/&gt;Foundations"] --> S2["Stage 2&lt;br/&gt;Light &amp; Color"] --> S3["Stage 3&lt;br/&gt;Retouching"] --> S4["Stage 4&lt;br/&gt;Compositing"] --> S5["Stage 5&lt;br/&gt;Design &amp; Type"] --> S6["Stage 6&lt;br/&gt;AI &amp; Speed"] --> S7["Stage 7&lt;br/&gt;Capstone"]
+                        end
+                        R["↔ Recipes&lt;br/&gt;(jump in any time)"]
+                        R -.-> S1
+                        R -.-> S3
+                        R -.-> S5
+                </div>
+
+                <!-- Tier: Foundations -->
+                <h3>🟦 Foundations</h3>
+                <p class="ba-caption" style="text-align:left;">Get comfortable and in control. By the end you can fix, clean, and grade a photo without fear.</p>
+
+                <div class="card lesson-card">
+                    <h3>Stage 0 — Your First Win <span class="ba-placeholder-note" style="color:#166534;background:#f0fdf4;border-color:#86efac;">✓ Built</span></h3>
+                    <p><strong>Deliverable:</strong> one photo, fixed and exported, in about 20 minutes.</p>
+                    <p>The whole non-destructive loop, start to finish, before we slow down for theory: open, crop, one adjustment layer, export.</p>
+                    <ul>
+                        <li><a href="stage-0.html" class="lesson-link">Stage 0: Fix &amp; Export One Photo</a> <small>· 25 min</small></li>
+                    </ul>
+                </div>
+
+                <div class="card lesson-card">
+                    <h3>Stage 1 — Foundations <span class="ba-placeholder-note" style="color:#166534;background:#f0fdf4;border-color:#86efac;">Lesson 1 built</span></h3>
+                    <p><strong>Deliverable:</strong> a messy photo cleaned up.</p>
+                    <p>Now we slow down and build the mental model: the layer stack for real, masks as grayscale, and your first proper selections.</p>
+                    <ul>
+                        <li><a href="stage-1-lesson-1.html" class="lesson-link">Lesson 1.1: The Layer Stack &amp; Your First Mask</a> <small>· 45 min</small></li>
+                        <li><span class="lesson-link" style="opacity:0.6;">Lesson 1.2: Selections That Hold Up</span> <small>· planned</small></li>
+                        <li><span class="lesson-link" style="opacity:0.6;">Lesson 1.3: Cleaning Up — Spots, Distractions, Edges</span> <small>· planned</small></li>
+                    </ul>
+                </div>
+
+                <div class="card lesson-card">
+                    <h3>Stage 2 — Light &amp; Color <span class="ba-placeholder-note">Planned</span></h3>
+                    <p><strong>Deliverable:</strong> a flat photo graded and alive.</p>
+                    <p>Camera Raw, Curves, adjustment layers, and your first Smart Objects.</p>
+                </div>
+
+                <!-- Tier: Practitioner -->
+                <h3>🟪 Practitioner</h3>
+                <p class="ba-caption" style="text-align:left;">Make images that fool the eye — retouch, cut out, and combine.</p>
+
+                <div class="card lesson-card">
+                    <h3>Stage 3 — Retouching <span class="ba-placeholder-note">Planned</span></h3>
+                    <p><strong>Deliverable:</strong> a natural portrait retouch. Healing and clone, content-aware, frequency separation.</p>
+                </div>
+                <div class="card lesson-card">
+                    <h3>Stage 4 — Compositing <span class="ba-placeholder-note">Planned</span></h3>
+                    <p><strong>Deliverable:</strong> a believable two-image composite. Select Subject / Select &amp; Mask, blend modes, matching light.</p>
+                </div>
+                <div class="card lesson-card">
+                    <h3>Stage 5 — Design &amp; Type <span class="ba-placeholder-note">Planned</span></h3>
+                    <p><strong>Deliverable:</strong> a finished poster. Pen and shapes, type on a path, layer styles, Smart Objects.</p>
+                </div>
+
+                <!-- Tier: Advanced -->
+                <h3>🟥 Advanced</h3>
+                <p class="ba-caption" style="text-align:left;">Work fast, work smart, and make it yours.</p>
+
+                <div class="card lesson-card">
+                    <h3>Stage 6 — AI &amp; Speed <span class="ba-placeholder-note">Planned</span></h3>
+                    <p><strong>Deliverable:</strong> a generative edit plus an automated batch. Generative Fill / Expand, Actions, Image Processor, droplets.</p>
+                </div>
+                <div class="card lesson-card">
+                    <h3>Stage 7 — Capstone <span class="ba-placeholder-note">Planned</span></h3>
+                    <p><strong>Deliverable:</strong> a self-directed portfolio piece, presented. You choose the brief; you defend the decisions.</p>
+                </div>
+            </section>
+
+            <!-- Recipes -->
+            <section id="recipes" class="card">
+                <h2>↔ Recipes <span class="ba-placeholder-note">Planned</span></h2>
+                <p>Running alongside the path is a library of short, self-contained how-tos — the things you'll want to look up out of order:</p>
+                <ul>
+                    <li>"How do I remove a background?"</li>
+                    <li>"How do I straighten a crooked horizon?"</li>
+                    <li>"How do I whiten teeth without it looking fake?"</li>
+                    <li>"How do I export for Instagram vs. print?"</li>
+                </ul>
+                <p>Each recipe assumes nothing and links back to the stage where the idea is taught in depth. They're the reason you won't have to memorize everything up front.</p>
+            </section>
+
+            <!-- Prerequisites Section -->
+            <section id="prerequisites" class="card">
+                <h2>✅ Prerequisites</h2>
+                <p>Very little — this course starts from zero.</p>
+                <ul>
+                    <li>A computer that can run Photoshop comfortably (Windows or macOS)</li>
+                    <li>Basic file skills: you can find a photo on your drive and know where your Downloads folder is</li>
+                    <li>Curiosity and a photo you care about a little</li>
+                </ul>
+
+                <h3>Required software</h3>
+                <ul>
+                    <li><strong>Adobe Photoshop</strong> (2024 or newer recommended — Generative Fill in Stage 6 needs a recent version). A 7-day free trial is enough to get started.</li>
+                    <li>That's it. No plugins, no extra downloads.</li>
+                </ul>
+
+                <div class="card card-info">
+                    <h4>💡 About the pictures in this course</h4>
+                    <p>Because this is a self-contained web course, the panels and dialogs you'll see are <strong>hand-drawn diagrams and labeled mockups</strong>, not live screenshots of your Photoshop — so they stay crisp on any screen and in dark mode, and they highlight <em>only</em> what matters for the step. The <strong>before / after examples are real edited images</strong> you can wipe between. When a mockup stands in for the real interface, it's clearly marked so you always know what you're looking at.</p>
+                </div>
+            </section>
+
+            <!-- Search Section -->
+            <section class="card">
+                <h2>🔍 Search Course Content</h2>
+                <div style="position: relative;">
+                    <input type="text" id="search-input" placeholder="Search lessons, topics, or keywords..."
+                           aria-label="Search course content">
+                    <div id="search-results" style="display: none; position: absolute; top: 100%; left: 0; right: 0;"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://rays-home.netlify.app/">Ray's House of Fun</a>
+            <a href="https://rays-home.netlify.app/contact">Contact</a>
+            <a href="#" id="print-button">Print Page</a>
+        </div>
+        <p><small>Press <kbd>?</kbd> for keyboard shortcuts</small></p>
+    </footer>
+
+    <!-- Mermaid — initialized by course-enhancements.js for theme awareness -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.__mermaid = mermaid;
+        const isDark = localStorage.getItem('theme') === 'dark' ||
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: isDark ? 'dark' : 'default',
+            themeVariables: isDark
+                ? { primaryColor: '#1e293b', primaryTextColor: '#e2e8f0', primaryBorderColor: '#31A8FF', lineColor: '#94a3b8', secondaryColor: '#0b1220', tertiaryColor: '#0f172a' }
+                : { primaryColor: '#eef5ff', primaryTextColor: '#0b2540', primaryBorderColor: '#1473E6', lineColor: '#64748b', secondaryColor: '#f8fafc', tertiaryColor: '#f1f5f9' }
+        });
+    </script>
+
+    <!-- JavaScript -->
+    <script src="js/clipboard.js"></script>
+    <script src="js/course-enhancements.js"></script>
+</body>
+</html>

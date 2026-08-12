@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mermaid Diagram QA Checker</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 1000px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+  h1 { font-size: 1.4rem; }
+  p.note { color: #555; }
+  #controls { margin: 1rem 0; }
+  button { padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+  #summary { font-weight: bold; margin: 1rem 0; padding: 0.75rem; border-radius: 6px; }
+  .ok { background: #e8f5e9; color: #1b5e20; }
+  .bad { background: #ffebee; color: #b71c1c; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.9rem; }
+  th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }
+  th { background: #f5f5f5; }
+  code { background: #f1f1f1; padding: 1px 4px; border-radius: 3px; }
+  .prog { color: #555; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+<h1>🧜 Mermaid Diagram QA Checker</h1>
+<p class="note">
+  Serve your course over HTTP (e.g. <code>python3 -m http.server</code>) and open this page from the same origin.
+  It discovers every lesson from <code>/index.html</code>, then runs Mermaid's real parser on every
+  <code>.mermaid</code> block and lists any that would fail to render. This is the reliable way to catch
+  diagram breakers (a static text scan can't run the parser). Default breakers: unquoted labels containing
+  <code>()</code>, <code>&amp;&amp;</code>/<code>||</code>/<code>??</code>, <code>&lt; &gt;</code>, a leading
+  <code>/</code>, or <code>()</code>/<code>[]</code>/quotes inside <code>--&gt;|edge labels|</code>. Fix by
+  quoting the label, e.g. <code>A["Text (x)"]</code> and <code>--&gt;|"next(err)"|</code>.
+</p>
+<div id="controls">
+  <button id="run">Run check</button>
+  <span class="prog" id="prog"></span>
+</div>
+<div id="summary"></div>
+<table id="results" hidden><thead><tr><th>#</th><th>Page</th><th>Block</th><th>Error</th></tr></thead><tbody></tbody></table>
+
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: false });
+
+const $ = (s) => document.querySelector(s);
+const prog = $('#prog'), summary = $('#summary'), table = $('#results'), tbody = table.querySelector('tbody');
+
+async function discoverLessonUrls() {
+  const html = await (await fetch('/index.html?cb=' + Math.random())).text();
+  // grab root-absolute lesson links (adjust the pattern if your paths differ)
+  const urls = [...html.matchAll(/href="(\/[A-Za-z0-9_\-\/]+\.html)"/g)]
+    .map(m => m[1])
+    .filter(u => u !== '/index.html');
+  return [...new Set(urls)];
+}
+
+async function run() {
+  $('#run').disabled = true;
+  summary.className = ''; summary.textContent = 'Discovering lessons…';
+  table.hidden = true; tbody.innerHTML = '';
+  let urls;
+  try { urls = await discoverLessonUrls(); }
+  catch (e) { summary.className = 'bad'; summary.textContent = 'Could not read /index.html — are you serving over HTTP?'; $('#run').disabled = false; return; }
+
+  const parser = new DOMParser();
+  const failures = [];
+  let pages = 0, blocks = 0, done = 0;
+  const queue = urls.slice();
+
+  async function worker() {
+    while (queue.length) {
+      const u = queue.shift();
+      done++;
+      prog.textContent = `Checking ${done}/${urls.length} — ${u}`;
+      let html;
+      try { html = await (await fetch(u + '?cb=' + Math.random())).text(); }
+      catch { failures.push([u, '-', 'could not fetch page']); continue; }
+      pages++;
+      const doc = parser.parseFromString(html, 'text/html');
+      let bi = 0;
+      for (const el of doc.querySelectorAll('.mermaid')) {
+        bi++; blocks++;
+        const src = (el.getAttribute('data-src') || el.textContent || '').trim();
+        if (!src) { failures.push([u, bi, 'empty block']); continue; }
+        try { await mermaid.parse(src); }
+        catch (e) { failures.push([u, bi, (e && e.message ? e.message.split('\n')[0] : 'parse error')]); }
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: 8 }, worker));
+
+  prog.textContent = '';
+  if (failures.length === 0) {
+    summary.className = 'ok';
+    summary.textContent = `✅ All ${blocks} Mermaid diagrams across ${pages} pages parse cleanly.`;
+  } else {
+    summary.className = 'bad';
+    summary.textContent = `❌ ${failures.length} broken diagram(s) out of ${blocks} across ${pages} pages.`;
+    table.hidden = false;
+    failures.forEach(([u, b, err], i) => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${i + 1}</td><td><a href="${u}" target="_blank">${u}</a></td><td>${b}</td><td><code>${err.replace(/</g,'&lt;')}</code></td>`;
+      tbody.appendChild(tr);
+    });
+  }
+  $('#run').disabled = false;
+}
+$('#run').addEventListener('click', run);
+</script>
+</body>
+</html>

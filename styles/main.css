@@ -1,0 +1,1396 @@
+/* ===========================
+   Course Template - Main CSS
+   Mobile-first, Responsive, Accessible
+   Updated: 2026 — dark/light mode, modern layout
+   =========================== */
+
+/* ===========================
+   CSS Reset
+   =========================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* ===========================
+   CSS Variables — Light (default)
+   =========================== */
+:root {
+    /* Surface colors */
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --text-color: #1e293b;
+    --text-light: #64748b;
+    --border-color: #e2e8f0;
+
+    /* Primary accent */
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-light: rgba(59, 130, 246, 0.08);
+    --primary-gradient: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+
+    /* Code */
+    --code-bg: #f1f5f9;
+    --code-color: #334155;
+
+    /* Prism tokens (light) */
+    --tok-comment: #6a737d;
+    --tok-string:  #50a14f;
+    --tok-keyword: #4078f2;
+    --tok-function:#c18401;
+    --tok-number:  #e45649;
+    --tok-operator:#a626a4;
+
+    /* Semantic cards */
+    --success-bg: #f0fdf4;
+    --success-border: #22c55e;
+    --warning-bg: #fffbeb;
+    --warning-border: #f59e0b;
+    --info-bg: #eff6ff;
+    --info-border: #3b82f6;
+    --danger-bg: #fef2f2;
+    --danger-border: #ef4444;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+
+    /* Typography */
+    --font-family-base: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-family-mono: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    --line-height-base: 1.7;
+    --line-height-heading: 1.25;
+
+    /* Misc */
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+
+    color-scheme: light dark;
+}
+
+/* ===========================
+   Dark theme variables
+   =========================== */
+:root[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --nav-bg: #1e293b;
+    --text-color: #e2e8f0;
+    --text-light: #94a3b8;
+    --border-color: #334155;
+
+    --primary-light: rgba(59, 130, 246, 0.15);
+
+    --code-bg: #1e293b;
+    --code-color: #e2e8f0;
+
+    --tok-comment: #6b7280;
+    --tok-string:  #86efac;
+    --tok-keyword: #93c5fd;
+    --tok-function:#fcd34d;
+    --tok-number:  #fca5a5;
+    --tok-operator:#c4b5fd;
+
+    --success-bg: rgba(34, 197, 94, 0.1);
+    --success-border: #22c55e;
+    --warning-bg: rgba(245, 158, 11, 0.1);
+    --warning-border: #f59e0b;
+    --info-bg: rgba(59, 130, 246, 0.1);
+    --info-border: #3b82f6;
+    --danger-bg: rgba(239, 68, 68, 0.1);
+    --danger-border: #ef4444;
+
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -2px rgba(0,0,0,0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -4px rgba(0,0,0,0.3);
+}
+
+/* OS-level dark preference (no explicit toggle yet) */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --bg-color: #0f172a;
+        --card-bg: #1e293b;
+        --nav-bg: #1e293b;
+        --text-color: #e2e8f0;
+        --text-light: #94a3b8;
+        --border-color: #334155;
+        --primary-light: rgba(59, 130, 246, 0.15);
+        --code-bg: #1e293b;
+        --code-color: #e2e8f0;
+        --tok-comment: #6b7280;
+        --tok-string:  #86efac;
+        --tok-keyword: #93c5fd;
+        --tok-function:#fcd34d;
+        --tok-number:  #fca5a5;
+        --tok-operator:#c4b5fd;
+        --success-bg: rgba(34, 197, 94, 0.1);
+        --success-border: #22c55e;
+        --warning-bg: rgba(245, 158, 11, 0.1);
+        --warning-border: #f59e0b;
+        --info-bg: rgba(59, 130, 246, 0.1);
+        --info-border: #3b82f6;
+        --danger-bg: rgba(239, 68, 68, 0.1);
+        --danger-border: #ef4444;
+        --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+        --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -2px rgba(0,0,0,0.3);
+        --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.5), 0 4px 6px -4px rgba(0,0,0,0.3);
+    }
+}
+
+/* Force light when explicitly set */
+:root[data-theme="light"] {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
+    --text-color: #1e293b;
+    --text-light: #64748b;
+    --border-color: #e2e8f0;
+    --primary-light: rgba(59, 130, 246, 0.08);
+    --code-bg: #f1f5f9;
+    --code-color: #334155;
+    --tok-comment: #6a737d;
+    --tok-string:  #50a14f;
+    --tok-keyword: #4078f2;
+    --tok-function:#c18401;
+    --tok-number:  #e45649;
+    --tok-operator:#a626a4;
+    --success-bg: #f0fdf4;
+    --success-border: #22c55e;
+    --warning-bg: #fffbeb;
+    --warning-border: #f59e0b;
+    --info-bg: #eff6ff;
+    --info-border: #3b82f6;
+    --danger-bg: #fef2f2;
+    --danger-border: #ef4444;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+}
+
+/* ===========================
+   Base Styles — Mobile First
+   =========================== */
+
+body {
+    font-family: var(--font-family-base);
+    font-size: 16px;
+    line-height: var(--line-height-base);
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: var(--spacing-md);
+    padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+p, li, figcaption, blockquote { overflow-wrap: anywhere; }
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===========================
+   Typography
+   =========================== */
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: var(--line-height-heading);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-color);
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: var(--primary-gradient);
+    color: #fff;
+    margin: 0 0 var(--spacing-xl) 0;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+h2 {
+    font-size: 1.6rem;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+h3 { font-size: 1.35rem; }
+h4 { font-size: 1.15rem; }
+h5 { font-size: 1.05rem; }
+h6 { font-size: 1rem; }
+
+p { margin-bottom: var(--spacing-md); }
+strong, b { font-weight: 700; }
+em, i { font-style: italic; }
+small { font-size: 0.875rem; }
+
+.lead {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto var(--spacing-lg);
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+    transition: color 0.2s, text-decoration-thickness 0.2s;
+}
+a:hover {
+    color: var(--primary-hover);
+    text-decoration-thickness: 2.5px;
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Lists */
+ul, ol { margin: var(--spacing-md) 0; padding-left: var(--spacing-xl); }
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+li { margin-bottom: var(--spacing-sm); }
+ul ul, ol ol, ul ol, ol ul { margin-top: var(--spacing-sm); margin-bottom: var(--spacing-sm); }
+
+/* ===========================
+   Code and Pre
+   =========================== */
+
+code, pre {
+    font-family: var(--font-family-mono);
+    background-color: var(--code-bg);
+    color: var(--code-color);
+    border-radius: var(--radius-sm);
+}
+
+code {
+    padding: 0.15em 0.4em;
+    font-size: 0.88em;
+}
+
+pre {
+    padding: var(--spacing-md);
+    overflow-x: auto;
+    line-height: 1.55;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin: var(--spacing-md) 0;
+    white-space: pre;
+}
+
+pre code {
+    padding: 0;
+    background: transparent;
+    font-size: 0.875rem;
+}
+
+/* Prism-compatible tokens */
+.token.comment  { color: var(--tok-comment);  font-style: italic; }
+.token.string   { color: var(--tok-string); }
+.token.keyword  { color: var(--tok-keyword); }
+.token.function { color: var(--tok-function); }
+.token.number   { color: var(--tok-number); }
+.token.operator { color: var(--tok-operator); }
+
+/* ===========================
+   Tables
+   =========================== */
+
+.table-wrap { overflow-x: auto; }
+
+table {
+    width: 100%;
+    margin: var(--spacing-md) 0;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: #fff;
+    font-weight: 700;
+}
+
+tr:nth-child(even) { background-color: var(--primary-light); }
+
+/* ===========================
+   Blockquotes
+   =========================== */
+
+blockquote {
+    margin: var(--spacing-lg) 0;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background-color: var(--primary-light);
+    border-left: 4px solid var(--primary-color);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-style: italic;
+    color: var(--text-color);
+}
+
+/* ===========================
+   Images and Media
+   =========================== */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--spacing-md) auto;
+    border-radius: var(--radius-md);
+}
+
+/* Canvas diagrams have fixed pixel widths (e.g. 600/800px); scale them down to fit their
+   container so they don't spill past the card / force horizontal scroll on narrow screens. */
+canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: var(--spacing-md) auto;
+}
+
+figure { margin: var(--spacing-lg) 0; text-align: center; }
+figcaption { margin-top: var(--spacing-sm); font-size: 0.9rem; color: var(--text-light); }
+
+/* ===========================
+   Navigation
+   =========================== */
+
+nav:first-of-type,
+nav.main-nav {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid var(--border-color);
+    padding: calc(var(--spacing-sm) + env(safe-area-inset-top)) var(--spacing-md) var(--spacing-sm);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    box-shadow: var(--shadow-sm);
+    transition: background-color 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.nav-logo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 0.92rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    transition: color 0.2s, background-color 0.2s;
+}
+.nav-links a:hover {
+    color: var(--primary-color);
+    background-color: var(--primary-light);
+}
+
+.nav-divider {
+    width: 1px;
+    height: 1.2rem;
+    background-color: var(--border-color);
+    flex-shrink: 0;
+}
+
+/* Theme toggle button in nav */
+#theme-toggle {
+    background: var(--primary-light);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0;
+    transition: background-color 0.2s, transform 0.2s;
+}
+#theme-toggle:hover {
+    transform: scale(1.1);
+    background-color: var(--primary-color);
+}
+
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: var(--spacing-xs);
+}
+
+/* ===========================
+   Cards
+   =========================== */
+
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md) 0;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.card:hover { box-shadow: var(--shadow-md); }
+
+.lesson-card { border-left: 4px solid var(--primary-color); }
+
+/* Semantic card variants — use classes instead of inline styles */
+.card-success {
+    background: var(--success-bg);
+    border-left: 4px solid var(--success-border);
+}
+.card-warning {
+    background: var(--warning-bg);
+    border-left: 4px solid var(--warning-border);
+}
+.card-info {
+    background: var(--info-bg);
+    border-left: 4px solid var(--info-border);
+}
+.card-danger {
+    background: var(--danger-bg);
+    border-left: 4px solid var(--danger-border);
+}
+.card-accent {
+    background: var(--primary-gradient);
+    color: #fff;
+    border: none;
+}
+.card-accent h3,
+.card-accent h4,
+.card-accent p { color: #fff; }
+
+.card-output {
+    background: var(--code-bg);
+    border-left: 4px solid var(--success-border);
+}
+
+.exercise-card {
+    background: var(--primary-gradient);
+    color: #fff;
+    border: none;
+}
+.exercise-card h3 { color: #fff; }
+
+/* ===========================
+   Buttons
+   =========================== */
+
+.button, button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+.button:hover, button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+}
+.button:active, button:active { transform: translateY(0); }
+
+.button-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.button-secondary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* ===========================
+   Forms
+   =========================== */
+
+input, textarea, select {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background: var(--card-bg);
+    color: var(--text-color);
+}
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+label { display: block; margin-bottom: var(--spacing-xs); font-weight: 600; }
+
+/* ===========================
+   Utility Classes
+   =========================== */
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: var(--spacing-sm); }
+.mt-2 { margin-top: var(--spacing-md); }
+.mt-3 { margin-top: var(--spacing-lg); }
+.mt-4 { margin-top: var(--spacing-xl); }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-sm); }
+.mb-2 { margin-bottom: var(--spacing-md); }
+.mb-3 { margin-bottom: var(--spacing-lg); }
+.mb-4 { margin-bottom: var(--spacing-xl); }
+.hidden { display: none; }
+.block { display: block; }
+.inline-block { display: inline-block; }
+.flex { display: flex; }
+.grid { display: grid; }
+
+/* Screen reader only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===========================
+   Progress Indicator (REMOVED)
+   =========================== */
+
+/* .progress-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--border-color);
+    z-index: 1000;
+}
+.progress-bar {
+    height: 100%;
+    background: var(--primary-gradient);
+    width: 0;
+    transition: width 0.3s ease;
+} */
+
+/* Skip to main content */
+.skip-to-main {
+    position: absolute;
+    left: -10000px;
+    top: 30px;
+    z-index: 999;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+.skip-to-main:focus { left: 0; }
+
+/* ===========================
+   Lesson Navigation (prev/next)
+   =========================== */
+
+.lesson-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: var(--spacing-xxl) 0;
+    padding: var(--spacing-lg);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    transition: background-color 0.3s ease;
+}
+
+.lesson-nav a {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+.lesson-nav a:hover { background: var(--primary-hover); }
+
+.lesson-nav .home-link {
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+.lesson-nav .home-link:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* ===========================
+   Breadcrumb Navigation
+   =========================== */
+
+.breadcrumb {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.88rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    position: static;
+}
+
+.breadcrumb ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.breadcrumb li::after {
+    content: "›";
+    margin: 0 var(--spacing-sm);
+    color: var(--text-light);
+}
+.breadcrumb li:last-child::after { content: ""; }
+.breadcrumb a { color: var(--primary-color); text-decoration: none; }
+.breadcrumb [aria-current="page"] { color: var(--text-light); font-weight: 500; }
+
+/* ===========================
+   Sticky Table of Contents ("In This Lesson")
+   Open:   full sticky card under the nav
+   Closed: small round floating button (FAB), upper-left, just below nav
+   Pairs with the span-based markup:
+     <details class="card toc-card" open>
+       <summary aria-label="Toggle table of contents">
+         <span class="toc-icon" aria-hidden="true">[icon]</span>
+         <span class="toc-label">In This Lesson</span>
+         <span class="toc-chevron" aria-hidden="true">[chevron]</span>
+       </summary>
+       <nav aria-label="Table of Contents"> ... </nav>
+     </details>
+   =========================== */
+
+.toc-card {
+    position: sticky;
+    top: 80px;                 /* clears the sticky main nav */
+    z-index: 90;               /* below nav (100), above content */
+    background: var(--card-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: var(--spacing-xl);
+    transition: box-shadow 0.3s ease, transform 0.2s ease, background-color 0.3s;
+}
+
+/* Hide native disclosure marker — we render our own chevron */
+.toc-card summary { list-style: none; }
+.toc-card summary::-webkit-details-marker { display: none; }
+.toc-card summary::marker { content: ''; }
+
+.toc-card summary {
+    cursor: pointer;
+    font-weight: bold;
+    padding: var(--spacing-sm) var(--spacing-md);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+.toc-card .toc-icon  { font-size: 1.25rem; line-height: 1; }
+.toc-card .toc-label { font-size: 1.1rem; font-weight: bold; }
+.toc-card .toc-chevron {
+    margin-left: auto;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    transition: transform 0.3s ease;
+}
+.toc-card[open] .toc-chevron { transform: rotate(180deg); }
+
+.toc-card nav {
+    padding: 0 var(--spacing-md) var(--spacing-md);
+}
+
+.toc-link {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.toc-link:hover { color: var(--primary-color); }
+.toc-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ---- Collapsed state: floating action button (upper-left, below nav) ---- */
+.toc-card:not([open]) {
+    position: fixed;
+    top: 76px;
+    left: var(--spacing-lg);
+    right: auto;
+    bottom: auto;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 95;
+    overflow: hidden;
+}
+.toc-card:not([open]):hover {
+    transform: scale(1.08);
+    background: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+.toc-card:not([open]) summary {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    justify-content: center;
+    color: white;
+}
+.toc-card:not([open]) .toc-icon { font-size: 1.25rem; color: white; }
+
+/* Keep label/chevron for screen readers but hide them visually in FAB mode */
+.toc-card:not([open]) .toc-label,
+.toc-card:not([open]) .toc-chevron {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* On small screens, hug the left edge a little tighter */
+@media (max-width: 767px) {
+    .toc-card:not([open]) {
+        top: 68px;
+        left: var(--spacing-md);
+        width: 40px;
+        height: 40px;
+    }
+    .toc-card:not([open]) .toc-icon { font-size: 1.1rem; }
+}
+
+/* ===========================
+   Quiz Styles
+   =========================== */
+
+.quiz-container { padding: var(--spacing-lg); }
+
+.quiz-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin: var(--spacing-sm) 0;
+    background: var(--card-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+.quiz-option:hover {
+    border-color: var(--primary-color);
+    background-color: var(--primary-light);
+    transform: none;
+    box-shadow: none;
+}
+.quiz-option.correct {
+    border-color: var(--success-border);
+    background-color: var(--success-bg);
+}
+.quiz-option.incorrect {
+    border-color: var(--danger-border);
+    background-color: var(--danger-bg);
+}
+
+.quiz-feedback {
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+}
+.quiz-feedback.correct { color: var(--success-border); }
+.quiz-feedback.incorrect { color: var(--danger-border); }
+
+/* ===========================
+   Footer
+   =========================== */
+
+.site-footer {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin-top: var(--spacing-xxl);
+    border-top: 1px solid var(--border-color);
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+.site-footer a { color: var(--primary-color); }
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    margin-top: var(--spacing-sm);
+}
+
+/* ===========================
+   SVG / Canvas / Mermaid Dark Mode
+   =========================== */
+
+/* Mermaid diagrams: container handles theme via JS reinit.
+   Fallback filter for any embedded SVG that doesn't use CSS vars */
+:root[data-theme="dark"] .diagram-auto-invert svg,
+:root[data-theme="dark"] .svg-auto-invert {
+    filter: invert(0.88) hue-rotate(180deg);
+}
+
+/* Canvas elements that need dark mode adaptation */
+:root[data-theme="dark"] canvas.auto-invert {
+    filter: invert(0.88) hue-rotate(180deg);
+}
+
+/* Mermaid specific: ensure text is readable */
+.mermaid {
+    text-align: center;
+    margin: var(--spacing-lg) 0;
+}
+
+/* SVG diagrams using CSS vars will adapt automatically.
+   For inline SVGs, use var(--text-color), var(--card-bg), etc. */
+svg text { fill: var(--text-color); }
+svg .svg-bg { fill: var(--card-bg); }
+
+/* ===========================
+   Search Results (dark-aware)
+   =========================== */
+
+#search-results {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1000;
+    box-shadow: var(--shadow-lg);
+}
+
+.search-result-item {
+    padding: var(--spacing-sm) var(--spacing-md);
+    cursor: pointer;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.15s;
+}
+.search-result-item:hover { background-color: var(--primary-light); }
+
+.highlight {
+    animation: highlight-flash 2s ease;
+}
+@keyframes highlight-flash {
+    0%, 100% { background-color: transparent; }
+    30% { background-color: var(--warning-bg); }
+}
+
+/* ===========================
+   Keyboard Shortcuts Modal
+   =========================== */
+
+.shortcuts-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+.shortcuts-content {
+    background: var(--card-bg);
+    color: var(--text-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    max-width: 400px;
+    width: 90%;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
+.shortcuts-content .close-modal {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    background: transparent;
+    color: var(--text-light);
+    border: none;
+    font-size: 1.5rem;
+    padding: var(--spacing-xs);
+    box-shadow: none;
+}
+.shortcuts-content .close-modal:hover {
+    color: var(--text-color);
+    transform: none;
+    box-shadow: none;
+}
+.shortcuts-content dl {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-sm) var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+.shortcuts-content dt {
+    font-family: var(--font-family-mono);
+    background: var(--code-bg);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+.shortcuts-content dd { margin: 0; }
+
+/* ===========================
+   Progress bar (index page - REMOVED)
+   =========================== */
+
+/* .progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: var(--spacing-sm) 0;
+}
+.progress-bar-container .progress-bar {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+} */
+
+/* Lesson link visited checkmark */
+.lesson-link { text-decoration: none; }
+.lesson-link.visited { opacity: 0.8; }
+.checkmark {
+    color: var(--success-border);
+    margin-left: var(--spacing-sm);
+    font-weight: 700;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+@media (min-width: 768px) {
+    body { padding: var(--spacing-lg); }
+    h1 { font-size: 2.25rem; }
+    h2 { font-size: 1.8rem; }
+    .container { padding: 0 var(--spacing-lg); }
+    .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: var(--spacing-lg);
+    }
+}
+
+@media (min-width: 1024px) {
+    body { padding: var(--spacing-xl); }
+    h1 { font-size: 2.5rem; }
+    .container { padding: 0 var(--spacing-xl); }
+}
+
+@media (max-width: 767px) {
+    .mobile-menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--nav-bg);
+        border-top: 1px solid var(--border-color);
+        flex-direction: column;
+        padding: var(--spacing-md);
+        box-shadow: var(--shadow-md);
+        z-index: 300;
+    }
+    .nav-links.active { display: flex; }
+
+    .nav-divider { display: none; }
+
+    .lesson-nav { flex-direction: column; }
+    .lesson-nav a { width: 100%; text-align: center; justify-content: center; }
+
+    table { font-size: 0.875rem; }
+    h1 { font-size: 1.6rem; }
+    h2 { font-size: 1.35rem; }
+    h3 { font-size: 1.15rem; }
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
+
+@media print {
+    body { background: #fff; color: #000; }
+    nav, .lesson-nav, .progress-indicator, .skip-to-main,
+    .mobile-menu-toggle, .copy-button, button, #theme-toggle { display: none !important; }
+    h1, h2, h3, h4, h5, h6 {
+        background: none !important;
+        color: #000 !important;
+        page-break-after: avoid;
+    }
+    a { color: #000; text-decoration: underline; }
+    pre { page-break-inside: avoid; border: 1px solid #ccc; }
+    img { page-break-inside: avoid; }
+    .card { box-shadow: none; border: 1px solid #ccc; }
+}
+
+/* ===========================
+   Accessibility
+   =========================== */
+
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #0052cc;
+        --text-color: #000;
+        --bg-color: #fff;
+        --border-color: #000;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.keyboard-nav *:focus {
+    outline: 3px solid var(--primary-color) !important;
+    outline-offset: 2px !important;
+}
+
+/* ===========================
+   Scrollbar
+   =========================== */
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-color); }
+::-webkit-scrollbar-thumb { background: var(--text-light); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-color); }
+* { scrollbar-width: thin; scrollbar-color: var(--text-light) var(--bg-color); }
+
+/* Touch UX */
+* { -webkit-tap-highlight-color: rgba(0,0,0,0.08); }
+
+/* ===========================================================
+   PHOTOSHOP COURSE THEME (photoshop_intro)
+   Retunes the template's blue toward the Photoshop identity:
+   Adobe spectrum blue accent + the classic PS navy→cyan gradient.
+   Placed last so it overrides the variable blocks above in every
+   mode (light :root, forced light, forced dark, OS-dark media).
+   =========================================================== */
+:root,
+:root[data-theme="light"] {
+    --primary-color: #1473E6;   /* Adobe spectrum blue */
+    --primary-hover: #0D5FC4;
+    --primary-light: rgba(20, 115, 230, 0.08);
+    --primary-gradient: linear-gradient(135deg, #001E36 0%, #0B4FA8 55%, #31A8FF 100%);
+    --info-bg: #eef5ff;
+    --info-border: #1473E6;
+}
+:root[data-theme="dark"] {
+    --primary-color: #47A0FF;   /* lifted for contrast on dark surfaces */
+    --primary-hover: #7BBBFF;
+    --primary-light: rgba(49, 168, 255, 0.16);
+    --primary-gradient: linear-gradient(135deg, #001E36 0%, #0B4FA8 55%, #31A8FF 100%);
+    --info-bg: rgba(49, 168, 255, 0.12);
+    --info-border: #47A0FF;
+}
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --primary-color: #47A0FF;
+        --primary-hover: #7BBBFF;
+        --primary-light: rgba(49, 168, 255, 0.16);
+        --info-bg: rgba(49, 168, 255, 0.12);
+        --info-border: #47A0FF;
+    }
+}
+
+/* ---- "Ps" chip used in the hero / nav logo ---- */
+.ps-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 6px;
+    background: #001E36;
+    color: #31A8FF;
+    font-weight: 800;
+    font-family: var(--font-family-base);
+    letter-spacing: -0.03em;
+    border: 1px solid #31A8FF;
+    line-height: 1;
+    margin-right: 0.4em;
+    vertical-align: -0.15em;
+}
+
+/* ===========================================================
+   Before / After comparison slider
+   Drag (or use the range keyboard slider) to wipe between the
+   "before" and "after" images. Works with <img> OR inline <svg>
+   stand-ins. Real photos drop straight into .ba-after/.ba-before.
+   =========================================================== */
+.ba-slider {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    aspect-ratio: 3 / 2;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    user-select: none;
+    touch-action: pan-y;
+    background: var(--code-bg);
+}
+.ba-slider .ba-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.ba-slider .ba-layer > img,
+.ba-slider .ba-layer > svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+/* The "after" layer sits on top and is clipped to the handle position */
+.ba-slider .ba-after {
+    clip-path: inset(0 calc(100% - var(--ba-pos, 50%)) 0 0);
+}
+.ba-slider .ba-label {
+    position: absolute;
+    top: 10px;
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    background: rgba(0, 30, 54, 0.82);
+    color: #fff;
+    pointer-events: none;
+    z-index: 3;
+}
+.ba-slider .ba-label.before { right: 10px; }
+.ba-slider .ba-label.after  { left: 10px; }
+/* Divider line + grabber */
+.ba-slider .ba-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--ba-pos, 50%);
+    width: 2px;
+    background: #fff;
+    box-shadow: 0 0 0 1px rgba(0,30,54,0.35);
+    transform: translateX(-1px);
+    pointer-events: none;
+    z-index: 4;
+}
+.ba-slider .ba-grabber {
+    position: absolute;
+    top: 50%;
+    left: var(--ba-pos, 50%);
+    width: 40px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid #1473E6;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1473E6;
+    font-size: 0.9rem;
+    z-index: 5;
+    pointer-events: none;
+}
+/* The real, accessible control — a range input laid over the whole slider */
+.ba-slider input[type="range"].ba-range {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: ew-resize;
+    z-index: 6;
+}
+.ba-slider input[type="range"].ba-range:focus-visible ~ .ba-grabber {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+.ba-caption {
+    text-align: center;
+    margin-top: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* ---- Placeholder ribbon for stand-in art (real photos replace these) ---- */
+.ba-placeholder-note {
+    display: inline-block;
+    margin: 0.4rem auto 0;
+    padding: 2px 10px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-radius: 999px;
+    color: #92400e;
+    background: #fff7ed;
+    border: 1px solid #fdba74;
+}
+:root[data-theme="dark"] .ba-placeholder-note,
+.keyboard-nav .ba-placeholder-note { color: #fdba74; background: rgba(253,186,116,0.12); }
+
+/* ---- Simulated Photoshop panel (hand-built UI mockup, not a screenshot) ---- */
+.ps-mock {
+    max-width: 720px;
+    margin: var(--spacing-lg) auto;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid #0a2a44;
+    box-shadow: var(--shadow-lg);
+    font-family: var(--font-family-base);
+    font-size: 0.85rem;
+}
+.ps-mock .ps-titlebar {
+    background: #1f1f1f;
+    color: #cbd5e1;
+    padding: 6px 12px;
+    font-size: 0.78rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid #000;
+}
+.ps-mock .ps-dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; }
+.ps-mock figcaption { padding: 0 0.5rem; }
