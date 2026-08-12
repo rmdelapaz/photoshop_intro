@@ -93,48 +93,13 @@
 
                 <figure>
                     <div class="ba-slider" aria-label="Before and after comparison. Use the slider to reveal the edited version.">
-                        <!-- AFTER layer (vivid, corrected) sits on top, clipped to the handle -->
+                        <!-- AFTER layer (corrected) sits on top, clipped to the handle -->
                         <div class="ba-layer ba-after" aria-hidden="true">
-                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Edited photo: bright, contrasty landscape">
-                                <defs>
-                                    <linearGradient id="s0-sky-a" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0" stop-color="#4aa3ff"/><stop offset="1" stop-color="#cfeaff"/>
-                                    </linearGradient>
-                                    <radialGradient id="s0-sun-a" cx="0.5" cy="0.5" r="0.5">
-                                        <stop offset="0" stop-color="#fff3b0"/><stop offset="0.6" stop-color="#ffd23f"/><stop offset="1" stop-color="#ffd23f" stop-opacity="0"/>
-                                    </radialGradient>
-                                </defs>
-                                <rect width="600" height="400" fill="url(#s0-sky-a)"/>
-                                <circle cx="470" cy="110" r="70" fill="url(#s0-sun-a)"/>
-                                <circle cx="470" cy="110" r="34" fill="#ffe066"/>
-                                <path d="M0 250 Q150 200 300 240 T600 235 V400 H0 Z" fill="#7bc86b"/>
-                                <path d="M0 300 Q180 250 340 295 T600 290 V400 H0 Z" fill="#4f9a54"/>
-                                <path d="M0 350 Q160 320 320 350 T600 345 V400 H0 Z" fill="#2f7a3e"/>
-                                <rect x="120" y="250" width="16" height="70" fill="#6b4423"/>
-                                <circle cx="128" cy="240" r="40" fill="#38863f"/>
-                                <circle cx="104" cy="258" r="30" fill="#2f7a3e"/>
-                                <circle cx="152" cy="258" r="30" fill="#43974a"/>
-                            </svg>
+                            <img src="images/l01_after.jpg" alt="The same photo after a one-step tonal correction: deeper contrast, richer autumn color, less haze.">
                         </div>
-                        <!-- BEFORE layer (flat / underexposed) underneath -->
+                        <!-- BEFORE layer (flat / hazy) underneath -->
                         <div class="ba-layer ba-before" aria-hidden="true">
-                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original photo: flat and underexposed">
-                                <defs>
-                                    <linearGradient id="s0-sky-b" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0" stop-color="#8a97a1"/><stop offset="1" stop-color="#bcc5cc"/>
-                                    </linearGradient>
-                                </defs>
-                                <rect width="600" height="400" fill="url(#s0-sky-b)"/>
-                                <circle cx="470" cy="110" r="30" fill="#cbc7ad"/>
-                                <path d="M0 250 Q150 200 300 240 T600 235 V400 H0 Z" fill="#8f9a86"/>
-                                <path d="M0 300 Q180 250 340 295 T600 290 V400 H0 Z" fill="#6d7a68"/>
-                                <path d="M0 350 Q160 320 320 350 T600 345 V400 H0 Z" fill="#55604f"/>
-                                <rect x="120" y="250" width="16" height="70" fill="#6a5f50"/>
-                                <circle cx="128" cy="240" r="40" fill="#697560"/>
-                                <circle cx="104" cy="258" r="30" fill="#5d6b54"/>
-                                <circle cx="152" cy="258" r="30" fill="#6b7861"/>
-                                <rect width="600" height="400" fill="#2a2f36" opacity="0.18"/>
-                            </svg>
+                            <img src="images/l01_before.jpg" alt="A flat, hazy misty-morning photo of an autumn footbridge, straight out of camera.">
                         </div>
                         <span class="ba-label after">After</span>
                         <span class="ba-label before">Before</span>
@@ -142,8 +107,7 @@
                         <span class="ba-divider" aria-hidden="true"></span>
                         <span class="ba-grabber" aria-hidden="true">⇄</span>
                     </div>
-                    <figcaption>Drag the handle. Same photo. The left side has had 20 minutes of Module-0 treatment.</figcaption>
-                    <span class="ba-placeholder-note">Illustrated stand-in: a real before/after photo drops into this same slider</span>
+                    <figcaption>Drag the handle. Same photo. The left side has had one tonal correction in Photoshop; the right is straight out of camera.</figcaption>
                 </figure>
 
                 <div class="card card-success">

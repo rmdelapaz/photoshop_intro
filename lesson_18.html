@@ -84,44 +84,15 @@
             <!-- Hook -->
             <section id="hook" class="lesson-section">
                 <h2>🏔️ The Goal: Room to Breathe</h2>
-                <p>Same mountain photo. On the right it is cramped into a narrow frame, with gray canvas where there is no image. On the left, the scene has been expanded to fill that space, seamlessly. The dashed lines mark where the original photo ended. Drag the handle:</p>
+                <p>Same photo. On the right it sits in a narrow frame with empty gray canvas on either side. On the left, Generative Expand has filled that space with matching sky and foreground. Drag the handle:</p>
 
                 <figure>
                     <div class="ba-slider" aria-label="Before and after: a narrow photo expanded to fill a wider canvas with generated scenery.">
                         <div class="ba-layer ba-after" aria-hidden="true">
-                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Expanded: scene fills the full frame">
-                                <defs><linearGradient id="e1-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ec5ec"/><stop offset="1" stop-color="#dceff8"/></linearGradient></defs>
-                                <rect width="600" height="400" fill="url(#e1-sky)"/>
-                                <circle cx="500" cy="80" r="30" fill="#fff4cf"/>
-                                <!-- mountains span full width -->
-                                <path d="M0 300 L120 190 L210 270 L320 150 L430 260 L520 200 L600 280 V400 H0 Z" fill="#5b7c86"/>
-                                <path d="M0 320 L160 240 L300 300 L460 230 L600 300 V400 H0 Z" fill="#3f5a63"/>
-                                <rect y="330" width="600" height="70" fill="#2b8f6a"/>
-                                <!-- dashed markers of original edges -->
-                                <line x1="200" y1="0" x2="200" y2="400" stroke="#1473E6" stroke-width="2" stroke-dasharray="7 6"/>
-                                <line x1="400" y1="0" x2="400" y2="400" stroke="#1473E6" stroke-width="2" stroke-dasharray="7 6"/>
-                                <text x="100" y="24" text-anchor="middle" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">generated</text>
-                                <text x="300" y="24" text-anchor="middle" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">original</text>
-                                <text x="500" y="24" text-anchor="middle" style="fill:#0b2540" font-family="Segoe UI, sans-serif" font-size="12" font-weight="700">generated</text>
-                            </svg>
+                            <img src="images/l18_after.jpg" alt="The photo with its canvas extended: new sky and foreground generated on the sides.">
                         </div>
                         <div class="ba-layer ba-before" aria-hidden="true">
-                            <svg viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Original: narrow photo with empty canvas on the sides">
-                                <rect width="600" height="400" fill="#cfd4d9"/>
-                                <!-- checker hint on empty canvas -->
-                                <g fill="#c2c8ce">
-                                    <rect x="0" y="0" width="200" height="400"/>
-                                    <rect x="400" y="0" width="200" height="400"/>
-                                </g>
-                                <!-- original photo only in the middle third -->
-                                <defs><linearGradient id="e1-sky-b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8ec5ec"/><stop offset="1" stop-color="#dceff8"/></linearGradient></defs>
-                                <rect x="200" y="0" width="200" height="400" fill="url(#e1-sky-b)"/>
-                                <path d="M200 300 L320 150 L400 250 L400 400 L200 400 Z" fill="#5b7c86"/>
-                                <path d="M200 320 L300 260 L400 300 L400 400 L200 400 Z" fill="#3f5a63"/>
-                                <rect x="200" y="330" width="200" height="70" fill="#2b8f6a"/>
-                                <text x="100" y="205" text-anchor="middle" style="fill:#7c8894" font-family="Segoe UI, sans-serif" font-size="13">empty canvas</text>
-                                <text x="500" y="205" text-anchor="middle" style="fill:#7c8894" font-family="Segoe UI, sans-serif" font-size="13">empty canvas</text>
-                            </svg>
+                            <img src="images/l18_before.jpg" alt="The original narrow photo, centered on empty canvas waiting to be filled.">
                         </div>
                         <span class="ba-label after">After</span>
                         <span class="ba-label before">Before</span>
@@ -129,8 +100,7 @@
                         <span class="ba-divider" aria-hidden="true"></span>
                         <span class="ba-grabber" aria-hidden="true">⇄</span>
                     </div>
-                    <figcaption>The center is the original photo. Everything outside the dashed lines was generated to match, giving the scene room to breathe.</figcaption>
-                    <span class="ba-placeholder-note">Illustrated stand-in. A real expanded photo drops into this same slider.</span>
+                    <figcaption>The center strip is the original photo. Everything in the gray areas was generated by Photoshop to match, giving the scene room to breathe.</figcaption>
                 </figure>
             </section>
 
