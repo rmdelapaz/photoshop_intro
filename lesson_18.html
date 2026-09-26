@@ -57,7 +57,7 @@
                         <li>Guide the fill with an optional <strong>prompt</strong> and keep the seam invisible</li>
                     </ul>
                     <p><strong>⏱️ Estimated Time:</strong> 45 minutes</p>
-                    <p><strong>🎯 Project:</strong> Take a tightly-cropped photo and expand it into a roomier, better-composed frame.</p>
+                    <p><strong>🎯 Project:</strong> Take a tightly cropped photo and expand it into a roomier, better-composed frame.</p>
                 </div>
             </header>
 
@@ -134,7 +134,7 @@
             <!-- Panel -->
             <section id="panel" class="lesson-section">
                 <h2>🎛️ Expand With the Crop Tool</h2>
-                <p>The trick is that the <strong>Crop tool</strong> can crop <em>outward</em>. Drag its handles beyond the image and set <strong>Fill</strong> to <strong>Generative Expand</strong>. Here is that setup as a diagram:</p>
+                <p>The trick is that the <strong>Crop tool</strong> can crop <em>outward</em>. Set <strong>Fill</strong> to <strong>Generative Expand</strong> in the options bar, drag its handles beyond the image, then click <strong>Generate</strong> in the Contextual Task Bar. Here is that setup as a diagram:</p>
                 <figure>
                     <div class="ps-mock" style="max-width:520px;">
                         <div class="ps-titlebar">
@@ -161,9 +161,9 @@
                             <rect x="340" y="52" width="140" height="130" fill="#2b2b2b"/>
                             <text x="110" y="122" text-anchor="middle" style="fill:#7c8894" font-family="Segoe UI, sans-serif" font-size="11">to fill</text>
                             <text x="410" y="122" text-anchor="middle" style="fill:#7c8894" font-family="Segoe UI, sans-serif" font-size="11">to fill</text>
-                            <text x="260" y="200" text-anchor="middle" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Crop box (white) dragged wider than the photo → Enter → Generate</text>
+                            <text x="260" y="200" text-anchor="middle" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Crop box (white) dragged wider than the photo → Generate</text>
                         </svg>
-                        <figcaption>Figure 2: Choose a ratio or drag the crop handles outward, set <strong>Fill: Generative Expand</strong>, press Enter, then Generate. The dark side panels are the empty space Photoshop will invent.</figcaption>
+                        <figcaption>Figure 2: Set <strong>Fill: Generative Expand</strong>, drag the crop handles outward past the photo (a ratio only sets the shape; you still drag outward), then click <strong>Generate</strong> in the task bar. The dark side panels are the empty space Photoshop will invent.</figcaption>
                     </div>
                 </figure>
             </section>
@@ -178,7 +178,7 @@
                     <ol>
                         <li>Grab the <strong>Crop tool</strong> (<kbd>C</kbd>) and set <strong>Fill: Generative Expand</strong> in the options bar.</li>
                         <li>Drag a crop handle <em>outward</em> past the edge to add empty canvas where the subject needs room.</li>
-                        <li>Press <strong>Enter</strong>, leave the prompt empty, and <strong>Generate</strong>. Photoshop continues the scene into the new space.</li>
+                        <li>Leave the prompt in the Contextual Task Bar empty and click <strong>Generate</strong>. Photoshop continues the scene into the new space. (Committing the crop with <kbd>Enter</kbd> or the checkmark may also generate straight away with no prompt, so use the task bar when you want to type one.)</li>
                     </ol>
                 </div>
 
@@ -186,7 +186,8 @@
                     <h3>Step 2: Reframe to a new ratio <small>· 8 min</small></h3>
                     <ol>
                         <li>With the Crop tool, pick a target <strong>Ratio</strong> (16:9 for a banner, 1:1 for social, 4:5 for a feed post).</li>
-                        <li>The crop box now includes empty areas to reach that shape. Generate to fill them and your vertical photo becomes a clean horizontal, no stretching.</li>
+                        <li>Photoshop first fits that shape <em>inside</em> the photo, which would crop it. Drag the handles <strong>outward</strong> until the box extends past the photo's edges; the ratio stays locked while you drag.</li>
+                        <li>Click <strong>Generate</strong> to fill the empty areas, and your vertical photo becomes a clean horizontal, no stretching.</li>
                     </ol>
                     <div class="card card-warning">
                         <h4>⚠️ Expand in bites</h4>
@@ -247,8 +248,8 @@
                     <h3>Uncrop and reframe</h3>
                     <ol>
                         <li><strong>Crop tool</strong> (<kbd>C</kbd>), set <strong>Fill: Generative Expand</strong></li>
-                        <li>Drag handles outward, or pick a target <strong>Ratio</strong></li>
-                        <li>Enter → empty prompt (continue) or a short prompt (steer) → Generate</li>
+                        <li>Optionally pick a target <strong>Ratio</strong>, then drag the handles <strong>outward</strong> past the photo</li>
+                        <li>Empty prompt (continue) or a short prompt (steer) in the task bar → <strong>Generate</strong></li>
                         <li>Expand in <strong>bites</strong> for big changes; pick the best variation</li>
                         <li>Check the seam at 100%; unify with a subtle grade</li>
                     </ol>
@@ -280,7 +281,7 @@
                     <h3>🎓 Key Takeaways</h3>
                     <ul>
                         <li>Generative Expand is Generative Fill aimed at <strong>empty canvas around</strong> the photo.</li>
-                        <li>Use the <strong>Crop tool</strong> set to <strong>Fill: Generative Expand</strong>, dragging outward or picking a ratio.</li>
+                        <li>Use the <strong>Crop tool</strong> set to <strong>Fill: Generative Expand</strong>, dragging outward (with or without a ratio).</li>
                         <li>Expand in <strong>bites</strong>, and keep <strong>horizons continuous</strong> across the seam.</li>
                         <li>Great for uncropping, reframing aspect ratios, and adding space for design.</li>
                     </ul>

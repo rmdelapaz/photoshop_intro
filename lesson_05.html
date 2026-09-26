@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 2, Lesson 1: the develop step. Fix white balance and global tone in Camera Raw, opened as a Smart Object so every setting stays re-editable.">
     <meta name="author" content="Ray de la Paz">
-    <title>Module 2.1: The Develop Step — Camera Raw — Photoshop Course</title>
+    <title>Module 2.1: The Develop Step: Camera Raw | Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
@@ -131,7 +131,7 @@
             <!-- Panel -->
             <section id="panel" class="lesson-section">
                 <h2>🎛️ The Camera Raw Panel</h2>
-                <p>Camera Raw's Basic panel is a top-to-bottom checklist. Here's a labeled map (a diagram, not a live screenshot):</p>
+                <p>Camera Raw's Basic panel (inside its Edit panel; exact section names can vary slightly between versions) is a top-to-bottom checklist. Here's a labeled map (a diagram, not a live screenshot):</p>
                 <figure>
                     <div class="ps-mock">
                         <div class="ps-titlebar">
@@ -200,10 +200,11 @@
                 <div class="card card-info">
                     <h3>Step 1: Open as a Smart Object <small>· 3 min</small></h3>
                     <ol>
-                        <li><strong>File ▸ Open</strong>, then immediately right-click the layer ▸ <strong>Convert to Smart Object</strong>. (The thumbnail gets a little page-badge.)</li>
+                        <li><strong>File ▸ Open</strong>, then <strong>File ▸ Save As</strong> ▸ <code>grade-working.psd</code> (protect the original first, as always).</li>
+                        <li>Right-click the layer (on its name, not the thumbnail) ▸ <strong>Convert to Smart Object</strong>. (The thumbnail gets a little page-badge.)</li>
                         <li><strong>Filter ▸ Camera Raw Filter…</strong> The develop workspace opens.</li>
                     </ol>
-                    <blockquote><strong>💡</strong> Because the layer is a Smart Object, Camera Raw attaches as a <em>Smart Filter</em>, double-clickable later to re-edit every slider. Save as <code>grade-working.psd</code>.</blockquote>
+                    <blockquote><strong>💡</strong> Because the layer is a Smart Object, Camera Raw attaches as a <em>Smart Filter</em>, double-clickable later to re-edit every slider.</blockquote>
                 </div>
 
                 <div class="card card-info">
@@ -222,9 +223,9 @@
                     <h3>Step 3: Set global tone, top to bottom <small>· 8 min</small></h3>
                     <ol>
                         <li><strong>Exposure</strong>: get the overall brightness right first.</li>
+                        <li><strong>Contrast</strong>: a gentle nudge to taste (you can come back and fine-tune it after the rest).</li>
                         <li><strong>Highlights</strong> down to recover a bright sky; <strong>Shadows</strong> up to reveal dark detail.</li>
                         <li><strong>Whites</strong> up until the brightest point is <em>just</em> shy of clipping; <strong>Blacks</strong> down until you have a true black. (Hold <kbd>Alt/⌥</kbd> while dragging Whites/Blacks to see clipping.)</li>
-                        <li><strong>Contrast</strong> last, to taste.</li>
                     </ol>
                     <div class="card card-success">
                         <h4>✅ The "full range" check</h4>
@@ -237,6 +238,7 @@
                     <ol>
                         <li>Click <strong>OK</strong>. Camera Raw appears in the Layers panel as a Smart Filter beneath your Smart Object.</li>
                         <li>Toggle its 👁 to see your before/after. Double-click the filter name to reopen and tweak. Nothing is baked in.</li>
+                        <li><strong>File ▸ Save</strong> (<kbd>Ctrl/⌘ + S</kbd>). You'll open this same <code>grade-working.psd</code> again in Lesson 2.2.</li>
                     </ol>
                 </div>
 
@@ -248,6 +250,7 @@
                         <li>☐ There's a true black and a clean white in the image</li>
                         <li>☐ Highlights and shadows both show detail</li>
                         <li>☐ Camera Raw is a re-editable <strong>Smart Filter</strong>, not baked in</li>
+                        <li>☐ I saved <code>grade-working.psd</code> for the next lesson</li>
                     </ul>
                 </div>
             </section>
@@ -262,7 +265,7 @@
                         <li>Reopen the Smart Filter and confirm your sliders are all still there. That's the Smart Object safety net in action.</li>
                         <li>Try dragging <strong>Exposure</strong> to an extreme, clicking OK, reopening, and dialing it back. Notice there's zero quality loss — impossible without a Smart Object.</li>
                     </ol>
-                    <p><strong>Going further:</strong> peek at Camera Raw's <strong>Curve</strong> tab. That's exactly where Lesson 2.2 goes next — the single most powerful tone control in the program.</p>
+                    <p><strong>Going further:</strong> peek at Camera Raw's <strong>Curve</strong> panel. Lesson 2.2 explores that same idea as a Curves adjustment layer in Photoshop: the single most powerful tone control in the program.</p>
                 </div>
             </section>
 
@@ -275,8 +278,8 @@
                         <li>Right-click layer ▸ <strong>Convert to Smart Object</strong></li>
                         <li><strong>Filter ▸ Camera Raw Filter</strong></li>
                         <li><strong>White Balance</strong>: eyedropper on a neutral → fine-tune Temp/Tint</li>
-                        <li><strong>Tone</strong>, top to bottom: Exposure → Highlights/Shadows → Whites/Blacks → Contrast</li>
-                        <li>OK → it lands as a re-editable <strong>Smart Filter</strong></li>
+                        <li><strong>Tone</strong>, top to bottom: Exposure → Contrast → Highlights/Shadows → Whites/Blacks</li>
+                        <li>OK → it lands as a re-editable <strong>Smart Filter</strong> → <strong>File ▸ Save</strong></li>
                     </ol>
                     <p style="margin-bottom:0;"><small>Mantra: <strong>global before local; develop before you decorate.</strong></small></p>
                 </div>
@@ -307,7 +310,7 @@
                     <ul>
                         <li>Camera Raw is the <strong>develop step</strong>, the digital darkroom before any local work.</li>
                         <li><strong>Global before local:</strong> white balance and overall tone first.</li>
-                        <li>Work the Basic panel <strong>top to bottom</strong>: White Balance → Exposure → Highlights/Shadows → Whites/Blacks → Contrast.</li>
+                        <li>Work the Basic panel <strong>top to bottom</strong>: White Balance → Exposure → Contrast → Highlights/Shadows → Whites/Blacks.</li>
                         <li>Open as a <strong>Smart Object</strong> so Camera Raw stays a re-editable Smart Filter.</li>
                     </ul>
                 </div>
@@ -326,7 +329,7 @@
                 </details>
                 <details>
                     <summary>What does "clipping" mean?</summary>
-                    <p>Clipping is when a highlight goes pure white (or a shadow pure black) with <em>no detail left</em>. A little is fine: a spec­ular reflection should be white. Holding <kbd>Alt/⌥</kbd> on Whites/Blacks shows exactly where it happens.</p>
+                    <p>Clipping is when a highlight goes pure white (or a shadow pure black) with <em>no detail left</em>. A little is fine: a specular reflection should be white. Holding <kbd>Alt/⌥</kbd> on Whites/Blacks shows exactly where it happens.</p>
                 </details>
 
                 <h3>🔭 Looking Ahead</h3>

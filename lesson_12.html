@@ -189,28 +189,28 @@
                             <text x="82" y="127" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">SUBJECT (cutout + mask)</text>
                             <!-- indent bracket showing clip target -->
                             <rect x="6" y="12" width="4" height="136" fill="#31A8FF"/>
-                            <text x="16" y="168" style="fill:#31A8FF" font-family="Segoe UI, sans-serif" font-size="10.5">↑ blue bar: these adjustments clip to SUBJECT only</text>
+                            <text x="16" y="168" style="fill:#31A8FF" font-family="Segoe UI, sans-serif" font-size="10.5">↑ diagram bracket: these adjustments clip to SUBJECT only</text>
                             <!-- background -->
                             <rect x="12" y="184" width="436" height="52" fill="#414141" stroke="#5a5a5a"/>
                             <circle cx="34" cy="210" r="8" fill="#111"/><circle cx="34" cy="210" r="4" fill="#ffd23f"/>
                             <rect x="48" y="194" width="24" height="32" fill="#e0a95a"/>
                             <text x="82" y="215" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13">Background scene</text>
                         </svg>
-                        <figcaption>Figure 2: The Curves and Color Balance layers are <strong>clipped</strong> to the subject (the little ↳ hook). They match the subject to the scene without touching the background.</figcaption>
+                        <figcaption>Figure 2: The Curves and Color Balance layers are <strong>clipped</strong> to the subject (the little ↳ hook). They match the subject to the scene without touching the background. (The blue bracket is just a diagram marker; Step 4's clipped Hue/Saturation stacks on top the same way.)</figcaption>
                     </div>
                 </figure>
-                <p><small>To clip: hold <kbd>Alt/⌥</kbd> and click the line between the adjustment layer and the layer below, or press <kbd>Ctrl/⌘ + Alt/⌥ + G</kbd>.</small></p>
+                <p><small>To clip: hold <kbd>Alt/⌥</kbd> and click the line between the adjustment layer and the layer below, or press <kbd>Ctrl/⌘ + Alt/⌥ + G</kbd>. In Photoshop you can spot a clipped layer by its indent and small bent arrow (↳), and the layer it clips to has its name underlined.</small></p>
             </section>
 
             <!-- Build -->
             <section id="build" class="lesson-section">
                 <h2>🛠️ Guided Build: Match the Subject</h2>
-                <p>Open your Lesson 4.1 cutout, and drag your chosen background photo in as a layer beneath the subject.</p>
+                <p>Open your Lesson 4.1 cutout. Bring in your chosen background photo with <strong>File ▸ Place Embedded</strong>, press <kbd>Enter</kbd> to accept it, then drag its layer <em>below</em> the <code>SUBJECT</code> group in the Layers panel.</p>
 
                 <div class="card card-info">
                     <h3>Step 1: Position and size <small>· 4 min</small></h3>
                     <ol>
-                        <li>With the subject a Smart Object, press <kbd>Ctrl/⌘ + T</kbd> and scale it to a believable size for the scene. Mind the perspective: where would the subject actually stand?</li>
+                        <li>Right-click the <code>SUBJECT</code> group and choose <strong>Convert to Smart Object</strong>, so resizing never degrades it. Then press <kbd>Ctrl/⌘ + T</kbd> and scale it to a believable size for the scene. Mind the perspective: where would the subject actually stand?</li>
                         <li>Place its feet where the ground is, not floating.</li>
                     </ol>
                 </div>
@@ -269,7 +269,7 @@
                         <li>Line the two results up. Feeling how differently you had to treat the subject is the whole lesson in one glance.</li>
                         <li>Try a deliberately hard case: a subject shot indoors placed into bright daylight.</li>
                     </ol>
-                    <p><strong>Going further:</strong> sample a color from the scene's light with the eyedropper, then paint it onto a clipped layer set to <strong>Soft Light</strong> at low opacity, over just the subject's lit side. That is a "light wrap," a pro trick for selling the match.</p>
+                    <p><strong>Going further:</strong> add a <strong>light wrap</strong>, the pro trick where the scene's light spills softly around the subject's edges. Duplicate the background layer (<kbd>Ctrl/⌘ + J</kbd>), drag the copy above the subject, and clip it (<kbd>Ctrl/⌘ + Alt/⌥ + G</kbd>). Blur it heavily with <strong>Gaussian Blur</strong> (roughly 20–40px), set it to <strong>Screen</strong> or <strong>Soft Light</strong> at low opacity, then give it a black mask and paint white only along the edges that face the light. The scene's glow now wraps the rim of the subject.</p>
                 </div>
             </section>
 
@@ -279,7 +279,7 @@
                 <div class="card" style="border-left:4px solid var(--primary-color);">
                     <h3>Make a subject belong</h3>
                     <ol>
-                        <li>Size and place the subject (feet on the ground, right perspective)</li>
+                        <li>Convert the subject to a Smart Object; size and place it (feet on the ground, right perspective)</li>
                         <li>Clipped <strong>Curves</strong>: match <strong>brightness</strong> first</li>
                         <li>Clipped <strong>Color Balance</strong>: match the scene's <strong>temperature</strong> (warm light, cool shadows)</li>
                         <li>Clipped Curves / <strong>Hue/Saturation</strong>: match <strong>contrast</strong>, ease saturation down</li>

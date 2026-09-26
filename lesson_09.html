@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 3, Lesson 2: frequency separation — split a photo into texture and color so you can even out skin tone without destroying pores.">
     <meta name="author" content="Ray de la Paz">
-    <title>Module 3.2: Frequency Separation — Photoshop Course</title>
+    <title>Module 3.2: Frequency Separation | Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
@@ -216,13 +216,13 @@
             <!-- Build -->
             <section id="build" class="lesson-section">
                 <h2>🛠️ Guided Build: Separate &amp; Smooth</h2>
-                <p>Open your retouched portrait from Lesson 3.1 (blemishes already gone; now we even the tone). Flatten a copy to a single layer to start from.</p>
+                <p>Open your retouched portrait from Lesson 3.1 (blemishes already gone; now we even the tone). Merge everything into one fresh layer to start from: press <kbd>Ctrl+Alt+Shift+E</kbd> / <kbd>⌘⌥⇧E</kbd> (Stamp Visible). Your earlier layers stay untouched underneath.</p>
 
                 <div class="card card-info">
                     <h3>Step 1: Make the LOW (color) layer <small>· 6 min</small></h3>
                     <ol>
-                        <li>Duplicate the skin layer twice. Name the lower copy <strong>LOW</strong>, the upper copy <strong>HIGH</strong>; hide HIGH for now.</li>
-                        <li>Select <strong>LOW</strong> and apply <strong>Filter ▸ Blur ▸ Gaussian Blur</strong>. Raise the radius until the blotches are gone and the pores just disappear, often ~6–12px on a portrait. Remember this radius.</li>
+                        <li>Duplicate that stamped layer twice (<kbd>Ctrl/⌘ + J</kbd>, twice). Name the lower copy <strong>LOW</strong>, the upper copy <strong>HIGH</strong>; hide HIGH for now.</li>
+                        <li>Select <strong>LOW</strong> and apply <strong>Filter ▸ Blur ▸ Gaussian Blur</strong>. Raise the radius until the blotches are gone and the pores just disappear, often ~6–12px on a portrait.</li>
                     </ol>
                     <blockquote><strong>💡</strong> LOW now holds only color and shading: smooth, no texture. That's your "paint" sheet.</blockquote>
                 </div>
@@ -231,7 +231,7 @@
                     <h3>Step 2: Make the HIGH (texture) layer <small>· 8 min</small></h3>
                     <ol>
                         <li>Show and select <strong>HIGH</strong>. Choose <strong>Image ▸ Apply Image</strong>.</li>
-                        <li>Set Layer to <strong>LOW</strong>, and for a 8-bit photo: Blending <strong>Subtract</strong>, Scale <strong>2</strong>, Offset <strong>128</strong>. Click OK. HIGH turns flat gray with faint texture.</li>
+                        <li>Set Layer to <strong>LOW</strong>, and for an 8-bit photo: Blending <strong>Subtract</strong>, Scale <strong>2</strong>, Offset <strong>128</strong>. Click OK. HIGH turns flat gray with faint texture.</li>
                         <li>Set HIGH's blend mode to <strong>Linear Light</strong>. The image snaps back to normal, but now texture and color live on separate layers. 🎉</li>
                     </ol>
                     <div class="card card-warning">
@@ -243,7 +243,7 @@
                 <div class="card card-info">
                     <h3>Step 3: Even the tone on LOW <small>· 8 min</small></h3>
                     <ol>
-                        <li>Select the <strong>LOW</strong> layer. Grab the <strong>Lasso</strong>, loosely circle a blotchy area, and add a tiny <strong>Gaussian Blur</strong>, or paint with a soft <strong>Mixer/normal Brush</strong> sampling good nearby color at low opacity.</li>
+                        <li>Select the <strong>LOW</strong> layer. Grab the <strong>Lasso</strong> and loosely circle a blotchy area. Soften the selection's edge with <strong>Select ▸ Modify ▸ Feather</strong> (about 10–20px) so the fix blends in, then add a tiny <strong>Gaussian Blur</strong>. Or skip the selection and paint with a soft <strong>Brush</strong> (or the <strong>Mixer Brush</strong>) at low opacity, sampling good nearby color.</li>
                         <li>Watch the blotches even out while the pores (up on HIGH) stay razor sharp. Work gently; you're evening, not erasing.</li>
                     </ol>
                 </div>
@@ -251,7 +251,7 @@
                 <div class="card card-info">
                     <h3>Step 4: Fix stray texture on HIGH <small>· 5 min</small></h3>
                     <ol>
-                        <li>Select <strong>HIGH</strong>. Use the <strong>Healing Brush</strong> or <strong>Clone Stamp</strong> to remove a rogue flyaway hair or a bit of rough texture, <em>without</em> affecting color at all.</li>
+                        <li>Select <strong>HIGH</strong>. Use the <strong>Healing Brush</strong> or <strong>Clone Stamp</strong> with <strong>Sample: Current Layer</strong> set in the options bar, and remove a rogue flyaway hair or a bit of rough texture, <em>without</em> affecting color at all. (Sampling other layers would drag color onto your texture sheet.)</li>
                         <li>Save the .psd. Your portrait is smooth and real.</li>
                     </ol>
                 </div>
@@ -288,10 +288,10 @@
                 <div class="card" style="border-left:4px solid var(--primary-color);">
                     <h3>Split texture from color</h3>
                     <ol>
-                        <li>Duplicate skin ×2 → name <strong>LOW</strong> (lower) and <strong>HIGH</strong> (upper)</li>
-                        <li><strong>LOW</strong>: Gaussian Blur until blotches &amp; pores vanish (note the radius)</li>
+                        <li>Stamp Visible (<kbd>Ctrl+Alt+Shift+E</kbd> / <kbd>⌘⌥⇧E</kbd>), duplicate ×2 → name <strong>LOW</strong> (lower) and <strong>HIGH</strong> (upper)</li>
+                        <li><strong>LOW</strong>: Gaussian Blur until blotches &amp; pores vanish</li>
                         <li><strong>HIGH</strong>: <strong>Image ▸ Apply Image</strong> → 8-bit: Subtract, Scale 2, Offset 128 → blend mode <strong>Linear Light</strong></li>
-                        <li>Even tone on <strong>LOW</strong> (soft brush / small blur); fix texture on <strong>HIGH</strong> (heal/clone)</li>
+                        <li>Even tone on <strong>LOW</strong> (soft brush / small blur); fix texture on <strong>HIGH</strong> (heal/clone, Sample: Current Layer)</li>
                     </ol>
                     <p style="margin-bottom:0;"><small>Mantra: <strong>color on LOW, texture on HIGH: never mix them.</strong></small></p>
                 </div>
@@ -356,7 +356,7 @@
 
                 <h3>📚 Additional Resources</h3>
                 <ul>
-                    <li><a href="https://helpx.adobe.com/photoshop/using/blur-gallery.html" target="_blank" rel="noopener">Adobe — Blur filters</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/filter-effects-reference.html" target="_blank" rel="noopener">Adobe: Filter effects reference (Gaussian Blur)</a></li>
                     <li><a href="https://helpx.adobe.com/photoshop/using/blending-modes.html" target="_blank" rel="noopener">Adobe — Blending modes (Linear Light)</a></li>
                 </ul>
 

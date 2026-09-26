@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 1, Lesson 3: clean up a messy photo — remove spots, distractions, and stray objects with the healing family, Content-Aware Fill, and the Remove tool — then export the finished image.">
     <meta name="author" content="Ray de la Paz">
-    <title>Module 1.3: Cleaning Up — Spots, Distractions &amp; Edges — Photoshop Course</title>
+    <title>Module 1.3: Cleaning Up: Spots, Distractions &amp; Edges | Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
@@ -144,7 +144,7 @@
 
                 <div class="card card-accent">
                     <h3>🧠 The one habit that saves you every time</h3>
-                    <p>Do all your cleanup on a <strong>separate, empty layer</strong> with "Sample: All Layers" turned on. If a heal goes wrong, you erase it off that layer. The original photo underneath is never touched. It's the tracing-paper principle from Module 0, applied to retouching.</p>
+                    <p>Do all your cleanup on a <strong>separate, empty layer</strong> with each tool set to sample <em>all layers</em> (a <strong>Sample All Layers</strong> checkbox on the Spot Healing Brush and Remove tool; a <strong>Sample:</strong> menu set to <em>Current &amp; Below</em> or <em>All Layers</em> on the Healing Brush and Clone Stamp). If a heal goes wrong, you erase it off that layer. The original photo underneath is never touched. It's the tracing-paper principle from Module 0, applied to retouching.</p>
                 </div>
             </section>
 
@@ -158,9 +158,9 @@
                         flowchart TD
                             START(["What are you removing?"]) --> Q1{"How big&lt;br/&gt;is it?"}
                             Q1 -->|"Tiny spot / blemish"| SPOT["Spot Healing Brush&lt;br/&gt;(just click it)"]
-                            Q1 -->|"A whole object"| Q2{"Is the background&lt;br/&gt;busy or simple?"}
-                            Q2 -->|"Simple / repeating"| CLONE["Clone Stamp&lt;br/&gt;(match the pattern)"]
-                            Q2 -->|"Anything else"| CAF["Content-Aware Fill&lt;br/&gt;or the Remove tool"]
+                            Q1 -->|"A whole object"| Q2{"What's around it?"}
+                            Q2 -->|"Hard edges, straight lines, patterns"| CLONE["Clone Stamp&lt;br/&gt;(copy the structure exactly)"]
+                            Q2 -->|"Plain or textured (sky, sand, grass)"| CAF["Remove tool&lt;br/&gt;or Content-Aware Fill"]
                             SPOT --> DONE(["Blend &amp; check at 100%"])
                             CLONE --> DONE
                             CAF --> DONE
@@ -177,24 +177,27 @@
                             <span class="ps-dot" style="background:#28c840;"></span>
                             <span style="margin-left:6px;">Ps &nbsp; Retouch tools (simplified)</span>
                         </div>
-                        <svg viewBox="0 0 520 250" role="img" aria-label="A toolbar flyout showing the healing and cloning tools grouped together">
+                        <svg viewBox="0 0 520 250" role="img" aria-label="A toolbar flyout showing the healing tools grouped together, with the Clone Stamp in its own separate slot">
                             <rect width="520" height="250" fill="#2b2b2b"/>
                             <rect x="0" y="0" width="60" height="250" fill="#3a3a3a"/>
                             <!-- the retouch group button -->
                             <rect x="16" y="24" width="28" height="24" rx="3" fill="#1473E6"/>
                             <text x="30" y="40" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12">🩹</text>
                             <!-- flyout -->
-                            <rect x="60" y="20" width="360" height="200" fill="#454545" stroke="#5a5a5a"/>
+                            <rect x="60" y="20" width="360" height="164" fill="#454545" stroke="#5a5a5a"/>
                             <g font-family="Segoe UI, sans-serif" font-size="13">
                                 <rect x="60" y="20" width="360" height="38" fill="#1473E6"/>
                                 <text x="80" y="44" style="fill:#fff">🩹 Spot Healing Brush — click tiny spots</text>
                                 <text x="80" y="84" style="fill:#e2e8f0">🩹 Healing Brush — Alt-sample, then paint</text>
                                 <text x="80" y="120" style="fill:#e2e8f0">🩹 Patch — lasso a mess, drag to clean area</text>
-                                <text x="80" y="156" style="fill:#e2e8f0">✨ Remove — brush over it, AI fills (2024+)</text>
-                                <text x="80" y="192" style="fill:#e2e8f0">🔁 Clone Stamp — copy pixels exactly</text>
+                                <text x="80" y="156" style="fill:#e2e8f0">✨ Remove — brush over it, AI fills</text>
                             </g>
+                            <!-- separate Clone Stamp slot -->
+                            <rect x="16" y="200" width="28" height="24" rx="3" fill="#555"/>
+                            <text x="30" y="216" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="12">🔁</text>
+                            <text x="60" y="217" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="12">Clone Stamp (S): its own slot, copies pixels exactly</text>
                         </svg>
-                        <figcaption>Figure 2: The retouch tools share one toolbar slot. Click and hold to see the flyout. The blue one is selected.</figcaption>
+                        <figcaption>Figure 2: The healing tools (<kbd>J</kbd>) share one toolbar slot. Click and hold to see the flyout; the blue one is selected. The Clone Stamp (<kbd>S</kbd>) is <em>not</em> in this group: it has its own slot further down the toolbar.</figcaption>
                     </div>
                 </figure>
             </section>
@@ -208,7 +211,7 @@
                     <h3>Step 1: Make a retouch layer <small>· 2 min</small></h3>
                     <ol>
                         <li>Click the <strong>New Layer</strong> icon in the Layers panel. Name it <code>retouch</code>.</li>
-                        <li>Pick the <strong>Spot Healing Brush</strong> (<kbd>J</kbd>) and in the options bar set <strong>Sample: All Layers</strong>.</li>
+                        <li>Pick the <strong>Spot Healing Brush</strong> (<kbd>J</kbd>) and in the options bar check <strong>Sample All Layers</strong>.</li>
                     </ol>
                     <blockquote><strong>💡 Why the empty layer:</strong> everything you fix lands on <code>retouch</code>, not the photo. Hide or erase that layer and your original is pristine: non-destructive retouching.</blockquote>
                 </div>
@@ -224,16 +227,17 @@
 
                 <div class="card card-info">
                     <h3>Step 3: Remove the big distraction <small>· 10 min</small></h3>
-                    <p><strong>Option A, the Remove tool (Photoshop 2024+):</strong></p>
+                    <p><strong>Option A, the Remove tool (Photoshop 2023 v24.5 and later):</strong></p>
                     <ol>
-                        <li>Pick <strong>Remove</strong> (in the healing group) and simply <strong>brush over the whole object</strong>.</li>
+                        <li>Pick <strong>Remove</strong> (in the healing group), check <strong>Sample All Layers</strong> in the options bar (you're still on the empty <code>retouch</code> layer), and simply <strong>brush over the whole object</strong>.</li>
                         <li>Release. Photoshop fills it in with plausible background. Touch up any leftover with a second pass.</li>
                     </ol>
                     <p><strong>Option B, Content-Aware Fill:</strong></p>
                     <ol>
+                        <li>Click the <strong>photo layer</strong> in the Layers panel so Content-Aware Fill has real pixels to sample (depending on your version, it may not be able to sample from an empty layer).</li>
                         <li>Loosely select the object (Lasso tool, <kbd>L</kbd>), leaving a little margin.</li>
                         <li><strong>Edit ▸ Content-Aware Fill…</strong> A workspace opens with a live preview.</li>
-                        <li>Green-brush the areas Photoshop should sample <em>from</em>; set <strong>Output To: New Layer</strong>; click OK.</li>
+                        <li>Green-brush the areas Photoshop should sample <em>from</em>; set <strong>Output To: New Layer</strong> (so the photo stays untouched); click OK. Then click your <code>retouch</code> layer again before Step 4.</li>
                     </ol>
                     <div class="card card-warning">
                         <h4>⚠️ Watch for smears and repeats</h4>
@@ -244,7 +248,7 @@
                 <div class="card card-info">
                     <h3>Step 4: Clone for the stubborn bits, then export <small>· 8 min</small></h3>
                     <ol>
-                        <li>For a hard edge the healing tools smeared, grab the <strong>Clone Stamp</strong> (<kbd>S</kbd>). <kbd>Alt/⌥</kbd>-click a clean area to <em>sample</em>, then paint over the flaw. It copies exactly, keeping edges crisp.</li>
+                        <li>For a hard edge the healing tools smeared, grab the <strong>Clone Stamp</strong> (<kbd>S</kbd>) and set <strong>Sample: Current &amp; Below</strong> (or <em>All Layers</em>) in the options bar; it's a separate setting from the Spot Healing Brush, and on the default <em>Current Layer</em> it would sample your empty layer and paint nothing. <kbd>Alt/⌥</kbd>-click a clean area to <em>sample</em>, then paint over the flaw. It copies exactly, keeping edges crisp.</li>
                         <li>Do a final 100% pass across the whole image.</li>
                         <li><strong>File ▸ Save</strong> (your layered .psd), then <strong>File ▸ Export ▸ Export As ▸ JPG 80%</strong> → <code>cleanup-final.jpg</code>. Module 1 deliverable: done. 🏆</li>
                     </ol>
@@ -282,10 +286,10 @@
                 <div class="card" style="border-left:4px solid var(--primary-color);">
                     <h3>Distraction-free in five moves</h3>
                     <ol>
-                        <li>New empty layer named <code>retouch</code> → tool set to <strong>Sample: All Layers</strong></li>
+                        <li>New empty layer named <code>retouch</code> → every tool samples <strong>all layers</strong> (checkbox or <strong>Sample:</strong> menu)</li>
                         <li><strong>Spot Healing Brush</strong> (<kbd>J</kbd>): click each tiny spot at 100% zoom</li>
                         <li>Big object → <strong>Remove</strong> tool (brush over) or <strong>Edit ▸ Content-Aware Fill</strong></li>
-                        <li>Stubborn edge → <strong>Clone Stamp</strong> (<kbd>S</kbd>, <kbd>Alt/⌥</kbd>-sample) </li>
+                        <li>Stubborn edge → <strong>Clone Stamp</strong> (<kbd>S</kbd>, Sample: Current &amp; Below, <kbd>Alt/⌥</kbd>-sample)</li>
                         <li>100% final pass → Save .psd → Export JPG</li>
                     </ol>
                     <p style="margin-bottom:0;"><small>Mantra: <strong>heal to blend, clone to copy, always on a fresh layer.</strong></small></p>
@@ -328,7 +332,7 @@
                 <h3>❓ Common Questions at This Stage</h3>
                 <details>
                     <summary>My heal looks blurry or smeared. Why?</summary>
-                    <p>The Spot Healing Brush blends with whatever's nearby. If that includes a hard edge or a different color, it smears. Near edges, switch to the <strong>Clone Stamp</strong> (copies exactly) or the <strong>Healing Brush</strong> where you pick the sample point yourself.</p>
+                    <p>The Spot Healing Brush blends with whatever's nearby. If that includes a hard edge or a different color, it smears. Near edges, switch to the <strong>Clone Stamp</strong> (copies exactly) or the <strong>Healing Brush</strong> where you pick the sample point yourself. (On a <code>retouch</code> layer, set either tool's <strong>Sample:</strong> menu to <em>Current &amp; Below</em> first.)</p>
                 </details>
                 <details>
                     <summary>Content-Aware Fill invented something weird.</summary>
@@ -357,7 +361,7 @@
 
                 <div class="card card-accent" style="text-align: center; padding: 2rem;">
                     <h3>🌟 Encouragement for the Journey</h3>
-                    <p>You've finished an entire module — four lessons, a real foundation, a photo you took from messy to finished. That's not beginner luck; that's a method you now own. Rest, then meet me in Module 2, where things start to get genuinely beautiful.</p>
+                    <p>You've finished an entire module: three lessons, a real foundation, a photo you took from messy to finished. That's not beginner luck; that's a method you now own. Rest, then meet me in Module 2, where things start to get genuinely beautiful.</p>
                 </div>
             </section>
 

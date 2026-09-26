@@ -598,6 +598,7 @@ nav.main-nav {
    =========================== */
 
 input, textarea, select {
+    box-sizing: border-box;
     width: 100%;
     padding: var(--spacing-sm) var(--spacing-md);
     border: 1px solid var(--border-color);
@@ -1128,7 +1129,7 @@ svg .svg-bg { fill: var(--card-bg); }
     .nav-divider { display: none; }
 
     .lesson-nav { flex-direction: column; }
-    .lesson-nav a { width: 100%; text-align: center; justify-content: center; }
+    .lesson-nav a { width: 100%; box-sizing: border-box; text-align: center; justify-content: center; }
 
     table { font-size: 0.875rem; }
     h1 { font-size: 1.6rem; }

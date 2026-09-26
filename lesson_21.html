@@ -144,7 +144,7 @@
                 <ul>
                     <li><strong>Name things immediately.</strong> The moment a layer matters, name it. "sky", "model-cutout", "title", not "Layer 9".</li>
                     <li><strong>Group by role.</strong> Put related layers in groups: BACKGROUND, SUBJECT, TYPE, GRADE. Collapse the ones you are not using.</li>
-                    <li><strong>Color-label the groups.</strong> A glance at color tells you where you are in a stack of fifty layers.</li>
+                    <li><strong>Color-label the groups.</strong> Right-click a group's eye icon and pick a color. A glance at color tells you where you are in a stack of fifty layers.</li>
                 </ul>
 
                 <div class="card card-accent">
@@ -167,7 +167,7 @@
             <!-- Panel -->
             <section id="panel" class="lesson-section">
                 <h2>🕘 Snapshots &amp; Safety</h2>
-                <p>Before a risky move (a big generative edit, a merge, a filter), take a <strong>Snapshot</strong> in the History panel. It is a saved point you can jump back to even after many other steps. Here is the History panel as a diagram:</p>
+                <p>Before a risky move (a big generative edit, a merge, a filter), take a <strong>Snapshot</strong> in the History panel (<strong>Window ▸ History</strong>): click the <strong>camera icon</strong> (Create New Snapshot) at the bottom of the panel, or <kbd>Alt/⌥</kbd>-click it to name the snapshot as you make it. A snapshot is a saved point you can jump back to even after many other steps. Here is the History panel as a diagram:</p>
                 <figure>
                     <div class="ps-mock" style="max-width:400px;">
                         <div class="ps-titlebar">
@@ -187,7 +187,7 @@
                             <text x="16" y="114" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11" font-weight="bold">STEPS</text>
                             <g font-family="Segoe UI, sans-serif" font-size="11.5" style="fill:#cbd5e1">
                                 <text x="24" y="134">Curves</text>
-                                <text x="24" y="152">Layer via Mask</text>
+                                <text x="24" y="152">Add Layer Mask</text>
                                 <text x="24" y="170">Generative Fill</text>
                                 <text x="24" y="188">Move</text>
                             </g>
@@ -197,7 +197,7 @@
                         <figcaption>Figure 2: Snapshots (top) are named restore points. Take one before anything hard to undo. The step list below is your recent, linear history.</figcaption>
                     </div>
                 </figure>
-                <p><small>History is session-only (it clears when you close the file), so also <strong>Save versions</strong> to disk: <code>capstone_v1.psd</code>, <code>_v2</code>, and so on, before major changes.</small></p>
+                <p><small>History is session-only (it clears when you close the file, snapshots included), so also <strong>Save versions</strong> to disk: <code>capstone_v1.psd</code>, <code>_v2</code>, and so on, before major changes.</small></p>
             </section>
 
             <!-- Build -->
@@ -209,7 +209,7 @@
                     <h3>Step 1: Block in the composition <small>· first session</small></h3>
                     <ol>
                         <li>Place your major elements roughly: background, subject, space for type. Do not refine yet.</li>
-                        <li>Group and name them immediately: BACKGROUND, SUBJECT, TYPE. Judge the layout before going deeper.</li>
+                        <li>Group and name them immediately: select related layers and press <kbd>Ctrl/⌘ + G</kbd> to group them, then double-click the group name to rename it (BACKGROUND, SUBJECT, TYPE). To color-label a group, right-click its eye (visibility) icon and pick a color. Judge the layout before going deeper.</li>
                     </ol>
                 </div>
 
@@ -228,7 +228,7 @@
                 <div class="card card-info">
                     <h3>Step 3: Step back, on purpose <small>· throughout</small></h3>
                     <ol>
-                        <li>Every so often, zoom to fit, squint, and flip the canvas horizontally (<strong>Image ▸ Image Rotation ▸ Flip Horizontal</strong>, then flip back). Fresh eyes catch imbalances your familiar eyes miss.</li>
+                        <li>Every so often, zoom to fit, squint, and flip your view horizontally with <strong>View ▸ Flip Horizontal</strong> (it flips only the view, so there is nothing to undo; choose it again to flip back). Fresh eyes catch imbalances your familiar eyes miss.</li>
                         <li>Ask: does it still serve the brief? Is the focal point winning? Adjust the big picture, not just the pixels.</li>
                     </ol>
                 </div>
@@ -265,9 +265,9 @@
                     <ol>
                         <li>Build your capstone to a finished state. Give it real time, across more than one sitting if it needs it.</li>
                         <li>Enforce the rule that every layer is named and grouped before you close the file for the day.</li>
-                        <li>Save a fresh version before any edit you are nervous about. You will use one bravely because you know you can get back.</li>
+                        <li>Save a fresh version before any edit you are nervous about. You will make that edit bravely because you know you can get back.</li>
                     </ol>
-                    <p><strong>Going further:</strong> keep a couple of "process" snapshots exported as JPGs. They are gold for the presentation in 7.3, where showing your process is as impressive as the result.</p>
+                    <p><strong>Going further:</strong> keep a couple of "process" images as JPGs. Click a snapshot, use the History panel's <strong>Create new document from current state</strong> button, and export that document. They are gold for the presentation in 7.3, where showing your process is as impressive as the result.</p>
                 </div>
             </section>
 
@@ -323,7 +323,7 @@
                 <h3>❓ Common Questions at This Stage</h3>
                 <details>
                     <summary>My file is huge and slow. Help?</summary>
-                    <p>Flatten or merge finished sections into Smart Objects to lighten it, but keep a full layered version saved first. Also purge (Edit ▸ Purge) if your history is eating memory.</p>
+                    <p>Save a full layered version first, then merge or flatten finished sections in a working copy. (Converting groups to Smart Objects tidies the stack but usually does not shrink the file, since the layers are kept inside.) Also purge (Edit ▸ Purge) if your history is eating memory.</p>
                 </details>
                 <details>
                     <summary>I got stuck and the piece feels worse than before.</summary>
@@ -336,7 +336,7 @@
                 <h3>✅ Before the Next Lesson</h3>
                 <ul>
                     <li>Finish your capstone and save the clean master.</li>
-                    <li>Keep one or two process snapshots for the presentation.</li>
+                    <li>Export one or two process images (from snapshots or versions) for the presentation.</li>
                     <li>Write your Learning Journal entry.</li>
                 </ul>
 

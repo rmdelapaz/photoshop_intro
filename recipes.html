@@ -104,7 +104,7 @@
                         <p class="recipe-when">When little marks dot a sky or a wall.</p>
                         <ol>
                             <li>Add a new empty layer named <code>retouch</code>.</li>
-                            <li><strong>Spot Healing Brush</strong> (<kbd>J</kbd>), set <strong>Sample: All Layers</strong>.</li>
+                            <li><strong>Spot Healing Brush</strong> (<kbd>J</kbd>), tick <strong>Sample All Layers</strong> in the options bar. (Using the Healing Brush or Clone Stamp instead? Set their <strong>Sample:</strong> menu to <strong>All Layers</strong>, or they will sample the empty layer.)</li>
                             <li>At 100% zoom, single-click each spot.</li>
                         </ol>
                         <p class="recipe-deep">🔗 Deep dive: <a href="lesson_04.html">Module 1.3: Cleaning Up</a></p>
@@ -112,13 +112,13 @@
 
                     <div class="card recipe" data-tags="remove object distraction person photobomb content aware generative delete">
                         <h3>Remove a distracting object</h3>
-                        <p class="recipe-when">When something (a sign, a bin, a photobomber) pulls the eye.</p>
+                        <p class="recipe-when">When something (a sign, a trash can, a photobomber) pulls the eye.</p>
                         <ol>
                             <li>Loosely select the object with a little margin.</li>
                             <li><strong>Generative Fill</strong> with an <em>empty</em> prompt, then Generate.</li>
                             <li>Or use <strong>Edit ▸ Content-Aware Fill</strong> for a non-cloud option.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_17.html">Module 6.1: Generative Fill</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_17.html">Module 6.1: Generative Fill</a> · <a href="lesson_04.html">Module 1.3: Cleaning Up</a> (Content-Aware Fill)</p>
                     </div>
                 </div>
             </section>
@@ -157,7 +157,7 @@
                             <li>Add an adjustment layer; the selection becomes its mask automatically.</li>
                             <li>Grade away, sky only. (Or <strong>Edit ▸ Sky Replacement</strong>.)</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_03.html">Module 1.2: Selections That Hold Up</a></p>
+                        <p class="recipe-deep">🔗 Related: <a href="lesson_03.html">Module 1.2: Selections That Hold Up</a> (selection basics; Select ▸ Sky itself is not covered in the course)</p>
                     </div>
 
                     <div class="card recipe" data-tags="selection into mask marching ants convert save">
@@ -204,10 +204,10 @@
                         <p class="recipe-when">When you want to lift a face or a subject, not the whole frame.</p>
                         <ol>
                             <li>Add a <strong>Curves</strong> layer and brighten it noticeably.</li>
-                            <li>Fill its mask <strong>black</strong> (<kbd>Alt/⌥ + Backspace</kbd> with black).</li>
+                            <li>Fill its mask <strong>black</strong> (with black as the foreground color, <kbd>Alt + Backspace</kbd> / <kbd>⌥ + Delete</kbd>; or press <kbd>Ctrl/⌘ + I</kbd> to invert the white mask).</li>
                             <li>Paint <strong>white</strong> with a soft brush over the area to reveal the lift.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_02.html">Module 1.1: Your First Mask</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_02.html">Module 1.1: The Layer Stack &amp; Your First Mask</a></p>
                     </div>
 
                     <div class="card recipe" data-tags="teal orange cinematic color grade channel curves split tone">
@@ -231,7 +231,7 @@
                         <h3>Whiten teeth or eyes</h3>
                         <p class="recipe-when">When teeth or the whites of the eyes look dull.</p>
                         <ol>
-                            <li>Add a <strong>Curves</strong> layer, brighten slightly and desaturate a touch.</li>
+                            <li>Add a <strong>Curves</strong> layer and brighten slightly. (Yellowish teeth? Add a <strong>Hue/Saturation</strong> layer too, masked the same way, and lower the Yellows saturation a touch.)</li>
                             <li>Fill its mask <strong>black</strong>.</li>
                             <li>Paint <strong>white</strong> over just the teeth or eye-whites. Keep it subtle.</li>
                         </ol>
@@ -253,8 +253,8 @@
                         <h3>Remove a blemish naturally</h3>
                         <p class="recipe-when">When there is a temporary spot you want gone.</p>
                         <ol>
-                            <li>New <code>retouch</code> layer, <strong>Sample: All Layers</strong>.</li>
-                            <li><strong>Spot Healing Brush</strong>: click the blemish (leave permanent freckles/moles).</li>
+                            <li>Add a new empty <code>retouch</code> layer.</li>
+                            <li><strong>Spot Healing Brush</strong> with <strong>Sample All Layers</strong> ticked: click the blemish (leave permanent freckles/moles). With the Healing Brush or Clone Stamp, set <strong>Sample: All Layers</strong> instead.</li>
                             <li>Lower the layer opacity slightly if it looks too perfect.</li>
                         </ol>
                         <p class="recipe-deep">🔗 Deep dive: <a href="lesson_08.html">Module 3.1: Natural Skin</a></p>
@@ -265,8 +265,8 @@
                         <p class="recipe-when">When a portrait looks flat and needs dimension.</p>
                         <ol>
                             <li><kbd>Alt/⌥</kbd>-New Layer, mode <strong>Soft Light</strong>, fill <strong>50% gray</strong>.</li>
-                            <li>Soft brush at ~10%: paint <strong>white</strong> to dodge highlights.</li>
-                            <li>Press <kbd>X</kbd> for <strong>black</strong> to burn the shadow planes.</li>
+                            <li>Press <kbd>D</kbd>, then <kbd>X</kbd>, so white is the foreground. Soft brush at ~10%: paint <strong>white</strong> to dodge highlights.</li>
+                            <li>Press <kbd>X</kbd> again for <strong>black</strong> to burn the shadow planes.</li>
                         </ol>
                         <p class="recipe-deep">🔗 Deep dive: <a href="lesson_10.html">Module 3.3: Dodge &amp; Burn</a></p>
                     </div>
@@ -343,8 +343,8 @@
                         <p class="recipe-when">When a subject is cropped too tight or you need a different shape.</p>
                         <ol>
                             <li><strong>Crop</strong> tool, set <strong>Fill: Generative Expand</strong>.</li>
-                            <li>Drag the handles outward, or pick a new <strong>Ratio</strong>.</li>
-                            <li><kbd>Enter</kbd>, then Generate. Expand in small bites for big changes.</li>
+                            <li>Optionally pick a <strong>Ratio</strong>, then drag the handles <strong>outward</strong> past the photo.</li>
+                            <li>Optionally type a prompt in the task bar, then click <strong>Generate</strong>. Expand in small bites for big changes.</li>
                         </ol>
                         <p class="recipe-deep">🔗 Deep dive: <a href="lesson_18.html">Module 6.2: Generative Expand</a></p>
                     </div>
@@ -353,8 +353,8 @@
                         <h3>Watermark a whole folder</h3>
                         <p class="recipe-when">When you need the same treatment on many images.</p>
                         <ol>
-                            <li>Record an <strong>Action</strong>: place the watermark, resize, save, close.</li>
-                            <li><strong>File ▸ Automate ▸ Batch</strong>, choose the Action and a source folder.</li>
+                            <li>Record an <strong>Action</strong>: <strong>File ▸ Automate ▸ Fit Image</strong>, place the watermark, <strong>Layer ▸ Flatten Image</strong>, Save As JPEG, close.</li>
+                            <li><strong>File ▸ Automate ▸ Batch</strong>: choose the Action, a <strong>Source</strong> folder and a <strong>Destination</strong> folder, and tick <strong>Override Action "Save As" Commands</strong>.</li>
                             <li>Run it. For a desktop shortcut, save it as a <strong>droplet</strong>.</li>
                         </ol>
                         <p class="recipe-deep">🔗 Deep dive: <a href="lesson_19.html">Module 6.3: Actions, Batch &amp; Droplets</a></p>
@@ -366,7 +366,7 @@
                         <ol>
                             <li>Keep the layered <code>.psd</code> master.</li>
                             <li><strong>Screen:</strong> Export As <strong>JPG</strong>, sRGB, at the platform's pixel size.</li>
-                            <li><strong>Print:</strong> Save a Copy as <strong>PDF</strong>, CMYK, 300 ppi (confirm with the printer).</li>
+                            <li><strong>Print:</strong> 300 ppi with bleed added via Canvas Size; convert to CMYK with <strong>Edit ▸ Convert to Profile</strong> (or a PDF/X preset), then <strong>Save a Copy</strong> as <strong>Photoshop PDF</strong>. Confirm the specs with the printer.</li>
                         </ol>
                         <p class="recipe-deep">🔗 Deep dive: <a href="lesson_16.html">Module 5.3: Layer Styles &amp; the Poster</a></p>
                     </div>

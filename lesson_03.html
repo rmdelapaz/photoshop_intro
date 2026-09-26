@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 1, Lesson 2: make selections that hold up — Object Selection, Select Subject, and Select & Mask — then bake them into clean, editable masks.">
     <meta name="author" content="Ray de la Paz">
-    <title>Module 1.2: Selections That Hold Up — Photoshop Course</title>
+    <title>Module 1.2: Selections That Hold Up | Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
@@ -151,7 +151,7 @@
                             <span class="ps-dot" style="background:#28c840;"></span>
                             <span style="margin-left:6px;">Ps &nbsp; Select &amp; Mask (simplified)</span>
                         </div>
-                        <svg viewBox="0 0 720 380" role="img" aria-label="The Select and Mask workspace: tools at left, subject preview on an onion-skin overlay, edge-refinement sliders and Output To at right">
+                        <svg viewBox="0 0 720 380" role="img" aria-label="The Select and Mask workspace: tools at left, subject preview in Overlay view (red), edge-refinement sliders and Output To at right">
                             <rect width="720" height="380" fill="#2b2b2b"/>
                             <!-- left tools -->
                             <rect x="0" y="0" width="46" height="380" fill="#3a3a3a"/>
@@ -197,7 +197,7 @@
                 <div class="card card-info">
                     <h3>Step 1: Let AI take the first swing <small>· 4 min</small></h3>
                     <ol>
-                        <li>With your photo layer active, go to <strong>Select ▸ Subject</strong> (or click <strong>Select Subject</strong> in the options bar of any selection tool).</li>
+                        <li>With your photo layer active, go to <strong>Select ▸ Subject</strong> (or click <strong>Select Subject</strong> in the options bar of the Object Selection, Quick Selection, or Magic Wand tool).</li>
                         <li>Marching ants appear around your subject. It won't be perfect, and that's expected and fine.</li>
                     </ol>
                 </div>
@@ -205,7 +205,7 @@
                 <div class="card card-info">
                     <h3>Step 2: Patch the obvious misses <small>· 6 min</small></h3>
                     <ol>
-                        <li>Grab the <strong>Quick Selection</strong> tool (<kbd>W</kbd>).</li>
+                        <li>Grab the <strong>Quick Selection</strong> tool (<kbd>W</kbd>; it shares a slot with Object Selection and Magic Wand, so press <kbd>Shift + W</kbd> to cycle if a different one appears).</li>
                         <li>Paint over any bit of subject the AI missed to <strong>add</strong> it.</li>
                         <li>Hold <kbd>Alt/⌥</kbd> and paint over background that got included to <strong>subtract</strong> it.</li>
                     </ol>
@@ -219,10 +219,11 @@
                         <li>Set <strong>View</strong> to <em>Overlay</em> so masked-out areas show as a red film.</li>
                         <li>For hair or fur: pick the <strong>Refine Edge Brush</strong> and gently paint along the wispy edge, and Photoshop rebuilds those strands.</li>
                         <li>Nudge <strong>Smooth</strong> and <strong>Feather</strong> a touch for a natural edge; use <strong>Shift Edge</strong> slightly negative to bite off any leftover background halo.</li>
+                        <li>Still seeing a colored fringe from the old background? In <strong>Output Settings</strong>, check <strong>Decontaminate Colors</strong>. (It switches the output to <em>New Layer with Layer Mask</em>, which is still fully non-destructive: your original layer is kept, just hidden.)</li>
                     </ol>
                     <div class="card card-warning">
                         <h4>⚠️ The tell-tale sign of a bad cutout</h4>
-                        <p>A bright <em>halo</em> or a razor-sharp edge screams "cut out." A believable edge is slightly soft and, on hair, slightly translucent. Feather and Shift Edge are how you kill the halo.</p>
+                        <p>A bright <em>halo</em> or a razor-sharp edge screams "cut out." A believable edge is slightly soft and, on hair, slightly translucent. Feather, Shift Edge, and Decontaminate Colors are how you kill the halo.</p>
                     </div>
                 </div>
 
@@ -230,12 +231,13 @@
                     <h3>Step 4: Output to a Layer Mask (not a delete!) <small>· 4 min</small></h3>
                     <ol>
                         <li>At the bottom right, set <strong>Output To: Layer Mask</strong>.</li>
-                        <li>Click <strong>OK</strong>. Your photo layer now has a mask hiding the background, exactly the black/white card from Lesson 1.</li>
-                        <li>Add a new layer <em>below</em> it filled with a calm color or another photo. Your subject now sits on the new background.</li>
+                        <li>Click <strong>OK</strong>. Your photo layer now has a mask hiding the background, exactly the black/white card from Lesson 1.1.</li>
+                        <li>Add a new layer <em>below</em> it: <kbd>Ctrl/⌘</kbd>-click the <strong>New Layer</strong> icon in the Layers panel (new layers normally appear <em>above</em>), or drag the new layer down. Fill it with a calm color (<strong>Edit ▸ Fill…</strong>) or place another photo there. Your subject now sits on the new background.</li>
+                        <li><strong>File ▸ Save</strong> (<kbd>Ctrl/⌘ + S</kbd>) to keep your layered <code>cutout-working.psd</code>.</li>
                     </ol>
                     <div class="card card-success">
                         <h4>✅ The payoff</h4>
-                        <p>Click the mask and paint (black hides / white reveals) to fix any stray pixel — forever. You never deleted a thing. If tomorrow you want the old background back, toggle the mask off. That's the whole point of masks over erasing.</p>
+                        <p>Click the mask and paint (black hides / white reveals) to fix any stray pixel — forever. You never deleted a thing. If tomorrow you want the old background back, <kbd>Shift</kbd>-click the mask thumbnail to turn the mask off. That's the whole point of masks over erasing.</p>
                     </div>
                 </div>
 
@@ -247,6 +249,7 @@
                         <li>☐ Hair/fur edges look soft, not chopped</li>
                         <li>☐ There's a new, calmer background layer beneath the subject</li>
                         <li>☐ I can still paint the mask to fix strays</li>
+                        <li>☐ I saved my layered .psd</li>
                     </ul>
                 </div>
             </section>
@@ -273,9 +276,9 @@
                     <ol>
                         <li><strong>Select ▸ Subject</strong> (let AI start)</li>
                         <li><strong>Quick Selection</strong> (<kbd>W</kbd>): paint to add, <kbd>Alt/⌥</kbd>-paint to subtract</li>
-                        <li><strong>Select and Mask…</strong> → Refine Edge Brush on hair; nudge Smooth / Feather / Shift Edge</li>
+                        <li><strong>Select and Mask…</strong> → Refine Edge Brush on hair; nudge Smooth / Feather / Shift Edge (Decontaminate Colors for fringes)</li>
                         <li><strong>Output To: Layer Mask</strong> → OK</li>
-                        <li>New background layer <em>beneath</em>; paint the mask to fix strays</li>
+                        <li>New background layer <em>beneath</em>; paint the mask to fix strays; <strong>File ▸ Save</strong></li>
                     </ol>
                     <p style="margin-bottom:0;"><small>Mantra: <strong>mask it, don't erase it.</strong></small></p>
                 </div>

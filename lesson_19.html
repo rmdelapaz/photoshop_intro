@@ -84,7 +84,7 @@
             <!-- Hook -->
             <section id="hook" class="lesson-section">
                 <h2>🗂️ The Goal: One Click, Whole Folder</h2>
-                <p>On the right, a folder of raw exports: different sizes, no watermark, inconsistent. On the left, the same folder after one batched Action: every image resized to a square, tinted consistently, and watermarked. Drag the handle:</p>
+                <p>On the right, a folder of raw exports: different sizes, no watermark, inconsistent. On the left, the same folder after one batched Action: every image converted to sRGB, fitted to the same size, and watermarked. Drag the handle:</p>
 
                 <figure>
                     <div class="ba-slider" aria-label="Before and after: a messy folder of images batch-processed into a consistent, watermarked set.">
@@ -181,11 +181,12 @@
                             <text x="30" y="50" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">▾ Web JPG 1200</text>
                             <!-- steps -->
                             <g font-family="Segoe UI, sans-serif" font-size="11.5" style="fill:#cbd5e1">
-                                <text x="48" y="74">Convert to sRGB</text>
-                                <text x="48" y="96">Image Size: 1200 px long edge</text>
-                                <text x="48" y="118">Place watermark</text>
-                                <text x="48" y="140">Save As JPG (quality 80)</text>
-                                <text x="48" y="162">Close</text>
+                                <text x="48" y="70">Convert to Profile: sRGB</text>
+                                <text x="48" y="90">Fit Image: 1200 × 1200 px</text>
+                                <text x="48" y="110">Place watermark</text>
+                                <text x="48" y="130">Flatten Image</text>
+                                <text x="48" y="150">Save As JPEG (quality 10)</text>
+                                <text x="48" y="170">Close</text>
                             </g>
                             <!-- toolbar -->
                             <rect x="0" y="182" width="420" height="38" fill="#2f2f2f"/>
@@ -194,7 +195,7 @@
                             <path d="M138 192 l0 18 16 -9 Z" fill="#7ad07a"/>
                             <text x="180" y="205" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">● record &nbsp; ■ stop &nbsp; ▶ play</text>
                         </svg>
-                        <figcaption>Figure 2: An Action named "Web JPG 1200" with five recorded steps. The red dot records, the square stops, the triangle plays the selected Action.</figcaption>
+                        <figcaption>Figure 2: An Action named "Web JPG 1200" with six recorded steps. The red dot records, the square stops, the triangle plays the selected Action.</figcaption>
                     </div>
                 </figure>
             </section>
@@ -207,8 +208,16 @@
                 <div class="card card-info">
                     <h3>Step 1: Record the Action <small>· 8 min</small></h3>
                     <ol>
-                        <li>Open one image. In the Actions panel, make a new <strong>Set</strong> ("Export Web"), then a new <strong>Action</strong> ("Web JPG 1200"). Recording starts automatically.</li>
-                        <li>Do the task once: <strong>Edit ▸ Convert to Profile ▸ sRGB</strong>, then <strong>Image ▸ Image Size</strong> to 1200 px on the long edge, place your watermark, then <strong>File ▸ Save As</strong> a JPG into the processed folder, and close.</li>
+                        <li>Open one image. In the Actions panel, make a new <strong>Set</strong> ("Export Web"), then a new <strong>Action</strong> ("Web JPG 1200") and click <strong>Record</strong> in the New Action dialog. From that moment, Photoshop records what you do.</li>
+                        <li>Do the task once:
+                            <ul>
+                                <li><strong>Edit ▸ Convert to Profile</strong>, destination <strong>sRGB IEC61966-2.1</strong>.</li>
+                                <li><strong>File ▸ Automate ▸ Fit Image</strong>, 1200 × 1200 px. This fits the <em>long edge</em> to 1200 for landscape and portrait photos alike. (Image ▸ Image Size would record a fixed width, which goes wrong on portrait files.)</li>
+                                <li><strong>File ▸ Place Embedded</strong> your watermark and position it.</li>
+                                <li><strong>Layer ▸ Flatten Image</strong>. Current Photoshop only offers JPEG in Save As for a file without extra layers.</li>
+                                <li><strong>File ▸ Save As</strong> JPEG (quality 8 to 10 on the 0 to 12 scale) into the processed folder, then close the file.</li>
+                            </ul>
+                        </li>
                         <li>Press <strong>Stop</strong>. Every step is now saved.</li>
                     </ol>
                 </div>
@@ -221,7 +230,7 @@
                     </ol>
                     <div class="card card-warning">
                         <h4>⚠️ Record relative, not absolute</h4>
-                        <p>Actions can record specific values that do not fit every image. Prefer steps that work on any file (convert profile, resize to a fixed long edge). Where an exact position matters, record on a typical image and test on an odd one before trusting the batch.</p>
+                        <p>Actions can record specific values that do not fit every image. Prefer steps that work on any file (convert profile, Fit Image to a fixed long edge). Where an exact position matters, record on a typical image and test on an odd one before trusting the batch.</p>
                     </div>
                 </div>
 
@@ -229,6 +238,7 @@
                     <h3>Step 3: Batch the whole folder <small>· 6 min</small></h3>
                     <ol>
                         <li><strong>File ▸ Automate ▸ Batch</strong>. Choose your Set and Action, set <strong>Source</strong> to your input folder and <strong>Destination</strong> to the processed folder.</li>
+                        <li>Because your Action contains its own Save As, tick <strong>Override Action "Save As" Commands</strong>. Without it, Batch saves wherever you saved during recording instead of the Destination you chose.</li>
                         <li>Click OK and watch Photoshop process every file automatically. What took minutes per image now takes seconds for the whole set. 🏆</li>
                     </ol>
                 </div>
@@ -261,7 +271,7 @@
                 </div>
                 <div class="card card-info">
                     <h4>💡 The droplet trick</h4>
-                    <p>Make a droplet for your most common export, and keep it on your desktop. Drop a folder of images onto it and they process instantly. It is the fastest possible handoff: no opening Photoshop, no menus, just drag and done.</p>
+                    <p>Make a droplet for your most common export, and keep it on your desktop. Drop a folder of images onto it and they process right away. It is the fastest possible handoff: no need to open Photoshop yourself (the droplet launches it, so it must be installed), no menus, just drag and done.</p>
                 </div>
             </section>
 
@@ -285,10 +295,10 @@
                 <div class="card" style="border-left:4px solid var(--primary-color);">
                     <h3>Record once, run everywhere</h3>
                     <ol>
-                        <li>Actions panel: new Set → new Action → it records</li>
-                        <li>Do the task once (convert, resize, watermark, save), then <strong>Stop</strong></li>
+                        <li>Actions panel: new Set → new Action → <strong>Record</strong></li>
+                        <li>Do the task once (convert, Fit Image, watermark, flatten, save), then <strong>Stop</strong></li>
                         <li>Test <strong>Play</strong> on one file; edit steps if needed</li>
-                        <li><strong>File ▸ Automate ▸ Batch</strong> across a folder (set Source + Destination)</li>
+                        <li><strong>File ▸ Automate ▸ Batch</strong> across a folder (set Source + Destination; tick <strong>Override Action "Save As" Commands</strong>)</li>
                         <li>For handoff, <strong>Create Droplet</strong>; for quick resizes, <strong>Image Processor</strong></li>
                     </ol>
                     <p style="margin-bottom:0;"><small>Mantra: if you do it more than twice, record it.</small></p>

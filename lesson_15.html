@@ -114,7 +114,7 @@
                         <span class="ba-divider" aria-hidden="true"></span>
                         <span class="ba-grabber" aria-hidden="true">⇄</span>
                     </div>
-                    <figcaption>Same shape, same zoom. The vector recomputes a clean edge at any size; the raster can only show the pixels it has.</figcaption>
+                    <figcaption>Same shape, same enlargement. The vector recomputes a clean edge at any size; the raster can only show the pixels it has.</figcaption>
                     <span class="ba-placeholder-note">Illustrated stand-in demonstrating the effect.</span>
                 </figure>
             </section>
@@ -175,7 +175,7 @@
             <!-- Panel -->
             <section id="panel" class="lesson-section">
                 <h2>🗂️ Shape Layers</h2>
-                <p>When you draw with a Shape tool or a Pen set to <strong>Shape</strong> mode, you get a <strong>shape layer</strong>: a vector object with its own fill and stroke, and a vector mask that keeps its edge crisp. Here is one in the Layers panel, drawn as a diagram:</p>
+                <p>When you draw with a Shape tool or a Pen set to <strong>Shape</strong> mode, you get a <strong>shape layer</strong>: a vector object with its own fill and stroke, and a vector outline (stored as a vector mask behind the scenes) that keeps its edge crisp. Here is one in the Layers panel, drawn as a diagram:</p>
                 <figure>
                     <div class="ps-mock" style="max-width:460px;">
                         <div class="ps-titlebar">
@@ -184,7 +184,7 @@
                             <span class="ps-dot" style="background:#28c840;"></span>
                             <span style="margin-left:6px;">Layers &amp; Shape options</span>
                         </div>
-                        <svg viewBox="0 0 460 210" role="img" aria-label="A shape layer with a vector mask, and the Fill and Stroke options for a shape.">
+                        <svg viewBox="0 0 460 210" role="img" aria-label="A shape layer shown as a single thumbnail with a small shape badge in its corner, and the Fill and Stroke options for a shape.">
                             <rect width="460" height="210" fill="#3a3a3a"/>
                             <!-- options bar strip -->
                             <rect x="0" y="0" width="460" height="34" fill="#2f2f2f"/>
@@ -193,27 +193,28 @@
                             <rect x="84" y="9" width="16" height="16" fill="#ffd23f"/>
                             <text x="112" y="22" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="11">Stroke</text>
                             <rect x="156" y="9" width="16" height="16" fill="none" stroke="#4bb3c4" stroke-width="3"/>
-                            <text x="184" y="22" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="11">3 pt</text>
+                            <text x="184" y="22" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="11">3 px</text>
                             <text x="230" y="22" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Path ops: combine ▾</text>
                             <!-- shape layer row -->
                             <rect x="12" y="48" width="436" height="56" fill="#4a4a4a" stroke="#5a5a5a"/>
                             <circle cx="32" cy="76" r="8" fill="#111"/><circle cx="32" cy="76" r="4" fill="#ffd23f"/>
-                            <!-- shape thumb -->
+                            <!-- single shape-layer thumbnail -->
                             <rect x="52" y="56" width="40" height="40" fill="#454545"/>
                             <path d="M72 60 l6 14 15 1 -12 10 4 15 -13 -9 -13 9 4 -15 -12 -10 15 -1 Z" fill="#ffd23f"/>
-                            <!-- vector mask thumb -->
-                            <rect x="100" y="56" width="40" height="40" fill="#fff"/>
-                            <path d="M120 60 l6 14 15 1 -12 10 4 15 -13 -9 -13 9 4 -15 -12 -10 15 -1 Z" fill="#111"/>
-                            <text x="150" y="72" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5" font-weight="bold">Star (Shape layer)</text>
-                            <text x="150" y="90" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">↑ shape thumb + vector mask (stays crisp)</text>
+                            <!-- shape badge in the thumbnail's corner -->
+                            <rect x="80" y="84" width="13" height="13" fill="#2f2f2f" stroke="#9aa4ad" stroke-width="1"/>
+                            <path d="M83 94 L86.5 87 L90 94" fill="none" stroke="#e2e8f0" stroke-width="1.2"/>
+                            <rect x="85.5" y="86" width="2" height="2" fill="#31A8FF"/>
+                            <text x="106" y="72" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5" font-weight="bold">Star (Shape layer)</text>
+                            <text x="106" y="90" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">↑ one thumbnail; the corner badge marks a vector shape</text>
                             <!-- background -->
                             <rect x="12" y="112" width="436" height="52" fill="#414141" stroke="#5a5a5a"/>
                             <circle cx="32" cy="138" r="8" fill="#111"/><circle cx="32" cy="138" r="4" fill="#ffd23f"/>
                             <rect x="48" y="122" width="30" height="32" fill="#2b4a5a"/>
                             <text x="88" y="143" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12.5">Poster background</text>
-                            <text x="16" y="188" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">Double-click the fill swatch to recolor the shape any time. It is non-destructive.</text>
+                            <text x="16" y="188" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">Double-click the thumbnail (or click Fill) to recolor. Non-destructive.</text>
                         </svg>
-                        <figcaption>Figure 3: A shape layer carries editable <strong>Fill</strong> and <strong>Stroke</strong> and a vector mask. Recolor or resize it forever without losing a pixel of sharpness.</figcaption>
+                        <figcaption>Figure 3: A shape layer shows as one thumbnail with a small shape badge, and carries an editable <strong>Fill</strong>, <strong>Stroke</strong>, and vector outline. Recolor it (double-click the thumbnail, or use Fill in the options bar or Properties panel) or resize it forever without losing sharpness.</figcaption>
                     </div>
                 </figure>
             </section>
@@ -226,7 +227,7 @@
                 <div class="card card-info">
                     <h3>Step 1: A frame from a shape <small>· 5 min</small></h3>
                     <ol>
-                        <li>Pick the <strong>Rectangle</strong> tool, set to <strong>Shape</strong> mode. Draw a border rectangle. In the options bar set <strong>Fill: none</strong> and a <strong>Stroke</strong> of a few points in your accent color.</li>
+                        <li>Pick the <strong>Rectangle</strong> tool, set to <strong>Shape</strong> mode. Draw a border rectangle. In the options bar set <strong>Fill: none</strong> and a <strong>Stroke</strong> of a few pixels in your accent color. (Fill: none is the white box with a red slash, <strong>No Color</strong>, in the Fill menu.)</li>
                         <li>You now have a crisp frame that you can resize freely later.</li>
                     </ol>
                 </div>
@@ -235,7 +236,7 @@
                     <h3>Step 2: A badge with combined shapes <small>· 8 min</small></h3>
                     <ol>
                         <li>Draw an <strong>Ellipse</strong> shape for a circular badge.</li>
-                        <li>With the same shape layer active, draw a second shape and use the <strong>Path Operations</strong> menu (combine, subtract, intersect) to build a more interesting badge from simple parts.</li>
+                        <li>With the same shape layer active, open the <strong>Path Operations</strong> menu in the options bar and choose <strong>Combine Shapes</strong>, <strong>Subtract Front Shape</strong>, or <strong>Intersect Shape Areas</strong> <em>before</em> you draw the second shape. (Shortcut: hold <kbd>Shift</kbd> to add or <kbd>Alt/⌥</kbd> to subtract as you start dragging.) With the default <strong>New Layer</strong> setting, the second shape lands on its own layer instead.</li>
                         <li>Add your Lesson 5.1 <strong>type on a path</strong> around it.</li>
                     </ol>
                 </div>
@@ -248,19 +249,20 @@
                     </ol>
                     <div class="card card-warning">
                         <h4>⚠️ Fewer points, smoother curves</h4>
-                        <p>Beginners place too many anchor points, which makes lumpy curves. A smooth curve usually needs surprisingly few points. Place one at each place the curve changes direction, and no more.</p>
+                        <p>Beginners place too many anchor points, which makes lumpy curves. A smooth curve usually needs surprisingly few points. Put one anchor wherever the curve changes direction, and no more.</p>
                     </div>
                 </div>
 
                 <div class="card card-info">
                     <h3>Step 4: Paths do triple duty <small>· 5 min</small></h3>
                     <ol>
-                        <li>Right-click any path and see the options: <strong>Make Selection</strong>, <strong>Fill Path</strong>, or the shape's <strong>vector mask</strong>. One path can become a selection, a filled shape, or a crisp mask.</li>
-                        <li>Try turning a Pen path into a selection, then into a layer mask, connecting this straight back to Module 1.</li>
+                        <li>Switch the Pen's mode in the options bar from <strong>Shape</strong> to <strong>Path</strong> and draw a closed path. It appears as a <em>Work Path</em> in the Paths panel, not as a new layer.</li>
+                        <li>With the Pen still active, right-click the path and see the options: <strong>Make Selection</strong>, <strong>Fill Path</strong>, <strong>Stroke Path</strong>, and <strong>Create Vector Mask</strong>. One path can become a selection, a filled area, or a crisp mask.</li>
+                        <li>Try <strong>Make Selection</strong>, then click <strong>Add Layer Mask</strong> in the Layers panel, connecting this straight back to Module 1. (Shortcut for any shape layer: <kbd>Ctrl/⌘</kbd>-click its thumbnail to load its outline as a selection.)</li>
                     </ol>
                     <div class="card card-success">
                         <h4>✅ The scale test</h4>
-                        <p>Zoom to 800% on a shape layer's edge. It stays razor sharp. Do the same on a rasterized copy and watch it fall apart. That is why logos and icons live as shapes.</p>
+                        <p>Duplicate a small shape layer, then right-click the copy and choose <strong>Rasterize Layer</strong>. Scale both up about 400% with <kbd>Ctrl/⌘ + T</kbd> and compare at 100% zoom: the shape layer stays razor sharp; the raster copy goes soft and blurry. (Just zooming in will not show it: Photoshop displays both as screen pixels at high zoom. The difference appears when you <em>resize</em>.) That is why logos and icons live as shapes.</p>
                     </div>
                 </div>
 
@@ -270,7 +272,7 @@
                         <li>☐ A vector frame with a stroke and no fill</li>
                         <li>☐ A badge built from combined shapes</li>
                         <li>☐ One custom shape drawn with the Pen (few, clean anchor points)</li>
-                        <li>☐ Edges stay crisp at 800% zoom</li>
+                        <li>☐ Edges stay crisp after scaling a shape up 400% (the rasterized copy does not)</li>
                         <li>☐ At least one path reused as a selection or mask</li>
                     </ul>
                 </div>
@@ -297,10 +299,10 @@
                     <h3>Crisp vector graphics</h3>
                     <ol>
                         <li>Shape tools in <strong>Shape</strong> mode for frames and badges (set Fill / Stroke)</li>
-                        <li><strong>Path Operations</strong> to combine simple shapes into complex ones</li>
+                        <li><strong>Path Operations</strong> (set <em>before</em> drawing the next shape) to combine simple shapes into complex ones</li>
                         <li><strong>Pen</strong>: click for corners, click-drag for curves; few points</li>
                         <li><strong>Direct Selection</strong> (white arrow) to refine anchors and handles</li>
-                        <li>Right-click a path → Make Selection / Fill / vector mask</li>
+                        <li>Pen in <strong>Path</strong> mode, right-click the path → Make Selection / Fill Path / Create Vector Mask</li>
                     </ol>
                     <p style="margin-bottom:0;"><small>Mantra: vector is math, so it stays crisp; use it for everything that is not a photo.</small></p>
                 </div>

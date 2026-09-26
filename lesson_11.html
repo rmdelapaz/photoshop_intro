@@ -147,7 +147,7 @@
                             C --> D["Output: new layer&lt;br/&gt;+ layer mask"]
                             D --> E["Drop into any scene&lt;br/&gt;believably"]
                     </div>
-                    <figcaption>Figure 1: The composite cutout pipeline. The decontamination step is the one beginners skip and pros never do.</figcaption>
+                    <figcaption>Figure 1: The composite cutout pipeline. The decontamination step is the one beginners skip and pros never skip.</figcaption>
                 </figure>
             </section>
 
@@ -194,7 +194,7 @@
                 <div class="card card-info">
                     <h3>Step 1: Select, then enter Select &amp; Mask <small>· 6 min</small></h3>
                     <ol>
-                        <li><strong>Select ▸ Subject</strong> for the first pass, then click <strong>Select and Mask…</strong>.</li>
+                        <li><strong>Select ▸ Subject</strong> for the first pass, then choose <strong>Select ▸ Select and Mask…</strong> (<kbd>Ctrl+Alt+R</kbd> / <kbd>⌘⌥R</kbd>), or click the <strong>Select and Mask…</strong> button in any selection tool's options bar.</li>
                         <li>Set the View to <strong>On Layers</strong> or <strong>Overlay</strong> so you can judge the edge honestly.</li>
                     </ol>
                 </div>
@@ -202,8 +202,9 @@
                 <div class="card card-info">
                     <h3>Step 2: Rescue the hair <small>· 10 min</small></h3>
                     <ol>
-                        <li>Take the <strong>Refine Edge Brush</strong> and paint along wispy hair or fur. Photoshop rebuilds the fine strands.</li>
-                        <li>Nudge <strong>Smooth</strong> and <strong>Feather</strong> a little, and set <strong>Shift Edge</strong> slightly negative to bite off leftover background.</li>
+                        <li>Click <strong>Refine Hair</strong> in the options bar for an automatic first pass on hair, and under <strong>Edge Detection</strong> tick <strong>Smart Radius</strong> and raise <strong>Radius</strong> a few pixels so Photoshop searches a wider band around the edge.</li>
+                        <li>Take the <strong>Refine Edge Brush</strong> and paint along any wispy hair or fur that is still missing. Photoshop rebuilds the fine strands.</li>
+                        <li>Set <strong>Shift Edge</strong> slightly negative to bite off leftover background. <strong>Smooth</strong> and <strong>Feather</strong> are optional: a touch can tidy a jagged solid edge, but both soften detail, so keep them at or near 0 on hair.</li>
                     </ol>
                     <div class="card card-warning">
                         <h4>⚠️ Don't over-brush</h4>
@@ -265,7 +266,7 @@
                     <h3>Composite-ready in five moves</h3>
                     <ol>
                         <li><strong>Select ▸ Subject</strong>, then <strong>Select and Mask…</strong></li>
-                        <li><strong>Refine Edge Brush</strong> on hair; nudge Smooth / Feather / Shift Edge</li>
+                        <li><strong>Refine Hair</strong> + Smart Radius, then the <strong>Refine Edge Brush</strong> on hair; Shift Edge slightly negative (Smooth / Feather sparingly)</li>
                         <li>Output Settings: tick <strong>Decontaminate Colors</strong>, raise Amount</li>
                         <li><strong>Output To: New Layer with Layer Mask</strong></li>
                         <li>Test against a saturated color; keep the original as a backup</li>

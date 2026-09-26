@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 0: fix and export one photo in about 20 minutes — the whole non-destructive loop, start to finish.">
     <meta name="author" content="Ray de la Paz">
-    <title>Module 0: Fix &amp; Export One Photo — Photoshop Course</title>
+    <title>Module 0: Fix &amp; Export One Photo | Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <!-- Mermaid — initialized here for theme awareness -->
@@ -158,7 +158,7 @@
                             <rect width="720" height="380" fill="#2b2b2b"/>
                             <!-- options bar -->
                             <rect x="0" y="0" width="720" height="30" fill="#3a3a3a"/>
-                            <text x="12" y="20" fill="#cbd5e1" font-family="Segoe UI, sans-serif" font-size="12">Options bar — settings for whatever tool is selected</text>
+                            <text style="fill:#cbd5e1" x="12" y="20" font-family="Segoe UI, sans-serif" font-size="12">Options bar — settings for whatever tool is selected</text>
                             <!-- tools -->
                             <rect x="0" y="30" width="46" height="350" fill="#3a3a3a"/>
                             <g fill="#9aa4ad">
@@ -168,23 +168,23 @@
                                 <rect x="14" y="124" width="18" height="14" rx="2"/>
                             </g>
                             <rect x="11" y="150" width="24" height="18" rx="2" fill="#1473E6"/>
-                            <text x="23" y="163" text-anchor="middle" fill="#fff" font-family="Segoe UI, sans-serif" font-size="10.5" font-weight="bold">Crop</text>
+                            <text style="fill:#fff" x="23" y="163" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10.5" font-weight="bold">Crop</text>
                             <!-- canvas -->
                             <rect x="58" y="42" width="470" height="326" fill="#1c1c1c"/>
                             <rect x="120" y="80" width="346" height="250" fill="#5a6b7a"/>
                             <circle cx="410" cy="140" r="26" fill="#ffd23f"/>
                             <path d="M120 250 Q230 210 340 245 T466 240 V330 H120 Z" fill="#4f9a54"/>
-                            <text x="150" y="360" fill="#7c8894" font-family="Segoe UI, sans-serif" font-size="12">The canvas — your photo</text>
+                            <text style="fill:#7c8894" x="150" y="360" font-family="Segoe UI, sans-serif" font-size="12">The canvas — your photo</text>
                             <!-- layers panel -->
                             <rect x="540" y="42" width="176" height="326" fill="#3a3a3a"/>
-                            <text x="552" y="60" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Layers</text>
+                            <text style="fill:#e2e8f0" x="552" y="60" font-family="Segoe UI, sans-serif" font-size="12" font-weight="bold">Layers</text>
                             <rect x="552" y="72" width="152" height="34" fill="#4a4a4a"/>
                             <circle cx="566" cy="89" r="7" fill="#111"/><circle cx="566" cy="89" r="4" fill="#ffd23f"/>
-                            <text x="582" y="93" fill="#cbd5e1" font-family="Segoe UI, sans-serif" font-size="11">Brightness/Contrast</text>
+                            <text style="fill:#cbd5e1" x="582" y="93" font-family="Segoe UI, sans-serif" font-size="11">Brightness/Contrast</text>
                             <rect x="552" y="110" width="152" height="34" fill="#454545"/>
                             <rect x="560" y="118" width="26" height="18" fill="#6b7a88"/>
-                            <text x="592" y="131" fill="#cbd5e1" font-family="Segoe UI, sans-serif" font-size="11">Background (photo)</text>
-                            <text x="552" y="360" fill="#7c8894" font-family="Segoe UI, sans-serif" font-size="10.5">The layer stack lives here</text>
+                            <text style="fill:#cbd5e1" x="592" y="131" font-family="Segoe UI, sans-serif" font-size="11">Background (photo)</text>
+                            <text style="fill:#7c8894" x="552" y="360" font-family="Segoe UI, sans-serif" font-size="10.5">The layer stack lives here</text>
                         </svg>
                         <figcaption>Figure 2: A <strong>simplified</strong> Photoshop workspace: a labeled diagram, not a live screenshot. Yours will have more buttons; ignore them for now.</figcaption>
                     </div>
@@ -213,7 +213,7 @@
                     <h3>Step 1: Open your photo &amp; save it as a working file <small>· 3 min</small></h3>
                     <ol>
                         <li>Menu: <strong>File ▸ Open</strong>, choose your photo.</li>
-                        <li>Immediately: <strong>File ▸ Save As</strong> and choose <strong>Photoshop (.psd)</strong> format. Name it <code>myphoto-working.psd</code>.</li>
+                        <li>Immediately: <strong>File ▸ Save As</strong> and choose <strong>Photoshop (.psd)</strong> format. Name it <code>myphoto-working.psd</code>. (If Photoshop asks where to save, choose <strong>Save on your computer</strong>.)</li>
                     </ol>
                     <blockquote><strong>⚠️ Why save first:</strong> a <code>.psd</code> remembers your layers so you can come back and change your mind. Your original JPEG stays untouched on disk: the tracing-paper principle, applied to the file itself.</blockquote>
                 </div>
@@ -264,6 +264,7 @@
                 <div class="card card-info">
                     <h3>Step 4: Export a share-ready copy <small>· 4 min</small></h3>
                     <ol>
+                        <li>First, <strong>File ▸ Save</strong> (<kbd>Ctrl/⌘ + S</kbd>) so your <code>.psd</code> keeps the new adjustment layer.</li>
                         <li>Menu: <strong>File ▸ Export ▸ Export As…</strong></li>
                         <li>Set format to <strong>JPG</strong>, quality around <strong>80%</strong>.</li>
                         <li>Click <strong>Export</strong> and save it as <code>myphoto-final.jpg</code>.</li>
@@ -274,7 +275,7 @@
                 <div class="card card-success">
                     <h3>✅ Project Completion Checklist</h3>
                     <ul>
-                        <li>☐ I saved a working <code>.psd</code> <em>before</em> editing</li>
+                        <li>☐ I saved a working <code>.psd</code> <em>before</em> editing, and saved it again <em>after</em></li>
                         <li>☐ My photo is cropped and the horizon looks level</li>
                         <li>☐ There's a Brightness/Contrast <em>adjustment layer</em> above my photo</li>
                         <li>☐ Toggling its eyeball turns my edit off and on</li>
@@ -311,7 +312,7 @@
                         <li><kbd>C</kbd> <strong>Crop</strong> &amp; straighten → <kbd>Enter</kbd></li>
                         <li>Layers panel ▸ <strong>◐ ▸ Brightness/Contrast</strong> → nudge</li>
                         <li>(Optional) <strong>◐ ▸ Vibrance</strong> → nudge</li>
-                        <li><strong>File ▸ Export As ▸ JPG 80%</strong></li>
+                        <li><strong>File ▸ Save</strong>, then <strong>File ▸ Export ▸ Export As ▸ JPG 80%</strong></li>
                     </ol>
                     <p style="margin-bottom:0;"><small>Golden rule: edits live on <em>adjustment layers</em>, never on the photo.</small></p>
                 </div>
@@ -342,13 +343,13 @@
                     <ul>
                         <li><strong>Non-destructive editing</strong> = change the tracing paper, never the photo.</li>
                         <li><strong>Adjustment layers</strong> are sheets that carry an instruction ("brighten," "add vibrance") and can be toggled, tweaked, or removed at any time.</li>
-                        <li>The whole loop is <strong>Open → Save .psd → Crop → Adjust → Export JPG</strong>.</li>
+                        <li>The whole loop is <strong>Open → Save .psd → Crop → Adjust → Save → Export JPG</strong>.</li>
                         <li>You keep <strong>two files</strong>: the editable <code>.psd</code> master and the flat <code>.jpg</code> you share.</li>
                     </ul>
                 </div>
 
                 <h3>🎉 What You've Accomplished</h3>
-                <p>An hour ago, Photoshop might have felt like a cockpit with a thousand switches. You just flew it around the block. You opened a photo, made a real improvement, understood <em>why</em> it's safe, and shipped a finished file. That's not a toy version of the skill — it's the actual professional loop, scaled down.</p>
+                <p>Half an hour ago, Photoshop might have felt like a cockpit with a thousand switches. You just flew it around the block. You opened a photo, made a real improvement, understood <em>why</em> it's safe, and shipped a finished file. That's not a toy version of the skill — it's the actual professional loop, scaled down.</p>
 
                 <h3>❓ Common Questions at This Module</h3>
                 <details>

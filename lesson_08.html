@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 3, Lesson 1: natural skin retouching — remove temporary blemishes with the healing tools on a separate layer, and keep the person looking like themselves.">
     <meta name="author" content="Ray de la Paz">
-    <title>Module 3.1: Natural Skin — Heal, Don't Erase — Photoshop Course</title>
+    <title>Module 3.1: Natural Skin: Heal, Don't Erase | Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
@@ -186,7 +186,7 @@
                             <span class="ps-dot" style="background:#28c840;"></span>
                             <span style="margin-left:6px;">Layers</span>
                         </div>
-                        <svg viewBox="0 0 440 210" role="img" aria-label="A retouch layer above the portrait, with Sample set to All Layers">
+                        <svg viewBox="0 0 440 210" role="img" aria-label="A retouch layer above the portrait, with the Spot Healing Brush set to Sample All Layers">
                             <rect width="440" height="210" fill="#3a3a3a"/>
                             <rect x="12" y="16" width="416" height="56" fill="#4a4a4a" stroke="#5a5a5a"/>
                             <circle cx="32" cy="44" r="8" fill="#111"/><circle cx="32" cy="44" r="4" fill="#ffd23f"/>
@@ -202,10 +202,10 @@
                             <rect x="12" y="150" width="416" height="44" fill="#2f2f2f"/>
                             <text x="24" y="170" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">Options bar — Spot Healing Brush:</text>
                             <rect x="24" y="176" width="150" height="14" fill="#1473E6"/>
-                            <text x="99" y="187" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="10.5">Sample: All Layers ✓</text>
+                            <text x="99" y="187" text-anchor="middle" style="fill:#fff" font-family="Segoe UI, sans-serif" font-size="10.5">✓ Sample All Layers</text>
                             <text x="188" y="187" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">Type: Content-Aware</text>
                         </svg>
-                        <figcaption>Figure 2: An empty <code>retouch</code> layer on top, with the healing tool set to <strong>Sample: All Layers</strong> so it reads the face below but writes only here.</figcaption>
+                        <figcaption>Figure 2: An empty <code>retouch</code> layer on top, with the Spot Healing Brush's <strong>Sample All Layers</strong> box checked so it reads the face below but writes only here. (The Healing Brush uses a <strong>Sample:</strong> menu instead: set it to <em>Current &amp; Below</em>.)</figcaption>
                     </div>
                 </figure>
             </section>
@@ -228,7 +228,7 @@
                     <h3>Step 2: Make a retouch layer <small>· 2 min</small></h3>
                     <ol>
                         <li>New empty layer, name it <code>retouch</code>.</li>
-                        <li>Spot Healing Brush (<kbd>J</kbd>): set <strong>Type: Content-Aware</strong> and <strong>Sample: All Layers</strong>.</li>
+                        <li>Spot Healing Brush (<kbd>J</kbd>): set <strong>Type: Content-Aware</strong> and check <strong>Sample All Layers</strong>.</li>
                     </ol>
                 </div>
 
@@ -236,7 +236,7 @@
                     <h3>Step 3: Heal the temporary blemishes <small>· 10 min</small></h3>
                     <ol>
                         <li>Size the brush just larger than each blemish and <strong>single-click</strong> it. Work only on your "temporary" list.</li>
-                        <li>For a spot next to an edge (like the hairline), switch to the <strong>Healing Brush</strong> (also <kbd>J</kbd>): <kbd>Alt/⌥</kbd>-click clean skin nearby to sample, then click the blemish. You control the source, so it won't smear the edge.</li>
+                        <li>For a spot next to an edge (like the hairline), switch to the <strong>Healing Brush</strong> (same <kbd>J</kbd> group; <kbd>Shift + J</kbd> cycles through it). In the options bar set <strong>Sample: Current &amp; Below</strong> (or <em>All Layers</em>): it's a separate setting from the Spot Healing Brush, and on the default <em>Current Layer</em> it would sample your empty layer. <kbd>Alt/⌥</kbd>-click clean skin nearby to sample, then click the blemish. Because you choose the source, it's much less likely to smear the edge; if it still does, finish that spot with the <strong>Clone Stamp</strong> (<kbd>S</kbd>, same Sample setting).</li>
                     </ol>
                     <div class="card card-warning">
                         <h4>⚠️ Resist the "clean sweep"</h4>
@@ -248,7 +248,7 @@
                     <h3>Step 4: Dial it back &amp; check <small>· 5 min</small></h3>
                     <ol>
                         <li>Lower the <code>retouch</code> layer's <strong>Opacity</strong> to ~85–90%. Letting a whisper of the original through keeps it believable.</li>
-                        <li>Toggle the layer's 👁 off/on. If the "off" version still clearly looks like the same person on a good day, you nailed it.</li>
+                        <li>Toggle the layer's 👁 off/on to compare. If the retouched ("on") version still clearly looks like the same person on a good day, you nailed it.</li>
                         <li>Save the .psd. (We'll build on this file across Module 3.)</li>
                     </ol>
                 </div>
@@ -256,11 +256,11 @@
                 <div class="card card-success">
                     <h3>✅ Project Completion Checklist</h3>
                     <ul>
-                        <li>☐ All healing is on a separate <code>retouch</code> layer (Sample: All Layers)</li>
+                        <li>☐ All healing is on a separate <code>retouch</code> layer (tools sampling all layers)</li>
                         <li>☐ Temporary blemishes are gone</li>
                         <li>☐ Freckles, moles, and lines are <strong>still there</strong></li>
                         <li>☐ The retouch layer opacity is slightly under 100%</li>
-                        <li>☐ Toggling it off still looks like the same person</li>
+                        <li>☐ With the retouch layer on, it still looks like the same person</li>
                     </ul>
                 </div>
             </section>
@@ -275,7 +275,7 @@
                         <li>Put them side by side. The overdone one will look worse — internalize <em>why</em>.</li>
                         <li>On the tasteful version, find one distracting stray hair crossing the face and remove it with the Healing Brush.</li>
                     </ol>
-                    <p><strong>Going further:</strong> a blemish sits on a permanent freckle you want to keep? Reduce it instead: heal it, then lower that layer's opacity so a hint returns. Reduction, not erasure.</p>
+                    <p><strong>Going further:</strong> a blemish sits on a permanent freckle you want to keep? Reduce it instead: heal it on its <em>own</em> new layer, then lower that layer's opacity so a hint returns. (Lowering the main <code>retouch</code> layer would fade every heal at once.) Reduction, not erasure.</p>
                 </div>
             </section>
 
@@ -286,7 +286,7 @@
                     <h3>Natural blemish removal</h3>
                     <ol>
                         <li>Survey at 100% → sort <strong>temporary</strong> vs <strong>permanent</strong></li>
-                        <li>New <code>retouch</code> layer → tool <strong>Sample: All Layers</strong></li>
+                        <li>New <code>retouch</code> layer → Spot Healing <strong>Sample All Layers</strong> ✓; Healing Brush <strong>Sample: Current &amp; Below</strong></li>
                         <li><strong>Spot Healing</strong> (<kbd>J</kbd>): click temporary blemishes</li>
                         <li>Near edges → <strong>Healing Brush</strong> (<kbd>Alt/⌥</kbd>-sample clean skin)</li>
                         <li>Layer opacity ~85–90% → toggle to sanity-check</li>
@@ -320,7 +320,7 @@
                     <ul>
                         <li>Great retouching is <strong>invisible</strong>: the person looks like themselves on a good day.</li>
                         <li>Sort flaws into <strong>temporary</strong> (heal) and <strong>permanent</strong> (keep).</li>
-                        <li>Work on a <strong>separate retouch layer</strong> with Sample: All Layers.</li>
+                        <li>Work on a <strong>separate retouch layer</strong>, with each healing tool set to sample the layers below.</li>
                         <li>Use <strong>opacity</strong> to dial the effect back so it never looks overdone.</li>
                     </ul>
                 </div>
@@ -343,7 +343,7 @@
                 </details>
 
                 <h3>🔭 Looking Ahead</h3>
-                <p>Healing fixes spots, but it can't even out <em>blotchy</em> skin tone without turning it to plastic — because it blurs texture and color together. <strong>Lesson 3.2: Frequency Separation</strong> solves exactly that, by splitting texture from color so you can smooth one without harming the other. It's the technique that makes pro retouching possible.</p>
+                <p>Healing fixes spots, but it can't even out <em>blotchy</em> skin tone, and the obvious alternative, blurring the skin, turns it to plastic because blur smooths texture and color together. <strong>Lesson 3.2: Frequency Separation</strong> solves exactly that, by splitting texture from color so you can smooth one without harming the other. It's the technique that makes pro retouching possible.</p>
 
                 <h3>✅ Before the Next Lesson</h3>
                 <ul>
@@ -355,7 +355,7 @@
                 <h3>📚 Additional Resources</h3>
                 <ul>
                     <li><a href="https://helpx.adobe.com/photoshop/using/retouching-repairing-images.html" target="_blank" rel="noopener">Adobe: Retouching &amp; repairing images</a></li>
-                    <li><a href="https://helpx.adobe.com/photoshop/using/tools.html" target="_blank" rel="noopener">Adobe: The healing tools</a></li>
+                    <li><a href="https://helpx.adobe.com/photoshop/using/tools.html" target="_blank" rel="noopener">Adobe: Photoshop tools overview</a></li>
                 </ul>
 
                 <div class="card card-accent" style="text-align: center; padding: 2rem;">

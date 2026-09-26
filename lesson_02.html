@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 1, Lesson 1: the layer stack for real, and the one idea that runs all of Photoshop — a mask is a grayscale stencil where black hides and white reveals.">
     <meta name="author" content="Ray de la Paz">
-    <title>Module 1.1: The Layer Stack &amp; Your First Mask — Photoshop Course</title>
+    <title>Module 1.1: The Layer Stack &amp; Your First Mask | Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
@@ -133,7 +133,7 @@
             <!-- Mask model -->
             <section id="mask" class="lesson-section">
                 <h2>🎭 Mental Model 2: A Mask Is a Stencil (Black Hides, White Reveals)</h2>
-                <p>Every adjustment layer comes with a <strong>layer mask</strong>: a grayscale card clipped to that sheet of glass. It has exactly one job: decide, pixel by pixel, <em>how much of this layer's effect gets through</em>.</p>
+                <p>Every adjustment layer comes with a <strong>layer mask</strong>: a grayscale card attached to that sheet of glass. It has exactly one job: decide, pixel by pixel, <em>how much of this layer's effect gets through</em>.</p>
 
                 <div class="card card-accent">
                     <h3>🧠 The sentence to memorize</h3>
@@ -200,28 +200,28 @@
                             <!-- mask thumbnail: white top / black bottom -->
                             <rect x="100" y="35" width="30" height="32" fill="#fff" stroke="#8ab4ff" stroke-width="2"/>
                             <rect x="100" y="52" width="30" height="15" fill="#111"/>
-                            <text x="146" y="47" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">Brightness/Contrast</text>
-                            <text x="146" y="66" fill="#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">↑ this white/black card is the MASK</text>
+                            <text style="fill:#e2e8f0" x="146" y="47" font-family="Segoe UI, sans-serif" font-size="13" font-weight="bold">Brightness/Contrast</text>
+                            <text style="fill:#9aa4ad" x="146" y="66" font-family="Segoe UI, sans-serif" font-size="11">↑ this white/black card is the MASK</text>
                             <!-- link icon -->
-                            <text x="90" y="56" fill="#cbd5e1" font-family="Segoe UI, sans-serif" font-size="12">🔗</text>
+                            <text style="fill:#cbd5e1" x="90" y="56" font-family="Segoe UI, sans-serif" font-size="12">🔗</text>
                             <!-- photo layer row -->
                             <rect x="12" y="96" width="396" height="70" fill="#454545" stroke="#5a5a5a"/>
                             <circle cx="34" cy="131" r="9" fill="#111"/><circle cx="34" cy="131" r="5" fill="#ffd23f"/>
                             <rect x="58" y="112" width="46" height="38" fill="#7db8ec"/>
                             <rect x="58" y="134" width="46" height="16" fill="#4f9a54"/>
-                            <text x="120" y="136" fill="#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13">Background (your photo)</text>
+                            <text style="fill:#e2e8f0" x="120" y="136" font-family="Segoe UI, sans-serif" font-size="13">Background (your photo)</text>
                             <!-- bottom toolbar with the adjustment button -->
                             <rect x="12" y="176" width="396" height="24" fill="#2f2f2f"/>
                             <circle cx="360" cy="188" r="9" fill="#ddd"/>
                             <path d="M360 179 A9 9 0 0 1 360 197 Z" fill="#333"/>
-                            <text x="150" y="192" fill="#9aa4ad" font-family="Segoe UI, sans-serif" font-size="11">click ◐ here to add an adjustment →</text>
+                            <text style="fill:#9aa4ad" x="150" y="192" font-family="Segoe UI, sans-serif" font-size="11">click ◐ here to add an adjustment →</text>
                         </svg>
                         <figcaption>Figure 3: Two layers. The top one is your adjustment; the white/black card beside it is its mask. The 👁 eyeballs toggle visibility.</figcaption>
                     </div>
                 </figure>
                 <div class="card card-info">
                     <h4>💡 The single click that trips up beginners</h4>
-                    <p>An adjustment layer has <strong>two</strong> thumbnails: the effect (the half-moon ◐) and the <strong>mask</strong> (the white/black card). Before you paint, <strong>click the mask thumbnail</strong> so it gets a highlighted border. Paint while the <em>effect</em> thumbnail is selected and you'll get nonsense. When in doubt, click the mask.</p>
+                    <p>An adjustment layer has <strong>two</strong> thumbnails: the effect (the half-moon ◐) and the <strong>mask</strong> (the white/black card). Before you paint, <strong>click the mask thumbnail</strong> so it gets a highlighted border. (An adjustment layer has no pixels of its own, so your brush lands on its mask anyway, but clicking it builds the right habit.) The habit matters on <em>pixel</em> layers with masks: there, painting while the image thumbnail is selected paints the photo itself. When in doubt, click the mask.</p>
                 </div>
             </section>
 
@@ -249,7 +249,7 @@
                     <ol>
                         <li>Click the <strong>mask thumbnail</strong> (the white card) on your adjustment layer to select it.</li>
                         <li>Press <kbd>D</kbd> to reset colors, then flip the foreground to <strong>black</strong> (<kbd>X</kbd> toggles black/white).</li>
-                        <li>Press <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Backspace/Delete</kbd> nothing. Instead, choose <strong>Edit ▸ Fill ▸ Black</strong>, or press <kbd>Alt/⌥ + Backspace/Delete</kbd> with black as foreground. The whole mask goes black: your darkening vanishes.</li>
+                        <li>Choose <strong>Edit ▸ Fill…</strong> and set <strong>Contents: Black</strong>, or press <kbd>Alt/⌥ + Backspace/Delete</kbd> with black as the foreground color. (Avoid <kbd>Ctrl/⌘ + Backspace/Delete</kbd>: that fills with the <em>background</em> color.) The whole mask goes black: your darkening vanishes.</li>
                         <li>Now grab the <strong>Brush</strong> (<kbd>B</kbd>), set foreground to <strong>white</strong> (<kbd>X</kbd>), pick a big soft brush, and <strong>paint over the sky</strong>. The darkening reappears only where you paint. 🎉</li>
                     </ol>
                     <blockquote><strong>💡 Watch the mask thumbnail as you paint:</strong> you'll literally see a white sky-shape grow on the black card. That thumbnail <em>is</em> your stencil.</blockquote>
@@ -260,10 +260,11 @@
                 </div>
 
                 <div class="card card-info">
-                    <h3>Step 4: Soften the seam &amp; export <small>· 5 min</small></h3>
+                    <h3>Step 4: Soften the seam, save &amp; export <small>· 5 min</small></h3>
                     <ol>
                         <li>At the horizon, lower your brush <strong>opacity</strong> to ~30% and gently blend so the transition isn't a hard line. (This is "painting gray": a partial reveal.)</li>
                         <li>Toggle the adjustment layer's 👁 off/on to admire the before/after.</li>
+                        <li><strong>File ▸ Save</strong> (<kbd>Ctrl/⌘ + S</kbd>) to keep your layered <code>.psd</code>.</li>
                         <li><strong>File ▸ Export ▸ Export As ▸ JPG 80%</strong> → <code>sky-rescue-final.jpg</code>.</li>
                     </ol>
                 </div>
@@ -275,7 +276,7 @@
                         <li>☐ Its mask is <strong>black over the land, white over the sky</strong></li>
                         <li>☐ The sky is richer; the land looks untouched</li>
                         <li>☐ The horizon transition is soft, not a hard line</li>
-                        <li>☐ I exported a JPG and my original is intact</li>
+                        <li>☐ I saved the .psd, exported a JPG, and my original is intact</li>
                     </ul>
                 </div>
             </section>
@@ -290,7 +291,7 @@
                         <li>Fill the mask black, then paint <strong>white only over the subject's face</strong> (or the object) so just it gets brighter, a gentle spotlight.</li>
                         <li>Try the reverse: a second adjustment layer that <em>darkens</em>, masked so it only touches the background, pushing the subject forward.</li>
                     </ol>
-                    <p><strong>Going further:</strong> select the mask thumbnail and press <kbd>Ctrl/⌘ + I</kbd> to <em>invert</em> it. White becomes black and vice-versa. Watch your reveal flip instantly, a great way to feel how total the black/white relationship is.</p>
+                    <p><strong>Going further:</strong> select the mask thumbnail and press <kbd>Ctrl/⌘ + I</kbd> to <em>invert</em> it. White becomes black and vice versa. Watch your reveal flip instantly, a great way to feel how total the black/white relationship is.</p>
                 </div>
             </section>
 

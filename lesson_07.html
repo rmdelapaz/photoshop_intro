@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 2, Lesson 3 (finale): Smart Objects in depth — non-destructive scaling, Smart Filters, and assembling a finished, fully re-editable grade.">
     <meta name="author" content="Ray de la Paz">
-    <title>Module 2.3: Smart Objects &amp; Finishing the Grade — Photoshop Course</title>
+    <title>Module 2.3: Smart Objects &amp; Finishing the Grade | Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/png" href="favicon.png">
     <script type="module">
@@ -45,7 +45,7 @@
         <div class="container">
             <header>
                 <h1><span class="lesson-eyebrow">Module 2 • Lesson 3</span><span class="lesson-title">📦 Smart Objects &amp; Finishing the Grade</span></h1>
-                <p class="lead">You've used Smart Objects twice already without meeting them properly. This is the Module 2 finale, so let's fix that. Smart Objects are the deepest expression of the idea this whole course is built on — <em>never destroy your original</em> — and once you understand them, you'll wrap almost everything in one.</p>
+                <p class="lead">You already used a Smart Object in Lesson 2.1 without meeting it properly. This is the Module 2 finale, so let's fix that. Smart Objects are the deepest expression of the idea this whole course is built on — <em>never destroy your original</em> — and once you understand them, you'll wrap almost everything in one.</p>
 
                 <div class="card card-info">
                     <h2>📚 What You'll Learn</h2>
@@ -158,7 +158,7 @@
                             <span class="ps-dot" style="background:#28c840;"></span>
                             <span style="margin-left:6px;">Layers</span>
                         </div>
-                        <svg viewBox="0 0 440 250" role="img" aria-label="A Smart Object layer with nested Smart Filters: Camera Raw Filter and Gaussian Blur, each with a shared filter mask">
+                        <svg viewBox="0 0 440 250" role="img" aria-label="A Smart Object layer with nested Smart Filters sharing one filter mask: Gaussian Blur (applied last, listed on top) above Camera Raw Filter">
                             <rect width="440" height="250" fill="#3a3a3a"/>
                             <!-- Smart Object row -->
                             <rect x="12" y="14" width="416" height="52" fill="#4a4a4a" stroke="#5a5a5a"/>
@@ -176,10 +176,10 @@
                             <text x="80" y="86" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Smart Filters  <tspan style="fill:#9aa4ad">(shared mask ↑)</tspan></text>
                             <!-- filter entries (indented) -->
                             <rect x="12" y="96" width="416" height="28" fill="#454545"/>
-                            <text x="96" y="114" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Camera Raw Filter</text>
+                            <text x="96" y="114" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Gaussian Blur</text>
                             <circle cx="416" cy="110" r="6" fill="#9aa4ad"/>
                             <rect x="12" y="124" width="416" height="28" fill="#4a4a4a"/>
-                            <text x="96" y="142" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Gaussian Blur</text>
+                            <text x="96" y="142" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="12">Camera Raw Filter</text>
                             <circle cx="416" cy="138" r="6" fill="#9aa4ad"/>
                             <text x="96" y="166" style="fill:#9aa4ad" font-family="Segoe UI, sans-serif" font-size="10.5">double-click a filter to re-edit its settings</text>
                             <!-- background -->
@@ -187,7 +187,7 @@
                             <rect x="52" y="196" width="40" height="28" fill="#c9d3dc"/>
                             <text x="104" y="214" style="fill:#e2e8f0" font-family="Segoe UI, sans-serif" font-size="13">Background</text>
                         </svg>
-                        <figcaption>Figure 2: The Smart Object carries its filters as a re-editable list underneath, sharing one filter mask. Double-click <em>Camera Raw Filter</em> to jump back into the develop panel from Lesson 2.1.</figcaption>
+                        <figcaption>Figure 2: The Smart Object carries its filters as a re-editable list underneath, sharing one filter mask. The newest filter sits on top, and filters apply from the bottom up. Double-click <em>Camera Raw Filter</em> to jump back into the develop panel from Lesson 2.1.</figcaption>
                     </div>
                 </figure>
             </section>
@@ -195,7 +195,7 @@
             <!-- Build -->
             <section id="build" class="lesson-section">
                 <h2>🛠️ Guided Build: Finish the Grade</h2>
-                <p>Open your Module 2 working file, the one with the Camera Raw develop and Curves layers.</p>
+                <p>Open your Module 2 working file (<code>grade-working.psd</code>), the one with the Camera Raw develop and Curves layers.</p>
 
                 <div class="card card-info">
                     <h3>Step 1: Confirm your Smart Object <small>· 2 min</small></h3>
@@ -210,6 +210,7 @@
                     <ol>
                         <li>With the Smart Object selected, choose <strong>Filter ▸ Sharpen ▸ Smart Sharpen</strong> for crisp detail, or <strong>Filter ▸ Blur ▸ Gaussian Blur</strong> for a dreamy glow.</li>
                         <li>It appears as a re-editable Smart Filter. Double-click it to change the amount any time.</li>
+                        <li>For a <em>glow</em> (rather than a blurry photo), double-click the small <strong>Blending Options</strong> icon at the right end of the Gaussian Blur row, then set <strong>Mode: Soft Light</strong> (or Screen) and lower <strong>Opacity</strong> to about 20–40%.</li>
                     </ol>
                     <div class="card card-success">
                         <h4>✅ Filter masks: local filtering for free</h4>
@@ -220,7 +221,7 @@
                 <div class="card card-info">
                     <h3>Step 3: Transform without fear <small>· 4 min</small></h3>
                     <ol>
-                        <li>Press <kbd>Ctrl/⌘ + T</kbd> and scale the Smart Object down to 30%, commit, then scale it back to 100%.</li>
+                        <li>Press <kbd>Ctrl/⌘ + T</kbd> and scale the Smart Object down to 30%, commit, then scale it back to 100%. (If Photoshop warns that Smart Filters are turned off while transforming, click OK: they come back as soon as you commit.)</li>
                         <li>It's still crisp: the container re-rendered from the sealed original. (Try that on a normal layer and watch it turn to mush, exactly like the slider up top.)</li>
                     </ol>
                 </div>
@@ -324,7 +325,7 @@
                 </details>
 
                 <h3>🔭 Looking Ahead</h3>
-                <p>Your photo is clean, graded, and beautiful. <strong>Module 3: Retouching</strong> turns to people: healing skin naturally, content-aware repairs, and the pro technique of <strong>frequency separation</strong>, all built on the healing and masking skills you already have.</p>
+                <p>Your photo is clean, graded, and beautiful. <strong>Module 3: Retouching</strong> turns to people: healing skin naturally, the pro technique of <strong>frequency separation</strong>, and sculpting light with <strong>dodge &amp; burn</strong>, all built on the healing and masking skills you already have.</p>
 
                 <h3>✅ Before the Next Module</h3>
                 <ul>
