@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Key — Module 4</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">answers &amp; solutions · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Answer Key</div>
+    <h1>Module 4 — Answers &amp; Lab Notes</h1>
+    <p class="sub">Every workbook self-check answered and explained, plus reference notes for each lab: what a correct result looks like, and the common wrong results and why they happen.</p>
+    <div class="meta-row"><span class="chip">Lessons <b>11–13</b></span><span class="chip"><b>18</b> quiz items</span><span class="chip"><b>3</b> hands-on labs</span></div>
+  </header>
+
+  <div class="note"><div class="t">Numbering matches the workbook</div><p>The participant workbook's self-checks are numbered Q1–Q6 within each lesson, so a learner's "L12 Q3" is always this key's L12 Q3. Every answer is taken from what the lesson teaches.</p></div>
+
+  <!-- L11 -->
+  <div class="sec"><h2>L11 · Cut It Out Cleanly</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">Your cutout looked perfect on its original background but looks "pasted" on a sunset. What is the most likely cause?</div><div class="opts"><div class="opt correct">B) The edge pixels still carry color from the old background (a fringe)</div></div><div class="why"><b>Why:</b> when the subject was photographed, the edge pixels picked up color from what was behind it. The original background hides that color; a new one reveals it. Resolution (A) and blend mode (C) are not the issue.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">What does Decontaminate Colors do?</div><div class="opts"><div class="opt correct">B) Replaces the old background's color in the edge pixels so the edge can adopt the new scene</div></div><div class="why"><b>Why:</b> it cleans color out of the edge rather than just choosing pixels. It is the biggest single difference between an amateur and a believable cutout.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">With Decontaminate Colors ticked, which Output To setting does the lesson use?</div><div class="opts"><div class="opt correct">C) New Layer with Layer Mask</div></div><div class="why"><b>Why:</b> decontamination rewrites edge pixels, so it cannot stay fully non-destructive and Photoshop forces the result onto a new layer. The mask keeps the hiding editable, and the original layer stays underneath as a backup.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">Where should you paint with the Refine Edge Brush?</div><div class="opts"><div class="opt correct">B) Only on soft, wispy edges like hair and fur</div></div><div class="why"><b>Why:</b> the brush rebuilds fine strands. Dragged across a hard edge (shoulder, jaw) it turns crisp detail to mush, and it cannot invent hair the original selection never included.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">What is the lesson's "believability test" for a finished cutout?</div><div class="opts"><div class="opt correct">A) Drop a saturated colored layer behind it and check whether a fringe appears</div></div><div class="why"><b>Why:</b> if the edge stays clean against a wild color, it will stay clean against any real scene. If a fringe appears, raise the decontamination Amount. Zooming out (B) hides the problem.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">What is the keyboard shortcut for Select and Mask?</div><div class="opts"><div class="opt correct">C) Ctrl+Alt+R / ⌘+⌥+R</div></div><div class="why"><b>Why:</b> Ctrl/⌘+J duplicates a layer (or copies a selection to a new layer); Ctrl/⌘+Alt/⌥+G creates a clipping mask (Lesson 12). Select and Mask is also on the Select menu and the options bar of any selection tool.</div></div>
+  <div class="note lab"><div class="t">Lab reference: A Composite-Ready Cutout</div>
+    <p><b>A correct result:</b> a group named <code class="inline">SUBJECT</code> containing a new layer with a layer mask; the original photo layer is present and hidden beneath; against a saturated Solid Color fill the hair edge shows fine, soft strands and no colored halo; solid edges (shoulders, clothing) are crisp. File saved as <code class="inline">composite-working.psd</code>. On <code class="inline">l11-figure-on-green.png</code>, the green halo around the hair and shoulders should be gone at 200% zoom.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Green (or blue) halo still visible</b>: Decontaminate Colors not ticked, or Amount too low. Re-enter Select and Mask on the original layer and raise Amount.</li>
+      <li><b>Mushy shoulders or jaw</b>: the Refine Edge Brush was run over hard edges. Redo the refinement, brushing hair only.</li>
+      <li><b>Whole outline soft and glowing</b>: Smooth or Feather set high. Return them to 0 or near it.</li>
+      <li><b>Chunky, helmet-like hair</b>: Refine Hair / Smart Radius skipped, or the initial selection missed the hair mass. Improve the selection, then brush.</li>
+      <li><b>No backup</b>: the background was deleted rather than masked, or the original layer was thrown away. Explain why it matters: decontamination is destructive to the edge pixels.</li>
+    </ul>
+  </div>
+
+  <!-- L12 -->
+  <div class="sec"><h2>L12 · Make It Belong: Match Light &amp; Color</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">In what order does the lesson match a subject to a scene?</div><div class="opts"><div class="opt correct">A) Brightness, then color, then contrast</div></div><div class="why"><b>Why:</b> most "bad composite" feelings come from brightness alone, so fixing it first often does eighty percent of the work. Following the order keeps you from chasing your own tail.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">What does clipping an adjustment layer do?</div><div class="opts"><div class="opt correct">C) Limits the adjustment to the one layer directly below it</div></div><div class="why"><b>Why:</b> an unclipped adjustment changes everything beneath it, including the background you are trying to match. Clipping uses the subject's own shape to contain the adjustment, with no mask painting needed.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">Which shortcut clips the active layer to the layer below?</div><div class="opts"><div class="opt correct">B) Ctrl+Alt+G / ⌘+⌥+G</div></div><div class="why"><b>Why:</b> alternatively, hold Alt/⌥ and click the line between the two layers. Ctrl/⌘+T is Free Transform; Ctrl/⌘+Shift+N makes a new layer.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">You warmed your subject evenly for a sunset and now it looks "dipped in orange." What does the lesson suggest?</div><div class="opts"><div class="opt correct">B) Add a touch of the opposite (cooler) temperature to the shadow side</div></div><div class="why"><b>Why:</b> warm light usually means cool shadows. The lit side should catch the scene's warm light; the shadow side gets a touch of the opposite temperature for realism.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">Why convert the SUBJECT group to a Smart Object before scaling it?</div><div class="opts"><div class="opt correct">A) So resizing never degrades it</div></div><div class="why"><b>Why:</b> a Smart Object re-renders from its original contents each time you transform it, so repeated resizing does not soften it (scaling past its original pixel size still does). It does not block adjustments (B) or match color automatically (C).</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">How can you judge a scene's color temperature, according to the lesson?</div><div class="opts"><div class="opt correct">C) Read the highlights and shadows on existing objects, or sample a neutral surface with the eyedropper</div></div><div class="why"><b>Why:</b> warm highlights and cool shadows mean warm light. Sampling a neutral surface in the scene gives you the exact cast to match.</div></div>
+  <div class="note lab"><div class="t">Lab reference: Match the Subject</div>
+    <p><b>A correct result:</b> layer stack (top to bottom) of clipped adjustments (Curves, Color Balance, and optionally Hue/Saturation, each showing ↳), the <code class="inline">SUBJECT</code> Smart Object with its name underlined, and the background scene. The subject is sized for its spot in the scene with its feet on the ground. When squinting, it does not pop out as brighter than its neighbors. On <code class="inline">l12-scene-sunset.jpg</code> the subject's lit (right) side is warm orange-gold and its shadow side is slightly cooler; saturation is a little lower than the original cutout. Toggling the clipped layers off makes the subject look obviously pasted.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>The sky or ground changed color too</b>: an adjustment is not clipped. Clip it.</li>
+      <li><b>Subject still glows against the scene</b>: color was adjusted but brightness never was. Go back to step 1 and squint.</li>
+      <li><b>Uniformly orange subject</b>: warmth applied everywhere, including the shadows. Cool the shadow tones a touch in Color Balance.</li>
+      <li><b>Soft, blurry subject</b>: it was scaled several times before being converted to a Smart Object, or scaled far beyond its original size.</li>
+      <li><b>Floating giant</b>: scale and placement ignore perspective; compare to nearby objects and put the feet on the ground plane.</li>
+    </ul>
+  </div>
+
+  <!-- L13 -->
+  <div class="sec"><h2>L13 · Ground It &amp; Grade It</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">According to the lesson, what is the strongest single cue that a subject belongs in a scene?</div><div class="opts"><div class="opt correct">B) A contact shadow where the subject meets the ground</div></div><div class="why"><b>Why:</b> nothing real floats. The first dark sliver of shadow at the contact point is what sells contact; the cast shadow, haze, and grade add to it.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">Why do the contact shadow and the cast shadow go on separate layers?</div><div class="opts"><div class="opt correct">A) So you can blur the cast shadow without softening the contact point</div></div><div class="why"><b>Why:</b> the contact shadow must stay tight and dark and is never blurred; the cast shadow gets softer as it travels, so it alone gets Gaussian Blur.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">The sun in your background is high and to the right. Which way should your subject's cast shadow fall?</div><div class="opts"><div class="opt correct">C) Low-left, away from the sun</div></div><div class="why"><b>Why:</b> shadows fall away from the light. There is one sun, so every shadow in the scene must fall the same way; check the background's existing shadows and match them.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">Compared with nearby things, how do distant things look in a real scene?</div><div class="opts"><div class="opt correct">B) Hazier, lighter, and lower in contrast</div></div><div class="why"><b>Why:</b> air is not perfectly clear. That atmospheric perspective is what a low-opacity haze layer recreates for a mid or far subject.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">Where does the unifying grade go in the layer stack?</div><div class="opts"><div class="opt correct">A) At the very top, over everything</div></div><div class="why"><b>Why:</b> because it sits over both subject and background, it forces them to share one final look, the way a single camera would. Clipped to the subject (B) it would do the opposite: separate them.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">What is the correct way to finish and deliver the composite?</div><div class="opts"><div class="opt correct">B) Save the layered .psd master, then File ▸ Export ▸ Export As a JPG</div></div><div class="why"><b>Why:</b> the master stays fully editable; Export As flattens the JPG automatically. Flattening and saving over the .psd (A) throws away every layer.</div></div>
+  <div class="note lab"><div class="t">Lab reference: Ground, Depth, Grade (Module 4 deliverable)</div>
+    <p><b>A correct result:</b> two shadow layers <em>below</em> the SUBJECT: <code class="inline">Contact Shadow</code> (small, darkest at the feet, unblurred) and <code class="inline">Cast Shadow</code> (longer, softer, blurred, falling the same way as the scene's shadows; on <code class="inline">l12-scene-sunset.jpg</code> and <code class="inline">l13-scene-hard-sun.jpg</code> that is toward the left). Optional haze layer for a distant subject. One unclipped grade (Color Lookup or Curves) plus a soft vignette at the top. A layered .psd and an exported JPG. At a squint, the subject reads as standing <em>on</em> the ground, not hovering in front of it.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Subject still floats</b>: no contact shadow, or it is too light or too far from the feet.</li>
+      <li><b>Shadow points the wrong way</b>: the learner didn't check the scene's existing shadows first.</li>
+      <li><b>A gray blob shadow</b>: uniform opacity and softness; it should fade and soften along its length.</li>
+      <li><b>Contact point looks fuzzy</b>: Gaussian Blur was applied to the contact layer, or both shadows were painted on one layer.</li>
+      <li><b>Shadows show on top of the subject</b>: shadow layers were created above the SUBJECT group. Drag them below.</li>
+      <li><b>Obvious fog or heavy color cast</b>: haze or grade too strong. Both should be subtle; if the grade is doing the heavy lifting, revisit the L12 match.</li>
+      <li><b>Only a flattened file exists</b>: the master was flattened. Recover from the last layered save if possible; reinforce Save first, then Export As.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <div class="who"><b>© 2026 Ray de la Paz</b><span class="bio">Instructor Kit · confidential, do not distribute to students</span></div>
+    <div class="ver">Answer Key · Module 4 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

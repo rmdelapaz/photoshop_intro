@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workbook: Module 2</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Student workbook —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">write in it · bring it to every session</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Photoshop Workbook · Module 2</div>
+    <h1>Light &amp; Color</h1>
+    <p class="sub">Module 1 got your photo clean and under control. Module 2 makes it beautiful. You'll develop a photo in Camera Raw, shape its light and color with Curves, and keep every single decision re-editable inside a Smart Object. One file carries you through all three lessons, so save often.</p>
+    <div class="meta-row">
+      <span class="chip">Lessons <b>5–7</b></span>
+      <span class="chip"><b>3</b> lessons</span>
+      <span class="chip">Session <b>3</b> · 3 hrs</span>
+      <span class="chip">Name: ____________________</span>
+    </div>
+  </header>
+
+  <div class="note">
+    <div class="t">How to use this workbook</div>
+    <p>Each lesson has <b>By the end you can</b> goals, <b>Key Ideas</b>, a <b>Worked Example</b> to follow on your own computer, <b>Your Turn</b> exercises to write in, a <b>Self-Check</b> quiz, a <b>Journal</b> prompt, and space for <b>Notes</b>. Judge color on <em>your own screen</em>, not the projector: projectors shift color. If something looks wrong, that's information, not failure.</p>
+  </div>
+
+  <div class="sec"><h2>Module Progress Tracker</h2><span class="rule"></span></div>
+  <ul class="tick lab">
+    <li>☐ <b>L05</b>: My photo is a Smart Object, developed in a re-editable Camera Raw Smart Filter, saved as <code class="inline">grade-working.psd</code></li>
+    <li>☐ <b>L06</b>: I added an S-curve, graded a color channel, and masked a second Curves layer to one region</li>
+    <li>☐ <b>L07</b>: I added a masked Smart Filter, passed the scale test, and exported <code class="inline">module2-grade-final.jpg</code></li>
+  </ul>
+
+  <!-- L05 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L05</span><h3>The Develop Step: Camera Raw</h3><span class="dur">42 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Open a photo as a <b>Smart Object</b> so Camera Raw becomes a re-editable <b>Smart Filter</b></li>
+          <li>Fix a color cast with <b>White Balance</b> (Temperature and Tint)</li>
+          <li>Set global tone with <b>Exposure, Contrast, Highlights, Shadows, Whites and Blacks</b></li>
+          <li>Explain why you develop <em>globally first</em>, before any local edits</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li>Camera Raw is the <b>develop step</b>: the digital darkroom where you get the raw light honest before any creative choice.</li>
+          <li><b>Global before local.</b> Fix the whole image (white balance, overall tone) first. Dodging and burning a photo that still has an orange cast is just polishing a problem.</li>
+          <li>Convert the layer to a <b>Smart Object</b> first. Then Camera Raw attaches as a <b>Smart Filter</b> you can double-click and re-edit forever.</li>
+          <li>Work the panel <b>top to bottom</b>: White Balance, then Exposure → Contrast → Highlights/Shadows → Whites/Blacks.</li>
+          <li><b>Clipping</b> means a highlight has gone pure white (or a shadow pure black) with no detail left. Hold <kbd>Alt</kbd> / <kbd>⌥</kbd> while dragging Whites or Blacks to see exactly where it happens.</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 560 96" role="img" aria-label="The develop order: flat photo, convert to Smart Object, Camera Raw as a Smart Filter, white balance, global tone, clean re-editable base.">
+            <g font-family="'JetBrains Mono',monospace" font-size="10.5" text-anchor="middle">
+              <rect x="6" y="36" width="80" height="48" rx="6" fill="#f4f6fa" stroke="#bcc7d6" stroke-width="1.5"/>
+              <text x="46" y="57" fill="#45536a">Flat</text><text x="46" y="71" fill="#45536a">photo</text>
+              <rect x="98" y="36" width="80" height="48" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="1.5"/>
+              <text x="138" y="57" fill="#1473E6">Smart</text><text x="138" y="71" fill="#1473E6">Object</text>
+              <rect x="190" y="36" width="80" height="48" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="1.5"/>
+              <text x="230" y="57" fill="#1473E6">Camera Raw</text><text x="230" y="71" fill="#1473E6">Smart Filter</text>
+              <rect x="282" y="36" width="80" height="48" rx="6" fill="#ffffff" stroke="#1473E6" stroke-width="2"/>
+              <text x="322" y="57" fill="#16202e" font-weight="600">1 · White</text><text x="322" y="71" fill="#16202e" font-weight="600">Balance</text>
+              <rect x="374" y="36" width="80" height="48" rx="6" fill="#ffffff" stroke="#1473E6" stroke-width="2"/>
+              <text x="414" y="57" fill="#16202e" font-weight="600">2 · Global</text><text x="414" y="71" fill="#16202e" font-weight="600">tone</text>
+              <rect x="466" y="36" width="88" height="48" rx="6" fill="#1473E6"/>
+              <text x="510" y="57" fill="#ffffff" font-weight="600">Clean base</text><text x="510" y="71" fill="#ffffff">re-editable</text>
+            </g>
+            <g stroke="#45536a" stroke-width="1.5">
+              <line x1="86" y1="60" x2="96" y2="60"/><line x1="178" y1="60" x2="188" y2="60"/><line x1="270" y1="60" x2="280" y2="60"/><line x1="362" y1="60" x2="372" y2="60"/><line x1="454" y1="60" x2="464" y2="60"/>
+            </g>
+            <text x="280" y="20" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#0f766e">the develop order</text>
+          </svg>
+          <figcaption>White balance first, then tone, and it stays re-editable because it's a Smart Filter.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: the develop pass</div>
+        <ol class="steps">
+          <li><b>File ▸ Open</b> your photo, then <b>File ▸ Save As</b> → <code class="inline">grade-working.psd</code>.</li>
+          <li>Right-click the layer <b>on its name</b> (not the thumbnail) ▸ <b>Convert to Smart Object</b>. Look for the page badge on the thumbnail.</li>
+          <li><b>Filter ▸ Camera Raw Filter…</b> (<kbd>Shift + Ctrl + A</kbd> / <kbd>⇧ + ⌘ + A</kbd>).</li>
+          <li><b>White Balance eyedropper</b>: click something that should be neutral gray or white. Fine-tune <b>Temperature</b> and <b>Tint</b>. Look away, then look back.</li>
+          <li><b>Exposure</b> first, a gentle <b>Contrast</b> nudge, <b>Highlights</b> down, <b>Shadows</b> up.</li>
+          <li>Hold <kbd>Alt</kbd> / <kbd>⌥</kbd>: drag <b>Whites</b> until just shy of clipping, <b>Blacks</b> down until you have a true black.</li>
+          <li><b>OK</b>. Toggle the Smart Filter's 👁 for before/after. <b>File ▸ Save</b> (<kbd>Ctrl/⌘ + S</kbd>).</li>
+        </ol>
+        <p style="font-size:.88rem;color:var(--ink-2)">Your screen may group the sliders a little differently from this list (section names vary between Camera Raw versions). Follow the <b>order</b>, wherever the sliders sit.</p>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: Match the problem to the slider</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Write the slider (or tool) you'd reach for first:</p>
+        <table class="timing">
+          <thead><tr><th>The problem</th><th>I'd reach for…</th></tr></thead>
+          <tbody>
+            <tr><td>Whites look orange under indoor lights</td><td>______________________</td></tr>
+            <tr><td>The whole photo is too dark</td><td>______________________</td></tr>
+            <tr><td>The sky is blown out, almost white</td><td>______________________</td></tr>
+            <tr><td>The shadows are muddy; I can't see detail</td><td>______________________</td></tr>
+            <tr><td>The image looks flat and hazy</td><td>______________________</td></tr>
+            <tr><td>There's no true black anywhere</td><td>______________________</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: Develop a flat photo</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Use <code class="inline">l05-flat-cast.jpg</code> or your own flat or indoor photo. Record what you did:</p>
+        <ul class="tick lab">
+          <li>☐ Smart Object badge on the thumbnail</li>
+          <li>☐ Whites look neutral (no orange or blue cast)</li>
+          <li>☐ A true black and a clean white somewhere in the image</li>
+          <li>☐ Highlights and shadows both show detail</li>
+          <li>☐ Camera Raw is a re-editable Smart Filter</li>
+          <li>☐ Saved <code class="inline">grade-working.psd</code></li>
+        </ul>
+        <p style="font-size:.92rem;margin:.4rem 0 .2rem">The neutral object I clicked with the eyedropper, and the sliders I moved most:</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">Why convert the layer to a Smart Object before choosing Filter ▸ Camera Raw Filter?</div>
+          <div class="opts"><div class="opt">A) Camera Raw refuses to open on a normal layer</div><div class="opt">B) So Camera Raw is applied as a re-editable Smart Filter you can reopen and change any time</div><div class="opt">C) So the file gets smaller</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">An indoor photo has orange-looking whites. What's the fastest first move in Camera Raw?</div>
+          <div class="opts"><div class="opt">A) Click the White Balance eyedropper on something that should be neutral gray or white</div><div class="opt">B) Drag Exposure down</div><div class="opt">C) Push Contrast up</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">Which order does the develop pass follow?</div>
+          <div class="opts"><div class="opt">A) Whites/Blacks → Exposure → White Balance</div><div class="opt">B) Contrast → White Balance → Shadows → Exposure</div><div class="opt">C) White Balance → Exposure → Contrast → Highlights/Shadows → Whites/Blacks</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">What does holding <kbd>Alt</kbd> / <kbd>⌥</kbd> while dragging the Whites or Blacks slider show you?</div>
+          <div class="opts"><div class="opt">A) Where the image is clipping: pure white or pure black with no detail left</div><div class="opt">B) A side-by-side before and after</div><div class="opt">C) The original, undeveloped photo</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">What does "global before local" mean?</div>
+          <div class="opts"><div class="opt">A) Always edit the background before the subject</div><div class="opt">B) Fix the whole image first (white balance, overall tone), then make selective local tweaks</div><div class="opt">C) Apply filters before adjustment layers</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">You only have a JPEG, not a RAW file. Can you still do the develop step?</div>
+          <div class="opts"><div class="opt">A) No, Camera Raw only opens RAW files</div><div class="opt">B) Only after converting the JPEG to RAW</div><div class="opt">C) Yes, the Camera Raw Filter runs on any layer; RAW just gives more room to recover highlights and shadows</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Which mattered more for your photo: fixing the color cast, or setting the tone? Grading is personal; noticing your own instinct is the start of a style.</em> Also note: key concepts · what clicked · questions · ideas to try · how you feel about your progress.</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L06 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L06</span><h3>Curves: Precise Tone &amp; Color</h3><span class="dur">50 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Read the Curves graph: input across, output up, the diagonal is "no change"</li>
+          <li>Add contrast with an <b>S-curve</b>, and flatten it for a soft, filmic look</li>
+          <li>Color-grade by bending the <b>Red, Green and Blue</b> channels</li>
+          <li>Apply a Curves adjustment layer to only part of the photo with a <b>mask</b></li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li>A curve is a <b>tone translator</b>. Tones walk in along the bottom (input) and out up the side (output). The straight diagonal means "leave it alone."</li>
+          <li>Bend a point <b>up</b> and those tones get brighter; bend it <b>down</b> and they get darker. You choose which tones: shadows, midtones, or highlights.</li>
+          <li><b>S-curve</b> = shadows down, highlights up = more contrast. <b>Lifted bottom-left corner</b> = milky, faded blacks (matte, vintage).</li>
+          <li><b>Channel curves</b> grade color. In the Blue channel, shadows up + highlights down = cool shadows, warm highlights. Add Red shadows down for a truer teal. Move in tiny amounts.</li>
+          <li>A <b>masked</b> Curves layer grades one region only: fill the mask black, paint white where you want the effect.</li>
+          <li>Curves layers go <b>above</b> your Camera Raw develop. Global first, again.</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 300 250" role="img" aria-label="The Curves graph: input brightness across the bottom, output brightness up the side, a dashed diagonal for no change, and an S-curve that darkens shadows and brightens highlights.">
+            <rect x="50" y="20" width="200" height="200" fill="#ffffff" stroke="#bcc7d6" stroke-width="1.5"/>
+            <g stroke="#e6ebf2" stroke-width="1">
+              <line x1="100" y1="20" x2="100" y2="220"/><line x1="150" y1="20" x2="150" y2="220"/><line x1="200" y1="20" x2="200" y2="220"/>
+              <line x1="50" y1="70" x2="250" y2="70"/><line x1="50" y1="120" x2="250" y2="120"/><line x1="50" y1="170" x2="250" y2="170"/>
+            </g>
+            <line x1="50" y1="220" x2="250" y2="20" stroke="#6f7c8e" stroke-width="1.5" stroke-dasharray="5 4"/>
+            <path d="M50 220 C 95 215, 95 185, 100 185 C 130 170, 170 70, 200 55 C 205 55, 215 30, 250 20" fill="none" stroke="#1473E6" stroke-width="3"/>
+            <circle cx="100" cy="185" r="5" fill="#1473E6"/>
+            <circle cx="200" cy="55" r="5" fill="#1473E6"/>
+            <text x="112" y="200" font-family="'JetBrains Mono',monospace" font-size="10" fill="#b45309">shadows down</text>
+            <text x="124" y="48" font-family="'JetBrains Mono',monospace" font-size="10" fill="#0f766e">highlights up</text>
+            <text x="150" y="240" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#45536a">input (shadows → highlights)</text>
+            <text x="30" y="120" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#45536a" transform="rotate(-90 30 120)">output</text>
+          </svg>
+          <figcaption>Dashed diagonal = no change. Blue S-curve = more contrast.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: contrast &amp; color</div>
+        <ol class="steps">
+          <li>Open <code class="inline">grade-working.psd</code> from L05. Click <b>◐</b> at the bottom of the Layers panel ▸ <b>Curves</b>.</li>
+          <li>Click a point about a quarter of the way up the line and drag it gently <b>down</b>. Click about three quarters up and drag gently <b>up</b>. That's your S.</li>
+          <li>Change the channel menu from <b>RGB</b> to <b>Blue</b>: lift the shadow end slightly, drop the highlight end slightly. For truer teal, switch to <b>Red</b> and pull its shadow end down slightly.</li>
+          <li>Add a <b>second</b> Curves layer and brighten it noticeably.</li>
+          <li>Click its <b>mask thumbnail</b>. Press <kbd>D</kbd>, then <kbd>X</kbd> so black is the foreground, then <kbd>Alt + Backspace</kbd> / <kbd>⌥ + Delete</kbd> to fill the mask black (or press <kbd>Ctrl/⌘ + I</kbd> to invert the white mask).</li>
+          <li>Press <kbd>X</kbd> for white; paint over your subject with a soft brush (<kbd>B</kbd>). <b>File ▸ Save</b>.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: Sketch the curve</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Draw the curve you'd use for each look. The dashed line is "no change."</p>
+        <figure class="fig">
+          <svg viewBox="0 0 540 180" role="img" aria-label="Three empty Curves graphs to sketch on: brighter overall, more contrast, and faded matte blacks.">
+            <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#45536a" text-anchor="middle">
+              <rect x="20" y="20" width="140" height="140" fill="#ffffff" stroke="#bcc7d6" stroke-width="1.5"/>
+              <line x1="20" y1="160" x2="160" y2="20" stroke="#bcc7d6" stroke-dasharray="4 4"/>
+              <text x="90" y="176">1 · brighter overall</text>
+              <rect x="200" y="20" width="140" height="140" fill="#ffffff" stroke="#bcc7d6" stroke-width="1.5"/>
+              <line x1="200" y1="160" x2="340" y2="20" stroke="#bcc7d6" stroke-dasharray="4 4"/>
+              <text x="270" y="176">2 · more contrast</text>
+              <rect x="380" y="20" width="140" height="140" fill="#ffffff" stroke="#bcc7d6" stroke-width="1.5"/>
+              <line x1="380" y1="160" x2="520" y2="20" stroke="#bcc7d6" stroke-dasharray="4 4"/>
+              <text x="450" y="176">3 · faded, matte blacks</text>
+            </g>
+          </svg>
+        </figure>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: Grade one region</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Which region did you grade with your masked Curves layer (subject, sky, foreground)? What did the masked layer do to it, and why did you choose that region?</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Colors went wild?</b> You moved a channel too far: a few pixels of drag on Blue is already a strong grade. <b>Paint showing up as white smears on the photo?</b> You had the image selected, not the mask. Undo and click the mask thumbnail first. <b>Skin blotchy or sky banded?</b> Your S-curve is too strong for that area; soften it or mask it.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">On an untouched Curves graph, what does the straight diagonal line mean?</div>
+          <div class="opts"><div class="opt">A) Every tone leaves exactly as it came in: no change</div><div class="opt">B) The image is clipped</div><div class="opt">C) Contrast is at its maximum</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">A photo looks flat and hazy. Which curve adds contrast?</div>
+          <div class="opts"><div class="opt">A) One point pulled up in the middle</div><div class="opt">B) The bottom-left corner lifted up</div><div class="opt">C) An S-curve: the shadows point dragged down, the highlights point dragged up</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">What does lifting the bottom-left corner (the black end) of the curve do?</div>
+          <div class="opts"><div class="opt">A) Makes blacks deeper and richer</div><div class="opt">B) Gives "milky," faded blacks for a matte or vintage look</div><div class="opt">C) Warms the whole image</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">In the <b>Blue</b> channel you lift the shadow end slightly and drop the highlight end slightly. What's the result?</div>
+          <div class="opts"><div class="opt">A) Cool (blue) shadows and warm (yellow) highlights</div><div class="opt">B) Warm shadows and cool highlights</div><div class="opt">C) A black-and-white image</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">You added a Curves layer that brightens the photo, but you want it to affect only your subject. What next?</div>
+          <div class="opts"><div class="opt">A) Lower the Curves layer's opacity to 50%</div><div class="opt">B) Fill its mask black, then paint white over the subject with a soft brush</div><div class="opt">C) Paint black directly on the photo layer around the subject</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">Where should your Curves adjustment layers sit relative to the Camera Raw develop?</div>
+          <div class="opts"><div class="opt">A) Below it, so Camera Raw can correct them</div><div class="opt">B) It doesn't matter; the result is identical</div><div class="opt">C) Above it: develop globally first, then stack Curves on top</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Did Curves feel like math or like a dimmer switch by the end? Describe the S-curve to yourself in one plain sentence: that sentence is proof it clicked.</em> Also note: key concepts · what clicked · questions · ideas to try · how you feel about your progress.</p>
+        <div class="write"></div>
+      </div>
+      <div class="note">
+        <div class="t">Add the word "yet"</div>
+        <p>Curves intimidates more beginners than any other tool. If it doesn't feel natural, it doesn't feel natural <em>yet</em>. Five S-curves on five photos and the shape becomes muscle memory.</p>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L07 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L07</span><h3>Smart Objects &amp; Finishing the Grade</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Explain what a <b>Smart Object</b> is: a protective container around your pixels</li>
+          <li>Scale, warp, and transform without losing quality</li>
+          <li>Apply <b>Smart Filters</b> that stay re-editable and maskable</li>
+          <li>Finish a fully non-destructive grade and export it</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li><b>A Smart Object stores your pixels; everything you do to it is a re-editable instruction, not a permanent change.</b></li>
+          <li>Scale a <b>normal layer</b> down and back up and it turns to mush: the pixels were thrown away. A <b>Smart Object</b> re-renders crisp from the sealed original.</li>
+          <li>Any filter on a Smart Object nests beneath it as a <b>Smart Filter</b>. Filters share one <b>filter mask</b>, the newest sits on top, and they apply from the bottom up.</li>
+          <li>Paint the filter mask black to hide the filter in an area (black hides, white reveals).</li>
+          <li>Don't heal or clone directly on a Smart Object: those tools want normal pixels. Retouch first, then convert.</li>
+          <li>Keep the layered <code class="inline">.psd</code> as your <b>master</b>; export a flat JPEG as the deliverable.</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 440 170" role="img" aria-label="A Smart Object: original pixels sealed inside a container; transform and filter instructions written on the outside; the result re-renders fresh every time.">
+            <rect x="20" y="30" width="170" height="110" rx="10" fill="#e3efff" stroke="#1473E6" stroke-width="2"/>
+            <text x="105" y="52" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#1473E6">Smart Object</text>
+            <rect x="50" y="66" width="110" height="56" rx="6" fill="#ffffff" stroke="#bcc7d6"/>
+            <text x="105" y="90" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#45536a">original pixels</text>
+            <text x="105" y="106" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#45536a">(sealed)</text>
+            <rect x="222" y="34" width="120" height="38" rx="6" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+            <text x="282" y="57" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#0f766e">"scale to 40%"</text>
+            <rect x="222" y="98" width="120" height="38" rx="6" fill="#ffffff" stroke="#0f766e" stroke-width="1.5"/>
+            <text x="282" y="121" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" fill="#0f766e">"blur by 8px"</text>
+            <g stroke="#45536a" stroke-width="1.5"><line x1="190" y1="53" x2="220" y2="53"/><line x1="190" y1="117" x2="220" y2="117"/><line x1="342" y1="53" x2="372" y2="85"/><line x1="342" y1="117" x2="372" y2="85"/></g>
+            <rect x="372" y="62" width="60" height="46" rx="6" fill="#1473E6"/>
+            <text x="402" y="82" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#ffffff">fresh</text>
+            <text x="402" y="96" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#ffffff">render</text>
+            <text x="220" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#0f766e">edits are instructions on the outside of the box</text>
+          </svg>
+          <figcaption>The pixels inside never degrade; change an instruction and it re-renders.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: finish the grade</div>
+        <ol class="steps">
+          <li>Open <code class="inline">grade-working.psd</code>. Check the photo layer's thumbnail for the page-fold badge (if missing: right-click ▸ <b>Convert to Smart Object</b>).</li>
+          <li>With the Smart Object selected: <b>Filter ▸ Sharpen ▸ Smart Sharpen</b> (crisp detail) or <b>Filter ▸ Blur ▸ Gaussian Blur</b> (a dreamy glow).</li>
+          <li>For a glow: double-click the small <b>Blending Options</b> icon at the right end of the Gaussian Blur row, set <b>Mode: Soft Light</b> (or Screen), <b>Opacity</b> about 20–40%.</li>
+          <li>Click the white <b>Smart Filters</b> mask and paint black where you don't want the filter.</li>
+          <li><kbd>Ctrl/⌘ + T</kbd>: scale to 30%, commit; scale back to 100%, commit. Still crisp? (If Photoshop warns that Smart Filters are off while transforming, click OK.)</li>
+          <li><b>File ▸ Save</b> the <code class="inline">.psd</code>. Then <b>File ▸ Export ▸ Export As</b> ▸ JPG 80% → <code class="inline">module2-grade-final.jpg</code>.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: Crisp or mushy?</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Open <code class="inline">l07-badge-crisp.png</code>. Duplicate the layer, convert <em>one</em> copy to a Smart Object, then scale both to 30% and back to 100%. Zoom to 100% (<kbd>Ctrl/⌘ + 1</kbd>). Describe what happened to the thin lines and small text on each copy:</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: In your own words</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Explain a Smart Object to a friend who has never used Photoshop, in two sentences or fewer:</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">Which is the best one-line definition of a Smart Object?</div>
+          <div class="opts"><div class="opt">A) A layer that automatically enhances your photo</div><div class="opt">B) A compressed layer that makes files smaller</div><div class="opt">C) A container that stores your original pixels; every edit is a re-editable instruction</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">You scale a layer to 30% and back to 100%. The normal layer turns mushy but the Smart Object stays crisp. Why?</div>
+          <div class="opts"><div class="opt">A) Smart Objects are automatically sharpened</div><div class="opt">B) The Smart Object re-renders from its sealed original pixels</div><div class="opt">C) Normal layers can't be scaled back up at all</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">You applied Smart Sharpen as a Smart Filter and want it on the eyes but not the skin. How?</div>
+          <div class="opts"><div class="opt">A) Paint black on the Smart Filters mask over the skin</div><div class="opt">B) Delete the filter and sharpen with a brush</div><div class="opt">C) Lower the whole layer's opacity</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">You want a Gaussian Blur Smart Filter to look like a soft glow, not a blurry photo. What do you change?</div>
+          <div class="opts"><div class="opt">A) Increase the blur radius</div><div class="opt">B) Convert the Smart Object back to a normal layer</div><div class="opt">C) Double-click the filter's Blending Options icon; set Mode to Soft Light (or Screen) at about 20–40% opacity</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">When should you <em>not</em> work on a Smart Object?</div>
+          <div class="opts"><div class="opt">A) When scaling or warping</div><div class="opt">B) When healing or cloning directly on the layer's pixels</div><div class="opt">C) When applying Camera Raw</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">You exported <code class="inline">module2-grade-final.jpg</code>. Why keep the layered <code class="inline">.psd</code> too?</div>
+          <div class="opts"><div class="opt">A) The PSD is your re-editable master; the JPEG is flat and can't be re-graded</div><div class="opt">B) You need the PSD to open the JPEG</div><div class="opt">C) You don't; delete it to save space</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Non-destructive editing has now shown up in every module: layers, masks, adjustment layers, Smart Objects. In your own words, why do professionals care so much about never committing an edit?</em> Also note: key concepts · what clicked · questions · ideas to try · how you feel about your progress.</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <div class="note">
+    <div class="t">You finished Module 2 🎉</div>
+    <p>You can take a flat, wrongly colored photo and make it genuinely beautiful: develop it, shape its light and color, grade a region with a mask, and keep the whole thing re-editable. That's a real colorist's workflow. Before Session 4: grade one more photo start to finish, and bring a portrait (a self-portrait, or someone who has agreed to be edited and shown in class).</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <span class="bio">© 2026 Ray de la Paz · Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Workbook · Module 2 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

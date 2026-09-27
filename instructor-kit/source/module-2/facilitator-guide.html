@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilitator Guide: Module 2</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">contains answers &amp; timing · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Facilitator Guide</div>
+    <h1>Module 2: Light &amp; Color</h1>
+    <p class="sub">How to teach the three lessons that turn a clean-but-flat photo into a finished, fully re-editable color grade: develop in Camera Raw, shape tone and color with Curves, and wrap it all in a Smart Object. One working file (<code class="inline">grade-working.psd</code>) runs through the whole session, so protect it and make sure everyone saves.</p>
+    <div class="meta-row">
+      <span class="chip"><b>3</b> lessons</span>
+      <span class="chip"><b>3 hrs</b> incl. labs &amp; break</span>
+      <span class="chip">Lessons <b>L05–L07</b></span>
+      <span class="chip">Level <b>Beginner, week 2</b></span>
+      <span class="chip">Maps to <b>Session 3</b></span>
+    </div>
+  </header>
+
+  <div class="sec"><h2>How to Use This Guide</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li>Same rhythm as every module: <b>Frame</b> → <b>Demo</b> → <b>Lab</b> → <b>Check</b>. Each lesson has a live-demo script (what to click and what to say), a lab, and a short self-check from the workbook. Every lesson ends with a learning-journal prompt.</li>
+    <li><b>Demo on the projector, then let them do it on their own screen.</b> In this module the projector will lie to you about color (see the warning below), so demos show <em>the steps</em>, and learners judge <em>the result</em> on their own monitors.</li>
+    <li><span style="color:var(--lab);font-weight:600">Teal</span> = hands-on, <span style="color:var(--warn);font-weight:600">amber</span> = watch-outs. In Module 2 the watch-outs are mostly about <b>overdoing it</b> (huge slider moves, wild channel curves) and <b>losing the non-destructive chain</b> (forgetting to convert to a Smart Object).</li>
+  </ul>
+
+  <div class="note warn">
+    <div class="t">The #1 risk of Session 3: judging color on the wrong screen</div>
+    <p>Projectors and uncalibrated laptops shift color and crush shadows. A grade that looks neutral on the wall may be green on a laptop. Say it out loud at the start: <b>"Watch my clicks on the projector, judge your color on your own screen."</b> Ask learners to turn off Night Light (Windows) or True Tone / Night Shift (Mac) and set screen brightness to roughly the middle for the session. Pre-empt this and you avoid half an hour of "mine looks different."</p>
+  </div>
+
+  <div class="sec"><h2>Before the Session</h2><span class="rule"></span></div>
+  <ul class="tick lab">
+    <li>Photoshop 2025 or 2026 installed on every machine; open <b>Filter ▸ Camera Raw Filter…</b> once on each so the first launch delay happens before class.</li>
+    <li>Copy <code class="inline">labs/module-2/practice/</code> to every machine (or a shared drive). Files: <code class="inline">l05-flat-cast.jpg</code>, <code class="inline">l05-green-indoor.jpg</code>, <code class="inline">l06-flat-landscape.jpg</code>, <code class="inline">l06-tone-ramp.png</code>, <code class="inline">l07-badge-crisp.png</code>, <code class="inline">l07-subject-busy-bg.jpg</code>. See <code class="inline">labs/module-2/README.md</code>.</li>
+    <li>Remind learners (in the pre-session email) to bring 2–3 of their own photos: one flat or wrongly colored (overcast or indoor), one with a sky, one with a clear subject.</li>
+    <li>Have a finished <code class="inline">grade-working.psd</code> of your own open in a second tab, so you can show "where we're heading" and rescue anyone whose file goes missing.</li>
+  </ul>
+
+  <div class="sec"><h2>Session 3 Agenda (3 hours)</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Clock</th><th>Segment</th><th>Min</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="t">0:00–0:08</td><td>Welcome, Module 1 recap, today's goal</td><td class="t">8</td><td>Quick recall: "black hides, white reveals." Show a finished grade as the destination. Screen-settings reminder.</td></tr>
+      <tr><td class="t">0:08–0:23</td><td>L05 frame + live demo</td><td class="t">15</td><td>Digital darkroom, global before local, Smart Object → Camera Raw</td></tr>
+      <tr><td class="t">0:23–0:45</td><td>L05 lab: develop a flat photo</td><td class="t">22</td><td>Practice file or own photo; save <code class="inline">grade-working.psd</code></td></tr>
+      <tr><td class="t">0:45–0:50</td><td>L05 check</td><td class="t">5</td><td>Self-check Q1–Q6 (quick show of hands); journal prompt assigned as homework</td></tr>
+      <tr><td class="t">0:50–1:10</td><td>L06 frame + live demo</td><td class="t">20</td><td>Reading the graph, S-curve, Blue/Red channels, masked Curves</td></tr>
+      <tr><td class="t">1:10–1:35</td><td>L06 lab: contrast &amp; color</td><td class="t">25</td><td>Build on the same file; masked second Curves layer</td></tr>
+      <tr><td class="t">1:35–1:40</td><td>L06 check</td><td class="t">5</td><td>Self-check Q1–Q6</td></tr>
+      <tr><td class="t">1:40–1:52</td><td><b>Break</b></td><td class="t">12</td><td>Everyone saves before leaving the seat</td></tr>
+      <tr><td class="t">1:52–2:07</td><td>L07 frame + live demo</td><td class="t">15</td><td>Container model, crisp-vs-mushy scale test, Smart Filter + filter mask, export</td></tr>
+      <tr><td class="t">2:07–2:32</td><td>L07 lab: finish the grade &amp; export</td><td class="t">25</td><td>Deliverable: <code class="inline">module2-grade-final.jpg</code></td></tr>
+      <tr><td class="t">2:32–2:37</td><td>L07 check</td><td class="t">5</td><td>Self-check Q1–Q6</td></tr>
+      <tr><td class="t">2:37–2:50</td><td>Grade gallery</td><td class="t">13</td><td>3 volunteers show before/after (toggle the Smart Filter eye). Praise restraint.</td></tr>
+      <tr><td class="t">2:50–3:00</td><td>Wrap-up, journal, preview Session 4</td><td class="t">10</td><td>Module 2 journal prompt (5 min in class); ask for a consented portrait for next time</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">Three lessons in three hours is tight, so every lesson's solo variation is an <b>if time / homework</b> item, not class time. If you run behind, shorten the grade gallery first. Never cut the L07 export: the exported JPEG is the module deliverable. Learners write the L05 and L06 journal entries at home; the L07 prompt gets 5 minutes in the wrap-up.</p>
+
+  <div class="sec"><h2>Module at a Glance</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Lesson</th><th>Topic</th><th>Time</th><th>Learners leave able to…</th></tr></thead>
+    <tbody>
+      <tr><td class="t">L05</td><td>The Develop Step: Camera Raw</td><td class="t">42m</td><td>Neutralize a color cast and set global tone in a re-editable Camera Raw Smart Filter</td></tr>
+      <tr><td class="t">L06</td><td>Curves: Precise Tone &amp; Color</td><td class="t">50m</td><td>Read the Curves graph, add an S-curve, color-grade a channel, and mask Curves to one region</td></tr>
+      <tr><td class="t">L07</td><td>Smart Objects &amp; Finishing the Grade</td><td class="t">45m</td><td>Explain Smart Objects, add a masked Smart Filter, transform without loss, and export the finished grade</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">The module is one story told on one file: <b>develop it honestly → shape its light and color → keep every decision reversible and ship it.</b> Times above include demo, lab, and check.</p>
+
+  <div class="sec"><h2>Lesson Plans</h2><span class="rule"></span></div>
+
+  <!-- L05 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L05</span><h3>The Develop Step: Camera Raw</h3><span class="dur">42 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Open a photo as a <b>Smart Object</b> so Camera Raw becomes a re-editable <b>Smart Filter</b></li>
+          <li>Fix a color cast with <b>White Balance</b> (Temperature and Tint)</li>
+          <li>Set global tone with <b>Exposure, Contrast, Highlights, Shadows, Whites and Blacks</b></li>
+          <li>Explain why you develop <em>globally first</em>, before any local edits</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence and demo script</div>
+        <ol class="steps">
+          <li><b>Frame: the digital darkroom (3m).</b> Open <code class="inline">l05-flat-cast.jpg</code>. <em>Say:</em> "This is what cameras often hand you: an orange cast and flat, lifeless contrast. Camera Raw is the developing station in an old darkroom. It gets the raw light honest before we make any creative choice." Write the mantra on the board: <b>global before local; develop before you decorate.</b></li>
+          <li><b>Demo: protect and wrap (2m).</b> Click <b>File ▸ Save As</b> → <code class="inline">grade-working.psd</code>. <em>Say:</em> "Protect the original first, always." Right-click the layer <b>on its name, not the thumbnail</b> ▸ <b>Convert to Smart Object</b>. Zoom in on the thumbnail's page badge. <em>Say:</em> "That badge means the photo is sealed in a protective container. We'll unpack that in Lesson 2.3. Today it just means nothing we do gets baked in."</li>
+          <li><b>Demo: open Camera Raw (1m).</b> <b>Filter ▸ Camera Raw Filter…</b> (<kbd>Shift + Ctrl + A</kbd> / <kbd>⇧ + ⌘ + A</kbd>). Point at the preview on the left and the sliders on the right.</li>
+          <li><b>Demo: white balance first (3m).</b> Pick the <b>White Balance eyedropper</b>, click the gray card or the white wall in the practice file. The cast snaps away. <em>Say:</em> "Click something that should be neutral: a cloud, a white shirt, gray pavement." Then nudge <b>Temperature</b> (cooler if still orange) and <b>Tint</b> (off any green or magenta). Model the "look away" habit: <em>Say:</em> "Your eyes adapt to a cast in seconds. Look at the wall for a moment, then look back. Still natural? Then it's right."</li>
+          <li><b>Demo: tone, top to bottom (5m).</b> <b>Exposure</b> for overall brightness; <b>Contrast</b> a gentle nudge; <b>Highlights</b> down to recover the bright sky; <b>Shadows</b> up to reveal dark detail. Then hold <kbd>Alt</kbd> / <kbd>⌥</kbd> and drag <b>Whites</b> until the first specks appear, back off a hair; repeat on <b>Blacks</b>. <em>Say:</em> "A crisp photo has a real black somewhere and a clean white somewhere. That's the full-range check."</li>
+          <li><b>Demo: commit, but not really (1m).</b> Click <b>OK</b>. Show Camera Raw nested under the Smart Object in the Layers panel. Toggle its 👁 for before/after, double-click the filter name to reopen: every slider is exactly where you left it. <b>File ▸ Save</b> (<kbd>Ctrl/⌘ + S</kbd>). <em>Say:</em> "We'll open this same file in the next lesson, so save it where you can find it."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Develop a Flat Photo (22 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Learners follow the lesson's four steps on <code class="inline">l05-flat-cast.jpg</code> or their own flat or indoor photo, and save <code class="inline">grade-working.psd</code>. <b>If time / homework:</b> the solo variation (the same photo developed two ways, cool and crisp vs. warm and golden) or try <code class="inline">l05-green-indoor.jpg</code>, which needs <b>Tint</b>, not just Temperature.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> the page badge on the thumbnail <em>before</em> Camera Raw opens; eyedropper clicks on truly neutral objects (not skin, not a colored wall); Whites and Blacks set with the <kbd>Alt</kbd>/<kbd>⌥</kbd> clipping preview; the file saved as <code class="inline">.psd</code>.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> the lesson's checklist. Smart Object badge, neutral whites, a true black and a clean white, detail in highlights and shadows, Camera Raw is a Smart Filter, <code class="inline">grade-working.psd</code> saved.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Skipping Convert to Smart Object.</b> Camera Raw Filter still runs on a normal layer, but it bakes in. If a learner's Layers panel shows no Smart Filter under the photo, undo (<kbd>Ctrl/⌘ + Z</kbd>), convert, and redo. It takes one minute now and saves the whole module.</li>
+          <li><b>Right-clicking the thumbnail.</b> That opens a different menu. Right-click on the layer <em>name</em>.</li>
+          <li><b>Eyedropper on the wrong thing.</b> Clicking skin, sky, or a colored wall "neutralizes" something that shouldn't be neutral and throws the whole photo off. Guide them to a white or gray object.</li>
+          <li><b>Huge slider moves.</b> Beginners slam Exposure and Contrast. Demonstrate small moves and the "look away and look back" check.</li>
+          <li><b>Panel layout differs from the diagram.</b> Depending on the Camera Raw version, the sliders may be grouped in one Basic section or split into separate sections (for example, tone in one, White Balance in another). The lesson flags this. Teach the <em>order</em> (White Balance first, then tone top to bottom), not the physical position on screen.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast learners (if time, else homework):</b> develop the same photo two ways (solo variation), then drag Exposure to an extreme, click OK, reopen, and dial it back to prove there's no quality loss. Point them at the <b>Curve</b> panel inside Camera Raw as a preview of L06.</li>
+          <li><b>Struggling learners:</b> reduce the job to two moves: the eyedropper, then Exposure. Once those land, add Whites/Blacks with the clipping preview. A two-slider develop that's saved properly beats a six-slider one that isn't.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding: workbook self-check + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> B) So Camera Raw is applied as a re-editable Smart Filter; <b>Q2</b> A) Click the White Balance eyedropper on something that should be neutral; <b>Q3</b> C) White Balance → Exposure → Contrast → Highlights/Shadows → Whites/Blacks; <b>Q4</b> A) Where the image is clipping; <b>Q5</b> B) Fix the whole image first, then make local tweaks; <b>Q6</b> C) Yes, the Camera Raw Filter runs on any layer. Full explanations in the Answer Key. Assign the <b>Learning Journal</b> prompt as homework: <em>Which mattered more for your photo: fixing the color cast, or setting the tone?</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- L06 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L06</span><h3>Curves: Precise Tone &amp; Color</h3><span class="dur">50 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Read the Curves graph: input across, output up, the diagonal is "no change"</li>
+          <li>Add contrast with a classic <b>S-curve</b>, and flatten it for a soft, filmic look</li>
+          <li>Color-grade by bending the <b>Red, Green and Blue</b> channels</li>
+          <li>Apply a Curves adjustment layer to only part of the photo with a <b>mask</b></li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence and demo script</div>
+        <ol class="steps">
+          <li><b>Frame: defuse the fear (2m).</b> <em>Say:</em> "Curves is the one advanced control worth learning if you learn only one. It looks like math class. It isn't. It's a picture of 'make these tones brighter, those darker.' If it's confusing right now, add the word <b>yet</b>."</li>
+          <li><b>Demo: read the graph on a ramp (5m).</b> Open <code class="inline">l06-tone-ramp.png</code> (a black-to-white gradient with numbered steps). Click the <b>◐</b> button at the bottom of the Layers panel ▸ <b>Curves</b>. <em>Say:</em> "Every tone walks in along the bottom, its input, and walks out up the side, its output. The straight diagonal means every tone leaves exactly as it came in." Drag the middle point up: the whole ramp brightens. Drag it down: it darkens. Reset.</li>
+          <li><b>Demo: the S-curve (4m).</b> Switch to <code class="inline">grade-working.psd</code> (or <code class="inline">l06-flat-landscape.jpg</code>). Add Curves. Click about a quarter of the way up the line and drag gently down; click about three quarters up and drag gently up. <em>Say:</em> "Shadows down, highlights up. That's an S. The steeper the middle, the more contrast. Small moves, big results." Then show the opposite: lift the bottom-left corner for milky, faded blacks. <em>Say:</em> "That's the matte, vintage look."</li>
+          <li><b>Demo: color-grade with a channel (4m).</b> Change the channel dropdown from <b>RGB</b> to <b>Blue</b>. Lift the shadow end slightly (cool shadows), drop the highlight end slightly (warm highlights). <em>Say:</em> "On its own, Blue gives you blue and yellow. For a truer teal, switch to <b>Red</b> and pull its shadow end down slightly. Less red means more cyan." Warn: a few pixels of drag is already a strong grade.</li>
+          <li><b>Demo: grade one region only (5m).</b> Add a second Curves layer and brighten it noticeably. Click its <b>mask thumbnail</b>. Press <kbd>D</kbd>, then <kbd>X</kbd> so black is the foreground color, then <kbd>Alt + Backspace</kbd> / <kbd>⌥ + Delete</kbd> to fill the mask black (or <kbd>Ctrl/⌘ + I</kbd> to invert the white mask). Press <kbd>X</kbd> for white and paint over the subject with a soft brush (<kbd>B</kbd>). <em>Say:</em> "That's the mask from Lesson 1.1, reused at a higher level. Global tone plus a local mask is the core loop of nearly every professional grade." <b>File ▸ Save</b>.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Contrast &amp; Color (25 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">On <code class="inline">grade-working.psd</code> from L05 (fallback: <code class="inline">l06-flat-landscape.jpg</code>, then Save As <code class="inline">grade-working.psd</code>), learners add an S-curve, nudge at least one color channel, and add a second, masked Curves layer that grades only one region (the subject or the sky). Save for L07.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> the mask thumbnail (not the photo) selected before painting; black filling the mask, white painting the region; curve moves that are small; Curves layers sitting <em>above</em> the Camera Raw Smart Object.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> the lesson's checklist, including "nothing looks blotchy or banded at normal viewing size."</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>"Where did the graph go?"</b> The Curves graph lives in the <b>Properties</b> panel. If it gets closed, double-click the Curves layer's adjustment icon (the left thumbnail, not the mask) to bring it back.</li>
+          <li><b>Too many points.</b> Two points make an S. Five points make a roller coaster. To delete a point, drag it off the graph.</li>
+          <li><b>Wild channel curves.</b> "My colors went crazy." They moved the Blue or Red channel too far. Reset the channel and move a few pixels only.</li>
+          <li><b>Painting on the photo, not the mask.</b> If paint strokes appear as white smears on the image, they had the image thumbnail selected. Undo, click the mask thumbnail (it gets a highlight frame), repeat.</li>
+          <li><b>Aggressive S on skin and skies.</b> Strong curves make skin blotchy and skies banded. That's the cue for the masked, local approach.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast learners (if time, else homework):</b> the solo variation: three grades with Curves only (punchy, filmic, moody), each exported as a JPEG and compared; add a masked Curves vignette that darkens the frame edges. Show them the on-image adjustment tool (the pointing-hand icon): drag up or down directly on a tone and Photoshop moves the matching point.</li>
+          <li><b>Struggling learners:</b> use the tone ramp for the first S-curve so they can <em>see</em> what each point does, then repeat on the photo. Skip channel grading until the masked Curves layer works; the mask is the more important skill.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding: workbook self-check + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> A) Every tone leaves exactly as it came in: no change; <b>Q2</b> C) Shadows point down, highlights point up; <b>Q3</b> B) Milky, faded blacks; <b>Q4</b> A) Cool shadows and warm highlights; <b>Q5</b> B) Fill its mask black, then paint white over the subject; <b>Q6</b> C) Above it. Full explanations in the Answer Key. Journal prompt (homework): <em>Did Curves feel like math or like a dimmer switch by the end? Describe the S-curve to yourself in one plain sentence.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- L07 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L07</span><h3>Smart Objects &amp; Finishing the Grade</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Explain what a Smart Object is: a protective container around the original pixels</li>
+          <li>Scale, warp, and transform without losing quality</li>
+          <li>Apply <b>Smart Filters</b> (like Gaussian Blur or Camera Raw) that stay re-editable and maskable</li>
+          <li>Assemble Camera Raw and Curves into a finished, fully non-destructive grade and export it</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence and demo script</div>
+        <ol class="steps">
+          <li><b>Frame: the sealed box (2m).</b> <em>Say:</em> "A Smart Object is a sealed container with your original pixels safe inside. When you scale it or filter it, Photoshop doesn't change the pixels. It writes an instruction on the outside of the box and re-renders from the pristine original every time." Put the one-line definition on the board: <b>a Smart Object stores your pixels; everything you do to it is a re-editable instruction.</b></li>
+          <li><b>Demo: the crisp-vs-mushy test (4m).</b> Open <code class="inline">l07-badge-crisp.png</code>. Duplicate the layer (<kbd>Ctrl/⌘ + J</kbd>); convert only one copy to a Smart Object. Put them side by side. On each: <kbd>Ctrl/⌘ + T</kbd>, scale to 30%, <kbd>Enter</kbd>; then <kbd>Ctrl/⌘ + T</kbd>, scale back to 100%, <kbd>Enter</kbd>. Zoom to 100% (<kbd>Ctrl/⌘ + 1</kbd>). <em>Say:</em> "Same transform, two fates. The normal layer threw its pixels away. The Smart Object re-rendered from the sealed original." This is the moment the concept lands; let the room react.</li>
+          <li><b>Demo: a Smart Filter with a mask (4m).</b> Back on <code class="inline">grade-working.psd</code>, select the Smart Object. <b>Filter ▸ Sharpen ▸ Smart Sharpen</b> (or <b>Filter ▸ Blur ▸ Gaussian Blur</b>). Show it nesting under the Smart Object, above Camera Raw. <em>Say:</em> "Newest filter on top, and filters apply from the bottom up." Click the white <b>Smart Filters</b> mask and paint black over an area you don't want filtered. <em>Say:</em> "Black hides, white reveals, from Lesson 1.1, now controlling a filter."</li>
+          <li><b>Demo: turn a blur into a glow (2m).</b> On a Gaussian Blur Smart Filter, double-click the small <b>Blending Options</b> icon at the right end of the filter's row. Set <b>Mode: Soft Light</b> (or Screen) and <b>Opacity</b> about 20–40%. <em>Say:</em> "Now it's a dreamy glow, not a blurry photo."</li>
+          <li><b>Demo: finish and export (3m).</b> Fit to screen (<kbd>Ctrl/⌘ + 0</kbd>), tweak a Curves layer, double-click Camera Raw to show it's still live. <b>File ▸ Save</b> the layered <code class="inline">.psd</code> (the master). Then <b>File ▸ Export ▸ Export As</b> ▸ JPG, quality 80% → <code class="inline">module2-grade-final.jpg</code>. <em>Say:</em> "The PSD is your master. The JPEG is the deliverable. Keep both."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Finish the Grade (25 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Learners confirm their photo is a Smart Object, add at least one more Smart Filter and paint its mask, run the scale-down/scale-up test, then save the <code class="inline">.psd</code> and export <code class="inline">module2-grade-final.jpg</code>. <b>If time / homework:</b> the fake shallow-depth-of-field drill on <code class="inline">l07-subject-busy-bg.jpg</code> (Gaussian Blur Smart Filter, paint the filter mask black over the subject so only the background blurs).</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> Smart Filters nested under the photo layer (not on a separate layer); filter masks painted black where the filter should be hidden; the exported file actually present on disk with the right name.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> Camera Raw plus at least one more Smart Filter nested under the Smart Object; crisp after the scale test; contrast and color from re-editable Curves layers; <code class="inline">.psd</code> master saved and <code class="inline">.jpg</code> exported.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>"Smart Filters are turned off while transforming."</b> Photoshop may warn about this when they press <kbd>Ctrl/⌘ + T</kbd>. Tell them in advance: click OK, the filters come back as soon as you commit.</li>
+          <li><b>Trying to heal or paint on the Smart Object.</b> Healing and cloning tools want normal pixels. The pattern from the lesson: retouch on normal layers first, then convert to a Smart Object for filtering and transforming. (Module 3 relies on this.)</li>
+          <li><b>Double-clicking the wrong thing.</b> Double-clicking the Smart Object <em>thumbnail</em> opens the contents in a new tab. Double-clicking the filter <em>name</em> reopens its settings. If a new tab appears by surprise, close it without changes.</li>
+          <li><b>Export confusion.</b> Learners who "Save As JPEG" can lose track of which file is the master. Insist on the two-step: Save the <code class="inline">.psd</code>, then Export As.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast learners (if time, else homework):</b> select several layers, right-click ▸ <b>Convert to Smart Object</b> to nest them as one; filter and transform the group. Tell them this is how compositors keep giant files manageable, a taste of Module 4. Also: double-click Camera Raw and re-grade the entire image with a new look.</li>
+          <li><b>Struggling learners:</b> guarantee the two essentials: the crisp-vs-mushy test (for understanding) and the export (for the deliverable). The extra Smart Filter and filter mask are a bonus.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding: workbook self-check + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> C) A container that stores your original pixels; every edit is a re-editable instruction; <b>Q2</b> B) It re-renders from the sealed original; <b>Q3</b> A) Paint black on the Smart Filters mask over the skin; <b>Q4</b> C) Double-click the filter's Blending Options icon, set Soft Light or Screen at 20–40%; <b>Q5</b> B) Healing or cloning directly on the layer's pixels; <b>Q6</b> A) The PSD is the re-editable master; the JPEG is flat. Full explanations in the Answer Key. Journal prompt (5 minutes in the wrap-up): <em>In your own words, why do professionals care so much about never committing an edit?</em></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Closing the Session</h2><span class="rule"></span></div>
+  <div class="note lab">
+    <div class="t">Module 2 wrap-up (10 min, Session 3)</div>
+    <p>Everyone should leave with <code class="inline">grade-working.psd</code> (Camera Raw + Curves + masked Curves + a Smart Filter) and <code class="inline">module2-grade-final.jpg</code>. Recap the arc: <b>developed it honestly → shaped its light and color → kept every decision reversible → shipped it.</b> Preview Module 3: "Session 4 is about people: healing skin naturally, frequency separation, and dodge and burn."</p>
+    <p><b>Ask before they leave:</b> bring a portrait for Session 4. A self-portrait is ideal; any other person must have agreed to being photographed, edited, and shown to the class. Free-license portraits (for example from Pexels or Unsplash, after checking the license) are fine too. See <code class="inline">labs/module-3/README.md</code> for what makes a good practice portrait.</p>
+  </div>
+  <div class="note">
+    <div class="t">Growth-mindset moment</div>
+    <p>Curves is where many beginners decide they're "not technical." Name that out loud and celebrate the first S-curve in the room. Remind them the lesson's own advice: if it's confusing, add the word <em>yet</em>. Five S-curves on five photos (the homework) turns it into muscle memory.</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <span class="bio">© 2026 Ray de la Paz · Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Instructor Kit · Module 2 · Facilitator Guide · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

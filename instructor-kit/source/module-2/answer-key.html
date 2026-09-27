@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Key: Module 2</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">answers &amp; solutions · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Answer Key</div>
+    <h1>Module 2: Answers &amp; Lab Notes</h1>
+    <p class="sub">Every self-check answered and explained, reference answers for the write-in exercises, and lab notes: what a correct result looks like, and the common wrong results and why they happen.</p>
+    <div class="meta-row"><span class="chip">Lessons <b>5–7</b></span><span class="chip"><b>18</b> quiz items</span><span class="chip"><b>3</b> hands-on labs</span></div>
+  </header>
+
+  <div class="note"><div class="t">Numbering matches the workbook</div><p>The course lessons have no built-in quizzes, so the self-checks were written for this kit from each lesson's content. The workbook and this key use the same question numbers, so a learner's "L06 Q3" is always this key's L06 Q3.</p></div>
+
+  <!-- L05 -->
+  <div class="sec"><h2>L05 · The Develop Step: Camera Raw <span style="font-size:.7rem;color:var(--ink-3);font-family:'JetBrains Mono',monospace">(workbook self-check)</span></h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">Why convert the layer to a Smart Object before choosing Filter ▸ Camera Raw Filter?</div><div class="opts"><div class="opt correct">B) So Camera Raw is applied as a re-editable Smart Filter you can reopen and change any time</div></div><div class="why"><b>Why:</b> On a Smart Object, the filter is an instruction on the container, so every slider stays live. A is a common misconception: the filter does run on a normal layer, but there it bakes in. C is false; Smart Objects usually make files a little <em>larger</em>.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">An indoor photo has orange-looking whites. What's the fastest first move in Camera Raw?</div><div class="opts"><div class="opt correct">A) Click the White Balance eyedropper on something that should be neutral gray or white</div></div><div class="why"><b>Why:</b> The eyedropper tells Camera Raw "this should have no color," and the cast snaps away. Then fine-tune Temperature and Tint. Exposure and Contrast change brightness, not color.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">Which order does the develop pass follow?</div><div class="opts"><div class="opt correct">C) White Balance → Exposure → Contrast → Highlights/Shadows → Whites/Blacks</div></div><div class="why"><b>Why:</b> The lesson works the panel top to bottom: color first, then overall brightness, then the ends of the range. Setting Whites/Blacks before Exposure means redoing them after Exposure moves everything.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">What does holding Alt/⌥ while dragging the Whites or Blacks slider show you?</div><div class="opts"><div class="opt correct">A) Where the image is clipping: pure white or pure black with no detail left</div></div><div class="why"><b>Why:</b> The preview turns into a clipping map so you can push Whites until just shy of clipping and Blacks until there's a true black. A little clipping is fine (a specular reflection should be white).</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">What does "global before local" mean?</div><div class="opts"><div class="opt correct">B) Fix the whole image first (white balance, overall tone), then make selective local tweaks</div></div><div class="why"><b>Why:</b> Local work on a photo that still has a cast is "polishing a problem." Get the base honest first; masked, local adjustments come after (L06).</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">You only have a JPEG, not a RAW file. Can you still do the develop step?</div><div class="opts"><div class="opt correct">C) Yes, the Camera Raw Filter runs on any layer; RAW just gives more room to recover highlights and shadows</div></div><div class="why"><b>Why:</b> Straight from the lesson's FAQ: Filter ▸ Camera Raw Filter works on JPEG, PNG, anything. The workflow is identical; RAW files simply have more latitude.</div></div>
+  <div class="note"><div class="t">Exercise reference: match the problem to the slider</div><p>Orange whites → <b>White Balance eyedropper</b> (then Temperature). Too dark overall → <b>Exposure</b>. Blown-out sky → <b>Highlights</b> down (Whites if needed). Muddy shadows → <b>Shadows</b> up. Flat and hazy → <b>Contrast</b> (and deliberate Whites/Blacks). No true black → <b>Blacks</b> down. Accept reasonable alternatives if the learner can explain them.</p></div>
+  <div class="note lab"><div class="t">Lab notes: Develop a Flat Photo</div>
+    <p><b>Correct result:</b> the layer thumbnail shows the Smart Object page badge; Camera Raw Filter is listed under "Smart Filters" beneath it. On <code class="inline">l05-flat-cast.jpg</code> the gray card and white wall read neutral, the sky reads blue rather than teal or orange, the darkest shadow under the roof is near black, and the white wall has detail but is bright. File saved as <code class="inline">grade-working.psd</code>.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>No Smart Filter in the Layers panel.</b> They skipped Convert to Smart Object, so Camera Raw baked into the pixels. Fix: undo, convert, redo.</li>
+      <li><b>Photo turned blue or magenta.</b> The eyedropper was clicked on something that isn't neutral (the orange-lit wall, skin, the sky). Re-click on the gray card or white wall.</li>
+      <li><b>Still hazy after Contrast.</b> Whites and Blacks weren't set. A hazy image usually has no true black; drag Blacks down with the Alt/⌥ preview.</li>
+      <li><b>Large pure-white areas in the sky.</b> Whites or Exposure pushed too far. Pull Highlights down and back Whites off until the clipping map shows only specks.</li>
+      <li><b>Looks right on the projector, green on the laptop (or vice versa).</b> A screen problem, not an editing problem. Judge on the learner's own screen with Night Light / True Tone off.</li>
+    </ul>
+  </div>
+
+  <!-- L06 -->
+  <div class="sec"><h2>L06 · Curves: Precise Tone &amp; Color <span style="font-size:.7rem;color:var(--ink-3);font-family:'JetBrains Mono',monospace">(workbook self-check)</span></h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">On an untouched Curves graph, what does the straight diagonal line mean?</div><div class="opts"><div class="opt correct">A) Every tone leaves exactly as it came in: no change</div></div><div class="why"><b>Why:</b> Input across, output up. On the diagonal, output equals input for every tone. The mantra: "the diagonal is leave it alone."</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">A photo looks flat and hazy. Which curve adds contrast?</div><div class="opts"><div class="opt correct">C) An S-curve: the shadows point dragged down, the highlights point dragged up</div></div><div class="why"><b>Why:</b> Pulling shadows darker and highlights brighter spreads the tones apart; the steeper middle is more contrast. A only brightens; B fades the blacks, which <em>reduces</em> contrast.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">What does lifting the bottom-left corner (the black end) of the curve do?</div><div class="opts"><div class="opt correct">B) Gives "milky," faded blacks for a matte or vintage look</div></div><div class="why"><b>Why:</b> The darkest input now outputs as dark gray, so nothing reaches true black. That's the matte grade from the lesson's table.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">In the Blue channel you lift the shadow end slightly and drop the highlight end slightly. What's the result?</div><div class="opts"><div class="opt correct">A) Cool (blue) shadows and warm (yellow) highlights</div></div><div class="why"><b>Why:</b> In the Blue channel, up adds blue and down adds its opposite, yellow. Cool shadows + warm highlights is the backbone of the "teal &amp; orange" look; pull the Red channel's shadow end down slightly for truer teal (less red = more cyan).</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">You added a Curves layer that brightens the photo, but you want it to affect only your subject. What next?</div><div class="opts"><div class="opt correct">B) Fill its mask black, then paint white over the subject with a soft brush</div></div><div class="why"><b>Why:</b> Black hides the adjustment everywhere; white reveals it where you paint. This is the Lesson 1.1 mask skill applied to Curves ("dodging with Curves"). A weakens it everywhere; C would damage the photo layer.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">Where should your Curves adjustment layers sit relative to the Camera Raw develop?</div><div class="opts"><div class="opt correct">C) Above it: develop globally first, then stack Curves on top</div></div><div class="why"><b>Why:</b> From the lesson's FAQ. Adjustment layers affect everything below them, so they need the developed base underneath. Global before local, again.</div></div>
+  <div class="note"><div class="t">Exercise reference: sketch the curve</div><p>1 · <b>Brighter overall:</b> one point in the middle pushed up (a gentle hump above the diagonal). 2 · <b>More contrast:</b> an S: lower quarter below the diagonal, upper quarter above it. 3 · <b>Faded, matte blacks:</b> the bottom-left endpoint lifted straight up so the curve starts above the corner; usually paired with a gentle S.</p></div>
+  <div class="note lab"><div class="t">Lab notes: Contrast &amp; Color</div>
+    <p><b>Correct result:</b> above the Camera Raw Smart Object sit two Curves layers. The first holds a gentle S-curve (and possibly small channel moves); the image has more depth but no blotchy skin or banded sky. The second is brightened and has a mostly black mask with a soft white area over one region (subject, foreground, or sky). Toggling the second layer's eye shows a subtle local lift, not a spotlight with a hard edge.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Harsh, crunchy contrast.</b> The S is too steep or has extra points. Two points, small moves.</li>
+      <li><b>Strong color tint everywhere.</b> Channel curve moved too far. A few pixels on Blue is already a strong grade.</li>
+      <li><b>Hard-edged glowing blob.</b> A hard brush (or 100% opacity with a small brush) painted the mask. Use a large, soft brush; lower brush opacity if needed.</li>
+      <li><b>White smears on the photo.</b> The image thumbnail, not the mask, was selected while painting (or they painted on the Smart Object). Undo, select the mask thumbnail.</li>
+      <li><b>The masked lift affects everything.</b> The mask is still white. They painted white on a white mask. Fill it black first (<kbd>Alt + Backspace</kbd> / <kbd>⌥ + Delete</kbd> with black foreground, or <kbd>Ctrl/⌘ + I</kbd>).</li>
+      <li><b>Curves layers under the Smart Object.</b> The develop now sits on top of the Curves results. Drag the Curves layers above it.</li>
+    </ul>
+  </div>
+
+  <!-- L07 -->
+  <div class="sec"><h2>L07 · Smart Objects &amp; Finishing the Grade <span style="font-size:.7rem;color:var(--ink-3);font-family:'JetBrains Mono',monospace">(workbook self-check)</span></h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">Which is the best one-line definition of a Smart Object?</div><div class="opts"><div class="opt correct">C) A container that stores your original pixels; every edit is a re-editable instruction</div></div><div class="why"><b>Why:</b> This is the lesson's "one-line definition worth memorizing." Smart Objects don't enhance anything by themselves, and they usually add file size rather than reduce it.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">You scale a layer to 30% and back to 100%. The normal layer turns mushy but the Smart Object stays crisp. Why?</div><div class="opts"><div class="opt correct">B) The Smart Object re-renders from its sealed original pixels</div></div><div class="why"><b>Why:</b> Scaling a normal layer down discards pixels permanently; scaling back up has to invent them. A Smart Object only changes the "display me at…" instruction and re-renders from the original each time.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">You applied Smart Sharpen as a Smart Filter and want it on the eyes but not the skin. How?</div><div class="opts"><div class="opt correct">A) Paint black on the Smart Filters mask over the skin</div></div><div class="why"><b>Why:</b> Smart Filters carry a shared mask; black hides the filter, white reveals it. The lesson's own example is "sharpen the eyes but not the skin."</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">You want a Gaussian Blur Smart Filter to look like a soft glow, not a blurry photo. What do you change?</div><div class="opts"><div class="opt correct">C) Double-click the filter's Blending Options icon; set Mode to Soft Light (or Screen) at about 20–40% opacity</div></div><div class="why"><b>Why:</b> The filter's own blending options blend the blurred version with the sharp one. More radius only makes it blurrier; rasterizing would throw away the re-editability.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">When should you not work on a Smart Object?</div><div class="opts"><div class="opt correct">B) When healing or cloning directly on the layer's pixels</div></div><div class="why"><b>Why:</b> Pixel-level tools need normal pixels. The lesson's pattern: retouch on normal layers first, then convert to a Smart Object for filtering and transforming. Module 3 depends on this.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">You exported <code class="inline">module2-grade-final.jpg</code>. Why keep the layered .psd too?</div><div class="opts"><div class="opt correct">A) The PSD is your re-editable master; the JPEG is flat and can't be re-graded</div></div><div class="why"><b>Why:</b> The JPEG is a flattened deliverable. Every live decision (Camera Raw, Curves, Smart Filters, masks) exists only in the PSD.</div></div>
+  <div class="note"><div class="t">Exercise reference: crisp or mushy, and "in your own words"</div><p><b>Crisp or mushy:</b> the normal copy's thin lines and small text come back soft, blurry, or jagged; the Smart Object copy looks identical to the original. <b>Own words:</b> accept any answer that captures both halves: the original pixels are kept safe inside, and edits are changeable instructions (for example: "It's a sealed box around your photo. Anything you do is a note on the box you can change later, so the photo itself never gets damaged.").</p></div>
+  <div class="note lab"><div class="t">Lab notes: Finish the Grade</div>
+    <p><b>Correct result:</b> the photo layer is a Smart Object with at least two Smart Filters nested beneath it (Camera Raw plus Smart Sharpen or Gaussian Blur), the Smart Filters mask shows some black where the filter is hidden, the Curves layers above are still live, and scaling down and back up left no softness. Two files exist: the layered <code class="inline">grade-working.psd</code> and <code class="inline">module2-grade-final.jpg</code> (Export As, JPG, about 80% quality).</p>
+    <p><b>Fake shallow depth of field (if time):</b> on <code class="inline">l07-subject-busy-bg.jpg</code>, the brick-and-dot background is soft, and the subject (and its edge) stays sharp because the filter mask is black over it.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>The blur or sharpen appears as a separate layer.</b> They duplicated the layer and filtered the copy, or the layer wasn't a Smart Object. Filters should nest under the Smart Object.</li>
+      <li><b>The whole photo is blurry.</b> Gaussian Blur applied at Normal, 100%. Use the filter's Blending Options (Soft Light or Screen, 20–40%) for a glow, or mask it.</li>
+      <li><b>Soft after the scale test.</b> They scaled a normal layer, or rasterized the Smart Object. Check the thumbnail badge.</li>
+      <li><b>A mystery tab opened.</b> They double-clicked the Smart Object thumbnail (which opens its contents). Close that tab without saving changes.</li>
+      <li><b>Only a JPEG exists.</b> They exported but never saved the PSD, so nothing is re-editable. Save the master first, then Export As.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <div class="who"><span class="bio">Instructor Kit · confidential, do not distribute to students · © 2026 Ray de la Paz</span></div>
+    <div class="ver">Answer Key · Module 2 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

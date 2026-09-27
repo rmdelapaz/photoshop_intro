@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slides: Module 2</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#0b1220; --ink:#eaf1fb; --ink2:#9fb2cd;
+    --accent:#31A8FF; --accent2:#1473E6; --lab:#34d3bd; --warn:#fbbf24;
+    --line:#123a5c; --code:#00182c; color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;overflow:hidden}
+  .deck{height:100%;width:100%;position:relative}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 8vw;gap:20px}
+  .slide.on{display:flex}
+  h1,h2,h3{font-family:"Archivo",sans-serif;line-height:1.1;text-wrap:balance}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .slide h1{font-size:clamp(2rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+  .slide h2{font-size:clamp(1.5rem,4.2vw,2.8rem);font-weight:800;letter-spacing:-.01em}
+  .slide p.lead{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--ink2);max-width:30ch}
+  ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  ul li{position:relative;padding-left:34px;font-size:clamp(1.05rem,2.3vw,1.6rem)}
+  ul li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+  ul.lab li::before{background:var(--lab)}
+  ol.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:12px}
+  ol.steps li{counter-increment:s;position:relative;padding-left:46px;font-size:clamp(1rem,2.1vw,1.45rem)}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--accent2);color:#fff;font-family:"JetBrains Mono",monospace;font-size:.95rem;font-weight:600;display:flex;align-items:center;justify-content:center}
+  code.k,kbd{font-family:"JetBrains Mono",monospace;color:#a9d6ff;font-size:.9em}
+  kbd{border:1px solid var(--line);border-radius:6px;padding:1px 7px;background:var(--code)}
+  .tag{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);color:var(--ink2)}
+  .tag .pill{background:var(--accent2);color:#fff;font-weight:700;border-radius:999px;padding:3px 12px;letter-spacing:.06em}
+  .tag .pill.lab{background:var(--lab);color:#062b26} .tag .pill.warn{background:var(--warn);color:#3a2a05}
+  .section{background:linear-gradient(135deg,#0f2447,#0b1220)}
+  .section .big{font-size:clamp(3rem,12vw,8rem);font-family:"Archivo";font-weight:800;color:var(--accent);line-height:.9}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+  @media (max-width:760px){.two{grid-template-columns:1fr}}
+  svg.dia{width:100%;max-width:440px;height:auto}
+  .bar{position:fixed;left:0;top:0;height:4px;background:var(--accent);width:0;transition:width .25s;z-index:5}
+  .count{position:fixed;right:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--ink2);z-index:5}
+  .nav{position:fixed;inset:auto 0 0 0;display:flex;justify-content:space-between;pointer-events:none;z-index:4}
+  .nav button{pointer-events:auto;background:transparent;border:none;color:transparent;width:22vw;height:100vh;cursor:pointer}
+  .credit{position:fixed;left:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink2);opacity:.7;z-index:5}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <section class="slide on section">
+    <div class="eyebrow">Photoshop · Instructor Kit · Session 3 of 8 · 3 hours</div>
+    <h1>Module 2<br>Light &amp; Color</h1>
+    <p class="lead">From a clean-but-flat photo to a finished, fully re-editable grade.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Today's plan · 3 hours</div>
+    <h2>One photo, three lessons</h2>
+    <ul>
+      <li><b>L05</b> Camera Raw: develop it honestly</li>
+      <li><b>L06</b> Curves: shape its light and color</li>
+      <li><b>L07</b> Smart Objects: keep it reversible, then ship it</li>
+    </ul>
+    <div class="tag"><span class="pill warn">SCREEN</span> Watch my clicks on the projector. Judge color on <b>your own</b> screen.</div>
+  </section>
+
+  <section class="slide section"><div class="big">L05</div><h2>The Develop Step: Camera Raw</h2><p class="lead">The digital darkroom, before any local edit.</p></section>
+  <section class="slide">
+    <div class="eyebrow">The golden rule</div>
+    <h2>Global before local</h2>
+    <ul>
+      <li>Fix the <b>whole image</b> first: white balance, then overall tone</li>
+      <li>Only then make selective, local tweaks</li>
+      <li>Dodging a photo that's still orange = polishing a problem</li>
+    </ul>
+    <div class="tag"><span class="pill">MANTRA</span> Develop before you decorate.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">The develop pass</div>
+    <h2>Wrap it, then work top to bottom</h2>
+    <ol class="steps">
+      <li>Save As <code class="k">grade-working.psd</code> · right-click layer name ▸ <b>Convert to Smart Object</b></li>
+      <li><b>Filter ▸ Camera Raw Filter</b> <kbd>⇧ Ctrl/⌘ A</kbd></li>
+      <li><b>White Balance</b> eyedropper on a neutral → Temperature / Tint</li>
+      <li>Exposure → Contrast → Highlights / Shadows → Whites / Blacks</li>
+      <li>OK → a re-editable <b>Smart Filter</b> → Save</li>
+    </ol>
+    <div class="tag"><span class="pill">TIP</span> Hold <kbd>Alt/⌥</kbd> while dragging Whites / Blacks to see clipping.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Lab · 22 min</div>
+    <h2>Develop a flat photo</h2>
+    <ul class="lab">
+      <li><code class="k">l05-flat-cast.jpg</code> or your own flat / indoor photo</li>
+      <li>Smart Object badge <b>before</b> Camera Raw</li>
+      <li>Neutral whites · a true black · a clean white</li>
+      <li>Save <code class="k">grade-working.psd</code> for the next lesson</li>
+    </ul>
+    <div class="tag"><span class="pill lab">DONE WHEN</span> Camera Raw shows as a Smart Filter under your photo.</div>
+  </section>
+
+  <section class="slide section"><div class="big">L06</div><h2>Curves: Precise Tone &amp; Color</h2><p class="lead">It looks like math class. It isn't. (Yet.)</p></section>
+  <section class="slide">
+    <div class="eyebrow">A tone translator</div>
+    <h2>Input across, output up</h2>
+    <div class="two">
+      <svg class="dia" viewBox="0 0 300 250" role="img" aria-label="Curves graph with a dashed diagonal for no change and an S-curve for contrast.">
+        <rect x="50" y="20" width="200" height="200" fill="#00284a" stroke="#2a5b85" stroke-width="1.5"/>
+        <line x1="50" y1="220" x2="250" y2="20" stroke="#6f8fb0" stroke-width="1.5" stroke-dasharray="5 4"/>
+        <path d="M50 220 C 95 215, 95 185, 100 185 C 130 170, 170 70, 200 55 C 205 55, 215 30, 250 20" fill="none" stroke="#31a8ff" stroke-width="3.5"/>
+        <circle cx="100" cy="185" r="6" fill="#fbbf24"/><circle cx="200" cy="55" r="6" fill="#34d3bd"/>
+        <text x="112" y="203" font-family="JetBrains Mono,monospace" font-size="11" fill="#fbbf24">shadows down</text>
+        <text x="118" y="46" font-family="JetBrains Mono,monospace" font-size="11" fill="#34d3bd">highlights up</text>
+        <text x="150" y="242" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#9fb8d3">input</text>
+        <text x="30" y="124" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#9fb8d3" transform="rotate(-90 30 124)">output</text>
+      </svg>
+      <ul>
+        <li>Diagonal = <b>no change</b></li>
+        <li>Point up = brighter · down = darker</li>
+        <li><b>S-curve</b> = contrast</li>
+        <li>Lifted black corner = faded, matte</li>
+      </ul>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Color with channels</div>
+    <h2>Cool shadows, warm highlights</h2>
+    <ul>
+      <li>Channel menu: RGB ▸ <b>Blue</b></li>
+      <li>Shadow end <b>up</b> (cool) · highlight end <b>down</b> (warm)</li>
+      <li>Truer teal: <b>Red</b> shadow end down a touch (less red = more cyan)</li>
+    </ul>
+    <div class="tag"><span class="pill warn">WATCH</span> A few pixels of drag is already a strong grade.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Spiral back to masks</div>
+    <h2>Grade one region only</h2>
+    <ol class="steps">
+      <li>Second Curves layer · brighten noticeably</li>
+      <li>Click the <b>mask</b> · <kbd>D</kbd> <kbd>X</kbd> · <kbd>Alt+Backspace</kbd> / <kbd>⌥+Delete</kbd> = black mask</li>
+      <li><kbd>X</kbd> for white · soft brush over the subject</li>
+    </ol>
+    <div class="tag"><span class="pill">CORE LOOP</span> Global tone + a local mask = nearly every pro grade.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Lab · 25 min</div>
+    <h2>Contrast &amp; color</h2>
+    <ul class="lab">
+      <li>S-curve on <code class="k">grade-working.psd</code> (above the develop)</li>
+      <li>Nudge at least one color channel</li>
+      <li>Masked second Curves layer on one region</li>
+      <li>Nothing blotchy or banded · Save</li>
+    </ul>
+  </section>
+
+  <section class="slide section"><div class="big">L07</div><h2>Smart Objects &amp; Finishing the Grade</h2><p class="lead">Edits that never commit.</p></section>
+  <section class="slide">
+    <div class="eyebrow">The one-line definition</div>
+    <h2>A photo in a sealed box</h2>
+    <ul>
+      <li>A Smart Object <b>stores your pixels</b></li>
+      <li>Every edit is a <b>re-editable instruction</b> on the box</li>
+      <li>Scale down and back up: still <b>crisp</b></li>
+      <li>Filters nest as <b>Smart Filters</b> with a shared mask</li>
+    </ul>
+    <div class="tag"><span class="pill">DEMO</span> Normal layer vs Smart Object: 30% → 100%. Crisp or mushy?</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Finish &amp; ship</div>
+    <h2>Smart Filter, mask, export</h2>
+    <ol class="steps">
+      <li><b>Filter ▸ Sharpen ▸ Smart Sharpen</b> or <b>Blur ▸ Gaussian Blur</b></li>
+      <li>Glow: filter Blending Options → Soft Light, 20–40%</li>
+      <li>Paint the Smart Filters mask black where you don't want it</li>
+      <li><b>File ▸ Save</b> the .psd master</li>
+      <li><b>File ▸ Export ▸ Export As</b> ▸ JPG 80% → <code class="k">module2-grade-final.jpg</code></li>
+    </ol>
+    <div class="tag"><span class="pill warn">WATCH</span> Heal and clone on normal layers, not on a Smart Object.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Lab · 25 min</div>
+    <h2>Finish the grade</h2>
+    <ul class="lab">
+      <li>Camera Raw + one more Smart Filter, nested</li>
+      <li>Filter mask painted where needed</li>
+      <li>Scale test passed: still crisp</li>
+      <li>PSD saved · JPG exported</li>
+    </ul>
+    <div class="tag"><span class="pill lab">DELIVERABLE</span> module2-grade-final.jpg</div>
+  </section>
+
+  <section class="slide section">
+    <div class="eyebrow">Module 2 complete</div>
+    <h2>Developed · shaped · reversible · shipped</h2>
+    <ul class="lab">
+      <li>Camera Raw develop as a Smart Filter</li>
+      <li>S-curve, channel grade, masked Curves</li>
+      <li>A finished grade you can still change</li>
+    </ul>
+    <p class="lead" style="margin-top:10px">Next session: Module 3, Retouching. Bring a portrait (with consent).</p>
+  </section>
+
+</div>
+
+<div class="credit">© 2026 Ray de la Paz</div>
+<div class="count" id="count">1 / 16</div>
+<div class="nav"><button id="prev" aria-label="Previous slide"></button><button id="next" aria-label="Next slide"></button></div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'), count=document.getElementById('count');
+  let i=0;
+  function show(n){ i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    bar.style.width=((i+1)/slides.length*100)+'%'; count.textContent=(i+1)+' / '+slides.length; }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+    else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+  });
+  show(0);
+</script>
+</body>
+</html>

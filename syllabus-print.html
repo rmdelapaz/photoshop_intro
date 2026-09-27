@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Eight-session instructor-led syllabus for Photoshop: From First Win to Finished Work: schedule, objectives, deliverables, requirements, and assessment. Print edition.">
+<meta name="author" content="Ray de la Paz">
+<title>Photoshop Course Syllabus (Print)</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+  /* Print-first: single light palette, white ground */
+  :root{
+    --ground:#eef1f6;--surface:#ffffff;--surface-2:#f4f6fa;--ink:#16202e;--ink-2:#4c5a6e;--ink-3:#6b778a;
+    --line:#dbe2ec;--line-strong:#c4cedd;--accent:#1473E6;--accent-solid:#1473E6;--accent-2:#31A8FF;--accent-soft:#e3efff;
+    --lab:#0f766e;--lab-soft:#d6efe9;
+    --shadow:0 1px 2px rgba(20,30,45,.05),0 8px 26px rgba(20,30,45,.07);--radius:14px;color-scheme:light;
+    --radius:12px;
+  }
+
+  *{box-sizing:border-box}
+  .mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+  h1,h2,h3{font-family:"Archivo","Source Sans 3",sans-serif;margin:0;line-height:1.12;text-wrap:balance}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  .ps-chip{display:inline-flex;align-items:center;justify-content:center;width:1.9em;height:1.9em;border-radius:5px;
+    background:#001E36;color:#31A8FF;border:1px solid #31A8FF;font-family:"Archivo",sans-serif;font-weight:800;
+    letter-spacing:-.03em;margin-right:.7em;vertical-align:middle;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+  .tile{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+  .tile .k{font-family:"JetBrains Mono",monospace;font-size:.64rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
+  .tile .v{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.05rem;margin-top:3px;letter-spacing:-.01em}
+
+  .sec-label{display:flex;align-items:baseline;gap:12px}
+  .sec-label h2{font-weight:700;text-transform:uppercase;color:var(--ink-2)}
+  .sec-label .rule{flex:1;height:1px;background:var(--line-strong)}
+
+  /* How the course runs */
+  .shape{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 24px}
+  .shape p{margin:.35rem 0 .7rem;color:var(--ink-2)}
+  .shape p b{color:var(--ink);font-weight:600}
+  .modes{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:12px 0}
+  .modes div{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:11px 14px;font-size:.92rem;color:var(--ink-2)}
+  .modes b{color:var(--ink)}
+  .tiers-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:.88rem;margin-bottom:0!important}
+  .tier{font-family:"JetBrains Mono",monospace;font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--accent);background:var(--accent-soft);border:1px solid var(--line-strong);border-radius:999px;padding:3px 9px;white-space:nowrap;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .note-times{font-size:.86rem;color:var(--ink-3);margin:-4px 2px 14px}
+
+  /* Session card */
+  .day{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .day-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+  .daynum{font-family:"Archivo",sans-serif;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#fff;
+    background:var(--accent-solid);border-radius:999px;white-space:nowrap;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .day-head h3{font-weight:700;letter-spacing:-.01em;flex:1;min-width:180px}
+  .obj,.deliv{color:var(--ink-2);width:100%}
+  .deliv{margin-top:-6px}
+  .obj b,.deliv b{color:var(--ink);font-weight:600}
+  .deliv b{color:var(--lab)}
+
+  .session + .session{border-top:1px dashed var(--line)}
+  .ses-tag{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .ses-tag .part{font-family:"JetBrains Mono",monospace;font-weight:600;letter-spacing:.06em;color:var(--accent)}
+  .ses-tag .mod{color:var(--ink-3)}
+  .ses-tag .clock{margin-left:auto;font-family:"JetBrains Mono",monospace;color:var(--ink-3)}
+
+  .slot{display:grid;align-items:baseline;border-top:1px solid var(--line)}
+  .slot:first-of-type{border-top:none}
+  .slot .t{font-family:"JetBrains Mono",monospace;color:var(--ink-2);font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .slot .code{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--accent);background:var(--accent-soft);
+    border-radius:6px;padding:2px 0;text-align:center;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .slot .desc{color:var(--ink)}
+  .slot .desc a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:3px}
+  .slot .desc a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+  .slot .desc .sub{color:var(--ink-3);display:block;margin-top:1px}
+  .slot.break .t,.slot.break .desc{color:var(--ink-3)}
+  .slot.break .desc{font-style:italic}
+  .slot .code.none{visibility:hidden}
+  .slot.lab .code{color:#fff;background:var(--lab)}
+  .slot.lab .desc b{color:var(--lab);font-weight:700}
+
+  /* Detail panels */
+  .cols{display:grid;grid-template-columns:1fr 1fr}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+  .panel h3{font-weight:700;display:flex;align-items:center;gap:9px}
+  .panel h3 .dot{width:9px;height:9px;border-radius:3px;background:var(--accent);display:inline-block;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .panel.lab-accent h3 .dot{background:var(--lab)}
+  ul.clean{list-style:none;margin:0;padding:0}
+  ul.clean li{position:relative;padding:5px 0 5px 22px;color:var(--ink-2);border-top:1px solid var(--line)}
+  ul.clean li:first-child{border-top:none}
+  ul.clean li::before{content:"";position:absolute;left:2px;top:12px;width:7px;height:7px;border-radius:2px;
+    background:var(--accent);transform:rotate(45deg);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  ul.clean.lab-accent li::before{background:var(--lab)}
+  ul.clean li b{color:var(--ink);font-weight:600}
+
+  .outcomes{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius)}
+  .outcomes h3{font-weight:700;margin-bottom:4px}
+  .outcomes p.lead{color:var(--ink-2);margin:0 0 14px}
+  .out-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 26px}
+  .out-grid div{position:relative;padding:6px 0 6px 26px;border-top:1px solid var(--line)}
+  .out-grid div::before{content:"✓";position:absolute;left:2px;top:6px;color:var(--lab);font-weight:700;font-family:"Archivo",sans-serif}
+
+  .foot{display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between}
+  .foot .who{color:var(--ink-2)}
+  .foot .who b{color:var(--ink);font-weight:600}
+  .foot .who .bio{display:block;color:var(--ink-3);margin-top:3px}
+  .foot .ver{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--ink-3);letter-spacing:.04em}
+
+  html,body{background:#e9edf3}
+  body{margin:0;color:var(--ink);font-family:"Source Sans 3",system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .sheet{max-width:820px;margin:0 auto;background:var(--surface);padding:34px 40px 46px}
+
+  .toolbar{position:sticky;top:0;z-index:20;background:#0e1726;color:#e8eef6;display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:10px 16px;font-size:.86rem}
+  .toolbar .lbl{color:#9fb0c7}
+  .toolbar button{font:inherit;font-weight:600;cursor:pointer;border:none;border-radius:7px;padding:8px 16px;background:#1473E6;color:#fff}
+  .toolbar button:hover{background:#0D5FC4}
+  .toolbar button:focus-visible{outline:3px solid #93b4ff;outline-offset:2px}
+  .toolbar .hint{margin-left:auto;color:#8b9cb3;font-family:"JetBrains Mono",monospace;font-size:.76rem}
+
+  .mast{border-bottom:3px solid var(--accent);padding-bottom:20px;margin-bottom:8px}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+  .mast h1{font-size:2.05rem;font-weight:800;letter-spacing:-.02em;margin:10px 0 6px}
+  .mast .tag{font-size:1rem;color:var(--ink-2);font-weight:500;max-width:62ch;margin:0}
+  .meta{gap:10px;margin-top:20px}
+
+  .sec-label{margin:28px 0 12px}
+  .sec-label h2{font-size:.92rem;letter-spacing:.05em}
+  .shape{padding:16px 20px;font-size:.93rem}
+
+  .day{margin-bottom:14px}
+  .day-head{padding:13px 18px;gap:10px}
+  .daynum{font-size:.72rem;padding:4px 10px}
+  .day-head h3{font-size:1.14rem}
+  .obj,.deliv{font-size:.86rem}
+  .session{padding:4px 18px 6px}
+  .ses-tag{margin:11px 0 4px}
+  .ses-tag .part{font-size:.7rem}
+  .ses-tag .mod{font-size:.79rem}
+  .ses-tag .clock{font-size:.7rem}
+  .slot{grid-template-columns:56px 44px 1fr;gap:11px;padding:5px 0}
+  .slot .t{font-size:.78rem}
+  .slot .code{font-size:.68rem;border-radius:5px}
+  .slot .desc{font-size:.91rem}
+  .slot .desc .sub{font-size:.8rem}
+  .slot.break .desc{font-size:.85rem}
+  /* compact: keep each detail on the title's line so two sessions fit per Letter page */
+  .slot{padding:3px 0;line-height:1.38}
+  .slot .desc .sub{display:inline;font-size:.78rem}
+  .slot .desc .sub::before{content:" · "}
+  .day-head{padding:10px 16px}
+  .obj,.deliv{line-height:1.4}
+
+  .cols{gap:16px;margin-bottom:16px}
+  .panel{padding:17px 20px}
+  .panel h3{font-size:1rem;margin-bottom:10px}
+  ul.clean li{font-size:.88rem;padding-left:20px}
+  ul.clean li::before{top:11px}
+  .outcomes{padding:18px 22px}
+  .outcomes h3{font-size:1.06rem}
+  .outcomes p.lead{font-size:.9rem}
+  .out-grid{gap:5px 24px}
+  .out-grid div{font-size:.88rem;padding:5px 0 5px 24px}
+  .foot{margin-top:24px;padding-top:14px;border-top:2px solid var(--line-strong)}
+  .foot .who{font-size:.86rem}
+  .foot .who .bio{font-size:.77rem}
+
+  @media (max-width:680px){
+    .sheet{padding:24px 16px}
+    .meta{grid-template-columns:1fr 1fr}
+    .cols,.modes,.out-grid{grid-template-columns:1fr}
+    .slot{grid-template-columns:50px 40px 1fr;gap:8px}
+  }
+
+  @page{ size:Letter; margin:0.5in; }
+  @media print{
+    html,body{background:#fff}
+    .toolbar{display:none !important}
+    .sheet{max-width:none;margin:0;padding:0;width:100%}
+    .day,.panel,.outcomes,.mast,.foot,.shape{break-inside:avoid}
+    .sec-label{break-after:avoid}
+    a,.slot .desc a{color:var(--ink);text-decoration:none}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  }
+</style>
+</head>
+<body>
+
+  <div class="toolbar" id="toolbar">
+    <span class="lbl">Print version:</span>
+    <button id="printBtn" type="button">🖨 Print / Save as PDF</button>
+    <span class="hint">or press Ctrl / ⌘ + P · US Letter</span>
+  </div>
+
+  <div class="sheet">
+
+    <header class="mast">
+      <div class="eyebrow"><span class="ps-chip" aria-hidden="true">Ps</span>Instructor-Led Course Syllabus</div>
+      <h1>Photoshop: From First Win to Finished Work</h1>
+      <p class="tag">A hands-on beginner course in Adobe Photoshop. Over eight sessions you fix, grade, retouch, composite, design, and automate, finishing one real piece every session, then plan, build, and present a portfolio piece of your own.</p>
+      <div class="meta">
+        <div class="tile"><div class="k">Format</div><div class="v">Instructor-led</div></div>
+        <div class="tile"><div class="k">Duration</div><div class="v">8 sessions · 24 hrs</div></div>
+        <div class="tile"><div class="k">Session</div><div class="v">3 h incl. a break</div></div>
+        <div class="tile"><div class="k">Level</div><div class="v">Beginner</div></div>
+      </div>
+    </header>
+
+    <div class="sec-label"><h2>How the Course Runs</h2><span class="rule"></span></div>
+
+    <div class="shape">
+      <p><b>One module, one 3-hour session, one finished deliverable.</b> The course is built as eight modules (0 to 7), and every module already ends in a finished piece: a fixed photo, a clean photo, a graded photo, a portrait, a composite, a poster, a batch, a portfolio piece. So the schedule follows the modules instead of cutting across them. Each module's lessons (framing, a live demo, a hands-on lab, and a quick self-check) add up to about 2¼ to 2½ hours, which fits a three-hour session with a break, a recap, and a gallery or critique of the finished pieces. Nobody goes home with half a project, and every session starts from a clean slate.</p>
+      <p>The two ends of the course use their time differently. <b>Module 0</b> is a single short lesson, so Session 1 also covers orientation, a setup check, and a workspace tour, and runs the first win twice: once on a practice file, once on your own photo. <b>Module 7</b> is a self-directed capstone: you choose your brief at the end of Session 7, plan and build most of it as homework, and Session 8 is for plan review, a final studio block, presentations, and peer critique.</p>
+      <div class="modes">
+        <div><b>Weekly:</b> one session a week for eight weeks. The week between sessions is for practice on your own photos and your learning journal.</div>
+        <div><b>Twice a week:</b> four weeks. Keep at least one day between Sessions 7 and 8 for the capstone build.</div>
+        <div><b>4-day intensive:</b> two sessions a day (morning and afternoon). Hand out the capstone briefs at the end of Day 3 so the plan and most of the build happen before Day 4.</div>
+      </div>
+      <p class="tiers-line"><span class="tier">Foundations</span> Sessions 1–3 (Modules 0–2) <span class="tier">Practitioner</span> Sessions 4–6 (Modules 3–5) <span class="tier">Advanced</span> Sessions 7–8 (Modules 6–7)</p>
+    </div>
+
+    <div class="sec-label"><h2>Session Schedule</h2><span class="rule"></span></div>
+    <p class="note-times">Times assume a 9:00 start. Shift the whole block to fit your schedule (an afternoon or evening run works the same way). Lesson titles link to the lesson pages on the course site.</p>
+
+    <!-- SESSION 1 -->
+    <section class="day">
+      <div class="day-head">
+        <span class="daynum">Session 1</span>
+        <h3>Your First Win</h3>
+        <span class="tier">Foundations</span>
+        <div class="obj"><b>By end of session:</b> find your way around Photoshop, then open, crop, adjust, and export a photo without ever changing the original, first on a practice file and then on a photo of your own.</div>
+        <div class="deliv"><b>Deliverable:</b> one photo, fixed and exported (Module 0)</div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 1</span><span class="mod">Orientation → Module 0 · Your First Win</span><span class="clock">9:00–11:00</span></div>
+        <div class="slot"><span class="t">9:00</span><span class="code none">—</span><span class="desc">Welcome &amp; introductions<span class="sub">What you shoot or make, and one image you'd love to be able to create</span></span></div>
+        <div class="slot"><span class="t">9:15</span><span class="code none">—</span><span class="desc">Course orientation<span class="sub">The project-driven path, the Recipes library, journaling, growth mindset</span></span></div>
+        <div class="slot"><span class="t">9:35</span><span class="code none">—</span><span class="desc">Setup check + workspace tour<span class="sub">Open a practice file; the four neighborhoods; reset the workspace</span></span></div>
+        <div class="slot"><span class="t">9:55</span><span class="code">L01</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_01.html">Fix &amp; Export One Photo</a><span class="sub">Demo + guided build on a practice file, then the self-check; everyone exports a JPG</span></span></div>
+        <div class="slot break"><span class="t">10:45</span><span class="code none">—</span><span class="desc">Break</span></div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 2</span><span class="mod">Module 0 · Your First Win</span><span class="clock">11:00–12:00</span></div>
+        <div class="slot lab"><span class="t">11:00</span><span class="code">LAB</span><span class="desc"><b>Hands-on:</b> the same loop, independently, on your own photo<span class="sub">The lesson's solo variation; the instructor coaches instead of demoing</span></span></div>
+        <div class="slot"><span class="t">11:35</span><span class="code none">—</span><span class="desc">Share-out<span class="sub">Before/after eyeball toggles: proof the original is untouched</span></span></div>
+        <div class="slot"><span class="t">11:50</span><span class="code none">—</span><span class="desc">First journal entry &amp; wrap<span class="sub">Why Photoshop, and one image you dream of making; Session 2 preview</span></span></div>
+      </div>
+    </section>
+
+    <!-- SESSION 2 -->
+    <section class="day">
+      <div class="day-head">
+        <span class="daynum">Session 2</span>
+        <h3>Foundations</h3>
+        <span class="tier">Foundations</span>
+        <div class="obj"><b>By end of session:</b> read a layer stack, paint a mask, cut a subject out onto a mask, and heal away spots and distractions on a separate layer.</div>
+        <div class="deliv"><b>Deliverable:</b> a messy photo cleaned up (Module 1)</div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 1</span><span class="mod">Module 1 · Foundations (I)</span><span class="clock">9:00–11:05</span></div>
+        <div class="slot"><span class="t">9:00</span><span class="code none">—</span><span class="desc">Warm-up: recall the Module 0 loop<span class="sub">Open → Save .psd → Crop → Adjust → Save → Export</span></span></div>
+        <div class="slot"><span class="t">9:10</span><span class="code">L02</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_02.html">The Layer Stack &amp; Your First Mask</a><span class="sub">Black hides, white reveals: rescue a washed-out sky</span></span></div>
+        <div class="slot"><span class="t">10:00</span><span class="code">L03</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_03.html">Selections That Hold Up</a><span class="sub">Select Subject, Select &amp; Mask, output to a layer mask, a new background</span></span></div>
+        <div class="slot break"><span class="t">10:50</span><span class="code none">—</span><span class="desc">Break</span></div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 2</span><span class="mod">Module 1 · Foundations (II)</span><span class="clock">11:05–12:00</span></div>
+        <div class="slot"><span class="t">11:05</span><span class="code">L04</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_04.html">Cleaning Up: Spots, Distractions &amp; Edges</a><span class="sub">Heal, remove &amp; clone on a retouch layer, then export the Module 1 deliverable</span></span></div>
+        <div class="slot"><span class="t">11:55</span><span class="code none">—</span><span class="desc">Wrap-up &amp; exit ticket</span></div>
+      </div>
+    </section>
+
+    <!-- SESSION 3 -->
+    <section class="day">
+      <div class="day-head">
+        <span class="daynum">Session 3</span>
+        <h3>Light &amp; Color</h3>
+        <span class="tier">Foundations</span>
+        <div class="obj"><b>By end of session:</b> develop a flat photo in Camera Raw, shape its tone and color with Curves, and finish a grade in which every decision is still re-editable.</div>
+        <div class="deliv"><b>Deliverable:</b> a flat photo graded and alive (Module 2)</div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 1</span><span class="mod">Module 2 · Light &amp; Color (I)</span><span class="clock">9:00–10:52</span></div>
+        <div class="slot"><span class="t">9:00</span><span class="code none">—</span><span class="desc">Welcome &amp; Module 1 recap<span class="sub">Black hides, white reveals; screen-settings reminder</span></span></div>
+        <div class="slot"><span class="t">9:08</span><span class="code">L05</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_05.html">The Develop Step: Camera Raw</a><span class="sub">Demo, lab &amp; check: Smart Object, white balance, global tone; save grade-working.psd</span></span></div>
+        <div class="slot"><span class="t">9:50</span><span class="code">L06</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_06.html">Curves: Precise Tone &amp; Color</a><span class="sub">Demo, lab &amp; check: S-curve, channel grades, a masked Curves layer</span></span></div>
+        <div class="slot break"><span class="t">10:40</span><span class="code none">—</span><span class="desc">Break</span></div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 2</span><span class="mod">Module 2 · Light &amp; Color (II)</span><span class="clock">10:52–12:00</span></div>
+        <div class="slot"><span class="t">10:52</span><span class="code">L07</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_07.html">Smart Objects &amp; Finishing the Grade</a><span class="sub">Demo, lab &amp; check: Smart Filters, lossless transforms, export module2-grade-final.jpg</span></span></div>
+        <div class="slot lab"><span class="t">11:37</span><span class="code">LAB</span><span class="desc"><b>Grade gallery:</b> volunteers toggle the Smart Filter eye for a before/after</span></div>
+        <div class="slot"><span class="t">11:50</span><span class="code none">—</span><span class="desc">Wrap-up, journal &amp; Session 4 preview<span class="sub">Bring a consented portrait next time</span></span></div>
+      </div>
+    </section>
+
+    <!-- SESSION 4 -->
+    <section class="day">
+      <div class="day-head">
+        <span class="daynum">Session 4</span>
+        <h3>Retouching</h3>
+        <span class="tier">Practitioner</span>
+        <div class="obj"><b>By end of session:</b> retouch a portrait naturally: heal only the temporary, even the tone with frequency separation, and sculpt the face with dodge &amp; burn.</div>
+        <div class="deliv"><b>Deliverable:</b> a natural portrait retouch (Module 3). Bring a portrait you have permission to edit and show.</div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 1</span><span class="mod">Module 3 · Retouching (I)</span><span class="clock">9:00–10:54</span></div>
+        <div class="slot"><span class="t">9:00</span><span class="code none">—</span><span class="desc">Welcome, recap &amp; ground rules<span class="sub">Consent and respect; "great retouching is invisible"</span></span></div>
+        <div class="slot"><span class="t">9:10</span><span class="code">L08</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_08.html">Natural Skin: Heal, Don't Erase</a><span class="sub">Demo, lab &amp; check: temporary vs permanent, a retouch layer, Spot Healing &amp; Healing Brush</span></span></div>
+        <div class="slot"><span class="t">9:47</span><span class="code">L09</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_09.html">Frequency Separation</a><span class="sub">Demo, lab &amp; check: Stamp Visible, LOW for color, HIGH for texture</span></span></div>
+        <div class="slot break"><span class="t">10:42</span><span class="code none">—</span><span class="desc">Break</span></div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 2</span><span class="mod">Module 3 · Retouching (II)</span><span class="clock">10:54–12:00</span></div>
+        <div class="slot"><span class="t">10:54</span><span class="code">L10</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_10.html">Dodge &amp; Burn: Sculpting Light</a><span class="sub">Demo, lab &amp; check: a 50% gray Soft Light layer, eyes &amp; teeth, export portrait-final.jpg</span></span></div>
+        <div class="slot lab"><span class="t">11:39</span><span class="code">LAB</span><span class="desc"><b>Critique:</b> "Would they recognize themselves?" (volunteers; talk about the edit, not the face)</span></div>
+        <div class="slot"><span class="t">11:52</span><span class="code none">—</span><span class="desc">Wrap-up, journal &amp; Session 5 preview</span></div>
+      </div>
+    </section>
+
+    <!-- SESSION 5 -->
+    <section class="day">
+      <div class="day-head">
+        <span class="daynum">Session 5</span>
+        <h3>Compositing</h3>
+        <span class="tier">Practitioner</span>
+        <div class="obj"><b>By end of session:</b> cut a subject out cleanly, match it to a new scene's light and color, ground it with shadows, and export one believable photograph.</div>
+        <div class="deliv"><b>Deliverable:</b> a believable two-image composite (Module 4)</div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 1</span><span class="mod">Module 4 · Compositing (I)</span><span class="clock">9:00–10:47</span></div>
+        <div class="slot"><span class="t">9:00</span><span class="code none">—</span><span class="desc">Open &amp; recap<span class="sub">Goal: one believable photograph</span></span></div>
+        <div class="slot"><span class="t">9:05</span><span class="code">L11</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_11.html">Cut It Out Cleanly</a><span class="sub">Demo, lab &amp; check: Refine Hair, Refine Edge Brush, Decontaminate Colors</span></span></div>
+        <div class="slot"><span class="t">9:50</span><span class="code">L12</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_12.html">Make It Belong: Match Light &amp; Color</a><span class="sub">Demo, lab &amp; check: Place Embedded, then clipped brightness, color &amp; contrast</span></span></div>
+        <div class="slot break"><span class="t">10:35</span><span class="code none">—</span><span class="desc">Break</span></div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 2</span><span class="mod">Module 4 · Compositing (II)</span><span class="clock">10:47–12:00</span></div>
+        <div class="slot"><span class="t">10:47</span><span class="code">L13</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_13.html">Ground It &amp; Grade It</a><span class="sub">Demo, lab &amp; check: contact &amp; cast shadows, haze, one unifying grade, export</span></span></div>
+        <div class="slot lab"><span class="t">11:42</span><span class="code">LAB</span><span class="desc"><b>Gallery &amp; critique:</b> the squint test; name the shadow direction</span></div>
+        <div class="slot"><span class="t">11:55</span><span class="code none">—</span><span class="desc">Wrap &amp; journal<span class="sub">Keep the JPG: it can be the Module 5 poster's hero image</span></span></div>
+      </div>
+    </section>
+
+    <!-- SESSION 6 -->
+    <section class="day">
+      <div class="day-head">
+        <span class="daynum">Session 6</span>
+        <h3>Design &amp; Type</h3>
+        <span class="tier">Practitioner</span>
+        <div class="obj"><b>By end of session:</b> design a finished poster with clear type hierarchy, crisp vector shapes, and restrained layer styles, exported correctly for print or screen.</div>
+        <div class="deliv"><b>Deliverable:</b> a finished poster (Module 5)</div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 1</span><span class="mod">Module 5 · Design &amp; Type (I)</span><span class="clock">9:00–10:47</span></div>
+        <div class="slot"><span class="t">9:00</span><span class="code none">—</span><span class="desc">Open &amp; recap<span class="sub">Today your images get words: the finished-poster goal</span></span></div>
+        <div class="slot"><span class="t">9:05</span><span class="code">L14</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_14.html">Type &amp; Hierarchy</a><span class="sub">Demo, lab &amp; check: a type layer per line, reading order, Character panel, type on a path</span></span></div>
+        <div class="slot"><span class="t">9:50</span><span class="code">L15</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_15.html">Shapes &amp; the Pen</a><span class="sub">Demo, lab &amp; check: frame, badge with Path Operations, one Pen shape, a path reused as a mask</span></span></div>
+        <div class="slot break"><span class="t">10:35</span><span class="code none">—</span><span class="desc">Break</span></div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 2</span><span class="mod">Module 5 · Design &amp; Type (II)</span><span class="clock">10:47–12:00</span></div>
+        <div class="slot"><span class="t">10:47</span><span class="code">L16</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_16.html">Layer Styles &amp; the Poster</a><span class="sub">Demo &amp; lab: live styles, Smart Objects, a hero image, export for screen (print version as homework)</span></span></div>
+        <div class="slot lab"><span class="t">11:45</span><span class="code">LAB</span><span class="desc"><b>Poster gallery:</b> name the 1st, 2nd &amp; 3rd thing you read</span></div>
+        <div class="slot"><span class="t">11:55</span><span class="code none">—</span><span class="desc">Wrap &amp; journal<span class="sub">Practitioner tier complete</span></span></div>
+      </div>
+    </section>
+
+    <!-- SESSION 7 -->
+    <section class="day">
+      <div class="day-head">
+        <span class="daynum">Session 7</span>
+        <h3>AI &amp; Speed + Capstone Brief</h3>
+        <span class="tier">Advanced</span>
+        <div class="obj"><b>By end of session:</b> remove and add content with Generative Fill, reframe with Generative Expand, batch-process a folder with an Action, and choose your capstone brief.</div>
+        <div class="deliv"><b>Deliverables:</b> a generative edit plus an automated batch (Module 6) · homework: capstone plan, moodboard &amp; most of the build</div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 1</span><span class="mod">Module 6 · AI &amp; Speed (I)</span><span class="clock">9:00–10:34</span></div>
+        <div class="slot"><span class="t">9:00</span><span class="code none">—</span><span class="desc">Open &amp; sign-in check<span class="sub">Signed in, online, generative credits available</span></span></div>
+        <div class="slot"><span class="t">9:08</span><span class="code">L17</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_17.html">Generative Fill</a><span class="sub">Demo &amp; lab: remove with an empty prompt, add by describing, refine; prompts, limits &amp; honesty</span></span></div>
+        <div class="slot"><span class="t">9:48</span><span class="code">L18</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_18.html">Generative Expand &amp; Reframe</a><span class="sub">Demo &amp; lab: uncrop, reframe to a ratio, check the seam at 100%</span></span></div>
+        <div class="slot break"><span class="t">10:22</span><span class="code none">—</span><span class="desc">Break</span></div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 2</span><span class="mod">Module 6 · AI &amp; Speed (II) → Capstone</span><span class="clock">10:34–12:00</span></div>
+        <div class="slot"><span class="t">10:34</span><span class="code">L19</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_19.html">Actions, Batch &amp; Droplets</a><span class="sub">Demo &amp; lab: record an Action, batch a practice folder into web JPGs, build a droplet</span></span></div>
+        <div class="slot"><span class="t">11:36</span><span class="code none">—</span><span class="desc">Check &amp; journal<span class="sub">The three lessons' self-checks together</span></span></div>
+        <div class="slot lab"><span class="t">11:48</span><span class="code">CAP</span><span class="desc"><b>Capstone homework launch:</b> the six briefs (<a href="https://rays-photoshop-intro.netlify.app/lesson_20.html">Lesson 20</a>)<span class="sub">Homework: commit to a brief, plan it, and build most of it (<a href="https://rays-photoshop-intro.netlify.app/lesson_21.html">Lesson 21</a>)</span></span></div>
+      </div>
+    </section>
+
+    <!-- SESSION 8 -->
+    <section class="day">
+      <div class="day-head">
+        <span class="daynum">Session 8</span>
+        <h3>Capstone: Review, Present &amp; Ship</h3>
+        <span class="tier">Advanced</span>
+        <div class="obj"><b>By end of session:</b> finish a self-directed portfolio piece in an organized, non-destructive file, present it in context, and critique it against the course rubric.</div>
+        <div class="deliv"><b>Deliverable:</b> a self-directed portfolio piece, presented (Module 7)</div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 1</span><span class="mod">Module 7 · Plan Review &amp; Studio</span><span class="clock">9:00–11:02</span></div>
+        <div class="slot"><span class="t">9:00</span><span class="code">L20</span><span class="desc"><a href="https://rays-photoshop-intro.netlify.app/lesson_20.html">Choose Your Brief &amp; Plan</a>: plan review<span class="sub">Pairs: brief, moodboard &amp; current file; "What do you expect this to look like?"; set a studio goal</span></span></div>
+        <div class="slot lab"><span class="t">9:20</span><span class="code">LAB</span><span class="desc"><b>Studio</b> (<a href="https://rays-photoshop-intro.netlify.app/lesson_21.html">Lesson 21</a>): finish the piece, then ship prep<span class="sub">Step back, 100% pass, clean master; last 10 min: export the delivery file and write the statement (<a href="https://rays-photoshop-intro.netlify.app/lesson_22.html">Lesson 22</a>)</span></span></div>
+        <div class="slot break"><span class="t">10:50</span><span class="code none">—</span><span class="desc">Break</span></div>
+      </div>
+      <div class="session">
+        <div class="ses-tag"><span class="part">PART 2</span><span class="mod">Module 7 · Present &amp; Ship</span><span class="clock">11:02–12:00</span></div>
+        <div class="slot lab"><span class="t">11:02</span><span class="code">CAP</span><span class="desc"><b>Presentations &amp; peer critique</b> (<a href="https://rays-photoshop-intro.netlify.app/lesson_22.html">Lesson 22</a>): about 4 minutes each<span class="sub">Present, room squint test, two reviewers (one glow, one grow), presenter notes</span></span></div>
+        <div class="slot"><span class="t">11:52</span><span class="code none">—</span><span class="desc">Course close<span class="sub">Where to go next, the one idea to keep, the final journal prompt</span></span></div>
+      </div>
+    </section>
+
+    <div class="sec-label"><h2>Course Details</h2><span class="rule"></span></div>
+
+    <div class="cols">
+      <div class="panel">
+        <h3><span class="dot"></span>Requirements</h3>
+        <ul class="clean">
+          <li><b>No prior Photoshop experience:</b> absolute beginners welcome</li>
+          <li>Comfortable finding, copying, and organizing files and folders</li>
+          <li>A Windows or macOS computer that runs <b>Adobe Photoshop 2025 or newer</b> (the current release is recommended); the desktop app, not Photoshop on the web or iPad</li>
+          <li>An <b>Adobe account</b> with a plan that includes Photoshop (a free trial can cover a 4-day intensive, not an eight-week run)</li>
+          <li><b>Internet access and generative credits</b> for Session 7 (Generative Fill and Expand run in the cloud)</li>
+          <li>A mouse (strongly recommended over a trackpad); a pen tablet is optional</li>
+        </ul>
+      </div>
+      <div class="panel lab-accent">
+        <h3><span class="dot"></span>What's Provided</h3>
+        <ul class="clean lab-accent">
+          <li>A <b>setup guide</b> to complete before Session 1</li>
+          <li>The full <b>22-lesson</b> course workbook (yours to keep)</li>
+          <li><b>Practice files</b> for every lab, so you are never stuck without a suitable photo</li>
+          <li>The online <b><a href="https://rays-photoshop-intro.netlify.app/recipes.html">Recipes library</a></b>: 25 quick, standalone how-to cards</li>
+          <li>Guided builds in every session, a capstone studio, and peer critique</li>
+          <li>A finished, exported piece from every session, plus a presented portfolio piece</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cols">
+      <div class="panel">
+        <h3><span class="dot"></span>Bring Your Own Photos</h3>
+        <ul class="clean">
+          <li><b>S1:</b> an everyday photo that is a little dark or crooked (a practice file is provided too)</li>
+          <li><b>S2:</b> a landscape with a sky, a photo with one clear subject, and a "messy" photo with dust or a distraction</li>
+          <li><b>S3:</b> a flat or off-color photo (overcast or indoor is ideal)</li>
+          <li><b>S4:</b> a portrait of someone who has agreed to be retouched and shown in class (a self-portrait works)</li>
+          <li><b>S5:</b> two images: a subject on a plain-ish background, and a scene to place it in</li>
+          <li><b>S6:</b> optional: a photo for the poster's hero image (your Module 4 composite works well)</li>
+          <li><b>S7:</b> a photo with a distraction and open space, a tightly cropped photo, and a folder of copies to batch</li>
+          <li><b>S8:</b> your capstone file, built as homework from images you own or have the right to use</li>
+        </ul>
+      </div>
+      <div class="panel lab-accent">
+        <h3><span class="dot"></span>Assessment</h3>
+        <ul class="clean lab-accent">
+          <li><b>Session deliverables:</b> each module's finished piece, checked against its lesson's Project Completion Checklist</li>
+          <li><b>Learning journal:</b> a short entry after every lesson, revisited at the capstone</li>
+          <li><b>Capstone:</b> planned, built, presented, and scored on a published rubric: the six rows of Lesson 22's Honest Critique (focal point, light &amp; color, edges &amp; masks, type, believability, the squint test) plus plan, file, and presentation</li>
+          <li><b>Completion:</b> every session deliverable submitted, plus a capstone with no rubric row below 2 of 3</li>
+          <li>Below the bar? Targeted feedback and a resubmission</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="outcomes">
+      <h3>What You'll Be Able to Do</h3>
+      <p class="lead">Graduates leave with a portfolio of finished pieces and the habits to keep making more.</p>
+      <div class="out-grid">
+        <div>Work non-destructively with layers, masks, adjustment layers &amp; Smart Objects</div>
+        <div>Make clean selections and believable cutouts</div>
+        <div>Grade light and color with Camera Raw and Curves</div>
+        <div>Retouch a portrait naturally with frequency separation and dodge &amp; burn</div>
+        <div>Build a composite that looks like a single photograph</div>
+        <div>Design with type, shapes, and layer styles</div>
+        <div>Use Generative Fill &amp; Expand, and automate with Actions and batches</div>
+        <div>Plan, build, and present a self-directed portfolio piece</div>
+      </div>
+    </div>
+
+    <div class="foot">
+      <div class="who">
+        <b>© 2026 Ray de la Paz. Photoshop: From First Win to Finished Work. All rights reserved.</b>
+        <span class="bio">Technical trainer, full-stack developer, and course developer with 30+ years of experience · <a href="https://rays-photoshop-intro.netlify.app/">Course home</a> · <a href="https://rays-photoshop-intro.netlify.app/recipes.html">Recipes</a></span>
+      </div>
+      <div class="ver">v1.0 · 8 sessions · 24 hours</div>
+    </div>
+
+
+  </div>
+
+  <script>
+    document.getElementById('printBtn').addEventListener('click', function(){ window.print(); });
+  </script>
+</body>
+</html>

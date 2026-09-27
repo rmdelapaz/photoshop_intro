@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slides: Module 1</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#0b1220; --ink:#eaf1fb; --ink2:#9fb2cd;
+    --accent:#31A8FF; --accent2:#1473E6; --lab:#34d3bd; --warn:#fbbf24;
+    --line:#22314c; --code:#0a1526; color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;overflow:hidden}
+  .deck{height:100%;width:100%;position:relative}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 8vw;gap:20px}
+  .slide.on{display:flex}
+  h1,h2,h3{font-family:"Archivo",sans-serif;line-height:1.1;text-wrap:balance}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .slide h1{font-size:clamp(2rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+  .slide h2{font-size:clamp(1.5rem,4.2vw,2.8rem);font-weight:800;letter-spacing:-.01em}
+  .slide p.lead{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--ink2);max-width:34ch}
+  ul,ol.num{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  ul li{position:relative;padding-left:34px;font-size:clamp(1.05rem,2.3vw,1.6rem)}
+  ul li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+  ul.lab li::before{background:var(--lab)}
+  ol.num{counter-reset:n}
+  ol.num li{position:relative;padding-left:44px;font-size:clamp(1rem,2.1vw,1.45rem)}
+  ol.num li::before{counter-increment:n;content:counter(n);position:absolute;left:0;top:.1em;width:30px;height:30px;border-radius:50%;background:var(--accent2);color:#fff;font-family:"JetBrains Mono",monospace;font-size:.8em;font-weight:600;display:flex;align-items:center;justify-content:center}
+  code.k{font-family:"JetBrains Mono",monospace;color:#a9c7ff;font-size:.92em}
+  kbd{font-family:"JetBrains Mono",monospace;font-size:.85em;background:#16233a;border:1px solid #33496d;border-bottom-width:3px;border-radius:6px;padding:1px 8px;color:#dbe8ff}
+  .tag{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);color:var(--ink2)}
+  .tag .pill{background:var(--accent2);color:#fff;font-weight:700;border-radius:999px;padding:3px 12px;letter-spacing:.06em}
+  .tag .pill.lab{background:var(--lab);color:#062b26} .tag .pill.warn{background:var(--warn);color:#3a2a05}
+  .section{background:linear-gradient(135deg,#0f2447,#0b1220)}
+  .section .big{font-size:clamp(3rem,12vw,8rem);font-family:"Archivo";font-weight:800;color:var(--accent2);line-height:.9}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+  @media (max-width:760px){.two{grid-template-columns:1fr}}
+  table.ag{border-collapse:collapse;font-size:clamp(.9rem,1.8vw,1.2rem);max-width:900px}
+  table.ag td{padding:7px 14px;border-bottom:1px solid var(--line)}
+  table.ag td.t{font-family:"JetBrains Mono",monospace;color:var(--accent);white-space:nowrap}
+  .stack{display:flex;flex-direction:column;gap:10px;max-width:520px}
+  .pane{border-radius:10px;padding:14px 18px;font-family:"JetBrains Mono",monospace;font-size:clamp(.85rem,1.7vw,1.1rem);transform:skewX(-8deg)}
+  .pane.ghost{border:2px dashed #3a5178;color:var(--ink2)}
+  .pane.adj{background:#12325f;border:2px solid var(--accent);color:#dbe8ff}
+  .pane.photo{background:var(--accent2);color:#fff;font-weight:600}
+  .bar{position:fixed;left:0;top:0;height:4px;background:var(--accent2);width:0;transition:width .25s;z-index:5}
+  .count{position:fixed;right:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--ink2);z-index:5}
+  .nav{position:fixed;inset:auto 0 0 0;display:flex;justify-content:space-between;pointer-events:none;z-index:4}
+  .nav button{pointer-events:auto;background:transparent;border:none;color:transparent;width:22vw;height:100vh;cursor:pointer}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  .mask{width:clamp(120px,18vw,200px);aspect-ratio:1;border-radius:10px;border:2px solid var(--accent);background:linear-gradient(#fff 0 40%,#16202e 60% 100%)}
+  .maskrow{display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+  table.ag td b{color:#dbe8ff}
+  .credit{position:fixed;left:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink2);opacity:.7;z-index:5}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <section class="slide on section">
+    <div class="eyebrow">Photoshop · Instructor Kit · Session 2 of 8 · 3 hours</div>
+    <h1>Module 1<br>Foundations</h1>
+    <p class="lead">Only here, not there: the layer stack, the mask, selections, and cleanup. Session 2 is this module on its own: 3 hours.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Today's plan · 3 hours</div>
+    <h2>Session 2</h2>
+    <table class="ag">
+      <tr><td class="t">0:00</td><td>Warm-up: the Module 0 loop</td></tr>
+      <tr><td class="t">0:10</td><td>L02 The Layer Stack &amp; Your First Mask</td></tr>
+      <tr><td class="t">1:00</td><td>L03 Selections That Hold Up</td></tr>
+      <tr><td class="t">1:50</td><td>Break</td></tr>
+      <tr><td class="t">2:05</td><td>L04 Cleaning Up: Spots, Distractions &amp; Edges</td></tr>
+      <tr><td class="t">2:55</td><td>Wrap-up</td></tr>
+    </table>
+    <div class="tag"><span class="pill">DELIVERABLE</span> A messy photo, cleaned up and exported.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Warm-up</div>
+    <h2>Say the loop out loud</h2>
+    <p class="lead">Open → Save .psd → Crop → Adjust → Save → Export JPG</p>
+    <div class="tag"><span class="pill warn">STUCK TODAY?</span> Which layer is highlighted? Which thumbnail has the border? What does the options bar say?</div>
+  </section>
+
+  <section class="slide section"><div class="big">L02</div><h2>The Layer Stack &amp; Your First Mask</h2><p class="lead">Darken the sky. Only the sky.</p></section>
+
+  <section class="slide">
+    <div class="eyebrow">Mental model 1</div>
+    <h2>A stack of glass</h2>
+    <ul>
+      <li>You look straight down through the sheets</li>
+      <li><b>Higher layers win</b> where they're opaque</li>
+      <li><b>Order is meaning</b>: move a sheet, the picture changes</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Mental model 2 · a mask is a stencil</div>
+    <h2>Black hides. White reveals. Gray does a bit of both.</h2>
+    <div class="maskrow">
+      <div class="mask" role="img" aria-label="A mask: white at the top, black at the bottom, gray between"></div>
+      <ul>
+        <li>White: effect at full strength (sky)</li>
+        <li>Gray: partial, a soft seam</li>
+        <li>Black: effect hidden (land)</li>
+      </ul>
+    </div>
+    <div class="tag"><span class="pill lab">SUPERPOWER</span> Mistake? Press <kbd>X</kbd> and paint it back. Nothing is destroyed.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Reading the Layers panel</div>
+    <h2>Two thumbnails</h2>
+    <ul>
+      <li>◐ = the effect</li>
+      <li>White/black card = the <b>mask</b></li>
+      <li>Click the <b>mask</b> before you paint: it gets a highlighted border</li>
+    </ul>
+    <div class="tag"><span class="pill warn">WATCH</span> Photo layer highlighted = you're painting on the picture.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Guided build · <code class="k">l02-washed-sky.jpg</code></div>
+    <h2>Rescue the sky</h2>
+    <ol class="num">
+      <li>Save As <code class="k">sky-rescue-working.psd</code></li>
+      <li>◐ ▸ Brightness/Contrast: Brightness <b>down</b> (ignore the dark land)</li>
+      <li>Click mask · <kbd>D</kbd> · <kbd>X</kbd> · fill black: <kbd>Alt</kbd>/<kbd>⌥</kbd>+<kbd>Backspace</kbd></li>
+      <li><kbd>B</kbd> · <kbd>X</kbd> for white · big soft brush · paint the sky</li>
+      <li>~30% opacity on the seam · Save · Export <code class="k">sky-rescue-final.jpg</code></li>
+    </ol>
+    <div class="tag"><span class="pill warn">WATCH</span> <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Backspace</kbd> fills with the background color (white).</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Now You</div>
+    <h2>Spotlight a subject</h2>
+    <ul class="lab">
+      <li>Brighten → mask black → paint white over the subject</li>
+      <li>Second layer darkens → masked to the background</li>
+      <li>Going further: select a mask, <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>I</kbd> to invert</li>
+    </ul>
+    <div class="tag"><span class="pill">JOURNAL</span> Explain black vs. white on a mask, without looking.</div>
+  </section>
+
+  <section class="slide section"><div class="big">L03</div><h2>Selections That Hold Up</h2><p class="lead">Let Photoshop find the edge, then save it as a mask.</p></section>
+
+  <section class="slide">
+    <div class="eyebrow">Mental model</div>
+    <h2>A selection is a request. A mask is the saved answer.</h2>
+    <ul>
+      <li>Marching ants = temporary: "these pixels, please"</li>
+      <li>Mask = written down: inside white, outside black</li>
+      <li>Good-enough selection → mask → refine forever</li>
+    </ul>
+    <div class="tag"><span class="pill warn">MANTRA</span> Mask it, don't erase it.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">The selection toolkit</div>
+    <h2>Match the tool to the subject</h2>
+    <table class="ag">
+      <tr><td><b>Select Subject</b></td><td>AI guesses the main subject: best first click</td></tr>
+      <tr><td><b>Object Selection</b></td><td>Draw a loose box; it snaps to the object</td></tr>
+      <tr><td><b>Quick Selection</b></td><td>Paint and it grows to matching edges</td></tr>
+      <tr><td><b>Select &amp; Mask</b></td><td>A whole room for hair, fur, soft edges</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Guided build · <code class="k">l03-subject-busy-bg.jpg</code></div>
+    <h2>Cut out a subject</h2>
+    <ol class="num">
+      <li>Save As <code class="k">cutout-working.psd</code> · Select ▸ Subject</li>
+      <li>Quick Selection <kbd>W</kbd>: paint to add, <kbd>Alt</kbd>/<kbd>⌥</kbd>-paint to subtract</li>
+      <li>Select and Mask: Overlay · Refine Edge Brush · Smooth / Feather · Shift Edge slightly negative</li>
+      <li><b>Output To: Layer Mask</b> → OK</li>
+      <li>New layer <b>beneath</b> (<kbd>Ctrl</kbd>/<kbd>⌘</kbd>-click New Layer) · calm fill · Save</li>
+    </ol>
+    <div class="tag"><span class="pill lab">PAYOFF</span> <kbd>Shift</kbd>-click the mask: the old background is still there.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Believable edges</div>
+    <h2>Kill the halo</h2>
+    <ul>
+      <li>Bright halo or razor edge screams "cut out"</li>
+      <li>Shift Edge slightly negative · a touch of Feather</li>
+      <li>Colored fringe? <b>Decontaminate Colors</b> (keeps the original, hidden)</li>
+      <li>Hair: Refine Edge Brush <b>along the hairline</b></li>
+    </ul>
+    <div class="tag"><span class="pill">JOURNAL</span> Harder: the selection, or the believable edge?</div>
+  </section>
+
+  <section class="slide section"><div class="big">L04</div><h2>Cleaning Up</h2><p class="lead">Borrow good pixels to cover bad ones.</p></section>
+
+  <section class="slide">
+    <div class="eyebrow">Mental model</div>
+    <h2>Same idea, three blends</h2>
+    <ul>
+      <li><b>Clone:</b> copies exactly (hard edges, patterns)</li>
+      <li><b>Heal:</b> copies texture, blends color &amp; brightness (skin, skies)</li>
+      <li><b>Content-Aware:</b> fills a whole region automatically</li>
+    </ul>
+    <div class="tag"><span class="pill warn">MANTRA</span> Heal to blend, clone to copy, always on a fresh layer.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Which tool for which mess?</div>
+    <h2>Decide, don't memorize</h2>
+    <table class="ag">
+      <tr><td><b>Tiny spot</b></td><td>Spot Healing Brush <kbd>J</kbd>: just click it</td></tr>
+      <tr><td><b>Object by hard edges, lines, patterns</b></td><td>Clone Stamp <kbd>S</kbd></td></tr>
+      <tr><td><b>Object on sky, sand, grass</b></td><td>Remove tool or Content-Aware Fill</td></tr>
+      <tr><td><b>Then</b></td><td>Blend &amp; check at 100%</td></tr>
+    </table>
+    <div class="tag"><span class="pill lab">WHEN IN DOUBT</span> Try the Remove tool first.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">The habit that saves you</div>
+    <h2>An empty <code class="k">retouch</code> layer</h2>
+    <ul>
+      <li>Spot Healing &amp; Remove: check <b>Sample All Layers</b></li>
+      <li>Healing Brush &amp; Clone Stamp: <b>Sample: Current &amp; Below</b></li>
+      <li>Content-Aware Fill: start from the <b>photo</b> layer, Output To: New Layer</li>
+    </ul>
+    <div class="tag"><span class="pill warn">WATCH</span> "Nothing happens" = a Sample setting is still on the empty layer.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Guided build · <code class="k">l04-dusty-sky.jpg</code></div>
+    <h2>Clean &amp; export</h2>
+    <ol class="num">
+      <li>Save As <code class="k">cleanup-working.psd</code> · new layer <code class="k">retouch</code></li>
+      <li>Zoom 100% (<kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>1</kbd>) · click each spot, brush just larger than it</li>
+      <li>Bird &amp; pole: Remove tool, or Content-Aware Fill</li>
+      <li>Roofline: Clone Stamp, <kbd>Alt</kbd>/<kbd>⌥</kbd>-click a clean source</li>
+      <li>100% pass · Save · Export <code class="k">cleanup-final.jpg</code></li>
+    </ol>
+  </section>
+
+  <section class="slide section">
+    <div class="eyebrow">Module 1 complete</div>
+    <h2>A method you now own</h2>
+    <ul class="lab">
+      <li>Read a layer stack</li>
+      <li>Target an edit with a mask</li>
+      <li>Select, refine, and bake it into a mask</li>
+      <li>Clean up without destroying a pixel</li>
+    </ul>
+    <div class="tag"><span class="pill">JOURNAL</span> Which skill gets you closest to your dream image?</div>
+    <p class="lead" style="margin-top:10px">Save your best result. Next: Session 3 · Module 2 Light &amp; Color.</p>
+  </section>
+
+</div>
+
+<div class="count" id="count">1 / 20</div>
+<div class="nav"><button id="prev" aria-label="Previous slide"></button><button id="next" aria-label="Next slide"></button></div>
+
+<div class="credit">© 2026 Ray de la Paz</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'), count=document.getElementById('count');
+  let i=0;
+  function show(n){ i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    bar.style.width=((i+1)/slides.length*100)+'%'; count.textContent=(i+1)+' / '+slides.length; }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+    else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+  });
+  show(0);
+</script>
+</body>
+</html>

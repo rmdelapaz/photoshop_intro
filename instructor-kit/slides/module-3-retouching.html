@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slides: Module 3</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#0b1220; --ink:#eaf1fb; --ink2:#9fb2cd;
+    --accent:#31A8FF; --accent2:#1473E6; --lab:#34d3bd; --warn:#fbbf24;
+    --line:#123a5c; --code:#00182c; color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;overflow:hidden}
+  .deck{height:100%;width:100%;position:relative}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 8vw;gap:20px}
+  .slide.on{display:flex}
+  h1,h2,h3{font-family:"Archivo",sans-serif;line-height:1.1;text-wrap:balance}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .slide h1{font-size:clamp(2rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+  .slide h2{font-size:clamp(1.5rem,4.2vw,2.8rem);font-weight:800;letter-spacing:-.01em}
+  .slide p.lead{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--ink2);max-width:30ch}
+  ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  ul li{position:relative;padding-left:34px;font-size:clamp(1.05rem,2.3vw,1.6rem)}
+  ul li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+  ul.lab li::before{background:var(--lab)}
+  ol.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:12px}
+  ol.steps li{counter-increment:s;position:relative;padding-left:46px;font-size:clamp(1rem,2.1vw,1.45rem)}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--accent2);color:#fff;font-family:"JetBrains Mono",monospace;font-size:.95rem;font-weight:600;display:flex;align-items:center;justify-content:center}
+  code.k,kbd{font-family:"JetBrains Mono",monospace;color:#a9d6ff;font-size:.9em}
+  kbd{border:1px solid var(--line);border-radius:6px;padding:1px 7px;background:var(--code)}
+  .tag{display:inline-flex;align-items:center;gap:10px;flex-wrap:wrap;font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);color:var(--ink2)}
+  .tag .pill{background:var(--accent2);color:#fff;font-weight:700;border-radius:999px;padding:3px 12px;letter-spacing:.06em}
+  .tag .pill.lab{background:var(--lab);color:#062b26} .tag .pill.warn{background:var(--warn);color:#3a2a05}
+  .section{background:linear-gradient(135deg,#0f2447,#0b1220)}
+  .section .big{font-size:clamp(3rem,12vw,8rem);font-family:"Archivo";font-weight:800;color:var(--accent);line-height:.9}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+  @media (max-width:760px){.two{grid-template-columns:1fr}}
+  svg.dia{width:100%;max-width:440px;height:auto}
+  .bar{position:fixed;left:0;top:0;height:4px;background:var(--accent);width:0;transition:width .25s;z-index:5}
+  .count{position:fixed;right:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--ink2);z-index:5}
+  .nav{position:fixed;inset:auto 0 0 0;display:flex;justify-content:space-between;pointer-events:none;z-index:4}
+  .nav button{pointer-events:auto;background:transparent;border:none;color:transparent;width:22vw;height:100vh;cursor:pointer}
+  .credit{position:fixed;left:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink2);opacity:.7;z-index:5}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <section class="slide on section">
+    <div class="eyebrow">Photoshop · Instructor Kit · Session 4 of 8 · 3 hours</div>
+    <h1>Module 3<br>Retouching</h1>
+    <p class="lead">A complete, natural portrait retouch. Great retouching is invisible.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Today's plan · 3 hours</div>
+    <h2>One face, three lessons</h2>
+    <ul>
+      <li><b>L08</b> Heal the temporary, keep the permanent</li>
+      <li><b>L09</b> Frequency separation: even the tone, keep the pores</li>
+      <li><b>L10</b> Dodge &amp; burn: sculpt with light, then ship it</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Ground rules</div>
+    <h2>Consent &amp; respect</h2>
+    <ul>
+      <li>Edit only yourself, people who agreed, or free-license portraits</li>
+      <li>Nobody's portrait goes on the projector without their say-so</li>
+      <li>Critique the <b>edit</b>, never the person's looks</li>
+    </ul>
+    <div class="tag"><span class="pill">GOAL</span> They look like themselves on their best day. Not a wax figure.</div>
+  </section>
+
+  <section class="slide section"><div class="big">L08</div><h2>Natural Skin: Heal, Don't Erase</h2><p class="lead">Retouch the temporary; respect the permanent.</p></section>
+  <section class="slide">
+    <div class="eyebrow">Would it be there next week?</div>
+    <h2>Temporary vs permanent</h2>
+    <div class="two">
+      <ul><li><b>No → heal it</b></li><li>spot · stray hair</li><li>shine · lint</li></ul>
+      <ul class="lab"><li><b>Yes → keep it</b></li><li>freckles · moles · scars</li><li>laugh lines · nose shape</li></ul>
+    </div>
+    <div class="tag"><span class="pill">FIRST</span> Survey at 100% and sort, before you touch a tool.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Clean skin</div>
+    <h2>Heal on its own layer</h2>
+    <ol class="steps">
+      <li>Save As <code class="k">portrait-working.psd</code> · new empty layer <code class="k">retouch</code></li>
+      <li>Spot Healing <kbd>J</kbd>: Content-Aware · <b>Sample All Layers ✓</b> · click each spot</li>
+      <li>Near edges: Healing Brush <kbd>⇧J</kbd> · <b>Sample: Current &amp; Below</b> · <kbd>Alt/⌥</kbd>-click clean skin</li>
+      <li>Retouch layer opacity ~85–90% · toggle 👁 to check</li>
+    </ol>
+    <div class="tag"><span class="pill warn">WATCH</span> Brush does nothing? Check the Sample setting for the tool you're using.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Lab · 20 min</div>
+    <h2>Retouch a portrait</h2>
+    <ul class="lab">
+      <li>Your portrait or <code class="k">l08-portrait-blemishes.jpg</code></li>
+      <li>Write your temporary / permanent lists first</li>
+      <li>Temporary gone · freckles, moles, lines still there</li>
+      <li>Still the same person? Save.</li>
+    </ul>
+  </section>
+
+  <section class="slide section"><div class="big">L09</div><h2>Frequency Separation</h2><p class="lead">Two sheets of skin: paint and texture.</p></section>
+  <section class="slide">
+    <div class="eyebrow">The mental model</div>
+    <h2>Split texture from color</h2>
+    <div class="two">
+      <svg class="dia" viewBox="0 0 400 190" role="img" aria-label="HIGH texture layer in Linear Light on top of the LOW color and tone layer in Normal mode.">
+        <rect x="10" y="14" width="380" height="70" rx="10" fill="#00284a" stroke="#31a8ff" stroke-width="2"/>
+        <text x="30" y="44" font-family="JetBrains Mono,monospace" font-size="16" font-weight="600" fill="#eaf3ff">HIGH · texture</text>
+        <text x="30" y="68" font-family="JetBrains Mono,monospace" font-size="13" fill="#31a8ff">Linear Light · pores, fine hair</text>
+        <rect x="10" y="102" width="380" height="70" rx="10" fill="#00284a" stroke="#34d3bd" stroke-width="2"/>
+        <text x="30" y="132" font-family="JetBrains Mono,monospace" font-size="16" font-weight="600" fill="#eaf3ff">LOW · color &amp; tone</text>
+        <text x="30" y="156" font-family="JetBrains Mono,monospace" font-size="13" fill="#34d3bd">Normal (blurred) · blotches, shading</text>
+      </svg>
+      <ul>
+        <li>Blur smooths <b>both</b> → plastic</li>
+        <li>Split them → fix each on its own terms</li>
+        <li>Color on <b>LOW</b>, texture on <b>HIGH</b></li>
+      </ul>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">The recipe · 8-bit</div>
+    <h2>Separate</h2>
+    <ol class="steps">
+      <li>Stamp Visible <kbd>Ctrl+Alt+Shift+E</kbd> / <kbd>⌘⌥⇧E</kbd> · duplicate ×2 → <b>LOW</b> (lower), <b>HIGH</b> (upper)</li>
+      <li>LOW: <b>Gaussian Blur</b> until blotches and pores just vanish (~6–12 px)</li>
+      <li>HIGH: <b>Image ▸ Apply Image</b> · Layer LOW · Subtract · Scale 2 · Offset 128</li>
+      <li>HIGH blend mode → <b>Linear Light</b> ✅ looks identical again</li>
+    </ol>
+    <div class="tag"><span class="pill warn">16-BIT</span> Add · Scale 2 · Offset 0 · Invert. Wrong recipe = gray mess.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Then fix each sheet</div>
+    <h2>Smooth</h2>
+    <ul>
+      <li><b>LOW:</b> Lasso a blotch → Feather 10–20 px → small blur (or soft brush, low opacity)</li>
+      <li><b>HIGH:</b> Healing Brush / Clone Stamp · <b>Sample: Current Layer</b></li>
+      <li>Toggle HIGH off to see the pure color sheet</li>
+    </ul>
+    <div class="tag"><span class="pill">MANTRA</span> Color on LOW, texture on HIGH: never mix them.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Lab · 30 min</div>
+    <h2>Separate &amp; smooth</h2>
+    <ul class="lab">
+      <li>Recipe card in view the whole time</li>
+      <li><b>Checkpoint:</b> after Linear Light, identical to the original?</li>
+      <li>Even blotches on LOW · pores stay crisp</li>
+      <li>One texture fix on HIGH · Save</li>
+    </ul>
+    <div class="tag"><span class="pill lab">STUCK?</span> Delete HIGH, duplicate the stamp again, redo Apply Image.</div>
+  </section>
+
+  <section class="slide section"><div class="big">L10</div><h2>Dodge &amp; Burn: Sculpting Light</h2><p class="lead">Paint light back onto the face.</p></section>
+  <section class="slide">
+    <div class="eyebrow">The gray layer trick</div>
+    <h2>50% gray · Soft Light</h2>
+    <ol class="steps">
+      <li><kbd>Alt/⌥</kbd>-click New Layer · Mode <b>Soft Light</b> · tick <b>Fill with Soft-Light-neutral color (50% gray)</b> · name <code class="k">D&amp;B</code></li>
+      <li>Soft brush · <b>~10% opacity</b> · <kbd>D</kbd> then <kbd>X</kbd> → white = <b>dodge</b></li>
+      <li><kbd>X</kbd> → black = <b>burn</b></li>
+    </ol>
+    <div class="tag"><span class="pill">MANTRA</span> Dodge the light, burn the shadow, 10% at a time.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Where it goes</div>
+    <h2>Follow the existing light</h2>
+    <div class="two">
+      <ul><li><b>Dodge:</b> forehead center, nose bridge, cheekbone tops, chin, brow bones</li></ul>
+      <ul class="lab"><li><b>Burn:</b> sides of the face, temples, under cheekbones, under the jaw, eye sockets</li></ul>
+    </div>
+    <div class="tag"><span class="pill warn">WATCH</span> Light from the left? Dodge left-facing planes, burn the right.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Finish &amp; ship</div>
+    <h2>Eyes, teeth, export</h2>
+    <ol class="steps">
+      <li>Curves · brighten slightly · mask black · paint white on eye whites &amp; teeth</li>
+      <li>Clean, not glowing (optional: tiny Curves on the irises)</li>
+      <li>Save the .psd · <b>Export As</b> JPG ~80% → <code class="k">portrait-final.jpg</code></li>
+    </ol>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Lab · 25 min</div>
+    <h2>Sculpt &amp; finish</h2>
+    <ul class="lab">
+      <li>Write where the light comes from, first</li>
+      <li>D&amp;B layer: dodge, then burn, at ~10%</li>
+      <li>Masked Curves on eyes &amp; teeth</li>
+      <li>PSD saved · JPG exported</li>
+    </ul>
+    <div class="tag"><span class="pill lab">DELIVERABLE</span> portrait-final.jpg</div>
+  </section>
+
+  <section class="slide section">
+    <div class="eyebrow">Critique · would they recognize themselves?</div>
+    <h2>Healed · evened · sculpted · shipped</h2>
+    <ul class="lab">
+      <li>Temporary gone, permanent kept</li>
+      <li>Even tone with every pore intact</li>
+      <li>Dimension from light, all non-destructive</li>
+    </ul>
+    <p class="lead" style="margin-top:10px">Next session: Module 4, Compositing.</p>
+  </section>
+
+</div>
+
+<div class="credit">© 2026 Ray de la Paz</div>
+<div class="count" id="count">1 / 18</div>
+<div class="nav"><button id="prev" aria-label="Previous slide"></button><button id="next" aria-label="Next slide"></button></div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'), count=document.getElementById('count');
+  let i=0;
+  function show(n){ i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    bar.style.width=((i+1)/slides.length*100)+'%'; count.textContent=(i+1)+' / '+slides.length; }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+    else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+  });
+  show(0);
+</script>
+</body>
+</html>

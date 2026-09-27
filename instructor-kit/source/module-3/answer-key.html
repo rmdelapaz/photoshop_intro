@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Key: Module 3</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">answers &amp; solutions · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Answer Key</div>
+    <h1>Module 3: Answers &amp; Lab Notes</h1>
+    <p class="sub">Every self-check answered and explained, reference answers for the write-in exercises, and lab notes: what a correct result looks like, and the common wrong results and why they happen.</p>
+    <div class="meta-row"><span class="chip">Lessons <b>8–10</b></span><span class="chip"><b>18</b> quiz items</span><span class="chip"><b>3</b> hands-on labs</span></div>
+  </header>
+
+  <div class="note"><div class="t">Numbering matches the workbook</div><p>The course lessons have no built-in quizzes, so the self-checks were written for this kit from each lesson's content. The workbook and this key use the same question numbers.</p></div>
+  <div class="note warn"><div class="t">Grading portrait work</div><p>Grade the <em>edit</em>, never the subject's appearance. Written and spoken feedback should name a technique ("the heal on the left cheek picked up a shadow"), not a feature of the person.</p></div>
+
+  <!-- L08 -->
+  <div class="sec"><h2>L08 · Natural Skin: Heal, Don't Erase <span style="font-size:.7rem;color:var(--ink-3);font-family:'JetBrains Mono',monospace">(workbook self-check)</span></h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">Using the temporary-vs-permanent test, which one should you heal?</div><div class="opts"><div class="opt correct">C) A red spot that wasn't there last week</div></div><div class="why"><b>Why:</b> It wouldn't be there next week, so it's temporary. Freckles and laugh lines are permanent: part of who the person is. Keep them, or reduce, never erase.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">Why do all the healing on a separate, empty retouch layer?</div><div class="opts"><div class="opt correct">A) The original face is never touched, and the work can be reduced (opacity) or deleted later</div></div><div class="why"><b>Why:</b> Same non-destructive idea as Module 1's cleanup. B is false (the tools work on any pixel layer; on an empty layer they just need the right sample setting); C is false.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">The Healing Brush on your empty retouch layer does nothing useful. What's the likely cause?</div><div class="opts"><div class="opt correct">B) Its Sample menu is on Current Layer, so it samples the empty layer; set it to Current &amp; Below</div></div><div class="why"><b>Why:</b> The Healing Brush uses a <b>Sample:</b> menu, separate from the Spot Healing Brush's <b>Sample All Layers</b> checkbox. On the default Current Layer it reads the empty layer. Current &amp; Below (or All Layers) fixes it.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">A blemish sits right at the hairline and the Spot Healing Brush keeps smearing hair into the skin. What's the better approach?</div><div class="opts"><div class="opt correct">C) Switch to the Healing Brush and Alt/⌥-click clean skin nearby as the source</div></div><div class="why"><b>Why:</b> Spot Healing picks its own source and can grab hair; choosing the source yourself makes a smear much less likely. If it still smears, finish with the Clone Stamp (same Sample setting). A bigger brush drags in <em>more</em> hair.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">Why lower the retouch layer's opacity to about 85–90%?</div><div class="opts"><div class="opt correct">A) Letting a whisper of the original through keeps the result believable</div></div><div class="why"><b>Why:</b> A retouch that's slightly under 100% never looks too perfect. It's a finishing move, not a requirement of Photoshop.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">What's the very first step of a natural retouch?</div><div class="opts"><div class="opt correct">B) Survey the face at 100% and sort what you see into temporary and permanent</div></div><div class="why"><b>Why:</b> "Decide before you act." The 60-second survey is what separates a natural result from an over-edited one. Blurring (A) is the plastic look this module avoids; C is the "clean sweep" the lesson warns against.</div></div>
+  <div class="note"><div class="t">Exercise reference: survey and sort (practice file)</div><p>On <code class="inline">l08-portrait-blemishes.jpg</code>, <b>temporary (heal):</b> 10 red spots in open skin (3 forehead, 5 cheeks, 2 chin), 2 red spots touching the hairline, 1 stray dark hair across the cheek on the viewer's right, 1 white lint speck on the chin. <b>Permanent (keep):</b> the freckles across the nose bridge and upper cheeks, the brown mole beside the mouth, the two laugh lines. Use <code class="inline">l08-flaw-map-INSTRUCTOR.png</code> to check. For learners' own portraits, accept any sort that follows the "next week?" test; challenge anything permanent in the heal column.</p></div>
+  <div class="note lab"><div class="t">Lab notes: Retouch a Portrait</div>
+    <p><b>Correct result:</b> the Layers panel shows the untouched portrait with an empty-looking <code class="inline">retouch</code> layer above it (it contains only the healed patches) at about 85–90% opacity. With it on, the red spots, the stray hair, and the lint are gone; the freckles, the mole, and the laugh lines are still there. Heals are invisible at 100% zoom: no smudged hairline, no lighter or darker patches. Toggling the layer shows "the same person on a good day."</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Heals on the photo itself; retouch layer empty.</b> The Background stayed selected. Not fatal, but the work can't be dialed back. Redo on the retouch layer if time allows.</li>
+      <li><b>Nothing happened when clicking.</b> Sample All Layers unticked (Spot Healing) or Sample: Current Layer (Healing Brush) on the empty layer.</li>
+      <li><b>Freckles or the mole removed.</b> The "clean sweep." Delete those heals (or reduce them on a separate layer) and revisit the sort list.</li>
+      <li><b>Smudged hairline.</b> Spot Healing at the edge. Redo with the Healing Brush and a chosen source, or the Clone Stamp.</li>
+      <li><b>Light or dark blotch where a spot was.</b> Source sampled from a shadow or highlight. Re-sample from skin of the same brightness.</li>
+      <li><b>Waxy look.</b> Brush much larger than the spots, or repeated heals over the same area. Smaller brush, one click per spot.</li>
+    </ul>
+  </div>
+
+  <!-- L09 -->
+  <div class="sec"><h2>L09 · Frequency Separation <span style="font-size:.7rem;color:var(--ink-3);font-family:'JetBrains Mono',monospace">(workbook self-check)</span></h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">In frequency separation, what does the low-frequency layer hold?</div><div class="opts"><div class="opt correct">B) Color and tone: the blotches and shading</div></div><div class="why"><b>Why:</b> Low frequency is the slow, soft stuff (the "paint"). Pores, fine hairs, and edges are high frequency (the "texture").</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">How much Gaussian Blur should the LOW layer get?</div><div class="opts"><div class="opt correct">A) Just until the blotches are gone and the pores just disappear, no more</div></div><div class="why"><b>Why:</b> Often around 6–12 px on a portrait, but it varies with image size, so judge by eye. Too much blur and LOW loses the face's natural shading.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">For an 8-bit photo, which Apply Image settings build the HIGH layer?</div><div class="opts"><div class="opt correct">C) Layer: LOW, Subtract, Scale 2, Offset 128, then set HIGH to Linear Light</div></div><div class="why"><b>Why:</b> Subtracting the blurred copy leaves only the fine detail, centered on mid-gray; Linear Light adds it back on top of LOW. For 16-bit the recipe is Add, Scale 2, Offset 0, Invert.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">Your HIGH layer is flat gray and the photo won't look normal again. What's the most likely cause?</div><div class="opts"><div class="opt correct">A) HIGH's blend mode isn't set to Linear Light (or you used the wrong recipe for the bit depth)</div></div><div class="why"><b>Why:</b> A flat gray HIGH layer is <em>expected</em> right after Apply Image; Linear Light is what makes it recombine. The lesson's FAQ names these two causes. The amount of blur on LOW changes the split, not whether it recombines.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">A flyaway hair crosses the forehead. How do you remove it without shifting color?</div><div class="opts"><div class="opt correct">B) Healing Brush or Clone Stamp on HIGH, with Sample: Current Layer</div></div><div class="why"><b>Why:</b> The hair is texture, so it lives on HIGH. Sampling other layers (C) would drag color onto the texture sheet. Painting on LOW (A) only smears color; the hair's texture stays.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">Why not just run a big Gaussian Blur on the whole face?</div><div class="opts"><div class="opt correct">C) Blur smooths texture and color together, so the pores vanish and skin looks plastic</div></div><div class="why"><b>Why:</b> That's the exact problem frequency separation solves: smooth one sheet without harming the other. The lesson's solo variation has learners compare the two side by side.</div></div>
+  <div class="note"><div class="t">Exercise reference: recipe from memory, and HIGH-off</div><p><b>Recipe:</b> Stamp Visible = <kbd>Ctrl + Alt + Shift + E</kbd> (Windows) / <kbd>⌘ + ⌥ + ⇧ + E</kbd> (Mac) · the lower copy, <b>LOW</b>, is blurred · 8-bit Apply Image = <b>Subtract / 2 / 128</b> · HIGH = <b>Linear Light</b> · blotches are evened on <b>LOW</b> · stray hair removed on <b>HIGH</b> with <b>Sample: Current Layer</b>. <b>HIGH-off:</b> with HIGH hidden, the face looks soft and blurry with no pores (pure color and shading); with it on, the texture returns on top of the evened tone.</p></div>
+  <div class="note lab"><div class="t">Lab notes: Separate &amp; Smooth</div>
+    <p><b>Correct result:</b> above the earlier layers sit a blurred <code class="inline">LOW</code> (Normal) and a gray-looking <code class="inline">HIGH</code> (Linear Light) on top. Before any smoothing, the image is indistinguishable from the original. After: on <code class="inline">l09-portrait-blotchy.jpg</code> the reddish patches on the cheeks, nose, forehead, and chin are evened out, the fine pore grain is exactly as sharp as before, the freckles remain, and the flyaway hair on the forehead is gone with no color shift where it was. The face still has its shading (lighter center, darker sides).</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Gray mess.</b> Linear Light not set, Apply Image Layer not LOW, or the 8-bit recipe on a 16-bit file (or vice versa). Delete HIGH and redo.</li>
+      <li><b>Image looks slightly off before any smoothing</b> (halos, shifted contrast). Usually LOW and HIGH swapped, or Apply Image run on the wrong layer. Rebuild from the stamped layer.</li>
+      <li><b>Flat, shapeless face.</b> LOW was blurred too hard, or the smoothing was painted across the whole face. Less blur; work only on the blotchy areas.</li>
+      <li><b>Visible outlines around smoothed areas.</b> Lasso selection wasn't feathered. Feather 10–20 px before the small blur.</li>
+      <li><b>Plastic skin anyway.</b> They blurred or painted on HIGH. Texture edits on HIGH should be heal/clone only.</li>
+      <li><b>Color smudge where the hair was.</b> Healing on HIGH with Sample: All Layers (or Current &amp; Below), which pulled color onto the texture sheet. Redo with Sample: Current Layer.</li>
+    </ul>
+  </div>
+
+  <!-- L10 -->
+  <div class="sec"><h2>L10 · Dodge &amp; Burn: Sculpting Light <span style="font-size:.7rem;color:var(--ink-3);font-family:'JetBrains Mono',monospace">(workbook self-check)</span></h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">On a 50% gray layer set to Soft Light, what does painting with white do?</div><div class="opts"><div class="opt correct">B) Lightens (dodges) that area</div></div><div class="why"><b>Why:</b> In Soft Light, lighter than 50% gray lightens and darker darkens. White = dodge, black = burn. At ~10% opacity it builds up gently rather than painting white on the face.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">Why use a 50% gray layer in Soft Light mode instead of an empty Normal layer?</div><div class="opts"><div class="opt correct">C) 50% gray is invisible in Soft Light, so only your light and dark strokes show, and it stays re-editable</div></div><div class="why"><b>Why:</b> On a Normal layer, white and black paint would simply cover the face. In Soft Light, the neutral gray disappears and your strokes act as light and shadow, on their own layer.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">Which brush setup matches the lesson?</div><div class="opts"><div class="opt correct">A) Large, soft brush at about 10% opacity, building up with many passes</div></div><div class="why"><b>Why:</b> "Ten percent, many passes." You can always add more, but you can't un-see a harsh streak. Small, hard, or 100% brushes are the usual cause of smudgy, fake sculpting.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">In your portrait the light comes from the left. How should you dodge and burn?</div><div class="opts"><div class="opt correct">B) Dodge the left-facing planes and burn the right, enhancing the existing light</div></div><div class="why"><b>Why:</b> Follow the existing light and exaggerate it a little. Evening it out (A) flattens the face; inventing new light (C) looks wrong instantly.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">How does the lesson brighten the eyes and teeth?</div><div class="opts"><div class="opt correct">C) A slightly brightened Curves layer with its mask filled black, then white painted over the eye whites and teeth</div></div><div class="why"><b>Why:</b> A masked Curves layer is non-destructive and adjustable. Keep it subtle: teeth should look clean, not glowing. Pure white paint (A) looks fake; Exposure (B) brightens everything.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">Why is the gray layer the pro default over the Dodge and Burn tools?</div><div class="opts"><div class="opt correct">A) The tools paint directly on pixels (destructive); the gray layer stays re-editable</div></div><div class="why"><b>Why:</b> From the lesson's FAQ. The tools are fine on a duplicate layer for a quick fix, but the gray layer wins for real work. Both tools are still in Photoshop and work in 8-bit.</div></div>
+  <div class="note"><div class="t">Exercise reference: read the light first</div><p>On <code class="inline">l10-portrait-flat.jpg</code> the light comes from the <b>viewer's left</b>: the background is brighter on the left and the soft highlight sits on the left cheek. Expected plan: dodge the forehead center, the nose bridge, the tops of the cheekbones (a little more on the left), the chin; burn the right side of the face and temple, under the cheekbones, under the jaw, and the eye sockets. For learners' own portraits, accept any plan whose dodge zones sit on the side the light comes from.</p></div>
+  <div class="note lab"><div class="t">Lab notes: Sculpt &amp; Finish</div>
+    <p><b>Correct result:</b> a <code class="inline">D&amp;B</code> layer in Soft Light whose thumbnail looks gray with faint white and dark marks; toggling it shows a clear but gentle gain in dimension (brighter nose bridge and cheekbone tops, deeper sides and jawline) with no visible strokes. Above it, a Curves layer with a mostly black mask and small white areas over the eye whites and teeth; on the practice file the dull, grayish eye whites and yellowish teeth look cleaner but not white-white. Two files exist: <code class="inline">portrait-working.psd</code> and <code class="inline">portrait-final.jpg</code> (Export As, JPG about 80%).</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Solid gray covering the photo.</b> The layer is in Normal mode. Switch it to Soft Light.</li>
+      <li><b>Strokes do nothing / look like paint.</b> The layer was created without the 50% gray fill, or in Normal mode on an empty layer. Remake it with Alt/⌥-click New Layer, Soft Light, and the fill checkbox.</li>
+      <li><b>Streaky, smudgy highlights.</b> Opacity too high or brush too small or hard. Undo and rebuild at ~10% with a big soft brush.</li>
+      <li><b>Face looks lit from two sides.</b> They dodged the shadow side. Burn it back; follow the original light.</li>
+      <li><b>Glowing teeth or eyes.</b> The Curves lift is too strong or the mask spilled onto lips and skin. Pull the curve down; paint black to clean the mask edges.</li>
+      <li><b>White and black marks directly on the face.</b> They painted on the portrait layer. Undo and select D&amp;B.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <div class="who"><span class="bio">Instructor Kit · confidential, do not distribute to students · © 2026 Ray de la Paz</span></div>
+    <div class="ver">Answer Key · Module 3 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

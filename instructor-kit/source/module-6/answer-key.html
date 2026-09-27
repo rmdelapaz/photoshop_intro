@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Key · Module 6</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">answers &amp; solutions · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Answer Key</div>
+    <h1>Module 6: Answers &amp; Lab Notes</h1>
+    <p class="sub">Self-check answers with explanations, plus reference notes for each lab: what a correct result looks like, and the common wrong results and why they happen.</p>
+    <div class="meta-row"><span class="chip">Lessons <b>17–19</b></span><span class="chip"><b>16</b> quiz items</span><span class="chip"><b>3</b> hands-on labs</span></div>
+  </header>
+
+  <div class="note"><div class="t">Numbering matches the workbook</div><p>The participant workbook's self-checks use the same question numbers as this key, so a learner's "L18 Q3" is always this key's L18 Q3.</p></div>
+
+  <!-- L17 -->
+  <div class="sec"><h2>L17 · Generative Fill</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">What is the basic Generative Fill workflow?</div><div class="opts"><div class="opt correct">B) Select an area, then describe what should be there</div></div><div class="why"><b>Why:</b> The selection is the "where" and the prompt is the "what." Photoshop reads the surrounding image for context and generates content to fit the selection. There is no generative brush, and the prompt never decides placement on its own.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">You want to remove a sign from the shoreline. After selecting it, what do you do?</div><div class="opts"><div class="opt correct">C) Leave the prompt empty and click Generate</div></div><div class="why"><b>Why:</b> An empty prompt tells Photoshop to fill with plausible background. Typing "sign" would ask it to <em>generate</em> a sign; pressing Delete leaves a hole or flat color.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">Where does a Generative Fill result go?</div><div class="opts"><div class="opt correct">A) On a new generative layer with its own mask</div></div><div class="why"><b>Why:</b> The original pixels are never touched. You can hide, mask, lower the opacity of, delete, or stack another generation on the result: it is one more non-destructive layer.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">Which prompt is most likely to work well?</div><div class="opts"><div class="opt correct">B) "a wooden park bench"</div></div><div class="why"><b>Why:</b> Short and concrete wins. A vague prompt gives Photoshop nothing to build; a long stylistic one fights the scene's existing light. Name the object and let Photoshop match the lighting.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">Every lighthouse variation comes out short and squat. What should you change first?</div><div class="opts"><div class="opt correct">C) Make a taller selection</div></div><div class="why"><b>Why:</b> Generative Fill fills the shape you give it, so the selection's size and proportion strongly steer the result. "Selecting the right space is half the prompt."</div></div>
+  <div class="note lab"><div class="t">Lab reference: Remove &amp; Add</div>
+    <p><b>Correct result:</b> <code class="inline">generative-working.psd</code> with the untouched original at the bottom and at least two generative layers above it: one from an empty prompt (the distraction is gone, background continues believably) and one from a described prompt (a new element that sits in the scene's light and perspective). At least one refine move is visible: a painted mask edge, a clipped Curves or Hue/Saturation, or a healing layer. At 100% there are no obvious ghosts or smears.</p>
+    <p><b>Common wrong results:</b> <b>Halo or ghost outline where the object was</b>: the selection hugged the object; redo with a looser selection. <b>Blurry, mushy fill</b>: the selection was too large; generate in smaller pieces. <b>New element too bright or wrong color</b>: not refined; clip an adjustment to the generative layer. <b>Only one layer in the file, or edits on the Background</b>: learner used Content-Aware Fill or the Remove tool on the photo itself, not Generative Fill (acceptable only under the offline fallback, and then it should be on a separate layer). <b>Garbled hands or text</b>: an expected limit, not a learner error; use it as a teaching moment.</p>
+    <p><b>Offline fallback version:</b> removal done with the Remove tool or Content-Aware Fill on a separate layer (Sample All Layers on), no "add" step. Grade it on the same checklist minus the variation and prompt items.</p>
+  </div>
+
+  <!-- L18 -->
+  <div class="sec"><h2>L18 · Generative Expand &amp; Reframe</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">What is Generative Expand, really?</div><div class="opts"><div class="opt correct">A) Generative Fill aimed at empty canvas around the photo</div></div><div class="why"><b>Why:</b> Enlarging the canvas leaves empty space, and Photoshop generates scenery to continue the photo into it. Same generative layer, same variations, same optional prompt. Nothing is stretched or upsampled.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">You chose Ratio 16:9 and pressed Enter, and Photoshop cropped your photo smaller. What did you skip?</div><div class="opts"><div class="opt correct">C) Dragging the crop handles outward past the photo</div></div><div class="why"><b>Why:</b> A ratio only sets the shape. Photoshop first fits that shape <em>inside</em> the photo, which is a normal crop. You must drag outward until the box extends past the edges (the ratio stays locked while you drag).</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">One big expansion came out vague and repetitive. What is the better approach?</div><div class="opts"><div class="opt correct">B) Expand in smaller steps, generating each time</div></div><div class="why"><b>Why:</b> Huge single expansions spread the generated detail thin. Several smaller expansions stay close to real pixels and look far better. A short prompt can also give the fill something specific to build.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">What is the fastest giveaway of a bad expand?</div><div class="opts"><div class="opt correct">B) A horizon or strong line that jumps at the seam</div></div><div class="why"><b>Why:</b> The eye follows lines. If the horizon runs straight through, most viewers never suspect the edges were invented. Check it first, at 100%.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">What does an empty prompt do in Generative Expand?</div><div class="opts"><div class="opt correct">A) Continues the existing scene into the new space</div></div><div class="why"><b>Why:</b> Just like removal in L17, an empty prompt means "fill with what belongs here." A short prompt ("open sky," "a calm beach") steers the new area instead. Filling with the background color is what Fill: Background does, not Generative Expand.</div></div>
+  <div class="note lab"><div class="t">Lab reference: Uncrop &amp; Reframe</div>
+    <p><b>Correct result:</b> <code class="inline">expand-working.psd</code> whose canvas is larger than the original photo, with the new margins on generative layer(s) and the original pixels intact. The subject has breathing room; the document has a useful ratio (16:9, 1:1, 4:5, or 9:16); the subject's proportions are unchanged (circles stay round). At 100%, the horizon and any strong lines run continuously across the join, and a subtle clipped Curves or unifying grade makes old and new read as one image. With <code class="inline">l18-horizon-strip.jpg</code> the horizon should stay dead level and the diagonal fence should continue on the same angle.</p>
+    <p><b>Common wrong results:</b> <b>Photo got smaller</b>: ratio chosen but handles not dragged outward. <b>Flat white or black margins</b>: Fill was left on Background. <b>Subject looks wider or squashed</b>: Free Transform or Image Size was used instead of Expand. <b>Repeated clouds, trees, or rocks in the margin</b>: one huge leap; redo in bites. <b>Visible step in the horizon</b>: accepted the first variation; cycle variations or regenerate a thin strip across the seam with Generative Fill. <b>Slight brightness or color shift at the join</b>: skipped the unifying grade.</p>
+    <p><b>Offline fallback version:</b> Crop tool dragged outward with Fill: Content-Aware Fill. Expect weaker results on large expansions; grade the workflow (outward drag, bites, seam check) rather than the fill quality.</p>
+  </div>
+
+  <!-- L19 -->
+  <div class="sec"><h2>L19 · Actions, Batch &amp; Droplets</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">What is an Action?</div><div class="opts"><div class="opt correct">B) A recording of steps you can replay with one click</div></div><div class="why"><b>Why:</b> You press record, do the task once, and press stop; Photoshop remembers every step. Scripts (JavaScript) are code, a separate and more advanced tool; tool presets store settings for one tool.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">Why record Fit Image instead of Image Size?</div><div class="opts"><div class="opt correct">C) Fit Image fits the long edge on landscape and portrait files alike</div></div><div class="why"><b>Why:</b> Fit Image 1200 × 1200 px makes the longer side 1200 whatever the orientation. Image Size records a fixed width, so a portrait file would come out 1200 wide and far taller than intended. Record general steps that work on any file.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">Every batched file was saved into the recording folder instead of the Destination. What was missed?</div><div class="opts"><div class="opt correct">A) Ticking Override Action "Save As" Commands</div></div><div class="why"><b>Why:</b> The Action contains its own Save As step. Without the override, Batch obeys the recorded save location instead of the Destination you chose.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">While recording, Save As does not offer JPEG. Which step belongs before it?</div><div class="opts"><div class="opt correct">C) Layer ▸ Flatten Image</div></div><div class="why"><b>Why:</b> After Place Embedded, the file has an extra (watermark) layer. Current Photoshop only offers JPEG in Save As for a file without extra layers, so flattening must be a recorded step before saving.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">sRGB web JPGs of a whole shoot, with no recording. Which tool?</div><div class="opts"><div class="opt correct">B) Image Processor</div></div><div class="why"><b>Why:</b> File ▸ Scripts ▸ Image Processor resizes and saves a folder to JPG, PSD, or TIFF in one go, optionally running an Action. Batch needs an Action; a droplet is an Action saved as an app.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">What is a droplet?</div><div class="opts"><div class="opt correct">A) An Action saved as a drag-and-drop app</div></div><div class="why"><b>Why:</b> File ▸ Automate ▸ Create Droplet saves an Action as a small app. Drag files or a folder onto it and they process; it launches Photoshop itself (which must be installed).</div></div>
+  <div class="note lab"><div class="t">Lab reference: Record &amp; Batch</div>
+    <p><b>Correct result:</b> an Actions panel showing Set "Export Web" containing Action "Web JPG 1200" with these steps: Convert to Profile (sRGB), Fit Image (1200 × 1200 px), Place (the watermark), Flatten Image, Save (JPEG), Close. The <code class="inline">l19-processed/</code> folder holds one JPEG per input file, each with a long edge of 1200 px (landscape 1200 wide, portrait 1200 tall, square 1200 × 1200), the watermark in a consistent position, and sRGB. The <code class="inline">l19-input/</code> folder is unchanged. A droplet file exists on the desktop and processes files dropped onto it.</p>
+    <p><b>Common wrong results:</b> <b>Portrait outputs 1200 wide and ~1600 tall</b>: Image Size was recorded instead of Fit Image. <b>Outputs missing, or in the wrong folder</b>: Override Action "Save As" Commands not ticked. <b>Batch stopped after a few files</b>: a warning dialog (missing profile) halted it; tick Suppress color profile warnings and log errors to a file. <b>Watermark in a different spot on portrait files</b>: position depends on canvas size; acceptable for this lab if it is fully on the canvas, a good discussion of "record on a typical image, test on an odd one." <b>Small file enlarged to 1200 and soft</b> (<code class="inline">l19-batch-07.jpg</code>): Fit Image enlarges by default; point out the Don't Enlarge option in the Fit Image dialog. <b>Extra steps like "Select" or "Move" in the Action</b>: the learner kept recording while exploring; delete those steps. <b>Originals overwritten</b>: Destination pointed at the input folder; restore from the practice folder and discuss why copies matter.</p>
+  </div>
+
+  <div class="foot">
+    <div class="who"><b>© 2026 Ray de la Paz</b><span class="bio">Instructor Kit · confidential · do not distribute to students</span></div>
+    <div class="ver">Answer Key · Module 6 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

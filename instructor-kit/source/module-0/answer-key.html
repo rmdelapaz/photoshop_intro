@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Key: Module 0</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">answers &amp; solutions · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Answer Key</div>
+    <h1>Module 0: Answers &amp; Lab Notes</h1>
+    <p class="sub">Self-check answers with explanations, plus reference notes for the lab: what a correct result looks like, and the common wrong results and why they happen.</p>
+    <div class="meta-row"><span class="chip">Lesson <b>1</b></span><span class="chip"><b>6</b> quiz items</span><span class="chip"><b>1</b> guided build + independent pass</span></div>
+  </header>
+
+  <div class="note"><div class="t">Numbering matches the workbook</div><p>The participant workbook's self-check items use the same question numbers as this key, so a learner's "Q3" is always this key's Q3. The lesson pages themselves don't carry quizzes; these items were written for the kit and test only what L01 teaches.</p></div>
+
+  <!-- L01 -->
+  <div class="sec"><h2>L01 · Fix &amp; Export One Photo</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">What does <strong>non-destructive editing</strong> mean?</div><div class="opts"><div class="opt correct">B) Making changes on layers above the photo, so the original pixels are never altered</div></div><div class="why"><b>Why:</b> The tracing-paper idea: changes live on sheets (layers) you can toggle, tweak, or peel off. A) confuses "non-destructive" with "subtle"; a big edit on an adjustment layer is still non-destructive. C) is still editing pixels directly, just on a copy.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">Why do you choose <b>File ▸ Save As</b> and the <b>.psd</b> format right after opening your photo?</div><div class="opts"><div class="opt correct">B) A .psd remembers your layers so you can change your mind, and your original JPEG stays untouched</div></div><div class="why"><b>Why:</b> This is the tracing-paper principle applied to the file itself. A .psd is usually <em>larger</em> than a JPEG (A is wrong), and Photoshop opens JPEGs fine (C is wrong); a JPEG simply can't store layers.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">With the Crop tool active, how do you straighten a tilted horizon?</div><div class="opts"><div class="opt correct">A) Move the cursor just outside a corner until it becomes a bent arrow, then drag to rotate until the grid lines match the horizon</div></div><div class="why"><b>Why:</b> Straightening is rotating the crop grid to agree with a line that should be level. Dragging a corner inward (B) only trims edges; dragging inside the box (C) repositions the image.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">You click the eyeball next to your Brightness/Contrast layer and the whole effect disappears. What does that tell you?</div><div class="opts"><div class="opt correct">C) The edit lives on the adjustment layer, not in the photo itself</div></div><div class="why"><b>Why:</b> This is "the magic moment" from the lesson: non-destructive editing you can see. Nothing failed (A), and the photo was never permanently changed (B).</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">What's the difference between <b>Save</b> and <b>Export</b>?</div><div class="opts"><div class="opt correct">B) Save writes your layered .psd so you can keep editing; Export flattens everything into a share-ready .jpg</div></div><div class="why"><b>Why:</b> You do both, for different reasons, every time: the .psd is the editable master, the .jpg is the copy you share. Never post the .psd; never edit on the .jpg.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">You can't find the Layers panel anywhere on screen. What do you do?</div><div class="opts"><div class="opt correct">A) Choose Window ▸ Layers (or press F7)</div></div><div class="why"><b>Why:</b> Every panel lives in the Window menu. (Resetting the workspace with Window ▸ Workspace also brings panels back, but the direct fix is Window ▸ Layers.)</div></div>
+
+  <div class="note lab"><div class="t">Lab reference: guided build (<code class="inline">l01-tilted-horizon.jpg</code> or own photo)</div>
+    <p><b>A correct result looks like:</b> two files. <code class="inline">myphoto-working.psd</code> opens with two layers: the photo at the bottom and a <b>Brightness/Contrast</b> adjustment layer above it; toggling that layer's eyeball shows a clear before/after. <code class="inline">myphoto-final.jpg</code> is cropped (the dark blob in the practice file's bottom-left corner is gone), the horizon is level (within about half a degree to the eye), and shadows are more open with a little more punch. The original <code class="inline">.jpg</code> is unchanged on disk.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Only one layer in the .psd, but the photo is brighter.</b> The learner used Image ▸ Adjustments (a direct, destructive edit) instead of the ◐ button in the Layers panel. Show them the ◐ button and redo Step 3.</li>
+      <li><b>Horizon tilted the other way, or still tilted.</b> They rotated in the wrong direction or estimated by eye without lining a grid line up with the horizon. Have them rotate until one horizontal grid line sits exactly on it.</li>
+      <li><b>Crop is a perfect square or odd shape.</b> The Crop tool's ratio menu was set from a previous use. Click <b>Clear</b> in the options bar and redo.</li>
+      <li><b>No .psd anywhere, or the .psd has no adjustment layer.</b> They skipped Save As, or skipped the final <b>File ▸ Save</b> before exporting, so the .psd only holds the state from Step 1.</li>
+      <li><b>Original photo was overwritten.</b> They exported with the original's name into the same folder. Lesson learned: always export as <code class="inline">-final.jpg</code>.</li>
+      <li><b>Washed-out, flat-gray result.</b> Brightness pushed very high with no Contrast. "Nudge" both; this file needs a moderate lift, not the maximum.</li>
+    </ul>
+  </div>
+
+  <div class="note lab"><div class="t">Lab reference: independent pass (learner's own photo, or <code class="inline">l01-too-bright.jpg</code>)</div>
+    <p>Own photos vary, so judge the <b>process</b>, not a specific look: a .psd saved before editing, at least one adjustment layer that toggles cleanly, a new-name export, and an original left untouched. With the lesson's too-bright twist, <b>a correct result looks like:</b> a .psd with <b>two</b> adjustment layers above the photo (Brightness/Contrast with Brightness lowered slightly, and Vibrance with Vibrance raised gently), plus an exported .jpg. Colors look richer without neon edges; highlights have a little more detail than the original.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Garish, neon colors.</b> Saturation was pushed instead of (or as well as) Vibrance, or Vibrance went to the maximum. Vibrance is the gentler control; "gently" is the lesson's word.</li>
+      <li><b>Only one adjustment layer.</b> They edited the existing Brightness/Contrast layer again instead of clicking ◐ a second time. The point of the exercise is seeing two sheets of tracing paper.</li>
+      <li><b>A visibly worse result than the original.</b> Usually a dark photo darkened further or a bright one brightened: the learner copied the demo's slider direction instead of looking at their own photo. Ask "what does <em>this</em> photo need?" and let them fix it on the same layer (that's the point of adjustment layers).</li>
+      <li><b>"Reordering changed nothing."</b> A valid observation: with these two adjustments the difference is often subtle. The going-further question is about curiosity, not a specific answer.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <div class="who"><span class="bio">Instructor Kit · confidential, do not distribute to students · © 2026 Ray de la Paz</span></div>
+    <div class="ver">Answer Key · Module 0 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

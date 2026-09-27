@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Before You Begin: Setup Guide</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="kit.css">
+<style>
+  table.bring { width:100%; border-collapse:collapse; margin:10px 0; font-size:.9rem; }
+  table.bring th, table.bring td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.bring th { font-family:"JetBrains Mono",monospace; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600; }
+  table.bring td.s { font-family:"JetBrains Mono",monospace; font-size:.8rem; color:var(--accent); font-weight:600; white-space:nowrap; }
+  table.bring tr:last-child td { border-bottom:none; }
+  pre.tree { background:var(--surface-2); border:1px solid var(--line); border-radius:9px; padding:12px 16px; font-family:"JetBrains Mono",monospace; font-size:.8rem; line-height:1.55; margin:10px 0; overflow-x:auto; }
+  @media print { table.bring tr { break-inside:avoid; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Student handout:</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">send this out before Session 1</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Photoshop Course · Before You Begin</div>
+    <h1>Get Ready to Edit</h1>
+    <p class="sub">A 30-minute setup to do <b>before the first session</b> (plus download time). Doing it ahead means Session 1 starts with your first finished photo instead of an installer progress bar. No Photoshop experience needed: just follow the steps.</p>
+    <div class="meta-row">
+      <span class="chip">⏱ <b>~30 min</b> + download</span>
+      <span class="chip">No Photoshop experience required</span>
+      <span class="chip">Windows or macOS</span>
+    </div>
+  </header>
+
+  <div class="note warn">
+    <div class="t">Please finish this before class</div>
+    <p>Photoshop is a large download, and signing in, installing, and updating can take a while on a slow connection. If you get stuck on any step, that's fine: note where, and we'll help in the first few minutes of Session 1. But please <b>try</b> before you arrive.</p>
+  </div>
+
+  <div class="sec"><h2>What You Need</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li><b>A laptop or desktop</b> running Windows or macOS that can run the current Photoshop (see <b>Hardware Notes</b> below), plus its <b>charger</b> if it's a laptop.</li>
+    <li><b>Adobe Photoshop 2025 or newer</b>, the desktop app. The current release is recommended because the generative tools (Session 7) change quickly. Photoshop on the web, on iPad, and Photoshop Elements are <b>not</b> enough for this course.</li>
+    <li><b>An Adobe account</b> with a plan that includes Photoshop. A free trial can cover a 4-day intensive but will run out long before an eight-week course ends.</li>
+    <li><b>A mouse.</b> Masking, the Pen tool, and dodge &amp; burn are much harder on a trackpad. A pen tablet is a nice extra, not a requirement.</li>
+    <li><b>A notebook or a text file</b> for your learning journal.</li>
+    <li><b>Some of your own photos</b> (see <b>What Photos to Bring</b>). Practice files are provided for every lab, so you are never stuck without one.</li>
+  </ul>
+
+  <div class="sec"><h2>Set Up in 5 Steps</h2><span class="rule"></span></div>
+
+  <div class="lesson">
+    <div class="lesson-head"><span class="lcode">1</span><h3>Install Photoshop through Creative Cloud</h3><span class="dur">~10 min + download</span></div>
+    <div class="lesson-body">
+      <ol class="steps">
+        <li>Go to <b>adobe.com</b>, sign in (or create a free Adobe account), and choose a plan that includes Photoshop, or start a trial.</li>
+        <li>Download and run the <b>Creative Cloud desktop app</b>. Sign in with the same Adobe account.</li>
+        <li>In Creative Cloud, find <b>Photoshop</b> under <b>Apps</b> and click <b>Install</b>. Let it finish, including any updates it offers.</li>
+        <li>Open Photoshop once. If it asks you to sign in or accept terms, do it now, not in class.</li>
+        <li>Check your version: <b>Help ▸ About Photoshop</b> (Windows) or <b>Photoshop ▸ About Photoshop</b> (macOS). It should say <b>2025</b> or newer. If not, update from Creative Cloud: <b>Apps ▸ Updates</b>.</li>
+      </ol>
+      <div class="note"><div class="t">What is Creative Cloud?</div><p>It's Adobe's installer and updater. It keeps Photoshop current and manages your sign-in. Leave it installed; you'll use it to update Photoshop during the course.</p></div>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-head"><span class="lcode">2</span><h3>Reset the workspace</h3><span class="dur">~3 min</span></div>
+    <div class="lesson-body">
+      <p>Everyone starting from the same screen makes demos easy to follow. If Photoshop has been used on this computer before, this puts the panels back where the lessons expect them.</p>
+      <ol class="steps">
+        <li>Choose <b>Window ▸ Workspace ▸ Essentials (Default)</b>.</li>
+        <li>Then choose <b>Window ▸ Workspace ▸ Reset Essentials</b>.</li>
+        <li>Make sure you can see the <b>Layers</b> panel at the bottom right. If not: <b>Window ▸ Layers</b> (or press <b>F7</b>).</li>
+      </ol>
+      <div class="note warn"><div class="t">Shared or borrowed computer?</div><p>If tools behave strangely (odd brush settings, missing menus), reset Photoshop's preferences: <b>Preferences ▸ General ▸ Reset Preferences On Quit</b>, then quit and reopen Photoshop. This only resets settings; it never touches your files.</p></div>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-head"><span class="lcode">3</span><h3>Set a few recommended preferences</h3><span class="dur">~5 min</span></div>
+    <div class="lesson-body">
+      <p>Open Preferences: <b>Edit ▸ Preferences ▸ General</b> (Windows) or <b>Photoshop ▸ Settings ▸ General</b> (macOS; older versions say <b>Preferences</b>). Then visit these sections in the list on the left:</p>
+      <ul class="tick">
+        <li><b>File Handling:</b> turn on <b>Automatically Save Recovery Information Every 10 Minutes</b>. If your version offers a <b>default file location</b>, set it to <b>your computer</b> (the course saves working files as <code class="inline">.psd</code> on your own drive, not as cloud documents).</li>
+        <li><b>Performance:</b> let Photoshop use about <b>70%</b> of your memory (the default is usually fine), and set <b>History States</b> to at least <b>50</b> so you can step back further.</li>
+        <li><b>Units &amp; Rulers:</b> set Rulers to <b>Pixels</b>.</li>
+        <li><b>Interface:</b> if text looks small, raise the <b>UI Font Size</b> or <b>UI Scaling</b> (takes effect after a restart). Any color theme is fine.</li>
+      </ul>
+      <div class="note"><div class="t">Windows vs Mac keys</div><p>The course writes shortcuts as <b>Ctrl/⌘</b> and <b>Alt/⌥</b>: use Ctrl and Alt on Windows, ⌘ Command and ⌥ Option on a Mac.</p></div>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-head"><span class="lcode">4</span><h3>Create a course folder</h3><span class="dur">~5 min</span></div>
+    <div class="lesson-body">
+      <p>Every lesson has you keep two kinds of files: a layered <code class="inline">.psd</code> master you can keep editing, and a flat <code class="inline">.jpg</code> you share. A tidy folder keeps them, and your untouched originals, apart.</p>
+      <pre class="tree">photoshop-course/
+├─ originals/     ← copies of your photos; never edit these
+├─ session-1/     ← working .psd files and exports for Session 1
+├─ session-2/
+│  …
+├─ session-8/
+└─ journal.txt    ← or a paper notebook</pre>
+      <div class="note warn"><div class="t">One rule that saves headaches</div><p>Always work on <b>copies</b>. Put copies of your photos in <code class="inline">originals/</code>, and never overwrite them. Name files in lowercase with hyphens, the way the lessons do (<code class="inline">myphoto-working.psd</code>, <code class="inline">myphoto-final.jpg</code>).</p></div>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-head"><span class="lcode">5</span><h3>Confirm it all works</h3><span class="dur">~5 min</span></div>
+    <div class="lesson-body">
+      <ol class="steps">
+        <li>In Photoshop, <b>File ▸ Open</b> any photo from your <code class="inline">originals/</code> folder.</li>
+        <li>Check that the photo appears in the <b>Layers</b> panel as a layer named <b>Background</b>.</li>
+        <li><b>File ▸ Save As</b>, choose <b>Photoshop (.psd)</b>, and save it into <code class="inline">session-1/</code> as <code class="inline">test-working.psd</code>. If Photoshop asks where to save, choose <b>Save on your computer</b>.</li>
+        <li>Open the <b>Edit</b> menu and look for <b>Generative Fill</b> (it will be grayed out until you make a selection; that's normal). If you can't find it at all, tell us before Session 7.</li>
+        <li>Close the file.</li>
+      </ol>
+      <div class="note lab"><div class="t">✅ You're ready</div><p>If you saved a <code class="inline">.psd</code> to your own folder, you're completely set up for Session 1. If anything didn't work, note which step and we'll sort it out in the first few minutes of class.</p></div>
+    </div>
+  </div>
+
+  <div class="sec"><h2>What Photos to Bring</h2><span class="rule"></span></div>
+  <p style="font-size:.95rem;color:var(--ink-2)">Practice files are provided for every lab, but the course is more fun (and your portfolio better) with your own pictures. Phone photos are perfect. Bring <b>copies</b>, at their full original size, not screenshots or images saved from social media.</p>
+  <table class="bring">
+    <thead><tr><th>Session</th><th>Bring</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td class="s">S1</td><td>One everyday photo that's a little dark or a little crooked</td><td>Your first fix &amp; export</td></tr>
+      <tr><td class="s">S2</td><td>A landscape with a clear sky; a photo with one clear subject (a person, pet, or product); a "messy" photo with dust, a sign, or a stray tourist</td><td>Masks, selections, cleanup</td></tr>
+      <tr><td class="s">S3</td><td>A flat or off-color photo: an overcast day or an indoor shot. A RAW file is welcome but not required</td><td>Camera Raw &amp; Curves</td></tr>
+      <tr><td class="s">S4</td><td><b>A portrait of someone who has agreed</b> to be retouched and shown in class. A self-portrait works. Close enough to see skin detail</td><td>Natural retouching</td></tr>
+      <tr><td class="s">S5</td><td><b>Two images:</b> a subject (person, pet, or product) shot full-length against a plain-ish background, and a background scene with a clear light direction (visible shadows) to place it in</td><td>Compositing</td></tr>
+      <tr><td class="s">S6</td><td>Optional: a photo for your poster's hero image (your Session 5 composite works well), and the words for a real or imaginary event</td><td>Poster design</td></tr>
+      <tr><td class="s">S7</td><td>A photo with a distraction and some open space; a tightly cropped or vertical photo; a <b>folder of 10–20 photo copies</b> for batch processing</td><td>Generative tools &amp; automation</td></tr>
+      <tr><td class="s">S8</td><td>Your capstone file, planned and mostly built as homework after Session 7</td><td>Present &amp; ship</td></tr>
+    </tbody>
+  </table>
+  <div class="note warn">
+    <div class="t">Consent and rights</div>
+    <p>Only retouch or show people who have said yes, or yourself. Avoid photos of strangers, and of children who aren't yours. Don't bring confidential or client work. For your capstone, use images you took yourself or have the right to use.</p>
+  </div>
+
+  <div class="sec"><h2>Hardware Notes</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li><b>Check Adobe's current system requirements</b> for Photoshop before you buy or install anything. They change with each release.</li>
+    <li><b>Memory:</b> 16 GB of RAM makes a real difference once files have many layers; 8 GB will work but may feel slow in Sessions 4, 5, and 8.</li>
+    <li><b>Disk space:</b> keep plenty of free space (20 GB or more) on your main drive. Photoshop uses it as a scratch disk while you work.</li>
+    <li><b>Graphics:</b> update your graphics drivers. Several tools (and smooth zooming) rely on the GPU.</li>
+    <li><b>Screen:</b> a display of 1920 × 1080 or larger helps; panels get crowded on small laptop screens.</li>
+    <li><b>Color:</b> turn off <b>Night Light</b> (Windows) or <b>Night Shift / True Tone</b> (macOS) during class. They tint your screen and will mislead your color decisions.</li>
+    <li><b>Chromebooks and tablets</b> can't run desktop Photoshop. Contact us first if that's all you have.</li>
+  </ul>
+
+  <div class="sec"><h2>Accessibility</h2><span class="rule"></span></div>
+  <p style="font-size:.95rem;color:var(--ink-2)">Tell us before Session 1 if anything would make the course easier for you. A few things that already help:</p>
+  <ul class="tick">
+    <li><b>Bigger interface:</b> raise UI Font Size or UI Scaling in Preferences ▸ Interface (step 3).</li>
+    <li><b>Color vision differences:</b> the lessons lean on checks you can see, not just color names (toggling a layer's eye, before/after comparisons, the squint test). The <b>Info</b> panel (<b>Window ▸ Info</b>) shows exact color numbers under your cursor, and <b>View ▸ Proof Setup</b> includes color-blindness previews.</li>
+    <li><b>Keyboard over precise mousing:</b> most tools have single-key shortcuts, collected in the lessons' recipe cards and the online Recipes library.</li>
+    <li><b>Screen readers:</b> Photoshop is a highly visual app with limited screen-reader support. Please talk to us so we can plan alternatives together.</li>
+    <li><b>Pace and breaks:</b> every session has a break, and every lesson stays online, in light or dark mode, to revisit at your own speed.</li>
+  </ul>
+
+  <div class="sec"><h2>Frequently Asked</h2><span class="rule"></span></div>
+  <div class="blk"><div class="h">Do I need to be good at computers, or at art?</div><p style="font-size:.95rem;color:var(--ink-2);margin:.2rem 0">No. If you can find a photo on your drive and manage folders, you're ready. Session 1 starts with one small, finished win and builds from there.</p></div>
+  <div class="blk"><div class="h">Can I use an older Photoshop or Photoshop Elements?</div><p style="font-size:.95rem;color:var(--ink-2);margin:.2rem 0">Please don't. Older versions lack tools the lessons use (like the Remove tool and the generative features), and Elements lacks many core features. Photoshop 2025 or newer, current release preferred.</p></div>
+  <div class="blk"><div class="h">What are generative credits?</div><p style="font-size:.95rem;color:var(--ink-2);margin:.2rem 0">Generative Fill and Expand run in Adobe's cloud and use credits that come with most Photoshop plans. Check your balance in your Adobe account before Session 7. School or company accounts sometimes have generative features turned off by an administrator; check early if yours is one.</p></div>
+  <div class="blk"><div class="h">Do I need a pen tablet?</div><p style="font-size:.95rem;color:var(--ink-2);margin:.2rem 0">No. A mouse is plenty. A tablet makes retouching and masking feel more natural, but everything in the course works without one.</p></div>
+  <div class="blk"><div class="h">What if I can't finish the setup?</div><p style="font-size:.95rem;color:var(--ink-2);margin:.2rem 0">Come anyway. Note where you got stuck; we'll help you in the first few minutes so you're editing with everyone else.</p></div>
+
+  <div class="foot">
+    <div class="who">
+      <span class="bio">Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Student Setup Guide · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

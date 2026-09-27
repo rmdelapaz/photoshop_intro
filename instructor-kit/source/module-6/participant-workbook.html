@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workbook · Module 6</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Student workbook —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">write in it · bring it to every session</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Photoshop Workbook · Module 6</div>
+    <h1>AI &amp; Speed</h1>
+    <p class="sub">Welcome to the Advanced tier. Today you add two superpowers: generative editing (add, remove, and expand a photo by describing it) and automation (record a task once, then run it on a whole folder). Follow along on your own computer and use the checklists so nothing gets skipped.</p>
+    <div class="meta-row">
+      <span class="chip">Lessons <b>17–19</b></span>
+      <span class="chip"><b>3</b> lessons · Session 7</span>
+      <span class="chip">Name: ____________________</span>
+    </div>
+  </header>
+
+  <div class="note">
+    <div class="t">How to use this workbook</div>
+    <p>Each lesson has <b>By the end you can</b>, <b>Key ideas</b>, a <b>Worked example</b> (the steps from the lesson), a <b>Your turn</b> activity with space to write, a <b>Recipe card</b> to keep, a <b>Self-check</b> quiz, and a <b>Journal</b> prompt. Journal after every lesson: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+  </div>
+
+  <div class="note warn">
+    <div class="t">Generative features need three things</div>
+    <p>Generative Fill (L17) and Generative Expand (L18) run in Adobe's cloud. You need <b>an internet connection</b>, to be <b>signed in to your Adobe account</b>, and <b>generative credits</b> (every Generate spends some). If they are not available today, your instructor will show you the same workflow with offline tools (the Remove tool, Content-Aware Fill, and Crop with Fill: Content-Aware Fill). The thinking is identical, so nothing you learn is wasted.</p>
+  </div>
+
+  <div class="sec"><h2>Module Progress Tracker</h2><span class="rule"></span></div>
+  <ul class="tick lab">
+    <li>☐ <b>L17</b>: I removed a distraction and added a new element, each on its own generative layer</li>
+    <li>☐ <b>L18</b>: I uncropped and reframed a photo, and the horizon runs straight across the seam</li>
+    <li>☐ <b>L19</b>: I recorded an Action, batched a folder, and made a droplet</li>
+    <li>☐ <b>Homework</b>: I planned my capstone (L20) and built most of it (L21) before Session 8</li>
+  </ul>
+
+  <!-- L17 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L17</span><h3>Generative Fill</h3><span class="dur">50 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li><b>Remove</b> an object by selecting it and generating with an empty prompt</li>
+          <li><b>Add</b> new content by selecting an area and describing what belongs there</li>
+          <li>Work with <b>generative layers</b> and cycle through <b>variations</b></li>
+          <li>Write prompts that work, and know Generative Fill's <b>limits</b></li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li><b>Select, then describe.</b> The selection is the <em>where</em>; the prompt is the <em>what</em>.</li>
+          <li><b>Empty prompt = remove.</b> Photoshop fills the selection with plausible background (a smarter cousin of Content-Aware Fill from Module 1).</li>
+          <li><b>Described prompt = add.</b> Photoshop generates the object to fit the scene's light and perspective.</li>
+          <li>Every result lands on a <b>new generative layer with its own mask</b>, with three variations to choose from. Your original pixels are never touched.</li>
+          <li>The selection's <b>size and shape steer the result</b>: want something tall, make a tall selection.</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 520 110" role="img" aria-label="The Generative Fill loop: select an area, type a prompt, generate, choose from three variations on a generative layer, then keep, regenerate, or mask.">
+            <rect x="8" y="30" width="88" height="50" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="2"/>
+            <text x="52" y="52" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#1473E6">Select</text>
+            <text x="52" y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#45536a">the where</text>
+            <line x1="98" y1="55" x2="112" y2="55" stroke="#45536a" stroke-width="1.6"/><polygon points="114,55 106,51 106,59" fill="#45536a"/>
+            <rect x="116" y="30" width="88" height="50" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="2"/>
+            <text x="160" y="52" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#1473E6">Prompt</text>
+            <text x="160" y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#45536a">the what</text>
+            <line x1="206" y1="55" x2="220" y2="55" stroke="#45536a" stroke-width="1.6"/><polygon points="222,55 214,51 214,59" fill="#45536a"/>
+            <rect x="224" y="30" width="88" height="50" rx="6" fill="#1473E6"/>
+            <text x="268" y="60" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#ffffff">Generate</text>
+            <line x1="314" y1="55" x2="328" y2="55" stroke="#45536a" stroke-width="1.6"/><polygon points="330,55 322,51 322,59" fill="#45536a"/>
+            <rect x="332" y="30" width="84" height="50" rx="6" fill="#f4f6fa" stroke="#d6dee9" stroke-width="1.5"/>
+            <text x="374" y="52" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#45536a">3 variations</text>
+            <text x="374" y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#45536a">new layer</text>
+            <line x1="418" y1="55" x2="432" y2="55" stroke="#45536a" stroke-width="1.6"/><polygon points="434,55 426,51 426,59" fill="#45536a"/>
+            <rect x="436" y="30" width="78" height="50" rx="6" fill="#d7efe9" stroke="#0f766e" stroke-width="1.5"/>
+            <text x="475" y="52" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#0f766e">Refine</text>
+            <text x="475" y="68" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#0f766e">mask · match</text>
+            <text x="260" y="18" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" fill="#0f766e">empty prompt = remove · described prompt = add</text>
+          </svg>
+          <figcaption>Select the where, describe the what, generate, choose a variation, then finish with craft.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: remove &amp; add</div>
+        <ol class="steps">
+          <li>Open a photo with a clear distraction and some open space. Save as <code class="inline">generative-working.psd</code>.</li>
+          <li><b>Remove:</b> select the object loosely, with a little margin. In the <b>Contextual Task Bar</b> under the selection, click <b>Generative Fill</b>, leave the prompt empty, click <b>Generate</b>. Cycle the variations and pick the cleanest.</li>
+          <li><b>Add:</b> select an empty area where something could believably go. Click Generative Fill, type a short, concrete prompt (<code class="inline">a small sailboat</code>), click Generate. Keep one variation, or Generate again for three more.</li>
+          <li><b>Refine:</b> it is a normal layer with a mask, so mask a rough edge (Module 1), match light and color with clipped adjustments (Module 4), heal a small artifact (Module 3).</li>
+        </ol>
+        <p style="font-size:.88rem;color:var(--ink-2)">No task bar? Turn it on with Window ▸ Contextual Task Bar, or use Edit ▸ Generative Fill instead.</p>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: Remove &amp; add</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Use your own photo or the practice file your instructor gives you. Tick each item as you finish it:</p>
+        <ul class="tick lab">
+          <li>☐ A distraction is removed via an empty-prompt generation</li>
+          <li>☐ A new element is added via a described generation</li>
+          <li>☐ Each result sits on its own generative layer (original untouched)</li>
+          <li>☐ I cycled variations and picked the best</li>
+          <li>☐ I refined the result with masks or adjustments as needed</li>
+        </ul>
+        <p style="font-size:.92rem;margin:.4rem 0 .2rem">My prompt log. Write each prompt you tried and what happened (keep the ones that worked):</p>
+        <div class="write tall"></div>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <ul class="tick">
+          <li><b>Grayed out?</b> You probably need a current Photoshop, internet, and to be signed in. It uses generative credits.</li>
+          <li><b>Blurry or low-detail result?</b> The selection was very large. Generate in smaller pieces, or just regenerate; quality varies between runs.</li>
+          <li><b>Fine detail</b> (hands, text, small faces) can come out wrong. Zoom in and check.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Recipe card: Generative Fill</div>
+        <ol class="steps">
+          <li>Select the area (loose, with margin), then click Generative Fill in the task bar</li>
+          <li>Remove: empty prompt → Generate</li>
+          <li>Add: short concrete prompt → Generate</li>
+          <li>Cycle the three variations; regenerate if needed</li>
+          <li>Refine on its generative layer (mask, match, heal)</li>
+        </ol>
+        <p style="font-size:.88rem;color:var(--ink-2)"><b>Mantra:</b> select the where, describe the what, then finish with craft.</p>
+      </div>
+      <div class="note">
+        <div class="t">A note on honesty</div>
+        <p>Generative edits can change what a photo <em>says</em>, not just how it looks. For journalism, evidence, or documentary work, adding or removing content crosses a line. Adobe embeds <b>Content Credentials</b> to flag AI edits. Use the power thoughtfully, and be transparent when it matters.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">What is the basic Generative Fill workflow?</div>
+          <div class="opts"><div class="opt">A) Type a prompt first, and Photoshop decides where to put the result</div><div class="opt">B) Select an area, then describe what should be there</div><div class="opt">C) Paint over the area with a special generative brush</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">You want to remove a sign from the shoreline. After selecting it, what do you do?</div>
+          <div class="opts"><div class="opt">A) Press Delete and fill with white</div><div class="opt">B) Type "sign" in the prompt and click Generate</div><div class="opt">C) Leave the prompt empty and click Generate</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">Where does a Generative Fill result go?</div>
+          <div class="opts"><div class="opt">A) On a new generative layer with its own mask</div><div class="opt">B) Merged into the Background layer</div><div class="opt">C) Into a separate new document</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">Which prompt is most likely to work well?</div>
+          <div class="opts"><div class="opt">A) "something nice to sit on"</div><div class="opt">B) "a wooden park bench"</div><div class="opt">C) "a stunning cinematic bench in dramatic golden light, ultra detailed, watercolor style"</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">You asked for a lighthouse, but every variation comes out short and squat. What should you change first?</div>
+          <div class="opts"><div class="opt">A) Write a much longer prompt</div><div class="opt">B) Lower the generative layer's opacity</div><div class="opt">C) Make a taller selection</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Generative Fill is powerful and a little unsettling. Where is your personal line between "cleaning up a photo" and "changing the truth of it"? Write it down; it is worth knowing before a client asks.</em> Also note: key concepts · what clicked · questions · ideas to try · how you feel.</p>
+        <div class="write"></div>
+      </div>
+      <div class="note lab">
+        <div class="t">Mindset</div>
+        <p>If your first generation looks odd, that is not failure, it is the first of three variations. Driving this tool well is a skill you build by trying, looking, and adjusting one or two words at a time.</p>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L18 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L18</span><h3>Generative Expand &amp; Reframe</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Extend the canvas with the <b>Crop tool</b> and fill the new space generatively</li>
+          <li><b>Uncrop</b> a too-tight photo to give a subject room to breathe</li>
+          <li><b>Reframe</b> a photo to a new aspect ratio for print, web, or social</li>
+          <li>Guide the fill with an optional prompt and keep the <b>seam</b> invisible</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li><b>Expand is Generative Fill aimed at empty canvas</b> around your photo. Same generative layer, same variations, same optional prompt.</li>
+          <li>The <b>Crop tool can crop outward.</b> Set <b>Fill: Generative Expand</b> in the options bar, drag the handles past the photo, then Generate.</li>
+          <li>A <b>Ratio</b> only sets the shape. Photoshop first fits it inside the photo; you still drag outward.</li>
+          <li><b>Expand in bites.</b> Several small expansions look far better than one huge leap.</li>
+          <li><b>The horizon test:</b> a horizon or strong line that jumps at the seam is the fastest giveaway.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Worked example: uncrop &amp; reframe</div>
+        <ol class="steps">
+          <li>Open a cramped photo. Save as <code class="inline">expand-working.psd</code>.</li>
+          <li><b>Uncrop:</b> Crop tool (<kbd>C</kbd>), set <b>Fill: Generative Expand</b>. Drag a handle outward past the edge. Leave the task bar prompt empty and click <b>Generate</b>. (Pressing <kbd>Enter</kbd> or the checkmark may also generate straight away with no prompt, so use the task bar when you want to type one.)</li>
+          <li><b>Reframe:</b> pick a Ratio (16:9 banner, 1:1 social, 4:5 feed post). Drag the handles outward until the box extends past the photo; the ratio stays locked. Generate.</li>
+          <li><b>Guide it (optional):</b> a short prompt steers the new area: <code class="inline">a calm beach</code>, <code class="inline">more forest</code>, <code class="inline">open sky</code>.</li>
+          <li><b>Hide the seam:</b> zoom to 100% along the join. Anything repeating or misaligned? Select that strip and regenerate just it (L17). Then a tiny clipped Curves or a whisper of the Module 4 unifying grade over the whole frame.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: Uncrop &amp; reframe</div>
+        <ul class="tick lab">
+          <li>☐ The canvas was expanded past the original with Generative Expand</li>
+          <li>☐ The subject now has appropriate breathing room</li>
+          <li>☐ The photo reaches a useful new aspect ratio with no stretching</li>
+          <li>☐ Horizons and strong lines run continuously across the seam</li>
+          <li>☐ A subtle grade unifies original and generated areas</li>
+        </ul>
+        <p style="font-size:.92rem;margin:.4rem 0 .2rem">Which ratio did you choose, and where will this image be used? What did you see at 100% along the seam?</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <ul class="tick">
+          <li><b>Smeary or repetitive margins?</b> You expanded too far in one go. Undo, expand a smaller amount, generate, repeat. A short prompt can help too.</li>
+          <li><b>Horizon does not line up?</b> Cycle the variations; if none work, select a thin strip across the seam and regenerate it with Generative Fill.</li>
+          <li>Expand for <b>composition and framing</b>, not to invent whole landscapes from a postage stamp. Quality drops the farther you get from real pixels.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Recipe card: Generative Expand</div>
+        <ol class="steps">
+          <li>Crop tool (<kbd>C</kbd>), set Fill: Generative Expand</li>
+          <li>Optionally pick a target Ratio, then drag the handles outward past the photo</li>
+          <li>Empty prompt (continue) or a short prompt (steer) in the task bar → Generate</li>
+          <li>Expand in bites for big changes; pick the best variation</li>
+          <li>Check the seam at 100%; unify with a subtle grade</li>
+        </ol>
+        <p style="font-size:.88rem;color:var(--ink-2)"><b>Mantra:</b> crop outward, generate the margin, keep the horizon honest.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">What is Generative Expand, really?</div>
+          <div class="opts"><div class="opt">A) Generative Fill aimed at empty canvas around the photo</div><div class="opt">B) A filter that stretches the edge pixels outward</div><div class="opt">C) Image Size set to a larger number of pixels</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">You chose Ratio 16:9 and pressed Enter, and Photoshop cropped your photo smaller. What did you skip?</div>
+          <div class="opts"><div class="opt">A) Setting Fill to Background</div><div class="opt">B) Using Free Transform first</div><div class="opt">C) Dragging the crop handles outward past the photo</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">You need a much wider image, and one big expansion came out vague and repetitive. What is the better approach?</div>
+          <div class="opts"><div class="opt">A) Sharpen the generated area</div><div class="opt">B) Expand in smaller steps, generating each time</div><div class="opt">C) Lower the layer's opacity</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">What is the fastest giveaway of a bad expand?</div>
+          <div class="opts"><div class="opt">A) A slightly larger file size</div><div class="opt">B) A horizon or strong line that jumps at the seam</div><div class="opt">C) The generative layer's name</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">What does an empty prompt do in Generative Expand?</div>
+          <div class="opts"><div class="opt">A) Continues the existing scene into the new space</div><div class="opt">B) Fills the new space with the background color</div><div class="opt">C) Nothing; a prompt is required</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Expand quietly changes an image's composition. When does giving a photo "room to breathe" improve it, and when does it dilute a shot that was strong because it was tight? Note one photo of yours that each rule applies to.</em> Also note: key concepts · what clicked · questions · ideas to try · how you feel.</p>
+        <div class="write"></div>
+      </div>
+      <div class="note lab">
+        <div class="t">Mindset</div>
+        <p>The edges of a photo used to be a hard limit; now they are a suggestion. Use that freedom to compose <em>better</em>, not just bigger. If your seam shows, you have not failed, you have found the exact spot to fix next.</p>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L19 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L19</span><h3>Actions, Batch &amp; Droplets</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li><b>Record, play, and edit</b> an Action</li>
+          <li>Run an Action across a folder with <b>Batch</b></li>
+          <li>Resize and convert a whole shoot with the <b>Image Processor</b></li>
+          <li>Turn an Action into a drag-and-drop <b>droplet</b></li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li>An <b>Action</b> is a recording of your steps. Record once, replay forever: on one file, a folder, or as a droplet.</li>
+          <li>Actions live in <b>Window ▸ Actions</b>, inside a <b>Set</b>. Red dot = record, square = stop, triangle = play.</li>
+          <li><b>Record general steps.</b> Fit Image fits the long edge for any orientation; Image Size would record a fixed width.</li>
+          <li><b>Automate the boring, keep the creative.</b> Resizing, converting, watermarking, and exporting are for Actions; grading and retouching are for you.</li>
+          <li>Rule of thumb: <b>if you do it more than twice, record it.</b></li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 480 150" role="img" aria-label="Record a task once to make an Action, then replay it on one image, batch it on a whole folder, or save it as a droplet.">
+            <rect x="10" y="50" width="120" height="50" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="2"/>
+            <circle cx="28" cy="75" r="6" fill="#dc2626"/>
+            <text x="78" y="72" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#1473E6">Record</text>
+            <text x="78" y="88" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#45536a">do it once</text>
+            <line x1="132" y1="75" x2="156" y2="75" stroke="#45536a" stroke-width="1.6"/><polygon points="158,75 150,71 150,79" fill="#45536a"/>
+            <rect x="160" y="50" width="110" height="50" rx="6" fill="#1473E6"/>
+            <text x="215" y="72" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#ffffff">Action</text>
+            <text x="215" y="88" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#e3efff">saved steps</text>
+            <line x1="272" y1="75" x2="318" y2="25" stroke="#45536a" stroke-width="1.4"/>
+            <line x1="272" y1="75" x2="318" y2="75" stroke="#45536a" stroke-width="1.4"/>
+            <line x1="272" y1="75" x2="318" y2="125" stroke="#45536a" stroke-width="1.4"/>
+            <rect x="320" y="8" width="150" height="34" rx="6" fill="#d7efe9" stroke="#0f766e" stroke-width="1.5"/>
+            <text x="395" y="29" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="600" fill="#0f766e">▶ Play on 1 image</text>
+            <rect x="320" y="58" width="150" height="34" rx="6" fill="#d7efe9" stroke="#0f766e" stroke-width="1.5"/>
+            <text x="395" y="79" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="600" fill="#0f766e">Batch a whole folder</text>
+            <rect x="320" y="108" width="150" height="34" rx="6" fill="#d7efe9" stroke="#0f766e" stroke-width="1.5"/>
+            <text x="395" y="129" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="600" fill="#0f766e">Droplet (drag onto)</text>
+          </svg>
+          <figcaption>One recording, three ways to replay it.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: record "Web JPG 1200"</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Put your test images in one folder and make an empty "processed" folder beside it.</p>
+        <ol class="steps">
+          <li>Open one image. In the Actions panel, make a new Set (<b>Export Web</b>), then a new Action (<b>Web JPG 1200</b>), and click <b>Record</b> in the New Action dialog.</li>
+          <li>Edit ▸ <b>Convert to Profile</b>, destination <b>sRGB IEC61966-2.1</b>.</li>
+          <li>File ▸ Automate ▸ <b>Fit Image</b>, 1200 × 1200 px.</li>
+          <li>File ▸ <b>Place Embedded</b> your watermark and position it.</li>
+          <li>Layer ▸ <b>Flatten Image</b> (Save As only offers JPEG for a file without extra layers).</li>
+          <li>File ▸ <b>Save As</b> JPEG (quality 8 to 10 on the 0 to 12 scale) into the processed folder, then close the file.</li>
+          <li>Press <b>Stop</b>. Open a different image, select the Action, press <b>Play</b> to test.</li>
+          <li>File ▸ Automate ▸ <b>Batch</b>: choose the Set and Action, Source = input folder, Destination = processed folder, tick <b>Override Action "Save As" Commands</b>. Click OK.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: Record &amp; batch</div>
+        <ul class="tick lab">
+          <li>☐ An Action is recorded with clear, general steps</li>
+          <li>☐ It plays correctly on a single test file</li>
+          <li>☐ Batch processed an entire folder into the destination</li>
+          <li>☐ Outputs are consistent (size, color, watermark)</li>
+          <li>☐ Originals are untouched (batch wrote copies)</li>
+          <li>☐ I made a droplet (File ▸ Automate ▸ Create Droplet) and dragged a folder onto it</li>
+        </ul>
+        <p style="font-size:.92rem;margin:.4rem 0 .2rem">Write the steps your Actions panel shows, in order. Did anything misbehave on the test file? What did you fix?</p>
+        <div class="write tall"></div>
+      </div>
+      <div class="blk"><div class="h">Three automation tools: which one when?</div>
+        <table class="timing">
+          <thead><tr><th>Tool</th><th>Where</th><th>Best for</th></tr></thead>
+          <tbody>
+            <tr><td><b>Image Processor</b></td><td>File ▸ Scripts</td><td>Quick "make web copies of this shoot" jobs (JPG, PSD, or TIFF), no recording needed</td></tr>
+            <tr><td><b>Batch</b></td><td>File ▸ Automate</td><td>Anything your Action can do, across a folder, with full control of source and destination</td></tr>
+            <tr><td><b>Droplet</b></td><td>File ▸ Automate ▸ Create Droplet</td><td>An Action saved as a little app on your desktop: drag files onto it (Photoshop must be installed; the droplet launches it)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <ul class="tick">
+          <li><b>Batch broke on some files?</b> Usually the Action recorded something too specific, or hit an unexpected file type or color mode. Re-record with general steps, and in Batch enable <b>Suppress color profile warnings</b> and error logging to a file.</li>
+          <li><b>Generative steps in an Action</b> vary per run and need the cloud, so they are less predictable in a batch. Test carefully.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Recipe card: Automate</div>
+        <ol class="steps">
+          <li>Actions panel: new Set → new Action → Record</li>
+          <li>Do the task once (convert, Fit Image, watermark, flatten, save), then Stop</li>
+          <li>Test Play on one file; edit steps if needed</li>
+          <li>File ▸ Automate ▸ Batch across a folder (set Source + Destination; tick Override Action "Save As" Commands)</li>
+          <li>For handoff, Create Droplet; for quick resizes, Image Processor</li>
+        </ol>
+        <p style="font-size:.88rem;color:var(--ink-2)"><b>Mantra:</b> if you do it more than twice, record it.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">What is an Action?</div>
+          <div class="opts"><div class="opt">A) A JavaScript program you write in a code editor</div><div class="opt">B) A recording of steps you can replay with one click</div><div class="opt">C) A saved setting for a single tool</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">Why record File ▸ Automate ▸ Fit Image instead of Image ▸ Image Size?</div>
+          <div class="opts"><div class="opt">A) Fit Image produces sharper results</div><div class="opt">B) Image Size cannot be recorded</div><div class="opt">C) Fit Image fits the long edge on landscape and portrait files alike</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">Your batch ran, but every file was saved into the folder you used while recording instead of your Destination. What was missed?</div>
+          <div class="opts"><div class="opt">A) Ticking Override Action "Save As" Commands</div><div class="opt">B) Ticking Suppress color profile warnings</div><div class="opt">C) Choosing a different Set</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">While recording, Save As does not offer JPEG. Which step belongs before it?</div>
+          <div class="opts"><div class="opt">A) Edit ▸ Convert to Profile</div><div class="opt">B) File ▸ Automate ▸ Fit Image</div><div class="opt">C) Layer ▸ Flatten Image</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">You just need sRGB web JPGs of a whole shoot, with no recording. Which tool?</div>
+          <div class="opts"><div class="opt">A) Batch</div><div class="opt">B) Image Processor</div><div class="opt">C) Create Droplet</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">What is a droplet?</div>
+          <div class="opts"><div class="opt">A) An Action saved as a drag-and-drop app</div><div class="opt">B) A watermark file</div><div class="opt">C) A layer style that adds a water effect</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>List three repetitive tasks in your own workflow that an Action could eat. Which one, automated, would save you the most time this month?</em> Also note: key concepts · what clicked · questions · ideas to try · how you feel.</p>
+        <div class="write"></div>
+      </div>
+      <div class="note lab">
+        <div class="t">Mindset</div>
+        <p>An Action that breaks on the first try is normal: it is just telling you which step was too specific. Delete that step, re-record it, and test again. Debugging your own automation is a professional skill.</p>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Before Session 8: Capstone Homework</h2><span class="rule"></span></div>
+  <div class="note warn">
+    <div class="t">Plan on building at home</div>
+    <p>Session 8 is not long enough to build a capstone from scratch. Arrive with your piece about <b>70 to 80% done</b>: the studio time is for finishing, fixing, and getting help, and the second half of the session is presentations and critique.</p>
+  </div>
+  <div class="blk lab"><div class="h">Part 1: Plan it (read Lesson 20)</div>
+    <ul class="tick lab">
+      <li>☐ I picked one brief: poster · surreal composite · retouched portrait · old photo restoration · product hero shot · brand mini-kit</li>
+      <li>☐ I wrote my one-line brief: "A [what] for [who], to be seen [where], that feels [three adjectives]."</li>
+      <li>☐ I collected 5 to 10 reference images</li>
+      <li>☐ I made a rough moodboard: 3 to 5 colors, one or two fonts, a thumbnail layout</li>
+      <li>☐ I wrote my skill map and set up my document (size, resolution, color mode)</li>
+      <li>☐ The photos and assets my piece needs are on my laptop (my own, or free-license images whose license I checked)</li>
+    </ul>
+    <p style="font-size:.92rem;margin:.4rem 0 .2rem">My one-line brief:</p>
+    <div class="write"></div>
+  </div>
+  <div class="blk lab"><div class="h">Part 2: Build most of it (read Lesson 21)</div>
+    <ul class="tick lab">
+      <li>☐ Composition blocked in, then refined big to small</li>
+      <li>☐ Layers named, grouped, and color-labeled as I went</li>
+      <li>☐ Snapshots before risky steps; versioned saves (<code class="inline">capstone_v1.psd</code>, <code class="inline">_v2</code> …)</li>
+      <li>☐ I wrote down the one or two things I most want help with in Session 8</li>
+    </ul>
+    <div class="write"></div>
+  </div>
+
+  <div class="note">
+    <div class="t">You finished Module 6 🎉</div>
+    <p>You can add, remove, and expand by describing, and you can make a hundred files consistent with one click. You have now met every major capability in the course. Session 8 is the Capstone: no new tools, just you, a plan, and everything you know.</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <b>© 2026 Ray de la Paz</b>
+      <span class="bio">Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Workbook · Module 6 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

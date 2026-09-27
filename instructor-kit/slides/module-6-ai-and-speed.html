@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slides: Module 6</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#0b1220; --ink:#eaf1fb; --ink2:#9fb2cd;
+    --accent:#31A8FF; --accent2:#1473E6; --lab:#34d3bd; --warn:#fbbf24;
+    --line:#22314c; --code:#0a1526; color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;overflow:hidden}
+  .deck{height:100%;width:100%;position:relative}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 8vw;gap:20px}
+  .slide.on{display:flex}
+  h1,h2,h3{font-family:"Archivo",sans-serif;line-height:1.1;text-wrap:balance}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .slide h1{font-size:clamp(2rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+  .slide h2{font-size:clamp(1.5rem,4.2vw,2.8rem);font-weight:800;letter-spacing:-.01em}
+  .slide p.lead{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--ink2);max-width:30ch}
+  ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  ul li{position:relative;padding-left:34px;font-size:clamp(1.05rem,2.3vw,1.6rem)}
+  ul li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+  ul.lab li::before{background:var(--lab)}
+  code.k{font-family:"JetBrains Mono",monospace;color:#a9c7ff;font-size:.92em}
+  pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:22px 26px;font-family:"JetBrains Mono",monospace;font-size:clamp(.85rem,1.9vw,1.3rem);line-height:1.55;overflow:auto;max-width:100%}
+  pre .k{color:#7dd3fc} pre .s{color:#86efac} pre .c{color:#7183a3;font-style:italic}
+  .tag{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);color:var(--ink2)}
+  .tag .pill{background:var(--accent2);color:#fff;font-weight:700;border-radius:999px;padding:3px 12px;letter-spacing:.06em}
+  .tag .pill.lab{background:var(--lab);color:#062b26} .tag .pill.warn{background:var(--warn);color:#3a2a05}
+  .section{background:linear-gradient(135deg,#0f2440,#0b1220)}
+  .section .big{font-size:clamp(3rem,12vw,8rem);font-family:"Archivo";font-weight:800;color:var(--accent2);line-height:.9}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+  @media (max-width:760px){.two{grid-template-columns:1fr}}
+  .bar{position:fixed;left:0;top:0;height:4px;background:var(--accent2);width:0;transition:width .25s;z-index:5}
+  .count{position:fixed;right:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--ink2);z-index:5}
+  .nav{position:fixed;inset:auto 0 0 0;display:flex;justify-content:space-between;pointer-events:none;z-index:4}
+  .nav button{pointer-events:auto;background:transparent;border:none;color:transparent;width:22vw;height:100vh;cursor:pointer}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  .credit{position:fixed;left:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink2);opacity:.7;z-index:5}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <section class="slide on section">
+    <div class="eyebrow">Photoshop · Instructor Kit · Session 7 of 8 · 3 hours</div>
+    <h1>Module 6<br>AI &amp; Speed</h1>
+    <p class="lead">Describe it into being, then do the boring work a hundred times with one click.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Today, in three hours</div>
+    <h2>Two superpowers</h2>
+    <ul>
+      <li><b>L17</b> Generative Fill: add and remove by describing</li>
+      <li><b>L18</b> Generative Expand: invent space past the edges</li>
+      <li><b>L19</b> Actions, Batch &amp; Droplets: record once, run everywhere</li>
+    </ul>
+    <div class="tag"><span class="pill warn">CHECK</span> Photoshop open · signed in · internet on · credits available</div>
+  </section>
+
+  <section class="slide section"><div class="big">L17</div><h2>Generative Fill</h2><p class="lead">A tool with rules, strengths, and blind spots.</p></section>
+  <section class="slide">
+    <div class="eyebrow">The mental model</div>
+    <h2>Select the where, describe the what</h2>
+    <ul>
+      <li><b>Empty prompt</b> → remove (fill with background)</li>
+      <li><b>Described prompt</b> → add (<code class="k">a small sailboat</code>)</li>
+      <li>Result: a new <b>generative layer</b> with its own mask</li>
+      <li><b>Three variations</b>; Generate again for three more</li>
+    </ul>
+    <div class="tag"><span class="pill">WHERE</span> Contextual Task Bar under the selection · or Edit ▸ Generative Fill</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Prompts that work</div>
+    <h2>Short, concrete, iterate</h2>
+    <div class="two">
+      <ul><li>✅ <code class="k">a wooden park bench</code></li><li>❌ <code class="k">something nice to sit on</code></li><li>Name the object; let the scene set the light</li></ul>
+      <ul><li>Tall thing? <b>Tall selection.</b></li><li>Missed? Tweak one or two words</li><li>Then <b>refine</b>: mask, match, heal</li></ul>
+    </div>
+    <div class="tag"><span class="pill warn">LIMITS</span> hands · text · small faces · huge selections · needs internet + credits</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Edit like an editor</div>
+    <h2>Cleaning up vs changing the truth</h2>
+    <ul>
+      <li>Generative edits can change what a photo <b>says</b></li>
+      <li>Journalism, evidence, documentary: adding or removing crosses a line</li>
+      <li><b>Content Credentials</b> flag AI edits; disclose when honesty matters</li>
+    </ul>
+    <div class="tag"><span class="pill lab">LAB</span> Remove a distraction + add an element · generative-working.psd</div>
+  </section>
+
+  <section class="slide section"><div class="big">L18</div><h2>Generative Expand &amp; Reframe</h2><p class="lead">Generative Fill, aimed at empty canvas.</p></section>
+  <section class="slide">
+    <div class="eyebrow">Crop outward</div>
+    <h2>Paint past the edge</h2>
+    <ul class="lab">
+      <li>Crop tool (<b>C</b>) → <b>Fill: Generative Expand</b></li>
+      <li>Drag the handles <b>past</b> the photo</li>
+      <li>Empty prompt = continue the scene · short prompt = steer</li>
+      <li>Click <b>Generate</b> in the task bar</li>
+    </ul>
+    <div class="tag"><span class="pill warn">WATCH</span> A Ratio only sets the shape. You still drag outward.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Keep it believable</div>
+    <h2>Expand in bites · test the horizon</h2>
+    <ul>
+      <li>One huge leap goes vague and repetitive</li>
+      <li>Expand partway, generate, repeat</li>
+      <li>Zoom to <b>100%</b> on the seam: does the horizon jump?</li>
+      <li>Regenerate a thin strip; unify with a subtle grade</li>
+    </ul>
+    <div class="tag"><span class="pill lab">LAB</span> Uncrop + reframe to 16:9, 1:1, or 4:5 · expand-working.psd</div>
+  </section>
+
+  <section class="slide section"><div class="big">L19</div><h2>Actions, Batch &amp; Droplets</h2><p class="lead">If you do it more than twice, record it.</p></section>
+  <section class="slide">
+    <div class="eyebrow">Record "Web JPG 1200"</div>
+    <h2>Do it once, press Stop</h2>
+    <div class="two">
+      <pre><span class="c">Actions ▸ Export Web ▸ Web JPG 1200</span>
+<span class="k">1</span> Convert to Profile: sRGB
+<span class="k">2</span> Fit Image: 1200 × 1200 px
+<span class="k">3</span> Place Embedded watermark
+<span class="k">4</span> Flatten Image
+<span class="k">5</span> Save As JPEG (8–10)
+<span class="k">6</span> Close</pre>
+      <ul><li>● record · ■ stop · ▶ play</li><li><b>Fit Image</b>, not Image Size</li><li>Flatten, or no JPEG in Save As</li><li>Test on a <b>portrait</b> file first</li></ul>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">File ▸ Automate ▸ Batch</div>
+    <h2>One click, whole folder</h2>
+    <ul class="lab">
+      <li>Set + Action · Source = input · Destination = processed</li>
+      <li>Tick <b>Override Action "Save As" Commands</b></li>
+      <li>Suppress color profile warnings · log errors to a file</li>
+      <li>Originals stay untouched: Batch writes copies</li>
+    </ul>
+    <div class="tag"><span class="pill warn">WATCH</span> No override = files land where you saved while recording.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">The rest of the toolkit</div>
+    <h2>Image Processor · Droplet</h2>
+    <ul>
+      <li><b>Image Processor</b> (File ▸ Scripts): web copies of a shoot, no recording</li>
+      <li><b>Droplet</b> (File ▸ Automate ▸ Create Droplet): drag files onto it</li>
+      <li>Automate the boring; keep your attention for the creative</li>
+    </ul>
+    <div class="tag"><span class="pill lab">LAB</span> Record · test · batch the practice folder · make a droplet</div>
+  </section>
+
+  <section class="slide section">
+    <div class="eyebrow">Before Session 8: the Capstone</div>
+    <h2>Plan it, then build most of it at home</h2>
+    <ul class="lab">
+      <li>Read <b>L20</b>: pick a brief, one-line brief, 5–10 references, moodboard, skill map</li>
+      <li>Read <b>L21</b>: build the piece, named and grouped as you go</li>
+      <li>Arrive <b>70–80% done</b>: studio time is for finishing and help</li>
+    </ul>
+    <p class="lead" style="margin-top:10px">A finished piece at 80% of your dream beats an abandoned masterpiece.</p>
+  </section>
+
+</div>
+
+<div class="count" id="count">1 / 14</div>
+<div class="nav"><button id="prev" aria-label="Previous slide"></button><button id="next" aria-label="Next slide"></button></div>
+
+<div class="credit">© 2026 Ray de la Paz</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'), count=document.getElementById('count');
+  let i=0;
+  function show(n){ i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    bar.style.width=((i+1)/slides.length*100)+'%'; count.textContent=(i+1)+' / '+slides.length; }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+    else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+  });
+  show(0);
+</script>
+</body>
+</html>

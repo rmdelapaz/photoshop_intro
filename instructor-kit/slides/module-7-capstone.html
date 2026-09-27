@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slides: Module 7</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#0b1220; --ink:#eaf1fb; --ink2:#9fb2cd;
+    --accent:#31A8FF; --accent2:#1473E6; --lab:#34d3bd; --warn:#fbbf24;
+    --line:#22314c; --code:#0a1526; color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;overflow:hidden}
+  .deck{height:100%;width:100%;position:relative}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 8vw;gap:20px}
+  .slide.on{display:flex}
+  h1,h2,h3{font-family:"Archivo",sans-serif;line-height:1.1;text-wrap:balance}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .slide h1{font-size:clamp(2rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+  .slide h2{font-size:clamp(1.5rem,4.2vw,2.8rem);font-weight:800;letter-spacing:-.01em}
+  .slide p.lead{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--ink2);max-width:30ch}
+  ul{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  ul li{position:relative;padding-left:34px;font-size:clamp(1.05rem,2.3vw,1.6rem)}
+  ul li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+  ul.lab li::before{background:var(--lab)}
+  code.k{font-family:"JetBrains Mono",monospace;color:#a9c7ff;font-size:.92em}
+  pre{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:22px 26px;font-family:"JetBrains Mono",monospace;font-size:clamp(.85rem,1.9vw,1.3rem);line-height:1.55;overflow:auto;max-width:100%}
+  pre .k{color:#7dd3fc} pre .s{color:#86efac} pre .c{color:#7183a3;font-style:italic}
+  .tag{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);color:var(--ink2)}
+  .tag .pill{background:var(--accent2);color:#fff;font-weight:700;border-radius:999px;padding:3px 12px;letter-spacing:.06em}
+  .tag .pill.lab{background:var(--lab);color:#062b26} .tag .pill.warn{background:var(--warn);color:#3a2a05}
+  .section{background:linear-gradient(135deg,#0f2440,#0b1220)}
+  .section .big{font-size:clamp(3rem,12vw,8rem);font-family:"Archivo";font-weight:800;color:var(--accent2);line-height:.9}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+  @media (max-width:760px){.two{grid-template-columns:1fr}}
+  .bar{position:fixed;left:0;top:0;height:4px;background:var(--accent2);width:0;transition:width .25s;z-index:5}
+  .count{position:fixed;right:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--ink2);z-index:5}
+  .nav{position:fixed;inset:auto 0 0 0;display:flex;justify-content:space-between;pointer-events:none;z-index:4}
+  .nav button{pointer-events:auto;background:transparent;border:none;color:transparent;width:22vw;height:100vh;cursor:pointer}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  .credit{position:fixed;left:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink2);opacity:.7;z-index:5}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <section class="slide on section">
+    <div class="eyebrow">Photoshop · Instructor Kit · Session 8 of 8 · 3 hours</div>
+    <h1>Module 7<br>Capstone</h1>
+    <p class="lead">No new tools. Just you, a plan, and everything you have learned.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Today, in three hours</div>
+    <h2>Finish, present, ship</h2>
+    <ul>
+      <li><b>0:00</b> Plan review in pairs (20 min)</li>
+      <li><b>0:20</b> Studio block: finish and get help (90 min)</li>
+      <li><b>1:50</b> Break · files to the shared folder</li>
+      <li><b>2:02</b> Presentations + peer critique (50 min)</li>
+      <li><b>2:52</b> Course close</li>
+    </ul>
+  </section>
+
+  <section class="slide section"><div class="big">L20</div><h2>Choose Your Brief &amp; Plan</h2><p class="lead">Brief before brush.</p></section>
+  <section class="slide">
+    <div class="eyebrow">Plan review · in pairs · 4 min each</div>
+    <h2>Does your plan communicate?</h2>
+    <ul>
+      <li>Read your one-line brief: <b>a [what] for [who], seen [where], feeling [3 adjectives]</b></li>
+      <li>Show your moodboard: palette · one or two fonts · layout</li>
+      <li>Show your file as it is now</li>
+      <li>Partner answers: <b>"What do you expect this to look like?"</b></li>
+    </ul>
+    <div class="tag"><span class="pill">THEN</span> Write your studio goal: the one or two things you will finish today</div>
+  </section>
+
+  <section class="slide section"><div class="big">L21</div><h2>Studio Session: Build It Well</h2><p class="lead">A tidy file is a fast file.</p></section>
+  <section class="slide">
+    <div class="eyebrow">The studio loop</div>
+    <h2>Block in · refine · step back · finish</h2>
+    <div class="two">
+      <ul><li>Big to small, never eyelash first</li><li>Name it the moment it matters</li><li>Group by role: <b>Ctrl/⌘ + G</b></li><li>Color-label: right-click the eye icon</li></ul>
+      <ul><li>Snapshot before risky moves (History camera icon)</li><li>Save versions: <code class="k">capstone_v2.psd</code></li><li>Step back: fit · squint · View ▸ Flip Horizontal</li></ul>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Getting help today</div>
+    <h2>Help flags on your monitor</h2>
+    <ul>
+      <li><b style="color:#34d3bd">Green</b>: working, all good</li>
+      <li><b style="color:#fbbf24">Yellow</b>: a question when you are free</li>
+      <li><b style="color:#f87171">Red</b>: blocked for 5 minutes. Do not sit on it.</li>
+    </ul>
+    <div class="tag"><span class="pill">CHECK-IN</span> Show me your brief · what should I see first? · your next move · file health</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Timed cues</div>
+    <h2>The clock is part of the brief</h2>
+    <ul class="lab">
+      <li><b>0:55</b> Step back: fit, squint, flip. Is the focal point winning?</li>
+      <li><b>1:20</b> Stop adding, start finishing: unifying grade, 100% pass, name everything</li>
+      <li><b>1:40</b> Export now: <code class="k">firstname-capstone.jpg</code> (sRGB) → shared folder</li>
+      <li><b>1:45</b> Write your two-sentence statement</li>
+    </ul>
+    <div class="tag"><span class="pill warn">RULE</span> Save capstone_final.psd before you export anything</div>
+  </section>
+
+  <section class="slide section"><div class="big">L22</div><h2>Present &amp; Ship</h2><p class="lead">A piece, not a file. Done is a decision.</p></section>
+  <section class="slide">
+    <div class="eyebrow">Critique norms</div>
+    <h2>Honest, kind, specific</h2>
+    <ul>
+      <li>Critique the <b>work</b>, not the person</li>
+      <li>Point at the pixels; name a rubric row</li>
+      <li>Judge against the <b>brief</b>, not your taste</li>
+      <li>Presenter listens and says thank you, no defending</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">About 4 minutes each</div>
+    <h2>The protocol</h2>
+    <ul class="lab">
+      <li><b>Present · 90 s</b>: the piece in context + your two-sentence statement + a process shot</li>
+      <li><b>Squint test · 15 s</b>: everyone squints; what do you see first?</li>
+      <li><b>Two reviewers · 90 s</b>: "The first thing I notice is… what confused me was…" + one glow + one grow</li>
+      <li><b>Notes · 15 s</b>: presenter writes the grow down</li>
+    </ul>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">The rubric</div>
+    <h2>The honest critique</h2>
+    <div class="two">
+      <ul><li><b>Focal point</b>: one thing wins first?</li><li><b>Light &amp; color</b>: consistent?</li><li><b>Edges &amp; masks</b>: halos at 100%?</li></ul>
+      <ul><li><b>Type</b>: hierarchy, one or two fonts?</li><li><b>Believability</b>: one light? AI artifacts?</li><li><b>Squint test</b>: still reads?</li></ul>
+    </div>
+    <div class="tag"><span class="pill">GLOW</span> what works, specifically <span class="pill warn">GROW</span> "I wonder if…"</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Where to go next</div>
+    <h2>Depth beats breadth</h2>
+    <ul>
+      <li><b>Photo retoucher</b>: Modules 2 &amp; 3</li>
+      <li><b>Compositor / matte artist</b>: Modules 1 &amp; 4</li>
+      <li><b>Graphic / poster designer</b>: Module 5 (+ Illustrator)</li>
+      <li><b>Speed &amp; production</b>: Module 6</li>
+    </ul>
+    <div class="tag"><span class="pill lab">KEEP</span> The Recipes library, always open</div>
+  </section>
+
+  <section class="slide section">
+    <div class="eyebrow">The one idea to keep</div>
+    <h2>Work non-destructively.<br>Decide what the viewer sees first.</h2>
+    <p class="lead" style="margin-top:10px">Final journal: reread your Module 0 entry and answer it from the other side. Congratulations, and welcome to the craft. 🎉</p>
+  </section>
+
+</div>
+
+<div class="count" id="count">1 / 14</div>
+<div class="nav"><button id="prev" aria-label="Previous slide"></button><button id="next" aria-label="Next slide"></button></div>
+
+<div class="credit">© 2026 Ray de la Paz</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'), count=document.getElementById('count');
+  let i=0;
+  function show(n){ i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    bar.style.width=((i+1)/slides.length*100)+'%'; count.textContent=(i+1)+' / '+slides.length; }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+    else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+  });
+  show(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilitator Guide — Module 4</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">contains answers &amp; timing · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Facilitator Guide</div>
+    <h1>Module 4 — Compositing</h1>
+    <p class="sub">How to teach the three lessons that turn two separate images into one believable photograph: a clean, fringe-free cutout, a subject matched to the scene's light and color, and a finished image grounded with shadow, given depth, and unified with one grade. This is where every earlier module converges.</p>
+    <div class="meta-row">
+      <span class="chip"><b>3</b> lessons</span>
+      <span class="chip"><b>3 h</b> session incl. break</span>
+      <span class="chip">Lessons <b>L11–L13</b></span>
+      <span class="chip">Level <b>Practitioner</b></span>
+      <span class="chip">Maps to <b>Session 5</b></span>
+    </div>
+  </header>
+
+  <div class="sec"><h2>How to Use This Guide</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li>Same rhythm as every module: <b>Frame</b> → <b>Demo</b> → <b>Lab</b> → <b>Check</b>. Each lesson has a guided build, a recipe card, a completion checklist, and a learning-journal prompt. The self-check quizzes live in the participant workbook (answers here and in the Answer Key).</li>
+    <li><b>Demo live on the projector, zoomed in.</b> Compositing flaws are small (a 3-pixel fringe, a shadow pointing the wrong way). Zoom to 100–200% whenever you talk about an edge, or the back row sees nothing.</li>
+    <li><span style="color:var(--lab);font-weight:600">Teal</span> = hands-on, <span style="color:var(--warn);font-weight:600">amber</span> = watch-outs. In Module 4 the watch-outs are mostly <em>habits</em>: forgetting to clip, painting on the wrong layer, and skipping decontamination.</li>
+    <li>Shortcuts are given as <b>Windows / Mac</b>, for example <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>G</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>G</kbd>. Say both out loud; mixed rooms are the norm.</li>
+  </ul>
+
+  <div class="note warn">
+    <div class="t">The #1 risk of Session 5: one file, three lessons, three hours</div>
+    <p>L11, L12, and L13 all build the <b>same composite</b> (<code class="inline">composite-working.psd</code>). A learner whose L11 cutout is weak carries that weakness all day. Two safety nets: (1) the synthetic practice subject <code class="inline">l11-figure-on-green.png</code> is designed to cut out cleanly, so steer strugglers to it rather than a hard personal photo; (2) keep <code class="inline">l11-figure-cutout-reference.png</code> (a clean, finished transparent cutout of that figure) ready, so anyone who falls behind can place it and join L12 on time.</p>
+  </div>
+
+  <div class="sec"><h2>Session 5 Agenda (3 hours)</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Clock</th><th>Segment</th><th>Min</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td class="t">0:00–0:05</td><td>Open &amp; recap</td><td class="t">5</td><td>One-line recap of Module 3 (dodge &amp; burn = painting light). Show the Module 4 goal: one believable photograph. Confirm everyone has the practice files or their own subject + background photos open.</td></tr>
+      <tr><td class="t">0:05–0:08</td><td>L11 frame</td><td class="t">3</td><td>"The background tells on you." Show a fringed cutout on a new color.</td></tr>
+      <tr><td class="t">0:08–0:23</td><td>L11 demo</td><td class="t">15</td><td>Select Subject → Select and Mask → Refine Hair, Smart Radius, Refine Edge Brush → Decontaminate → Output.</td></tr>
+      <tr><td class="t">0:23–0:47</td><td>L11 lab</td><td class="t">24</td><td>Composite-ready cutout + saturated-color believability test.</td></tr>
+      <tr><td class="t">0:47–0:50</td><td>L11 check</td><td class="t">3</td><td>Two self-check items aloud; journal prompt assigned (write it now or tonight).</td></tr>
+      <tr><td class="t">0:50–0:53</td><td>L12 frame</td><td class="t">3</td><td>"Speak the scene's language." Brightness → color → contrast.</td></tr>
+      <tr><td class="t">0:53–1:08</td><td>L12 demo</td><td class="t">15</td><td>Place Embedded, Smart Object, scale, then three clipped adjustments.</td></tr>
+      <tr><td class="t">1:08–1:32</td><td>L12 lab</td><td class="t">24</td><td>Match the subject; squint-and-flick test.</td></tr>
+      <tr><td class="t">1:32–1:35</td><td>L12 check</td><td class="t">3</td><td>Self-check items aloud; journal prompt assigned.</td></tr>
+      <tr><td class="t">1:35–1:47</td><td><b>Break</b></td><td class="t">12</td><td>Leave composites on screen; people will look at each other's work.</td></tr>
+      <tr><td class="t">1:47–1:50</td><td>L13 frame</td><td class="t">3</td><td>Shadow (object), depth (space), unity (whole).</td></tr>
+      <tr><td class="t">1:50–2:07</td><td>L13 demo</td><td class="t">17</td><td>Contact shadow, cast shadow, haze, unifying grade + vignette, save master, Export As.</td></tr>
+      <tr><td class="t">2:07–2:39</td><td>L13 lab</td><td class="t">32</td><td>Finish and export the Module 4 deliverable.</td></tr>
+      <tr><td class="t">2:39–2:42</td><td>L13 check</td><td class="t">3</td><td>Self-check items aloud.</td></tr>
+      <tr><td class="t">2:42–2:55</td><td>Gallery &amp; critique</td><td class="t">13</td><td>Learners show their JPG; the room runs the squint test and names the shadow direction.</td></tr>
+      <tr><td class="t">2:55–3:00</td><td>Wrap &amp; journal</td><td class="t">5</td><td>Assign the three journal entries as homework; preview Module 5 (design and type). Remind them to keep the exported JPG: it can be the Module 5 poster's hero image.</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">If the room runs late, cut the gallery to 5 minutes (two or three volunteers), never the L13 lab: the exported JPG is the Module 4 Practitioner deliverable. The solo variations and "going further" extensions (second scene, light wrap, reflected light, hard-vs-soft light comparison) are <b>if time / homework</b>, listed under Differentiation.</p>
+
+  <div class="sec"><h2>Module at a Glance</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Lesson</th><th>Topic</th><th>Time</th><th>Learners leave able to…</th></tr></thead>
+    <tbody>
+      <tr><td class="t">L11</td><td>Cut It Out Cleanly</td><td class="t">45m</td><td>Produce a fringe-free cutout on a new layer with a mask, ready for any scene</td></tr>
+      <tr><td class="t">L12</td><td>Make It Belong: Match Light &amp; Color</td><td class="t">45m</td><td>Match a subject's brightness, color, and contrast to a scene with clipped adjustments</td></tr>
+      <tr><td class="t">L13</td><td>Ground It &amp; Grade It</td><td class="t">55m</td><td>Add contact and cast shadows, haze, and one unifying grade; save a master and export</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">The module is one story, told in one file: <b>cut it out → make it belong → ground it and grade it.</b> Object, then light, then the whole image.</p>
+
+  <div class="sec"><h2>Lesson Plans</h2><span class="rule"></span></div>
+
+  <!-- L11 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L11</span><h3>Cut It Out Cleanly</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Cut a subject out with Select &amp; Mask, tuned for compositing</li>
+          <li>Rescue fine hair with the Refine Edge Brush</li>
+          <li>Kill the tell-tale fringe with Decontaminate Colors</li>
+          <li>Output the result as a layer with a mask, ready to drop into a scene</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence + live-demo script</div>
+        <ol class="steps">
+          <li><b>Frame: the background tells on you (3m).</b> Open <code class="inline">l11-figure-on-green.png</code>, do a quick Select Subject and plain layer mask, then add a bright orange Solid Color fill layer underneath (Layer ▸ New Fill Layer ▸ Solid Color). Zoom to 200% on the hair. <em>Say:</em> "See that green halo? When this person was photographed, the edge pixels picked up color from what was behind them. Move them to a sunset and that green screams 'pasted.' Today we clean it out." Delete this quick attempt.</li>
+                    <li><b>Select, then Select and Mask (4m).</b> <em>Say:</em> "You already made selections and masks in Lesson 1.2. Same tools, higher stakes." <em>Click:</em> Select ▸ Subject. Then Select ▸ Select and Mask… (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>R</kbd>), or the Select and Mask… button in any selection tool's options bar. Set View to <b>On Layers</b> or <b>Overlay</b>. <em>Say:</em> "Pick a view that lets you judge the edge honestly. Overlay shows me exactly what is and isn't selected."</li>
+          <li><b>Rescue the hair (6m).</b> <em>Click:</em> <b>Refine Hair</b> in the options bar. Under Edge Detection tick <b>Smart Radius</b> and raise <b>Radius</b> a few pixels. Then take the <b>Refine Edge Brush</b> and paint along the wispy strands still missing. Set <b>Shift Edge</b> slightly negative. <em>Say:</em> "Smooth and Feather are optional. Both soften detail, so on hair I keep them at or near zero." Then deliberately drag the Refine Edge Brush across the shoulder and show the mush. <em>Say:</em> "Hair only. Solid edges stay solid."</li>
+          <li><b>Decontaminate (4m).</b> <em>Click:</em> open Output Settings, tick <b>Decontaminate Colors</b>, raise <b>Amount</b> while zoomed on the hair until the green halo disappears. Set <b>Output To: New Layer with Layer Mask</b>, click OK. <em>Say:</em> "Notice Photoshop forces a new layer. Decontamination rewrites edge pixels, so it can't stay fully non-destructive. That's why we keep the original."</li>
+          <li><b>Believability test + bank it (1m).</b> Show the orange fill behind the new cutout: the edge stays clean. Group the cutout layer with its mask, name the group <code class="inline">SUBJECT</code>, leave the original photo hidden beneath, save as <code class="inline">composite-working.psd</code>.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: A Composite-Ready Cutout (24 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Learners cut out their own subject (portrait, product, or pet on a plain-ish background) or <code class="inline">labs/module-4/practice/l11-figure-on-green.png</code>, following Steps 1–4 of the guided build, and save <code class="inline">composite-working.psd</code>. Fast finishers move on to <code class="inline">l11-pet-on-blue-wall.png</code> (fur edge). Full spec in <code class="inline">labs/module-4/README.md</code>.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done (the lesson's checklist):</b> subject on its own layer with a mask (background hidden, not deleted); hair soft and natural; no colored fringe against a saturated test background; original kept as a hidden backup; group named <code class="inline">SUBJECT</code> and saved.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> Output To still on "Selection" or "Layer Mask" (Decontaminate grays those out, so check the box is actually ticked); people painting a normal brush on hair; people judging the edge at 25% zoom.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Over-brushing</b>: running the Refine Edge Brush along a jaw or shoulder turns crisp detail to mush. Hair and fur only.</li>
+          <li><b>Expecting the brush to invent hair</b>: it rebuilds strands at the edge; it cannot recover hair the original selection missed. If a big clump is gone, go back and fix the selection first.</li>
+          <li><b>Smooth/Feather cranked up</b> to "fix" a jagged edge: the whole outline goes soft and looks pasted. Near 0 on hair.</li>
+          <li><b>Deleting the background</b> instead of masking it, or deleting the original layer. Keep both.</li>
+          <li><b>Skipping decontamination</b> because the cutout "looks fine" on the original background. It always looks fine there. Test against a saturated color.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast learners (if time / homework):</b> the solo variation: cut out the fur subject (<code class="inline">l11-pet-on-blue-wall.png</code>), test against three different colored fills, then zoom to 200% and inspect the hair edge pixel by pixel. Challenge: curly hair, fur, or a glass object from their own photos.</li>
+          <li><b>Struggling learners:</b> switch them to <code class="inline">l11-figure-on-green.png</code> (built to cut cleanly), set View to Overlay for them, and reduce the task to three moves: Select Subject, tick Decontaminate, Output To New Layer with Layer Mask. Hair refinement can come later.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding (workbook self-check) + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> B) edge pixels carry color from the old background; <b>Q2</b> B) it replaces the old background's color in the edge pixels; <b>Q3</b> C) New Layer with Layer Mask; <b>Q4</b> B) wispy hair and fur only; <b>Q5</b> A) drop a saturated colored layer behind the cutout; <b>Q6</b> C) <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>R</kbd>. Full explanations in the Answer Key. Journal prompt (write now if time, otherwise homework): <em>Before today, would you have noticed a fringe on a cutout? Note one composite in the wild (an ad, a meme, a movie poster) where the cutout betrays itself.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- L12 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L12</span><h3>Make It Belong: Match Light &amp; Color</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Diagnose why a composite looks "pasted" by checking brightness, color, and contrast</li>
+          <li>Match the subject to the scene with clipped adjustment layers</li>
+          <li>Pull the scene's color into the subject with Curves and Color Balance</li>
+          <li>Use a clipping mask so each adjustment affects only the subject</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence + live-demo script</div>
+        <ol class="steps">
+          <li><b>Frame: speak the scene's language (3m).</b> <em>Say:</em> "Every object in a real scene is lit by the same sources, so they share an accent: the same warmth, brightness range, softness. A pasted subject speaks with a foreign accent." Write on the board: <b>1 Brightness · 2 Color · 3 Contrast</b>. <em>Say:</em> "In that order. Brightness alone is usually eighty percent of the 'pasted' feeling."</li>
+          <li><b>Bring in the scene (2m).</b> In <code class="inline">composite-working.psd</code>: File ▸ Place Embedded → <code class="inline">l12-scene-sunset.jpg</code>, press <kbd>Enter</kbd> to accept, drag its layer below the <code class="inline">SUBJECT</code> group.</li>
+          <li><b>Position and size (2m).</b> Right-click the <code class="inline">SUBJECT</code> group ▸ <b>Convert to Smart Object</b>. <kbd>Ctrl</kbd>+<kbd>T</kbd> / <kbd>⌘</kbd>+<kbd>T</kbd>, scale to a believable size. <em>Say:</em> "Where would this person actually stand? Feet on the ground, not floating."</li>
+          <li><b>Brightness first (4m).</b> Add a Curves adjustment layer above the subject, clip it with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>G</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>G</kbd> (or <kbd>Alt</kbd>/<kbd>⌥</kbd>-click the line between the layers). Point at the indent and bent arrow (↳) and the underlined name of the layer it clips to. Drag the curve down until the subject sits in the scene's brightness range. <em>Say:</em> "Squint. Squinting hides detail and shows brightness mismatches."</li>
+          <li><b>Color temperature (4m).</b> Add a clipped Color Balance; push toward red and yellow in the midtones and highlights for the sunset. Then switch Tone to Shadows and nudge slightly cooler. <em>Say:</em> "Warm light usually means cool shadows. Warm everything evenly and the subject looks dipped in orange."</li>
+          <li><b>Contrast and saturation (2m).</b> If the scene is soft and hazy, flatten the subject's contrast a touch with the clipped Curves. Add a clipped Hue/Saturation and pull Saturation down a few points.</li>
+          <li><b>Squint-and-flick (1m).</b> Toggle all clipped layers off and on. <em>Say:</em> "The 'off' version should now look obviously wrong. If it does, you matched well."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Match the Subject (24 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Learners place a background (their own, or <code class="inline">labs/module-4/practice/l12-scene-sunset.jpg</code>) under their L11 cutout and follow Steps 1–4: Smart Object + scale, clipped Curves (brightness), clipped Color Balance (temperature), clipped Curves/Hue/Saturation (contrast and saturation). Fast finishers repeat the match on <code class="inline">l12-scene-overcast.jpg</code>.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> subject sized and positioned believably (feet on the ground); brightness matches nearby scene elements; lit side carries the scene's color and shadows are not over-warmed; contrast and saturation match; every adjustment is clipped, leaving the background untouched.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> adjustment layers without the ↳ hook (the background changed color too); adjustments placed <em>below</em> the subject; subjects that are simply too large for the scene.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Forgetting to clip.</b> The most common error of the day. Tell them: "If your sky changed color, you forgot to clip." Have them check for the ↳ on every adjustment.</li>
+          <li><b>Starting with color.</b> People love the Color Balance sliders and ignore brightness. Enforce the order.</li>
+          <li><b>Scaling the raw layer many times</b> before converting to a Smart Object, softening it. Convert first, then scale.</li>
+          <li><b>"Dipped in orange."</b> Warming the whole subject evenly. Cool the shadows a touch.</li>
+          <li><b>Clipping confusion</b>: a clipping mask is not a layer mask. Clipping restricts an adjustment to the shape of the layer directly below; a layer mask hides parts of a layer (black hides, white reveals).</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast learners (if time / homework):</b> match the same cutout into both the sunset and the overcast scene and line them up; try the hard case (<code class="inline">l12-subject-indoor-warm.png</code>, a tungsten-lit subject, into daylight); add the <b>light wrap</b>: duplicate the background (<kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>J</kbd>), drag it above the subject and clip it, Gaussian Blur roughly 20–40 px, Screen or Soft Light at low opacity, black mask, paint white only along the edges facing the light. Local matches: a second clipped set masked to just the clothing or just the skin.</li>
+          <li><b>Struggling learners:</b> brightness only. One clipped Curves, squint, done. That alone does most of the work; add color when brightness is right. Give them a shortcut card: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>G</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>G</kbd> = clip.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding (workbook self-check) + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> A) brightness, then color, then contrast; <b>Q2</b> C) it affects only the layer directly below; <b>Q3</b> B) <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Alt</kbd>/<kbd>⌥</kbd>+<kbd>G</kbd>; <b>Q4</b> B) add a touch of cooler color to the shadow side; <b>Q5</b> A) so resizing never degrades it; <b>Q6</b> C) sample a neutral surface / read highlights and shadows. Journal prompt: <em>Which of the three (brightness, color, contrast) was hardest for your eye to judge?</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- L13 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L13</span><h3>Ground It &amp; Grade It</h3><span class="dur">55 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Anchor a subject with a contact shadow and a soft cast shadow</li>
+          <li>Add depth with atmospheric perspective (haze)</li>
+          <li>Tie everything together with a single unifying grade</li>
+          <li>Save a layered master and export a flattened, finished, believable composite</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence + live-demo script</div>
+        <ol class="steps">
+          <li><b>Frame: object, space, whole (3m).</b> <em>Say:</em> "Three cues convince the eye. Shadow ties the object to the ground. Depth, haze, restores the space. One grade over everything makes it feel shot on one camera." Point out the spiral: masks (Module 1), Curves (Module 2), shadow painting that is really dodge and burn (Module 3). Draw the finishing stack on the board: <b>grade on top · haze · SUBJECT · contact shadow · cast shadow · background</b>.</li>
+          <li><b>Contact shadow (5m).</b> New layer <em>below</em> the subject, name it <code class="inline">Contact Shadow</code>. Soft black brush, low opacity, paint a small dark pool right where the feet touch the ground. <em>Say:</em> "Darkest and tightest at the contact point. This layer never gets blurred."</li>
+          <li><b>Cast shadow (5m).</b> Second new layer just below Contact Shadow, name it <code class="inline">Cast Shadow</code>. Point at the scene's existing shadows first. <em>Say:</em> "The sun here is on the right, so the shadow falls to the left. One light, one shadow direction." Paint a longer, softer shadow away from the light, lowering brush opacity as you move outward, then Filter ▸ Blur ▸ Gaussian Blur on this layer only.</li>
+          <li><b>Atmosphere (2m).</b> Only if the subject sits in the mid or far distance: a low-opacity soft layer of the scene's haze color, masked to the distance. <em>Say:</em> "Haze is a whisper. If you can see it, it's too strong."</li>
+          <li><b>Unify (3m).</b> At the very top of the stack, a Color Lookup or gentle Curves for one shared mood. Vignette: new layer, big soft black brush on the corners, lower the layer's opacity until the edges quietly darken.</li>
+          <li><b>Save and export (1m).</b> File ▸ Save the layered master (do not flatten). File ▸ Export ▸ Export As, choose JPG. <em>Say:</em> "Export flattens automatically. Your .psd stays fully layered."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Ground, Depth, Grade (32 min), Module 4 deliverable</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Learners finish their L12 composite with Steps 1–4 and export a JPG. Fast finishers use <code class="inline">labs/module-4/practice/l13-scene-hard-sun.jpg</code> (hard sun) against <code class="inline">l12-scene-overcast.jpg</code> (soft light) to compare shadows.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> a dark, tight contact shadow where the subject meets the ground; a softer, blurred cast shadow on its own layer falling the same way as the scene's other shadows; distance reads through subtle atmosphere (where relevant); one unifying grade over the whole stack; layered master saved and JPG exported.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> shadows painted <em>inside</em> the SUBJECT Smart Object or above it; the Gaussian Blur run on the contact-shadow layer; the unifying grade clipped to the subject (it must sit unclipped at the top); learners who flattened and saved over their master.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Wrong shadow direction.</b> Always check the background's own shadows before painting. Sun high-right means the shadow falls low-left.</li>
+          <li><b>Uniform shadow.</b> One flat gray blob looks fake. Darkest and sharpest at contact, softer and lighter as it travels.</li>
+          <li><b>Heavy haze and heavy grade.</b> Both are cohesion tools, not drama tools. If the grade is doing the heavy lifting, the L12 match needs work.</li>
+          <li><b>Flattening the master.</b> Save the .psd first; Export As handles the flattened JPG.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast learners (if time / homework):</b> finish one composite under hard light and one under soft light and compare shadows (hard light: sharp, dark; soft light: faint, fuzzy); point the shadow the wrong way on purpose, then fix it; grade the same composite warm and golden, then cool and moody. Master's touch: <b>reflected light</b>, a little bounced scene color (green grass under a chin) on the shadow side.</li>
+          <li><b>Struggling learners:</b> contact shadow + unifying grade only, then save and export. The contact shadow is the single strongest cue; a composite with just that and one grade is a legitimate deliverable. Add the cast shadow if time allows.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding (workbook self-check) + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> B) a contact shadow; <b>Q2</b> A) so it can be blurred without softening the contact point; <b>Q3</b> C) low-left; <b>Q4</b> B) hazier, lighter, lower in contrast; <b>Q5</b> A) at the very top of the stack, over everything; <b>Q6</b> B) save the layered .psd, then Export As JPG. Journal prompt: <em>Of shadow, atmosphere, and grade, which made the biggest difference to your composite?</em></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Gallery &amp; Critique Protocol (13 min)</h2><span class="rule"></span></div>
+  <ol class="steps lab">
+    <li>Each learner puts their exported JPG full-screen for about 45 seconds (in a large room, a handful of volunteers).</li>
+    <li>The room squints together and answers three questions aloud: <b>Where is the light coming from? Do the shadows agree? Does the subject pop out or melt in?</b></li>
+    <li>The maker names one thing they are proud of and one thing they would fix next.</li>
+    <li>Keep feedback specific and kind: "the contact shadow sells it; the cast shadow could be softer at the tip" rather than "looks fake."</li>
+  </ol>
+
+  <div class="sec"><h2>Closing the Module</h2><span class="rule"></span></div>
+  <div class="note lab">
+    <div class="t">Module 4 wrap-up (5 min)</div>
+    <p>Recap the arc: <b>a fringe-free cutout → a subject matched to the scene's light → a grounded, graded, single photograph.</b> Everyone should leave with a layered <code class="inline">composite-working.psd</code> and an exported JPG. Encourage: "You just made an image that never existed look like one frame. That took every module so far." Preview Module 5: "Next session we design: type, shapes, and layout, as you build a poster. Bring your composite; it can be the poster's hero image."</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <b>© 2026 Ray de la Paz</b>
+      <span class="bio">Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Instructor Kit · Module 4 · Facilitator Guide · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

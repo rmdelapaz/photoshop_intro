@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workbook — Module 5</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Student workbook —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">write in it · bring it to every session</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Photoshop Workbook · Module 5</div>
+    <h1>Design &amp; Type</h1>
+    <p class="sub">Welcome to design. You will build a poster in one file across three lessons: words with a clear reading order, crisp vector shapes, then polish with layer styles and a correct export. Finishing it completes the Practitioner tier.</p>
+    <div class="meta-row">
+      <span class="chip">Lessons <b>14–16</b></span>
+      <span class="chip"><b>3</b> lessons</span>
+      <span class="chip">Session <b>6</b></span>
+      <span class="chip">Name: ____________________</span>
+    </div>
+  </header>
+
+  <div class="note">
+    <div class="t">How to use this workbook</div>
+    <p>Each lesson has <b>By the end you can</b>, <b>Key ideas</b>, a <b>Worked example</b>, a <b>Your turn</b> activity, a <b>Self-check</b>, a <b>Journal</b> prompt, and <b>Notes</b>. Shortcuts are written <b>Windows / Mac</b>. Practice files are in <code class="inline">labs/module-5/practice/</code>; your Module 4 composite makes a great hero image.</p>
+  </div>
+
+  <div class="note lab">
+    <div class="t">Growth mindset: design is rules, not talent</div>
+    <p>"I have no eye for design" almost always means "nobody told me the rules." Hierarchy is a rule. Restraint is a rule. The Pen's two-move rule is a rule. Your first Pen curves will be lumpy, and that's normal: the Pen rewards practice more than any tool in Photoshop.</p>
+  </div>
+
+  <div class="sec"><h2>Module Progress Tracker</h2><span class="rule"></span></div>
+  <ul class="tick lab">
+    <li>☐ <b>L14</b>: every line has a job; bold title; deliberate leading and tracking; type on a path</li>
+    <li>☐ <b>L15</b>: vector frame, combined-shape badge, one Pen shape, a path reused as a mask</li>
+    <li>☐ <b>L16</b>: restrained layer styles, reused style, Smart Object logo; poster exported 🏆</li>
+  </ul>
+
+  <!-- L14 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L14</span><h3>Type &amp; Hierarchy</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Set and edit text with the <b>Type tool</b> (point type vs paragraph type)</li>
+          <li>Build a clear <b>hierarchy</b> with size, weight, and spacing</li>
+          <li>Control <b>tracking, kerning, and leading</b> in the Character panel</li>
+          <li>Curve text with <b>type on a path</b></li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li><b>Type has a job:</b> grab attention, give the key detail, or be the fine print. Size and space each line to its job.</li>
+          <li><b>Size</b> reads first. <b>Weight</b>: bold pulls forward, light recedes. <b>Space</b>: room around a line makes it feel important.</li>
+          <li><b>Point type</b> (single click) for short display lines. <b>Paragraph type</b> (click and drag a box) for text that wraps.</li>
+          <li><b>Two fonts, maximum.</b> <b>One accent color</b> on the most important thing.</li>
+        </ul>
+        <table class="timing">
+          <thead><tr><th>Term</th><th>What it spaces</th><th>Reach for it when…</th></tr></thead>
+          <tbody>
+            <tr><td><b>Leading</b></td><td>Between lines of text</td><td>A headline's lines drift apart or crash together</td></tr>
+            <tr><td><b>Tracking</b></td><td>Evenly across a run of letters</td><td>A small all-caps label needs to breathe</td></tr>
+            <tr><td><b>Kerning</b></td><td>Between one specific pair</td><td>Two big display letters look awkwardly gapped</td></tr>
+          </tbody>
+        </table>
+        <figure class="fig">
+          <svg viewBox="0 0 460 230" role="img" aria-label="A poster with clear hierarchy: a huge title read first, date and place second, details third, fine print last.">
+            <rect x="120" y="6" width="220" height="218" rx="6" fill="#16202e"/>
+            <text x="230" y="58" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="800" font-size="38" fill="#ffffff">SUMMER</text>
+            <text x="230" y="84" text-anchor="middle" font-family="Archivo,sans-serif" font-weight="700" font-size="18" fill="#ffffff">MUSIC FESTIVAL</text>
+            <text x="230" y="124" text-anchor="middle" font-family="'Source Sans 3',sans-serif" font-weight="600" font-size="15" fill="#31a8ff">July 18 · Riverside Park</text>
+            <text x="230" y="154" text-anchor="middle" font-family="'Source Sans 3',sans-serif" font-size="11" fill="#bcc7d6">Live bands · Food trucks · All ages</text>
+            <text x="230" y="200" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" letter-spacing="2.4" fill="#bcc7d6">TICKETS AT THE DOOR</text>
+            <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#1473E6" font-weight="600">
+              <text x="100" y="62" text-anchor="end">1st</text><text x="100" y="128" text-anchor="end">2nd</text>
+              <text x="100" y="158" text-anchor="end">3rd</text><text x="100" y="203" text-anchor="end">4th</text>
+            </g>
+            <g font-family="'JetBrains Mono',monospace" font-size="10" fill="#6f7c8e">
+              <text x="352" y="62">size</text><text x="352" y="128">accent</text><text x="352" y="158">smaller</text><text x="352" y="203">tracked caps</text>
+            </g>
+          </svg>
+          <figcaption>Hierarchy is a planned reading order: you decide the path the eye takes.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: starting the poster</div>
+        <ol class="steps">
+          <li>File ▸ New: 18 × 24 inches at 150 ppi, dark background. Save as <code class="inline">poster-working.psd</code>.</li>
+          <li>Type tool (<kbd>T</kbd>): click once, type the event name. Commit with <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Enter</kbd>, <kbd>Esc</kbd>, or the ✓. Click an <b>empty</b> spot for each other line (clicking existing text edits it).</li>
+          <li>Size by reading order: title boldly biggest, then date/place, details, fine print.</li>
+          <li>Window ▸ Character: tighten the title's leading; add tracking (for example +120) to small all-caps labels.</li>
+          <li>Type on a path: Ellipse tool in <b>Path</b> mode, drag a circle, hover the Type tool until the cursor shows a wavy line, click and type. Drag with Path Selection to slide or flip it.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: give every line a job</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Use the copy from <code class="inline">l14-poster-copy.txt</code> or your own event. Plan the hierarchy <b>before</b> you touch Photoshop:</p>
+        <table class="timing">
+          <thead><tr><th>Order</th><th>Line of text</th><th>Its job</th><th>Size (pt)</th></tr></thead>
+          <tbody>
+            <tr><td class="t">1st</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td class="t">2nd</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td class="t">3rd</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td class="t">4th</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.92rem;margin:.2rem 0">My two fonts: ______________________ and ______________________ · My one accent color goes on: ______________________</p>
+        <ul class="tick lab">
+          <li>☐ Every line is its own type layer with a clear job</li>
+          <li>☐ The 1st line is boldly bigger than the rest</li>
+          <li>☐ Leading and tracking set deliberately, not left at default</li>
+          <li>☐ Only one or two fonts, and one accent color</li>
+          <li>☐ At least one element uses type on a path</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">Which kind of type should you use for a big poster title?</div>
+          <div class="opts"><div class="opt">A) Point type (a single click)</div><div class="opt">B) Paragraph type (drag a text box)</div><div class="opt">C) Either one; they behave the same</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">What does <b>leading</b> control?</div>
+          <div class="opts"><div class="opt">A) The space between one specific pair of letters</div><div class="opt">B) The space between lines of text</div><div class="opt">C) The thickness of the letters</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">A small all-caps label like "TICKETS AT THE DOOR" looks cramped. What's the fix from the lesson?</div>
+          <div class="opts"><div class="opt">A) Make it bold</div><div class="opt">B) Tighten the leading</div><div class="opt">C) Add positive tracking</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">What is the most common fix on a beginner poster?</div>
+          <div class="opts"><div class="opt">A) Make the main line much bigger</div><div class="opt">B) Add more fonts for variety</div><div class="opt">C) Put the accent color on every line</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">How many fonts does the lesson recommend on one poster?</div>
+          <div class="opts"><div class="opt">A) As many as the lines of text</div><div class="opt">B) One or two</div><div class="opt">C) At least four, for contrast</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">Your text on a circular path is upside down along the bottom. What do you do?</div>
+          <div class="opts"><div class="opt">A) Delete it and draw the circle again</div><div class="opt">B) Rotate the whole layer 180°</div><div class="opt">C) Drag across the path with the Path Selection tool to flip it, then reposition</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Did "I have no eye for design" ever apply to you? After building one real hierarchy, does it feel more like a set of rules you can follow? Write down the one rule that surprised you most.</em> Also note: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L15 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L15</span><h3>Shapes &amp; the Pen</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Explain <b>vector vs raster</b>, and why vectors never pixelate</li>
+          <li>Draw and combine <b>shape layers</b></li>
+          <li>Use the <b>Pen</b> for clean straight and curved paths</li>
+          <li>Turn paths into <b>shapes, selections, or masks</b></li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li><b>Raster</b> (a photo) is a grid of pixels: enlarge it and it goes soft or blocky. <b>Vector</b> is stored as math, redrawn crisp at any size. Type is vector too.</li>
+          <li>Use vector for <b>type, logos, icons, frames, badges</b>; raster for photos.</li>
+          <li><b>The two-move rule:</b> straight line = click, click. Curve = click and drag, then click and drag again.</li>
+          <li><b>Fewer points, smoother curves:</b> one anchor wherever the curve changes direction, no more.</li>
+          <li><b>Modes matter:</b> Shape mode makes a shape layer; Path mode makes a Work Path in the Paths panel.</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 440 150" role="img" aria-label="Pen anatomy: a straight segment made by two clicks, and a curve made by click-and-drag, showing anchor points and handles.">
+            <g font-family="'JetBrains Mono',monospace" font-size="10">
+              <line x1="30" y1="110" x2="150" y2="40" stroke="#1473E6" stroke-width="3"/>
+              <rect x="25" y="105" width="10" height="10" fill="#ffffff" stroke="#1473E6" stroke-width="2"/>
+              <rect x="145" y="35" width="10" height="10" fill="#ffffff" stroke="#1473E6" stroke-width="2"/>
+              <text x="90" y="138" text-anchor="middle" fill="#45536a">click · click = straight</text>
+              <path d="M230 110 C 260 20, 340 20, 400 100" fill="none" stroke="#1473E6" stroke-width="3"/>
+              <line x1="230" y1="110" x2="260" y2="20" stroke="#0f766e" stroke-width="1.5"/>
+              <line x1="400" y1="100" x2="340" y2="20" stroke="#0f766e" stroke-width="1.5"/>
+              <circle cx="260" cy="20" r="5" fill="#0f766e"/><circle cx="340" cy="20" r="5" fill="#0f766e"/>
+              <rect x="225" y="105" width="10" height="10" fill="#ffffff" stroke="#1473E6" stroke-width="2"/>
+              <rect x="395" y="95" width="10" height="10" fill="#ffffff" stroke="#1473E6" stroke-width="2"/>
+              <text x="268" y="16" fill="#0f766e">handle (bend)</text>
+              <text x="244" y="124" fill="#1473E6">anchor</text>
+              <text x="315" y="138" text-anchor="middle" fill="#45536a">click-drag · click-drag = curve</text>
+            </g>
+          </svg>
+          <figcaption>Anchors (squares) are where the path passes; handles (dots) control the bend.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: frame, badge, custom shape</div>
+        <ol class="steps">
+          <li><b>Frame:</b> Rectangle tool, <b>Shape</b> mode. Fill: none (white box with a red slash). Stroke: a few pixels, accent color.</li>
+          <li><b>Badge:</b> draw an Ellipse shape. With that layer active, pick <b>Path Operations</b> ▸ Combine Shapes / Subtract Front Shape / Intersect Shape Areas <b>before</b> drawing the next shape (or hold <kbd>Shift</kbd> to add, <kbd>Alt</kbd>/<kbd>⌥</kbd> to subtract as you start dragging).</li>
+          <li><b>Pen shape:</b> Pen in <b>Shape</b> mode. Click for corners, click-and-drag for curves. Refine with the <b>Direct Selection</b> tool (white arrow).</li>
+          <li><b>Path triple duty:</b> Pen in <b>Path</b> mode, draw a closed path (a Work Path). Right-click it: Make Selection, Fill Path, Stroke Path, Create Vector Mask. Make Selection → Add Layer Mask.</li>
+          <li><b>Scale test:</b> duplicate a small shape, right-click the copy ▸ Rasterize Layer, scale both about 400% with <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>T</kbd>, compare at 100%.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: the Pen game</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Open <code class="inline">l15-pen-practice.png</code> and trace each shape with the Pen in Shape mode, using as few anchor points as you can. Record your count (fewer is better):</p>
+        <table class="timing">
+          <thead><tr><th>Shape</th><th>Suggested points</th><th>My first try</th><th>My best</th></tr></thead>
+          <tbody>
+            <tr><td>Lightning bolt (corners only)</td><td class="t">see sheet</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>Mountain range (corners only)</td><td class="t">see sheet</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>Leaf (2 corners + curves)</td><td class="t">see sheet</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>Heart</td><td class="t">see sheet</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:.92rem;margin:.2rem 0">Then add to your poster:</p>
+        <ul class="tick lab">
+          <li>☐ A vector frame with a stroke and no fill</li>
+          <li>☐ A badge built from combined shapes</li>
+          <li>☐ One custom shape drawn with the Pen (few, clean anchor points)</li>
+          <li>☐ Edges stay crisp after scaling up 400% (the rasterized copy does not)</li>
+          <li>☐ At least one path reused as a selection or mask</li>
+        </ul>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Nothing appeared in the Layers panel? Your Pen is in <b>Path</b> mode: look in the Paths panel, or switch the options bar to <b>Shape</b>. Lumpy curve? Delete extra anchor points and keep handles roughly tangent to the curve.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">Why does a vector shape stay crisp when you enlarge it?</div>
+          <div class="opts"><div class="opt">A) Photoshop sharpens it automatically</div><div class="opt">B) It is stored as math (instructions) and redrawn fresh at any size</div><div class="opt">C) It has more pixels than a photo</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">What is the Pen's "two-move rule"?</div>
+          <div class="opts"><div class="opt">A) Click for corners; click and drag for curves</div><div class="opt">B) Drag for corners; double-click for curves</div><div class="opt">C) Draw freehand, then smooth it</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">Your Pen curve looks lumpy. What's the most likely cause?</div>
+          <div class="opts"><div class="opt">A) The stroke is too thin</div><div class="opt">B) The document resolution is too low</div><div class="opt">C) Too many anchor points</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">You draw a closed shape with the Pen set to <b>Path</b> mode. Where does it appear?</div>
+          <div class="opts"><div class="opt">A) As a new shape layer in the Layers panel</div><div class="opt">B) As a Work Path in the Paths panel, not as a new layer</div><div class="opt">C) Nowhere until you save</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">How do you prove a shape layer stays sharp and a rasterized copy doesn't?</div>
+          <div class="opts"><div class="opt">A) Scale both up about 400% with Ctrl/⌘+T and compare at 100% zoom</div><div class="opt">B) Zoom in to 800% on both</div><div class="opt">C) Change both colors</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">To subtract a small circle from your badge on the <b>same</b> shape layer, when do you choose Subtract Front Shape?</div>
+          <div class="opts"><div class="opt">A) After drawing both shapes on separate layers</div><div class="opt">B) Only after rasterizing the badge</div><div class="opt">C) With the badge layer active, before drawing the second shape</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>The Pen tool has a reputation for being hard. After the two-move rule (click for corners, drag for curves), does it feel less mysterious? Note the shape you found hardest to trace and why.</em> Also note: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L16 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L16</span><h3>Layer Styles &amp; the Poster</h3><span class="dur">58 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Apply <b>layer styles</b> (Drop Shadow, Stroke, Gradient Overlay) as live effects</li>
+          <li><b>Copy and paste</b> styles across layers</li>
+          <li>Use <b>Smart Objects</b> for logos and repeated graphics</li>
+          <li>Assemble a poster and <b>export for print vs screen</b></li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li>A <b>layer style</b> lives on the layer as a live "fx": edit the text or recolor the shape and the effects update. Same non-destructive idea as adjustment layers and Smart Filters (Module 2).</li>
+          <li><b>Restraint wins.</b> A gradient and a soft shadow is usually enough; two or three effects per layer at most. Heavy bevels and glows read as amateur fast.</li>
+          <li>Open Layer Style by <b>double-clicking a layer to the right of its name</b>. Tick an effect to enable it; click its name to see its controls.</li>
+          <li><b>Keep your layered .psd as the master. Always.</b></li>
+        </ul>
+        <table class="timing">
+          <thead><tr><th>Destination</th><th>Color mode</th><th>Resolution</th><th>Format</th></tr></thead>
+          <tbody>
+            <tr><td><b>Print</b></td><td>CMYK (ask the printer)</td><td>300 ppi at final size</td><td>PDF (PDF/X, per the printer) or TIFF</td></tr>
+            <tr><td><b>Screen / social</b></td><td>RGB</td><td>Pixel dimensions that fit the platform (ppi doesn't matter on screen)</td><td>JPG or PNG</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="blk"><div class="h">Worked example: polish and export</div>
+        <ol class="steps">
+          <li><b>Title:</b> Layer Style ▸ Gradient Overlay (two tones of the accent) + Drop Shadow (low opacity, small distance, moderate size).</li>
+          <li><b>Badge:</b> Stroke + soft Drop Shadow. Right-click its <b>fx</b> ▸ Copy Layer Style; right-click another layer ▸ Paste Layer Style.</li>
+          <li><b>Smart Objects:</b> File ▸ Place Embedded brings a logo or photo in as a Smart Object. Put a hero image behind the type.</li>
+          <li><b>Assemble:</b> Move tool with smart guides; even margins; squint.</li>
+          <li><b>Screen:</b> File ▸ Export ▸ Export As ▸ JPG (PNG if you need transparency).</li>
+          <li><b>Print:</b> get the printer's spec sheet → Image ▸ Canvas Size to add the bleed on every side (often 0.125 in / 3 mm), extend the background, keep type well inside the trim → Edit ▸ Convert to Profile on a copy (or let a PDF/X preset convert) → File ▸ Save a Copy as Photoshop PDF with the printer's preset.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: finish the poster</div>
+        <p style="font-size:.92rem;margin:.2rem 0">For each layer that has a style, list its effects. More than three? Ask what each one is really doing.</p>
+        <table class="timing">
+          <thead><tr><th>Layer</th><th>Effects used</th><th>Removed for restraint</th></tr></thead>
+          <tbody>
+            <tr><td>Title</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>Badge</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+        <ul class="tick lab">
+          <li>☐ The title has a gradient and a subtle drop shadow</li>
+          <li>☐ A consistent style is reused (copy/paste layer style)</li>
+          <li>☐ Reusable graphics are Smart Objects</li>
+          <li>☐ Effects are restrained (two or three per layer at most)</li>
+          <li>☐ Everything aligned with even margins</li>
+          <li>☐ Screen JPG exported and viewed at full size 🏆</li>
+          <li>☐ (Homework) print-ready PDF: bleed added, CMYK per printer, layered .psd kept</li>
+        </ul>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Scaled a layer and now the stroke looks too thin? Effects keep their pixel values when you transform. Right-click the fx ▸ <b>Scale Effects</b>. Print looks different from your screen? Soft-proof with View ▸ Proof Setup and View ▸ Proof Colors (<kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Y</kbd>), and confirm with the printer.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">What is a layer style?</div>
+          <div class="opts"><div class="opt">A) A filter that permanently changes the layer's pixels</div><div class="opt">B) A preset font and size</div><div class="opt">C) A set of live, re-editable effects attached to the layer</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">How do you reuse the exact look of one styled layer on another?</div>
+          <div class="opts"><div class="opt">A) Right-click its fx ▸ Copy Layer Style, then right-click the other layer ▸ Paste Layer Style</div><div class="opt">B) Merge the two layers</div><div class="opt">C) Rebuild every effect from memory</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">Which title treatment does the lesson recommend?</div>
+          <div class="opts"><div class="opt">A) Bevel &amp; Emboss + Outer Glow + Stroke + Drop Shadow</div><div class="opt">B) Gradient Overlay + a subtle Drop Shadow</div><div class="opt">C) No styles at all, ever</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">You're exporting the poster for social media. Which settings are right?</div>
+          <div class="opts"><div class="opt">A) RGB, JPG or PNG, pixel dimensions that fit the platform</div><div class="opt">B) CMYK, 300 ppi, PDF/X</div><div class="opt">C) CMYK, JPG, any size</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">Your printer wants 0.125 in of bleed. Photoshop has no bleed setting. How do you add it?</div>
+          <div class="opts"><div class="opt">A) Export As adds bleed automatically</div><div class="opt">B) Move all your type to the edges</div><div class="opt">C) Image ▸ Canvas Size to add it on every side, then extend the background into it</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">After scaling a layer down, its stroke and shadow look too heavy. What fixes it?</div>
+          <div class="opts"><div class="opt">A) Rasterize the layer</div><div class="opt">B) Right-click the fx ▸ Scale Effects (or adjust the values by hand)</div><div class="opt">C) Convert the document to CMYK</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>You just finished your first designed piece. How does designing (type, shapes, layout) feel different from editing photos? Which did you enjoy more, and what does that tell you about where to go next?</em> Also note: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Module 5 Summary</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li><b>Hierarchy</b> is a planned reading order built with size, weight, and space. Leading, tracking, and kerning are your spacing controls.</li>
+    <li><b>Vector</b> is math and stays crisp; use it for everything that isn't a photo. A path can become a shape, a selection, or a mask.</li>
+    <li><b>Layer styles</b> are live effects; two is usually plenty. Copy and paste them for consistency.</li>
+    <li>Export <b>RGB/JPG</b> for screen and <b>CMYK/PDF at 300 ppi</b> for print; keep the .psd master.</li>
+  </ul>
+
+  <div class="note">
+    <div class="t">You finished Module 5 and the Practitioner tier 🎉</div>
+    <p>You designed a poster from nothing: words, shapes, polish, and all. Five modules ago you were exporting your first fixed photo. You can now retouch, composite, and design. Next: Module 6, AI &amp; Speed.</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <b>© 2026 Ray de la Paz</b>
+      <span class="bio">Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Workbook · Module 5 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

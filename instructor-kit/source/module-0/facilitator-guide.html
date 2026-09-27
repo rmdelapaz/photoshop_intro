@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilitator Guide: Module 0</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">contains answers &amp; timing · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Facilitator Guide</div>
+    <h1>Module 0: Your First Win</h1>
+    <p class="sub">How to run Session 1: welcome the room, orient everyone to how this course works, get every copy of Photoshop working, and then deliver the single lesson that opens the course. Learners open a photo, straighten and crop it, brighten it with one adjustment layer, and export a share-ready JPEG, then do it again on their own photo. Protect the first-day energy: everyone leaves with a finished image.</p>
+    <div class="meta-row">
+      <span class="chip"><b>1</b> lesson</span>
+      <span class="chip"><b>3 hrs</b> session</span>
+      <span class="chip">Lesson <b>L01</b></span>
+      <span class="chip">Level <b>Absolute beginner</b></span>
+      <span class="chip">Maps to <b>Session 1</b></span>
+    </div>
+  </header>
+
+  <div class="sec"><h2>How to Use This Guide</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li>The course runs as <b>8 sessions × 3 hours</b>, one module per session. Session 1 = Module 0 (this guide), Session 2 = Module 1, and so on through Session 8 = Module 7 (Capstone).</li>
+    <li>Every lesson runs the same rhythm: <b>Frame</b> → <b>Demo</b> → <b>Guided build</b> → <b>Solo variation</b> → <b>Check</b>. The lessons are built this way on purpose (a guided build, then a "Now You" repeat with a twist), so follow their order.</li>
+    <li><b>Demo everything live on the projector.</b> Beginners mirror your screen click for click. Say the menu path out loud every time ("File, Save As…"), and say both shortcuts: <kbd>Ctrl</kbd> on Windows, <kbd>⌘</kbd> on Mac.</li>
+    <li><span style="color:var(--lab);font-weight:600">Teal</span> = hands-on, <span style="color:var(--warn);font-weight:600">amber</span> = watch-outs. <b>"Say:"</b> lines in the demo scripts are suggested wording; make them your own.</li>
+    <li>Quiz items live in the participant workbook's <b>Self-check</b> boxes; answers are summarized here and explained in full in the Answer Key.</li>
+  </ul>
+
+  <div class="note warn">
+    <div class="t">The #1 risk of Session 1: install and sign-in drift</div>
+    <p>Photoshop is a Creative Cloud app. A learner who arrives with an expired trial, an unsigned-in account, or a half-finished download can lose the whole morning. Send a <b>pre-class email</b> (install Photoshop, sign in, launch it once, bring 4–5 of your own photos) and use the setup-check block to catch the rest. Never freeze the room to fix one laptop: pair that learner with a neighbor and keep moving.</p>
+  </div>
+
+  <div class="sec"><h2>Before Session 1</h2><span class="rule"></span></div>
+  <ul class="tick lab">
+    <li>☐ Every machine has <b>Photoshop 2025 or later</b>, signed in and launched once. (The course home page recommends the current version; the Remove tool used in Module 1 needs Photoshop 2023 v24.5 or later.)</li>
+    <li>☐ Copy <code class="inline">labs/module-0/practice/</code> to each machine (or a shared drive). These synthetic files are safe to redistribute. <b>Do not</b> hand out the course site's <code class="inline">images/</code> folder: it is licensed stock and not redistributable.</li>
+    <li>☐ Learners bring <b>4–5 photos of their own</b> on the laptop, not only on a phone (see the list in <code class="inline">labs/module-0/README.md</code>). For today they need at least one that's a little dark or crooked and one that's too bright.</li>
+    <li>☐ On the projector machine: reset the workspace (<b>Window ▸ Workspace ▸ Reset Essentials</b>) so your screen matches a fresh install, and raise the interface size if the room is large.</li>
+    <li>☐ Open the course site in a browser tab: the home page (for orientation), <b>recipes.html</b>, and <b>lesson_01.html</b> (for the before/after slider).</li>
+    <li>☐ A way to share results: a shared folder, a projector-connected laptop that can open learners' JPEGs, or a gallery walk around the room.</li>
+  </ul>
+
+  <div class="sec"><h2>Session 1 Agenda (3 hours)</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Clock</th><th>Segment</th><th>Min</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="t">0:00–0:15</td><td>Welcome &amp; introductions</td><td class="t">15</td><td>Name, what you shoot or make, one image you'd love to be able to create.</td></tr>
+      <tr><td class="t">0:15–0:35</td><td>Course orientation</td><td class="t">20</td><td>Project-driven path, the Recipes library, journaling, growth mindset.</td></tr>
+      <tr><td class="t">0:35–0:55</td><td>Setup check + workspace tour &amp; reset</td><td class="t">20</td><td>Everyone opens <code class="inline">l01-tilted-horizon.jpg</code>; four neighborhoods; reset workspace.</td></tr>
+      <tr><td class="t">0:55–1:45</td><td><b>L01</b> Fix &amp; Export One Photo: demo + guided lab + self-check</td><td class="t">50</td><td>Lesson plan below. Everyone exports <code class="inline">myphoto-final.jpg</code>.</td></tr>
+      <tr><td class="t">1:45–2:00</td><td>Break</td><td class="t">15</td><td>Leave the 5-step recipe card on the projector.</td></tr>
+      <tr><td class="t">2:00–2:35</td><td>Independent pass on your own photo</td><td class="t">35</td><td>The lesson's "Now You" solo variation, on a learner photo. You coach; you don't demo.</td></tr>
+      <tr><td class="t">2:35–2:50</td><td>Share-out</td><td class="t">15</td><td>Before/after eyeball toggles, 30–45 seconds each (or a gallery walk).</td></tr>
+      <tr><td class="t">2:50–3:00</td><td>First journal entry + wrap-up</td><td class="t">10</td><td>Journal (7 min), then "Before the next lesson" and a Session 2 preview (3 min).</td></tr>
+      <tr><td class="t"><b>Total</b></td><td></td><td class="t"><b>180</b></td><td>If you run long, shorten the share-out, never the journal.</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">Session 1 is one story: <b>meet the course → get the tools working → finish one photo together → finish another one alone → show it off → write down why you're here.</b> The lesson page estimates 25 minutes for a solo learner; in a room, with a demo before each step and a second independent pass, it fills the session.</p>
+
+  <div class="sec"><h2>Opening Segments</h2><span class="rule"></span></div>
+
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">0:00</span><h3>Welcome &amp; Introductions</h3><span class="dur">15 min</span></div>
+    <div class="lesson-body">
+      <ol class="steps">
+        <li><b>Your story (3m).</b> Introduce yourself and why you love this tool. Keep it short and human.</li>
+        <li><b>Round of names (10m).</b> Each learner: name, what they shoot or make, and <em>one image they'd love to be able to create</em>. Jot these down: they are gold for examples later in the course and for the Capstone in Session 8.</li>
+        <li><b>Housekeeping (2m).</b> Break time, restrooms, Wi-Fi, where files are saved, how to ask for help (hand up, or a sticky note on the laptop lid).</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">0:15</span><h3>Course Orientation</h3><span class="dur">20 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Talking points &amp; live-demo script</div>
+        <ol class="steps">
+          <li><b>Project-driven, not a tool tour (5m).</b> Show the course home page. <b>Say:</b> "Most software courses march you through menus: here's the Brush tool, here's a dialog box you'll forget by lunch. This one doesn't. Every module ends in a finished deliverable, and you learn each skill at the moment the project needs it." Walk the path: <b>Module 0</b> First Win, <b>1</b> Foundations (a messy photo cleaned up), <b>2</b> Light &amp; Color, <b>3</b> Retouching, <b>4</b> Compositing, <b>5</b> Design &amp; Type (a poster), <b>6</b> AI &amp; Speed, <b>7</b> Capstone (a self-directed portfolio piece, presented). One module per session.</li>
+          <li><b>It spirals (3m).</b> Name the four big ideas that keep coming back, each time deeper: <b>non-destructive editing</b>, the <b>layer stack</b>, <b>masks as grayscale</b>, and <b>selections</b>. <b>Say:</b> "You don't finish layers today and move on. You'll keep meeting them until they're second nature."</li>
+          <li><b>The Recipes library (4m).</b> Open <b>recipes.html</b>. Type "horizon" in the filter box and show the "Straighten a crooked horizon" card. <b>Say:</b> "Recipes are short, standalone how-tos you can use in any order, each linked to the lesson that teaches the why. They're the reason you don't have to memorize everything." Every lesson also ends with its own recipe card; the workbook reprints them.</li>
+          <li><b>Journaling (4m).</b> Show the workbook's Journal box. Five things after every lesson: <b>key concepts · techniques that clicked · questions or confusion · ideas to try · progress and feelings</b>. <b>Say:</b> "Your first entry today is about why you're here. At the Capstone you'll read it again, and you'll be amazed how far you've come."</li>
+          <li><b>Growth mindset (4m).</b> <b>Say:</b> "If Photoshop feels like 'too much,' that feeling is normal, and temporary. You are not going to learn all of Photoshop. Nobody has. You're going to learn the handful of ideas it's built on, and then use them. Add the word <em>yet</em> to anything that feels hard today." Set the norm: mistakes are expected, and non-destructive editing means almost nothing you do in this course is permanent.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">0:35</span><h3>Setup Check + Workspace Tour &amp; Reset</h3><span class="dur">20 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Sequence</div>
+        <ol class="steps">
+          <li><b>Launch and open (7m).</b> Everyone launches Photoshop and opens <code class="inline">l01-tilted-horizon.jpg</code> with <b>File ▸ Open</b>. Hands up when the photo is on screen. Anyone stuck (sign-in prompt, trial expired, can't find the file) gets paired with a neighbor right away while you or a helper sorts it out.</li>
+          <li><b>Reset the workspace (3m).</b> <b>Window ▸ Workspace ▸ Reset Essentials</b>. <b>Say:</b> "Now all our screens match. If your panels ever go missing or get scrambled, this is the fix."</li>
+          <li><b>The four neighborhoods (7m).</b> Point at each and have learners point at theirs: <b>Tools</b> (left edge: where we grab the Crop tool), <b>Options bar</b> (along the top: settings for whatever tool is selected), <b>Canvas</b> (the big middle: your photo), <b>Layers panel</b> (bottom-right: the layer stack lives here). <b>Say:</b> "Yours has a thousand more buttons. Ignore them today." Show the rescue: <b>Window ▸ Layers</b> or <kbd>F7</kbd> if the Layers panel is missing. Hover a tool to show its name and shortcut letter.</li>
+          <li><b>Close without saving (3m).</b> Close the photo (don't save). <b>Say:</b> "We'll open it again properly in a minute, and the very first thing we'll do is protect the original."</li>
+        </ol>
+      </div>
+      <div class="blk warn"><div class="h">Watch-outs</div>
+        <ul class="tick">
+          <li><b>Photo only on the phone.</b> Learners who didn't copy photos to the laptop use the practice files for now and AirDrop, email, or cloud-sync their own photos during the guided lab, ready for the independent pass after the break.</li>
+          <li><b>Home screen confusion.</b> Photoshop may open to a Home screen instead of an empty workspace. File ▸ Open works from there too.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Module at a Glance</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Lesson</th><th>Topic</th><th>Time</th><th>Learners leave able to…</th></tr></thead>
+    <tbody>
+      <tr><td class="t">L01</td><td>Fix &amp; Export One Photo</td><td class="t">50m + 35m</td><td>Run the whole loop: Open → Save .psd → Crop → Adjust → Save → Export JPG, and say what "non-destructive" means</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec"><h2>Lesson Plan</h2><span class="rule"></span></div>
+
+  <!-- L01 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L01</span><h3>Fix &amp; Export One Photo</h3><span class="dur">50 min + 35 min independent</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Open a photo and straighten &amp; crop it with the Crop tool</li>
+          <li>Improve its brightness and contrast with a Brightness/Contrast adjustment layer</li>
+          <li>Explain, in one sentence, what "non-destructive editing" means and why it matters</li>
+          <li>Export a finished JPEG without ever altering the original file</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Timing (0:55–1:45)</div>
+        <table class="timing">
+          <tbody>
+            <tr><td class="t">4m</td><td>The 20-minute promise: show the lesson's before/after slider</td></tr>
+            <tr><td class="t">8m</td><td>One idea: tracing paper (layers, adjustment layers, non-destructive)</td></tr>
+            <tr><td class="t">30m</td><td>Guided build, Steps 1–4 (demo a step, room does it, next step) + checklist</td></tr>
+            <tr><td class="t">8m</td><td>Self-check (workbook Q1–Q6), answers aloud</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence &amp; live-demo script</div>
+        <ol class="steps">
+          <li><b>Open with the payoff (4m).</b> Put <code class="inline">lesson_01.html</code> on the projector and drag the before/after handle. <b>Say:</b> "You don't need to understand everything today. You need to finish one photo. Understanding grows out of finishing, not the other way around."</li>
+          <li><b>Tracing paper (8m).</b> Hold a sheet of paper over a printed photo if you have one. <b>Say:</b> "Instead of drawing on the photo with a marker, we lay tracing paper over it. Brighter? One sheet. Warmer? Another sheet. Hate it? Peel it off. The photo underneath is never touched." Name the terms: those sheets are <b>layers</b>; sheets that only carry an instruction ("make everything under me brighter") are <b>adjustment layers</b>; working this way is <b>non-destructive editing</b>. <b>Say:</b> "Every professional retoucher works this way. It's not a beginner shortcut you'll outgrow; it's the real workflow, so you never have to unlearn a bad habit."</li>
+          <li><b>Step 1: Open &amp; save a working file (5m).</b> Click <b>File ▸ Open</b>, choose <code class="inline">l01-tilted-horizon.jpg</code>. Immediately <b>File ▸ Save As</b>, format <b>Photoshop (.psd)</b>, name <code class="inline">myphoto-working.psd</code>. If Photoshop asks where to save, click <b>Save on your computer</b>. <b>Say:</b> "The .psd remembers layers. The original JPEG stays untouched on disk. That's tracing paper applied to the file itself."</li>
+          <li><b>Step 2: Straighten &amp; crop (8m).</b> Press <kbd>C</kbd>. Drag a corner inward to trim distracting edges (on the practice file, crop out the dark blob in the bottom-left corner). Then move the cursor just outside a corner until it becomes a <b>bent arrow</b> and drag to rotate until the grid lines match the horizon. Press <kbd>Enter</kbd> (<kbd>Return</kbd>). <b>Say:</b> "Straightening is just rotating the grid until it agrees with a line that should be level." Walk the room before moving on: this step spreads people out.</li>
+          <li><b>Step 3: One adjustment layer (9m).</b> At the bottom of the Layers panel click the half-black/half-white circle (<b>◐</b>) and choose <b>Brightness/Contrast</b>. Nudge <b>Brightness</b> up until the shadows open up; nudge <b>Contrast</b> up a little for punch. Point at the Layers panel: a new sheet sits above the photo. Then the <b>magic moment</b>: click the eyeball next to the adjustment layer off and on. <b>Say:</b> "The whole effect vanishes and comes back. Proof we changed nothing in the photo itself." Pause until every learner has clicked their own eyeball.</li>
+          <li><b>Step 4: Save, then export (6m).</b> <b>File ▸ Save</b> (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>S</kbd>) so the .psd keeps the adjustment layer. Then <b>File ▸ Export ▸ Export As…</b>, format <b>JPG</b>, quality around <b>80%</b>, <b>Export</b>, name <code class="inline">myphoto-final.jpg</code>. <b>Say:</b> "Two files now: the layered .psd is your editable master, the flat .jpg is the copy you share. Never post the .psd. Never edit on the .jpg."</li>
+          <li><b>Checklist (2m).</b> Read the lesson's five-item Project Completion Checklist aloud; hands up for "all five." <b>Say:</b> "You just completed the entire Photoshop loop. Take the win."</li>
+          <li><b>Self-check (8m).</b> Learners answer workbook Q1–Q6 alone (4m), then you reveal answers and ask one volunteer to explain each "why."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Independent pass on your own photo (2:00–2:35)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">This is the lesson's "Now You" solo variation, done on a <b>learner's own photo</b>. Repeat the whole loop without a demo. Suggested twist from the lesson: choose a photo that's <b>too bright</b>, lower Brightness a touch, then add a <b>second</b> adjustment layer (◐ ▸ <b>Vibrance</b>, push Vibrance up gently), and export. Compare side by side with the original. Anyone without a suitable photo uses <code class="inline">l01-too-bright.jpg</code>. Early finishers run the recipe on a third photo. Details in <code class="inline">labs/module-0/README.md</code>.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Your role:</b> coach, don't drive. When someone asks "how do I…?", point to the recipe card in their workbook first. Name files with the learner's own subject (e.g. <code class="inline">beach-working.psd</code>, <code class="inline">beach-final.jpg</code>).</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> a working .psd saved <em>before</em> editing; two adjustment layers visible in the Layers panel (not one layer edited twice); an exported .jpg with a new name so the original isn't overwritten.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> every learner has two finished loops (practice file + own photo), each with a .psd containing at least one adjustment layer and an exported .jpg, and can toggle the eyeball to show the before/after.</p>
+      </div>
+      <div class="blk lab"><div class="h">Share-out (2:35–2:50)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Each learner (or volunteers, in a large room) shows their own-photo .psd for 30–45 seconds: toggle the adjustment layers' eyeballs for the before/after and say <b>one</b> choice they made ("I lowered brightness because the sky was blown out"). Alternative: a gallery walk with laptops open to the .psd. Celebrate subtle edits out loud: the lesson's FAQ is clear that a subtle, tasteful edit done non-destructively is a complete success.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Skipping Save As .psd.</b> Without a working .psd it's easy to save changes back over the original JPEG, a format that can't store layers, so the edit gets baked in for good. Make Save As the very first click, every time, and say why.</li>
+          <li><b>Saving to the cloud by accident.</b> The first Save As may offer cloud documents. Tell the room to click <b>Save on your computer</b> so they can find the file afterward.</li>
+          <li><b>Crop tool remembers the last ratio.</b> If the crop box snaps to a square or a fixed shape, open the ratio menu in the options bar and click <b>Clear</b> so the box drags freely.</li>
+          <li><b>Rotating by dragging inside the box.</b> Dragging inside moves the image; rotating only happens with the <b>bent arrow</b> just <em>outside</em> a corner. Demo the cursor change slowly.</li>
+          <li><b>Forgetting to commit the crop.</b> Nothing else works while the crop is pending. Press <kbd>Enter</kbd>/<kbd>Return</kbd> (or click the check mark in the options bar).</li>
+          <li><b>Pushing Brightness to the max.</b> Say "nudge." A subtle edit is a complete success.</li>
+          <li><b>Export confusion.</b> Export As writes a <em>new</em> file. If someone exports over their original (same name, same folder), they've lost it. Always use a <code class="inline">-final</code> name.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding: self-check + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> B) Changes live on layers above the photo, so the original pixels are never altered; <b>Q2</b> B) A .psd keeps your layers, and the original stays untouched; <b>Q3</b> A) Bent arrow just outside a corner, rotate to match the horizon; <b>Q4</b> C) The edit lives on the adjustment layer, not in the photo; <b>Q5</b> B) Save writes the layered .psd, Export makes a flat share-ready copy; <b>Q6</b> A) Window ▸ Layers (or F7). Full explanations in the Answer Key.</p>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>First journal entry (2:50–2:57):</b> <em>Why do you want to learn Photoshop, and what's one image you dream of being able to make?</em> Remind the room of the five journal headings and that you'll come back to this entry at the Capstone (Session 8). Paper learners use the workbook's Journal box.</p>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Quick verbal check (during the share-out):</b> "Explain non-destructive editing in one sentence." Listen for "the original is never changed."</p>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Fast finishers:</b> the lesson's "Going further": reorder the two adjustment layers by dragging one above the other and see whether the result changes. Then try the <b>Straighten</b> button in the Crop options bar (drag a line along what should be level) as a second way to straighten, and run the recipe on a third photo. Point them at the Recipes library's "Crop to an exact size or ratio" card.</p>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Struggling learners:</b> for the independent pass, drop the Vibrance twist and repeat Steps 1–4 exactly, with the workbook's recipe card beside them. Pair them with a finisher who "drives" only by pointing, never by taking the mouse. The only must-haves today are an exported JPEG and one eyeball toggle.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Closing the Session</h2><span class="rule"></span></div>
+  <div class="note lab">
+    <div class="t">Wrap-up (2:57–3:00)</div>
+    <p>Recap the loop on the board: <b>Open → Save .psd → Crop → Adjust → Save → Export JPG.</b> Golden rule: edits live on adjustment layers, never on the photo. Assign the lesson's "Before the next lesson": keep your .psd, run the 5-step recipe on two more photos until it feels automatic, finish your journal entry. Ask learners to bring photos for Session 2: a landscape with a pale sky, a photo with one clear subject (person, pet, or product), and a photo with dust, a blemish, or a distracting object. Preview Session 2 (Module 1): "Today's adjustment changed the whole photo. The best edits are local: brighten <em>this</em>, calm down <em>that</em>. Next time we meet the tool for 'only here, not there': the mask."</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <span class="bio">© 2026 Ray de la Paz · Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Instructor Kit · Module 0 · Facilitator Guide · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

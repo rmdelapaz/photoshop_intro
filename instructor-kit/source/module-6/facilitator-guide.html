@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilitator Guide · Module 6</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">contains answers &amp; timing · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Facilitator Guide</div>
+    <h1>Module 6: AI &amp; Speed</h1>
+    <p class="sub">How to teach the three lessons of the Advanced tier: Generative Fill, Generative Expand, and automation with Actions, Batch, and droplets. The theme of the day is "power in service of craft": the generative tools make hard edits easy, the automation makes repetitive edits vanish, and your job is to keep learners thinking like editors, not button-mashers.</p>
+    <div class="meta-row">
+      <span class="chip"><b>3</b> lessons</span>
+      <span class="chip"><b>Session 7</b> · 3 hrs incl. break</span>
+      <span class="chip">Lessons <b>L17–L19</b></span>
+      <span class="chip">Level <b>Beginner, Advanced tier</b></span>
+      <span class="chip">Needs <b>internet + credits</b> (L17–L18)</span>
+    </div>
+  </header>
+
+  <div class="sec"><h2>How to Use This Guide</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li>Same rhythm as every module: <b>Frame</b> → <b>Demo</b> → <b>Lab</b> → <b>Check</b>. Each lesson plan gives a demo script (what to click, what to say), the lab, the beginner mistakes to pre-empt, a check for understanding, and differentiation notes.</li>
+    <li><b>Do every demo live on the projector</b>, at 100% zoom where it matters (seams, artifacts). Name every click and every menu path out loud, for both Windows and Mac: <kbd>Ctrl</kbd> on Windows is <kbd>⌘</kbd> on Mac, <kbd>Alt</kbd> is <kbd>⌥</kbd>.</li>
+    <li><span style="color:var(--lab);font-weight:600">Teal</span> = hands-on, <span style="color:var(--warn);font-weight:600">amber</span> = watch-outs. In this module the biggest watch-outs are environmental (network, sign-in, credits) for L17–L18 and "recorded something too specific" for L19.</li>
+    <li>Quiz answers below match the workbook's Self-checks; the Answer Key explains each one.</li>
+  </ul>
+
+  <div class="note warn">
+    <div class="t">Before Session 7: the generative readiness check</div>
+    <p>Generative Fill and Generative Expand run in Adobe's cloud. Each learner needs <b>a recent Photoshop</b>, <b>an internet connection</b>, <b>to be signed in to an Adobe account</b>, and <b>generative credits</b> (each generation spends them; the monthly allowance depends on the plan). Classroom networks and lab licenses are the usual failure points. <b>At least a day before</b>, on one room machine: sign in, make a selection, click Generative Fill, and generate once. On the day, have everyone open Photoshop and sign in during the first ten minutes, not when L17 starts.</p>
+  </div>
+
+  <div class="note warn">
+    <div class="t">Fallback plan if credits or network fail in the room</div>
+    <p><b>1. Reorder.</b> L19 (Actions, Batch, droplets) is 100% offline. If the network is down at the start, teach L19 first and return to L17–L18 when it recovers. <b>2. Share.</b> If only some accounts have credits, pair learners: one generates, both direct the prompt and pick the variation, then swap roles for the refine step. <b>3. Demo + non-generative equivalents.</b> If nobody can generate, run the demos from the instructor machine (or a screen recording you made during your readiness check) and have learners do the same jobs with offline tools they already know: removal with the <b>Remove tool</b> or <b>Content-Aware Fill</b> (Module 1, L04), and expansion with the Crop tool dragged outward with the options bar's <b>Fill</b> set to <b>Content-Aware Fill</b> instead of Generative Expand. The workflow lesson (select, fill, cycle, refine on a layer, check the seam at 100%) survives intact; only the "describe it in words" part is lost. <b>4. Homework.</b> Assign the L17 and L18 labs as take-home work for learners with credits at home.</p>
+  </div>
+
+  <div class="sec"><h2>Session 7 Agenda (3 hours)</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Clock</th><th>Block</th><th>Min</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td class="t">0:00–0:08</td><td>Open &amp; sign-in check</td><td class="t">8</td><td>Everyone opens Photoshop and confirms they are signed in. One-line recap of Module 5 (the finished poster). Frame the day: "generative power, then speed."</td></tr>
+      <tr><td class="t">0:08–0:26</td><td>L17 Frame + demo</td><td class="t">18</td><td>Select-then-describe model, the Contextual Task Bar, live remove + add, refine, prompts and limits, honesty note.</td></tr>
+      <tr><td class="t">0:26–0:48</td><td>L17 Lab</td><td class="t">22</td><td>Remove a distraction and add an element on <code class="inline">generative-working.psd</code>; refine with a mask or clipped adjustment.</td></tr>
+      <tr><td class="t">0:48–1:02</td><td>L18 Frame + demo</td><td class="t">14</td><td>Crop tool with Fill: Generative Expand, uncrop, reframe to a ratio, expand in bites, the horizon test.</td></tr>
+      <tr><td class="t">1:02–1:22</td><td>L18 Lab</td><td class="t">20</td><td>Uncrop and reframe on <code class="inline">expand-working.psd</code>; check the seam at 100%.</td></tr>
+      <tr><td class="t">1:22–1:34</td><td><b>Break</b></td><td class="t">12</td><td>Early finishers copy the L19 practice folder to their desktop and make an empty <code class="inline">l19-processed/</code> folder beside it.</td></tr>
+      <tr><td class="t">1:34–1:56</td><td>L19 Frame + demo</td><td class="t">22</td><td>Record "Web JPG 1200" live, test on a portrait file, Batch with Override Action "Save As" Commands, then Image Processor and Create Droplet.</td></tr>
+      <tr><td class="t">1:56–2:36</td><td>L19 Lab</td><td class="t">40</td><td>Record, test, batch the practice folder; build a droplet. Fast finishers: a second Action (2000 px print JPG) or an L17/L18 "Going further."</td></tr>
+      <tr><td class="t">2:36–2:48</td><td>Check &amp; journal</td><td class="t">12</td><td>Review the three Self-checks together (cold-call a few items), then the journal prompts.</td></tr>
+      <tr><td class="t">2:48–3:00</td><td>Capstone homework launch</td><td class="t">12</td><td>Show the six briefs from L20, explain the homework and the "build most of it at home" expectation (see Closing), answer questions.</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">Three lessons in three hours is tight, so demos stay crisp and fast finishers extend inside the lab time rather than in a separate block. If the room runs slow, shorten the check-and-journal block (learners can journal at home) and trim the L19 fast-finisher extension. Never cut the capstone homework launch: Session 8 depends on learners arriving with a chosen brief and most of their piece built.</p>
+
+  <div class="sec"><h2>Module at a Glance</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Lesson</th><th>Topic</th><th>Time</th><th>Learners leave able to…</th></tr></thead>
+    <tbody>
+      <tr><td class="t">L17</td><td>Generative Fill</td><td class="t">40m</td><td>Remove with an empty prompt, add with a short concrete prompt, and refine the generative layer</td></tr>
+      <tr><td class="t">L18</td><td>Generative Expand &amp; Reframe</td><td class="t">34m</td><td>Uncrop a tight photo and reframe it to a new ratio with an invisible seam</td></tr>
+      <tr><td class="t">L19</td><td>Actions, Batch &amp; Droplets</td><td class="t">62m</td><td>Record an Action, batch a folder into consistent web files, and make a droplet</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">The module is one story: <b>add and remove inside the frame → invent space outside the frame → do the routine work at scale.</b> L18 is "the same idea as L17, aimed at empty canvas," so let the spiral do the teaching.</p>
+
+  <div class="sec"><h2>Lesson Plans</h2><span class="rule"></span></div>
+
+  <!-- L17 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L17</span><h3>Generative Fill</h3><span class="dur">40 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li><b>Remove</b> an object by selecting it and generating with an empty prompt</li>
+          <li><b>Add</b> new content by selecting an area and describing what belongs there</li>
+          <li>Work with <b>generative layers</b> and cycle through <b>variations</b></li>
+          <li>Write prompts that work, and know Generative Fill's <b>limits</b></li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence &amp; demo script</div>
+        <ol class="steps">
+          <li><b>Hook (2m).</b> Show the lesson's before/after (sign removed, sailboat added). <em>Say:</em> "Two edits, two prompts, and not one original pixel touched. Today you learn to drive this, and to know when not to."</li>
+          <li><b>Mental model (3m).</b> Write on the board: <b>Select the where → describe the what → Generate → pick a variation → refine.</b> <em>Say:</em> "Empty prompt removes. A described prompt adds. The result is a new generative layer with its own mask, so it is one more non-destructive layer, the principle from Module 0 all over again."</li>
+          <li><b>Demo: the task bar (2m).</b> Open <code class="inline">l17-lake-sign.jpg</code>, save as <code class="inline">generative-working.psd</code>. <em>Click:</em> Lasso around the sign with a little margin. Point at the floating <b>Contextual Task Bar</b>. <em>Say:</em> "No task bar? Window ▸ Contextual Task Bar, or use Edit ▸ Generative Fill instead."</li>
+          <li><b>Demo: remove (3m).</b> <em>Click:</em> Generative Fill → leave the prompt empty → Generate. Show the new generative layer in the Layers panel and cycle the three variations. <em>Say:</em> "This is the smarter cousin of Content-Aware Fill from Module 1."</li>
+          <li><b>Demo: add (4m).</b> <em>Click:</em> a tall-ish selection over open water → Generative Fill → type <code class="inline">a small sailboat</code> → Generate. <em>Say:</em> "Want a tall thing? Make a tall selection. Selecting the right space is half the prompt." Then click Generate again for three more, to show iteration is cheap.</li>
+          <li><b>Demo: refine (2m).</b> Paint on the generative layer's mask to soften a rough edge; clip a Curves layer to it to match brightness. <em>Say:</em> "Generative is a strong start, not always a finish. Your craft finishes the job."</li>
+          <li><b>Prompts, limits, ethics (2m).</b> Concrete and short ("a wooden park bench," not "something nice to sit on"); describe the thing, not the style; tweak one or two words rather than rewriting. Limits: hands, text, small faces; very large generations; needs internet and credits; results vary. Honesty: <b>Content Credentials</b> flag AI edits; journalism, evidence, and documentary work have a line.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Remove &amp; Add (22 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Learners use their own photo (a clear distraction plus some open space) or <code class="inline">l17-lake-sign.jpg</code>, saved as <code class="inline">generative-working.psd</code>. Steps 1–3 of the lesson: remove, add, blend and refine. Fast finishers take <code class="inline">l17-three-distractions.jpg</code> and remove all three, one selection at a time. See <code class="inline">labs/module-6/README.md</code>.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> each result on its own generative layer (original Background untouched); loose selections with margin, not tight outlines; learners actually cycling variations before accepting; at least one refine move (mask, clipped adjustment, or healing on a layer).</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>"Generative Fill is grayed out."</b> Not signed in, no internet, or an old Photoshop version. Check sign-in first (if the Help menu offers "Sign In…", they are signed out); do not debug for more than two minutes, switch to the fallback plan.</li>
+          <li><b>Selection hugging the object exactly.</b> Removal leaves halos and edge ghosts. Loose selection, a little margin.</li>
+          <li><b>Long, stylistic prompts.</b> "A beautiful cinematic golden-hour yacht in watercolor style" fights the scene's light. Name the object; let the scene set the light.</li>
+          <li><b>Accepting the first variation.</b> Make "look at all three" a rule.</li>
+          <li><b>Blurry, low-detail result.</b> Selection was too large. Generate in smaller pieces, or regenerate.</li>
+          <li><b>Adding text or hands on purpose and expecting it to work.</b> Save this for the solo "hard prompt" experiment, framed as learning its weak spots.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding (workbook Self-check)</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> B) Select an area, then describe what should be there; <b>Q2</b> C) Leave the prompt empty and click Generate; <b>Q3</b> A) On a new generative layer with its own mask; <b>Q4</b> B) "a wooden park bench"; <b>Q5</b> C) Make a taller selection. Cold-call: "Where would you draw your line between cleaning up a photo and changing its truth?" Then 3–5 minutes for the <b>Learning Journal</b> prompt.</p>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast:</b> the solo challenge: three removals on one busy photo, regenerate the same selection with a different prompt, one deliberately hard prompt (hands or readable text). Going further: treat a generated element as a real subject, then mask, grade, and add a shadow (Module 4).</li>
+          <li><b>Struggling:</b> do only Step 1 (remove) until it is solid, on the practice file with the sign. Give them the recipe card and let them repeat it on two more distractions before attempting "add."</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- L18 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L18</span><h3>Generative Expand &amp; Reframe</h3><span class="dur">34 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Extend the canvas with the Crop tool and fill the new space generatively</li>
+          <li>Uncrop a too-tight photo to give a subject room to breathe</li>
+          <li>Reframe a photo to a new aspect ratio for print, web, or social</li>
+          <li>Guide the fill with an optional prompt and keep the seam invisible</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence &amp; demo script</div>
+        <ol class="steps">
+          <li><b>Frame (2m).</b> <em>Say:</em> "Sometimes the problem is not inside the photo, it is the edges. Expand is Generative Fill aimed at the empty canvas around your image. Same layer, same variations, same optional prompt. If you understood L17, you already understand this."</li>
+          <li><b>Demo: uncrop (4m).</b> Open <code class="inline">l18-tight-portrait.jpg</code>, save as <code class="inline">expand-working.psd</code>. <em>Click:</em> Crop tool (<kbd>C</kbd>) → options bar <b>Fill: Generative Expand</b> → drag the side handle outward past the photo. Leave the task bar prompt empty → <b>Generate</b>. <em>Say:</em> "The Crop tool can crop outward. Pressing <kbd>Enter</kbd> or the checkmark may also generate straight away with no prompt, so use the task bar when you want to type one."</li>
+          <li><b>Demo: reframe to a ratio (3m).</b> Undo, then pick <b>Ratio 16:9</b>. Point out the box first fits <em>inside</em> the photo (which would crop it). <em>Click:</em> drag the handles outward until the box extends past the edges; the ratio stays locked. Generate. <em>Say:</em> "A vertical phone photo just became a banner, and nothing was stretched."</li>
+          <li><b>Expand in bites (2m).</b> Show one huge expansion going vague and repetitive, then redo it in two or three smaller steps. The comparison sells the habit.</li>
+          <li><b>Seam check (3m).</b> Zoom to 100% along the join. Run <b>the horizon test</b>: does the horizon or any strong line jump? If so, cycle variations; if none line up, select a thin strip across the seam and regenerate just that with Generative Fill (L17). Finish with a subtle clipped Curves or a whisper of the Module 4 unifying grade over the whole frame.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Uncrop &amp; Reframe (20 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">On their own cramped photo or <code class="inline">l18-tight-portrait.jpg</code>: Step 1 uncrop, Step 2 reframe to one ratio (16:9, 1:1, or 4:5), Step 3 optional prompt ("open sky," "more forest"), Step 4 hide the seam. Seam-test file: <code class="inline">l18-horizon-strip.jpg</code>. See <code class="inline">labs/module-6/README.md</code>.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> Fill set to Generative Expand (not Background); handles dragged <em>past</em> the photo, not just a ratio chosen; horizon continuous across the seam at 100%; no stretching (circles stay round).</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Choosing a ratio and pressing Enter.</b> The box sits inside the photo, so Photoshop crops instead of expanding. Ratio sets only the shape; you still drag outward.</li>
+          <li><b>Fill left on Background.</b> The new space fills with the background color (flat white or black). Check the options bar before dragging.</li>
+          <li><b>One giant leap.</b> Smeary, repetitive margins. Expand partway, generate, repeat.</li>
+          <li><b>Using Free Transform to "widen" the photo.</b> That stretches the subject. Expand invents new space instead.</li>
+          <li><b>Judging at fit-to-screen.</b> Seams hide at small zoom. The check happens at 100%.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding (workbook Self-check)</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> A) Generative Fill aimed at empty canvas around the photo; <b>Q2</b> C) Drag the crop handles outward past the photo; <b>Q3</b> B) Expand in smaller steps, generating each time; <b>Q4</b> B) A horizon or strong line that jumps at the seam; <b>Q5</b> A) Continue the existing scene. Journal prompt: when does room to breathe improve a photo, and when does it dilute a shot that was strong because it was tight?</p>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast:</b> one vertical photo to three versions (1:1, 16:9, 9:16) by expanding; or expand a portrait for headroom and drop a title into it (Module 5 type). Going further: expand, then generatively add a new element into the new space.</li>
+          <li><b>Struggling:</b> uncrop one side only with an empty prompt, then do the horizon test. Skip ratios until that feels easy.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- L19 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L19</span><h3>Actions, Batch &amp; Droplets</h3><span class="dur">62 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Record, play, and edit an Action</li>
+          <li>Run an Action across a folder with Batch</li>
+          <li>Resize and convert a whole shoot with the Image Processor</li>
+          <li>Turn an Action into a drag-and-drop droplet</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence &amp; demo script</div>
+        <ol class="steps">
+          <li><b>Frame (2m).</b> <em>Say:</em> "Generative tools make hard edits easy. Automation makes repetitive edits vanish. The rule of the lesson: if you do it more than twice, record it. Automate the boring, keep the creative."</li>
+          <li><b>Setup (1m).</b> Show the two folders: <code class="inline">l19-input/</code> (the practice batch files) and an empty <code class="inline">l19-processed/</code> beside it. Open Window ▸ Actions.</li>
+          <li><b>Demo: record (8m).</b> Open <code class="inline">l19-batch-01.jpg</code>. <em>Click:</em> new Set "Export Web" → new Action "Web JPG 1200" → <b>Record</b>. Then, narrating each step as it appears in the panel:
+            <ol class="steps">
+              <li>Edit ▸ Convert to Profile → destination <b>sRGB IEC61966-2.1</b></li>
+              <li>File ▸ Automate ▸ <b>Fit Image</b> → 1200 × 1200 px. <em>Say:</em> "Fit Image fits the long edge for landscape and portrait alike. Image Size would record a fixed width, which goes wrong on portrait files."</li>
+              <li>File ▸ <b>Place Embedded</b> → <code class="inline">l19-watermark.png</code>, position it, commit</li>
+              <li>Layer ▸ <b>Flatten Image</b>. <em>Say:</em> "Current Photoshop only offers JPEG in Save As for a file without extra layers."</li>
+              <li>File ▸ Save As → JPEG, quality 8 to 10 (0–12 scale), into <code class="inline">l19-processed/</code>; then close the file</li>
+            </ol>
+            Press <b>Stop</b>. Show the six recorded steps (Convert to Profile, Fit Image, Place, Flatten, Save, Close).</li>
+          <li><b>Demo: test on one file (3m).</b> Open <code class="inline">l19-batch-02.jpg</code> (a portrait file on purpose), select the Action, press <b>Play</b>. <em>Say:</em> "Always test on an odd file before trusting a batch. If a step misbehaves, delete just that step and re-record it."</li>
+          <li><b>Demo: Batch (5m).</b> File ▸ Automate ▸ Batch. Set and Action; Source = <code class="inline">l19-input/</code>; Destination = <code class="inline">l19-processed/</code>; tick <b>Override Action "Save As" Commands</b>. <em>Say:</em> "Without this tick, Batch saves wherever you saved during recording, not where you told it." Also tick <b>Suppress color profile warnings</b> and set Errors to <b>Log Errors to File</b> so one bad file does not stop the run. OK, and watch.</li>
+          <li><b>Demo: Image Processor &amp; droplet (3m).</b> File ▸ Scripts ▸ <b>Image Processor</b>: a folder to sRGB JPGs with no recording. File ▸ Automate ▸ <b>Create Droplet</b>: save it to the desktop, then drag a folder onto it. <em>Say:</em> "The droplet launches Photoshop for you, so Photoshop must be installed, but you never touch a menu."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Record &amp; Batch (40 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Learners copy <code class="inline">labs/module-6/practice/l19-input/</code> to their desktop with an empty <code class="inline">l19-processed/</code> beside it, then: record "Web JPG 1200," test on a portrait file, batch the folder, and create a droplet. Checklist in the workbook. Fast finishers: a second Action "Print JPG 2000" and a batch comparison; or the Image Processor on the same folder.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> Record actually pressed (the dot is red) before the first step; Fit Image, not Image Size; Flatten before Save As; Override ticked in Batch; every output in <code class="inline">l19-processed/</code> at 1200 px on the long edge with the watermark; the input folder unchanged.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Forgetting to press Stop,</b> so browsing and fixing mistakes get recorded too. Watch the panel: if the dot is red, it is recording.</li>
+          <li><b>Recording Image Size with a fixed width.</b> Portrait outputs come out 1200 px wide and very tall. Replace the step with Fit Image.</li>
+          <li><b>Save As shows no JPEG option.</b> The watermark layer is still there. Flatten first (the step must be in the Action).</li>
+          <li><b>Batch output lands in the wrong folder or overwrites.</b> Override Action "Save As" Commands was not ticked.</li>
+          <li><b>Batch stops on one file.</b> An unexpected color mode or a missing profile. Suppress warnings, log errors to a file, and look at the log.</li>
+          <li><b>Pointing Destination at the input folder.</b> Originals must stay untouched: always a separate processed folder.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding (workbook Self-check)</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> B) A recording of steps you can replay; <b>Q2</b> C) Fit Image fits the long edge on any orientation; <b>Q3</b> A) Tick Override Action "Save As" Commands; <b>Q4</b> C) Layer ▸ Flatten Image; <b>Q5</b> B) Image Processor; <b>Q6</b> A) An Action saved as a drag-and-drop app. Journal prompt: three repetitive tasks in your own workflow an Action could eat.</p>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast:</b> second Action (2000 px print JPG), droplet on the desktop, Image Processor comparison ("when is it quicker than a full Action?"). Going further: add a Curves grade step to an Action.</li>
+          <li><b>Struggling:</b> record a two-step Action first (Convert to Profile + Fit Image), play it on one file, then add the watermark, flatten, and save steps by selecting the last step and clicking Record again to append. Batch only after single-file play works.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Closing the Module</h2><span class="rule"></span></div>
+  <div class="note lab">
+    <div class="t">Module 6 wrap-up + capstone homework (last 24 min of the session)</div>
+    <p>Recap the arc: <b>add and remove inside the frame → invent space outside it → do the routine at scale.</b> Then set up Session 8, the Capstone, which has no new tools.</p>
+    <p><b>Homework (hand out now), in two parts:</b></p>
+    <p><b>1. Plan it (first evening).</b> Read L20 "Choose Your Brief &amp; Plan" and do its guided build: choose a brief from the L20 table, write the one-line brief sentence, collect 5 to 10 references, make a rough moodboard (3 to 5 colors, one or two fonts, a thumbnail layout), write the skill map, and set up the Photoshop document for the destination.</p>
+    <p><b>2. Build most of it (before Session 8).</b> Read L21 "Studio Session: Build It Well" and build the piece at home, following its habits (block in first, name and group as you go, snapshots and versioned saves). Say it plainly: <b>"Session 8 is not enough time to build a capstone from scratch. Plan to arrive with the piece about 70 to 80% done. The studio block is for finishing, fixing, and getting help, and the second half of the session is presentations."</b></p>
+    <p>Learners bring the working <code class="inline">.psd</code>, the plan, and any assets. Learners without their own photos can use the backup assets in <code class="inline">labs/module-7/practice/</code> or free-license sources (Pexels, Unsplash) after checking the license. Remind them that a finished piece at 80% of the dream beats an abandoned masterpiece, and invite them to email or message you their one-line brief midweek if they want a quick sanity check.</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <b>© 2026 Ray de la Paz</b>
+      <span class="bio">Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Instructor Kit · Module 6 · Facilitator Guide · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

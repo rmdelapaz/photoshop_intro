@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilitator Guide — Module 5</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">contains answers &amp; timing · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Facilitator Guide</div>
+    <h1>Module 5 — Design &amp; Type</h1>
+    <p class="sub">How to teach the three lessons that take learners from photo editing into design: a clear type hierarchy, crisp vector shapes and the Pen, and a polished poster finished with layer styles and exported correctly for screen and print. This module completes the Practitioner tier.</p>
+    <div class="meta-row">
+      <span class="chip"><b>3</b> lessons</span>
+      <span class="chip"><b>3 h</b> session incl. break</span>
+      <span class="chip">Lessons <b>L14–L16</b></span>
+      <span class="chip">Level <b>Practitioner</b></span>
+      <span class="chip">Maps to <b>Session 6</b></span>
+    </div>
+  </header>
+
+  <div class="sec"><h2>How to Use This Guide</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li>Same rhythm as every module: <b>Frame</b> → <b>Demo</b> → <b>Lab</b> → <b>Check</b>. All three lessons build <b>one file</b>, <code class="inline">poster-working.psd</code>, from blank canvas to exported poster.</li>
+    <li><b>This is a mindset shift.</b> Modules 0–4 were raster photo work; this module is design and vector. Name the shift out loud, and lean on the lesson's promise: design is a set of rules, not a talent.</li>
+    <li><span style="color:var(--lab);font-weight:600">Teal</span> = hands-on, <span style="color:var(--warn);font-weight:600">amber</span> = watch-outs. In Module 5 the watch-outs are <em>taste traps</em> (timid titles, too many fonts, too many effects) and one real tool hurdle: the Pen.</li>
+    <li>Shortcuts are given as <b>Windows / Mac</b>. Tool letters: Type <kbd>T</kbd>, Pen <kbd>P</kbd>, Shape tools <kbd>U</kbd>, Path Selection / Direct Selection <kbd>A</kbd>, Move <kbd>V</kbd>.</li>
+  </ul>
+
+  <div class="note warn">
+    <div class="t">The #1 risk of Session 6: the Pen tool wall</div>
+    <p>L15 is where confident learners suddenly feel clumsy. The Pen places anchor points; it does not draw where you drag. Teach the <b>two-move rule</b> (click for corners, click-and-drag for curves) before anyone touches a real shape, and hand out <code class="inline">l15-pen-practice.png</code>, which has the anchor points marked. Tell the room up front: "Your first curves will be lumpy. Everyone's are. The Pen rewards practice more than any tool in Photoshop."</p>
+  </div>
+
+  <div class="sec"><h2>Session 6 Agenda (3 hours)</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Clock</th><th>Segment</th><th>Min</th><th>What happens</th></tr></thead>
+    <tbody>
+      <tr><td class="t">0:00–0:05</td><td>Open &amp; recap</td><td class="t">5</td><td>Two or three Module 4 composites on screen. "Today your images get words." Show the finished-poster goal. Hand out the poster copy (<code class="inline">l14-poster-copy.txt</code>) or have learners write their own event.</td></tr>
+      <tr><td class="t">0:05–0:08</td><td>L14 frame</td><td class="t">3</td><td>"Type has a job." Show <code class="inline">l14-flat-type-before.png</code>: where does your eye go first?</td></tr>
+      <tr><td class="t">0:08–0:23</td><td>L14 demo</td><td class="t">15</td><td>New poster doc, a type layer per line, sizing by reading order, Character panel, type on a path.</td></tr>
+      <tr><td class="t">0:23–0:47</td><td>L14 lab</td><td class="t">24</td><td>Fix the hierarchy in <code class="inline">poster-working.psd</code>.</td></tr>
+      <tr><td class="t">0:47–0:50</td><td>L14 check</td><td class="t">3</td><td>Two self-check items aloud; journal prompt assigned.</td></tr>
+      <tr><td class="t">0:50–0:53</td><td>L15 frame</td><td class="t">3</td><td>"Math, not pixels." Vector vs raster.</td></tr>
+      <tr><td class="t">0:53–1:09</td><td>L15 demo</td><td class="t">16</td><td>Frame, badge with Path Operations, the Pen's two-move rule, Path mode triple duty, the scale test.</td></tr>
+      <tr><td class="t">1:09–1:32</td><td>L15 lab</td><td class="t">23</td><td>Frame, badge, one Pen shape, one path reused as a mask.</td></tr>
+      <tr><td class="t">1:32–1:35</td><td>L15 check</td><td class="t">3</td><td>Self-check items aloud; journal prompt assigned.</td></tr>
+      <tr><td class="t">1:35–1:47</td><td><b>Break</b></td><td class="t">12</td><td>Suggest a squint at each other's posters on the way out.</td></tr>
+      <tr><td class="t">1:47–1:50</td><td>L16 frame</td><td class="t">3</td><td>"Live effects." Flat vs finished.</td></tr>
+      <tr><td class="t">1:50–2:08</td><td>L16 demo</td><td class="t">18</td><td>Layer Style dialog, copy/paste styles, Smart Objects, hero image, align, then export for screen vs print.</td></tr>
+      <tr><td class="t">2:08–2:42</td><td>L16 lab</td><td class="t">34</td><td>Finish, assemble, and export the poster (screen version required in class).</td></tr>
+      <tr><td class="t">2:42–2:45</td><td>L16 check</td><td class="t">3</td><td>Self-check items aloud.</td></tr>
+      <tr><td class="t">2:45–2:55</td><td>Poster gallery</td><td class="t">10</td><td>Exported JPGs full-screen; the room names the 1st, 2nd, and 3rd thing they read.</td></tr>
+      <tr><td class="t">2:55–3:00</td><td>Wrap &amp; journal</td><td class="t">5</td><td>Practitioner tier complete. Assign journals and the print-ready version as homework; preview Module 6 (AI &amp; Speed).</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">If the room runs late, protect the L16 lab and the screen export; move the print-ready PDF (bleed, CMYK, PDF/X) to homework with the workbook's print checklist. The solo variations and "going further" extensions are <b>if time / homework</b>, listed under Differentiation.</p>
+
+  <div class="sec"><h2>Module at a Glance</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Lesson</th><th>Topic</th><th>Time</th><th>Learners leave able to…</th></tr></thead>
+    <tbody>
+      <tr><td class="t">L14</td><td>Type &amp; Hierarchy</td><td class="t">45m</td><td>Set point and paragraph type, build a reading order with size, weight, and space, and set type on a path</td></tr>
+      <tr><td class="t">L15</td><td>Shapes &amp; the Pen</td><td class="t">45m</td><td>Explain vector vs raster, build and combine shape layers, draw with the Pen, reuse a path as a selection or mask</td></tr>
+      <tr><td class="t">L16</td><td>Layer Styles &amp; the Poster</td><td class="t">58m</td><td>Apply and reuse live layer styles, use Smart Objects, and export for screen and print</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">One story, one file: <b>words with a reading order → crisp vector structure → polish and export.</b></p>
+
+  <div class="sec"><h2>Lesson Plans</h2><span class="rule"></span></div>
+
+  <!-- L14 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L14</span><h3>Type &amp; Hierarchy</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Set and edit text with the Type tool (point type vs paragraph type)</li>
+          <li>Build a clear visual hierarchy with size, weight, and spacing</li>
+          <li>Control tracking, kerning, and leading in the Character panel</li>
+          <li>Curve text along a shape with type on a path</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence + live-demo script</div>
+        <ol class="steps">
+          <li><b>Frame: type has a job (3m).</b> Put <code class="inline">l14-flat-type-before.png</code> on screen. <em>Ask:</em> "What do you read first?" (Nobody agrees: that's the problem.) <em>Say:</em> "Every line has a job: grab attention, give the key detail, or be the fine print. Three tools do almost all the work: <b>size, weight, space</b>. 'I have no eye for design' usually means nobody told you the rules."</li>
+          <li><b>New poster (2m).</b> File ▸ New, 18 × 24 inches at 150 ppi, dark background. Save as <code class="inline">poster-working.psd</code>. <em>Say:</em> "We'll build this one file all session."</li>
+          <li><b>Get the words down (4m).</b> Type tool (<kbd>T</kbd>), click once, type <code class="inline">SUMMER</code>. Commit with <kbd>Ctrl</kbd>+<kbd>Enter</kbd> / <kbd>⌘</kbd>+<kbd>Enter</kbd>, <kbd>Esc</kbd>, or the ✓ in the options bar. Click an <em>empty</em> spot for each next line (MUSIC FESTIVAL, July 18 · Riverside Park, Live bands · Food trucks · All ages, TICKETS AT THE DOOR). <em>Say:</em> "Clicking on existing text edits it. Click empty canvas for a new layer. Single click = point type, for short display lines. Click-and-drag a box = paragraph type, for body text that wraps."</li>
+          <li><b>Assign jobs and size boldly (3m).</b> Say the reading order aloud: name 1st, date and place 2nd, details 3rd, fine print last. Scale the title up until it feels uncomfortably big, then a bit more. <em>Say:</em> "Weak hierarchy is the most common beginner mistake. If your 1st and 2nd lines are close in size, it's too weak."</li>
+          <li><b>Character panel (2m).</b> Window ▸ Character. Tighten <b>leading</b> on the two-line title so it reads as one unit; add positive <b>tracking</b> (for example +120) to the small all-caps label. <em>Say:</em> "Leading = between lines. Tracking = evenly across a word or line. Kerning = between one specific pair of letters."</li>
+          <li><b>Type on a path (1m).</b> Ellipse tool, mode set to <b>Path</b> in the options bar, drag a circle. Hover the Type tool over the path until the cursor shows a wavy line, click, type <code class="inline">EST · 2026 · LIVE</code>. Drag with the Path Selection tool to slide or flip it. <em>Say:</em> "Upside-down on the bottom of the circle? Normal. Drag across the path to flip it."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Fix the Hierarchy (24 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Learners build their poster text in <code class="inline">poster-working.psd</code> from <code class="inline">labs/module-5/practice/l14-poster-copy.txt</code> (or their own event), following Steps 1–4: every line its own layer, a reading order, bold sizing, deliberate leading and tracking, one accent color, and one piece of type on a path.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done (the lesson's checklist):</b> every line is its own type layer with a clear job; the 1st line is boldly bigger; leading and tracking are set deliberately; one or two fonts and one accent color; at least one element uses type on a path.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> all text in one layer; a title set as paragraph type in a too-small box (overflow hidden); three or more fonts; an accent color on every line.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Timid title.</b> The fix on most beginner posters: "make the main thing much larger."</li>
+          <li><b>Font circus.</b> Two fonts maximum: one characterful display font for the title, one clean font for the rest. Contrast through size and weight.</li>
+          <li><b>Paragraph type for a title.</b> If the box is too small the overflow is hidden, and resizing the box doesn't scale the letters. Use point type for display lines.</li>
+          <li><b>Typing into the wrong layer.</b> Clicking on existing text edits it. Commit first, then click empty canvas.</li>
+          <li><b>Crowding.</b> White space is not wasted space; it's what makes the important things feel important.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast learners (if time / homework):</b> set the same text three ways changing only size and spacing (three moods, one font, no color); recreate the hierarchy of a poster or album cover they admire; curve a tagline into a full circle around a logo; set the headline in a serif, a sans, and a script and compare the personality.</li>
+          <li><b>Struggling learners:</b> reduce to three lines (title, date/place, fine print) and one font. Get the size jump right first; spacing and type on a path can wait. If typing new layers keeps going wrong, have them press <kbd>Esc</kbd> after each line as a ritual.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding (workbook self-check) + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> A) point type; <b>Q2</b> B) the space between lines; <b>Q3</b> C) add positive tracking; <b>Q4</b> A) make the main line much bigger; <b>Q5</b> B) one or two; <b>Q6</b> C) drag across the path with the Path Selection tool to flip it. Full explanations in the Answer Key. Journal prompt: <em>Did "I have no eye for design" ever apply to you? Write down the one rule that surprised you most.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- L15 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L15</span><h3>Shapes &amp; the Pen</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Explain vector vs raster, and why vectors never pixelate</li>
+          <li>Draw and combine shape layers (rectangles, ellipses, custom shapes)</li>
+          <li>Use the Pen tool to make clean straight and curved paths</li>
+          <li>Turn paths into shapes, selections, or masks</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence + live-demo script</div>
+        <ol class="steps">
+          <li><b>Frame: math, not pixels (3m).</b> <em>Say:</em> "A photo is a grid of colored squares. Enlarge it and there are no new squares, so edges go soft or blocky. A vector is stored as instructions: 'a circle of this radius here.' Photoshop redraws it fresh at any size. Type is vector too. Photos are raster; logos, icons, frames, badges, and type should be vector."</li>
+          <li><b>A frame (2m).</b> Rectangle tool (<kbd>U</kbd>), mode <b>Shape</b>. Draw a border rectangle. Options bar: Fill = none (the white box with a red slash, No Color), Stroke = a few pixels in the accent color.</li>
+          <li><b>A badge with Path Operations (3m).</b> Draw an Ellipse shape. With that shape layer still active, open the <b>Path Operations</b> menu in the options bar and choose <b>Subtract Front Shape</b>, then draw a smaller circle. <em>Say:</em> "Set the operation <em>before</em> drawing the next shape. Hold <kbd>Shift</kbd> to add or <kbd>Alt</kbd>/<kbd>⌥</kbd> to subtract as you start dragging. On the default New Layer setting, the second shape lands on its own layer instead." Show the shape layer's thumbnail badge; double-click the thumbnail to recolor.</li>
+          <li><b>The Pen's two-move rule (5m).</b> Pen (<kbd>P</kbd>), mode <b>Shape</b>. On <code class="inline">l15-pen-practice.png</code>: trace the lightning bolt with clicks only. <em>Say:</em> "Straight line: click, click." Then the leaf: click-and-drag to pull out handles. <em>Say:</em> "Curve: click and drag, then click and drag again. That's 90% of the Pen." Nudge an anchor and a handle with the <b>Direct Selection</b> tool (white arrow). <em>Say:</em> "One anchor wherever the curve changes direction, and no more."</li>
+          <li><b>Paths do triple duty (2m).</b> Switch the Pen to <b>Path</b> mode, draw a closed path. Show it in the Paths panel as a <b>Work Path</b>, not a layer. With the Pen still active, right-click the path: Make Selection, Fill Path, Stroke Path, Create Vector Mask. Choose Make Selection, then Add Layer Mask. <em>Say:</em> "Straight back to Module 1. And for any shape layer, <kbd>Ctrl</kbd>/<kbd>⌘</kbd>-click its thumbnail to load it as a selection."</li>
+          <li><b>The scale test (1m).</b> Duplicate a small shape layer, right-click the copy ▸ Rasterize Layer. Scale both about 400% with <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>T</kbd>; view at 100%. <em>Say:</em> "Just zooming won't show it: Photoshop draws both as screen pixels at high zoom. The difference appears when you resize."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Vector Elements (23 min)</div>
+        <p style="font-size:.92rem;margin:.2rem 0">In <code class="inline">poster-working.psd</code>: a stroked frame with no fill, a badge from combined shapes (with the L14 type on a path around it), one custom Pen shape (a mountain, a soundwave, a leaf), one path reused as a selection or mask, and the scale test. Warm up on <code class="inline">labs/module-5/practice/l15-pen-practice.png</code> first (5 min max).</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> a vector frame with a stroke and no fill; a badge built from combined shapes; one custom Pen shape with few, clean anchor points; shape edges crisp after scaling up 400% (the rasterized copy is not); at least one path reused as a selection or mask.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> a Pen left in Path mode when they wanted a shape (nothing appears in Layers); dozens of anchor points; frames with a solid fill covering the poster; badges on two separate layers because Path Operations was set after drawing.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Dragging the Pen like a brush.</b> It places points; it doesn't paint. Demonstrate the wrong way once so they recognize it.</li>
+          <li><b>Too many anchor points</b> = lumpy curves. Also check that handles run roughly tangent to the curve.</li>
+          <li><b>Wrong mode.</b> Shape mode makes a layer; Path mode makes a Work Path; Pixels mode is raster. Check the options bar first.</li>
+          <li><b>Rasterizing to "fix" something.</b> Rasterizing throws away crisp-at-any-size. Only for pixel edits, and keep a vector copy.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast learners (if time / homework):</b> the "Pen game" (heart, cloud, lightning bolt with as few points as possible); rebuild <code class="inline">l15-logo-to-rebuild.png</code> with Shape tools and Path Operations; trace a hard-edged subject (a bottle, a car) with the Pen instead of Select &amp; Mask.</li>
+          <li><b>Struggling learners:</b> Pen straight lines only today (the mountain range or lightning bolt: clicks only). Build the frame and badge with Shape tools, which need no Pen at all. Curves become homework with the practice sheet.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding (workbook self-check) + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> B) it is stored as math and redrawn at any size; <b>Q2</b> A) click for corners, click-and-drag for curves; <b>Q3</b> C) too many anchor points; <b>Q4</b> B) a Work Path in the Paths panel; <b>Q5</b> A) scale both up about 400% and compare at 100%; <b>Q6</b> C) with the shape layer active, before drawing the second shape. Journal prompt: <em>After the two-move rule, does the Pen feel less mysterious? Note the shape you found hardest to trace and why.</em></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- L16 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L16</span><h3>Layer Styles &amp; the Poster</h3><span class="dur">58 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Apply layer styles (Drop Shadow, Stroke, Gradient Overlay) as live effects</li>
+          <li>Copy, paste, and reuse styles across layers</li>
+          <li>Use Smart Objects for logos and repeated graphics</li>
+          <li>Assemble a poster and export correctly for print vs screen</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence + live-demo script</div>
+        <ol class="steps">
+          <li><b>Frame: live effects (3m).</b> <em>Say:</em> "A layer style lives <em>on</em> a layer, not painted into it. Change the text and the shadow follows. It's the same non-destructive idea as adjustment layers and Smart Filters from Module 2, applied to effects." Then the warning: "Overdone layer styles are the fastest way to make work look dated. One or two effects usually beats five."</li>
+          <li><b>Lift the title (4m).</b> Double-click the title layer to the right of its name to open <b>Layer Style</b>. Tick <b>Gradient Overlay</b>, pick a two-tone version of the accent. Tick <b>Drop Shadow</b> (it's at the bottom of the list), click its name to see its controls: low opacity, small distance, moderate size. Edit the title text afterward to show the effects follow live.</li>
+          <li><b>Style and reuse (3m).</b> Give the badge a <b>Stroke</b> and a soft Drop Shadow. Right-click its <b>fx</b> ▸ <b>Copy Layer Style</b>; right-click another layer ▸ <b>Paste Layer Style</b>. <em>Say:</em> "Consistency is what makes a design feel intentional."</li>
+          <li><b>Smart Objects and a hero image (3m).</b> File ▸ Place Embedded <code class="inline">l16-sponsor-logo.png</code> (it comes in as a Smart Object), scale it freely. Place a hero photo (<code class="inline">l16-hero-stage.jpg</code>, or a learner's Module 4 composite) behind the type.</li>
+          <li><b>Assemble (1m).</b> Move tool with smart guides; even margins; squint. <em>Say:</em> "The title dominates, the accent points to the key action, nothing is crowded against the edges."</li>
+          <li><b>Export: screen vs print (4m).</b> Screen: File ▸ Export ▸ Export As ▸ JPG (PNG if you need transparency), RGB, pixel dimensions that fit the platform. Print: <em>Say:</em> "First, ask the printer for their spec sheet: CMYK profile or PDF/X preset, and bleed, often 0.125 in / 3 mm per side. Photoshop has no bleed setting, so you build it in." Show Image ▸ Canvas Size (add the bleed on every side, extend the background into it, keep type well inside the trim), Edit ▸ Convert to Profile on a copy, File ▸ Save a Copy as Photoshop PDF with the printer's preset. Mention soft-proofing: View ▸ Proof Setup and View ▸ Proof Colors (<kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>Y</kbd>). <em>Say:</em> "Keep your layered .psd as the master. Always."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Finish the Poster (34 min), Module 5 deliverable</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Learners complete Steps 1–4 on <code class="inline">poster-working.psd</code> and export a screen version (JPG). Assets: <code class="inline">labs/module-5/practice/l16-hero-stage.jpg</code> and <code class="inline">l16-sponsor-logo.png</code>, or their own Module 4 composite and graphics. The print-ready PDF is homework unless time allows.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done (the lesson's checklist):</b> the title has a gradient and a subtle drop shadow; a consistent style is reused (copy/paste layer style); reusable graphics are Smart Objects; effects are restrained (two or three per layer at most); everything aligned with even margins; a screen JPG exported and viewed at full size.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> hard, black, offset drop shadows; bevel-and-glow stacks; a logo that went soft because it was placed as pixels and scaled; a flattened master.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Heavy shadow.</b> Lower opacity, reduce distance, raise size a little. If you can clearly see the shadow as a separate object, dial it back.</li>
+          <li><b>Styles that don't scale.</b> Transforming a layer doesn't resize its effects, so a stroke can look too thin or too heavy afterward. Right-click the fx ▸ <b>Scale Effects</b> (or Layer ▸ Layer Style ▸ Scale Effects). Image ▸ Image Size scales them only when Scale Styles is ticked.</li>
+          <li><b>"Print looks different."</b> Screens are RGB and lit; print is CMYK ink on paper and can't hit every screen color. Design in RGB, soft-proof, confirm with the printer. Neons shift most.</li>
+          <li><b>Exporting at 300 ppi for Instagram.</b> The ppi number does not matter on screen; pixel dimensions do.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <ul class="tick">
+          <li><b>Fast learners (if time / homework):</b> restyle the poster for a different mood and watch reused styles carry the change; build a matching square social version reusing the same styles and Smart Objects; over-style one copy deliberately next to the tasteful one; save a favorite title treatment as a reusable Style in the Styles panel; produce the print-ready PDF with bleed.</li>
+          <li><b>Struggling learners:</b> title gradient + drop shadow, one copied style, hero image behind, export JPG. That meets the core of the deliverable; Smart Object logo and print output follow as homework.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding (workbook self-check) + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> C) live, re-editable effects attached to the layer; <b>Q2</b> A) right-click fx ▸ Copy Layer Style, then Paste Layer Style; <b>Q3</b> B) Gradient Overlay + a subtle Drop Shadow; <b>Q4</b> A) RGB, JPG or PNG, pixel dimensions for the platform; <b>Q5</b> C) Image ▸ Canvas Size, extending the background into the bleed; <b>Q6</b> B) Scale Effects. Journal prompt: <em>How does designing (type, shapes, layout) feel different from editing photos? Which did you enjoy more, and what does that tell you about where to go next?</em></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Poster Gallery Protocol (10 min)</h2><span class="rule"></span></div>
+  <ol class="steps lab">
+    <li>Each poster JPG goes full-screen for about 30 seconds (in a large room, volunteers only).</li>
+    <li>The room calls out the <b>1st, 2nd, and 3rd</b> thing they read. If they match the maker's intended order, the hierarchy works.</li>
+    <li>One question each: "Where does the accent color send my eye?"</li>
+    <li>The maker names the style they reused and one effect they removed for restraint.</li>
+  </ol>
+
+  <div class="sec"><h2>Closing the Module</h2><span class="rule"></span></div>
+  <div class="note lab">
+    <div class="t">Module 5 wrap-up (5 min): Practitioner tier complete</div>
+    <p>Recap the arc: <b>a planned reading order → crisp vector structure → live polish and correct export.</b> Every learner should leave with a layered <code class="inline">poster-working.psd</code> and an exported screen JPG. Celebrate it: "Five modules ago you were exporting your first fixed photo. You can now retouch, composite, and design." Preview Module 6: "Next session, AI &amp; Speed: Generative Fill and Expand, then Actions and batch processing."</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <b>© 2026 Ray de la Paz</b>
+      <span class="bio">Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Instructor Kit · Module 5 · Facilitator Guide · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Key — Module 5</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">answers &amp; solutions · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Answer Key</div>
+    <h1>Module 5 — Answers &amp; Lab Notes</h1>
+    <p class="sub">Every workbook self-check answered and explained, plus reference notes for each lab: what a correct result looks like, and the common wrong results and why they happen.</p>
+    <div class="meta-row"><span class="chip">Lessons <b>14–16</b></span><span class="chip"><b>18</b> quiz items</span><span class="chip"><b>3</b> hands-on labs</span></div>
+  </header>
+
+  <div class="note"><div class="t">Numbering matches the workbook</div><p>The participant workbook's self-checks are numbered Q1–Q6 within each lesson, so a learner's "L15 Q4" is always this key's L15 Q4. Every answer is taken from what the lesson teaches.</p></div>
+
+  <!-- L14 -->
+  <div class="sec"><h2>L14 · Type &amp; Hierarchy</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">Which kind of type should you use for a big poster title?</div><div class="opts"><div class="opt correct">A) Point type (a single click)</div></div><div class="why"><b>Why:</b> point type is for short display lines. Paragraph type is a poor fit for a title: if the box is too small the overflow is hidden, and resizing the box doesn't scale the letters. So they don't behave the same (C).</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">What does leading control?</div><div class="opts"><div class="opt correct">B) The space between lines of text</div></div><div class="why"><b>Why:</b> leading is between lines; kerning is between one specific pair of letters (A); tracking is even spacing across a word or line. Letter thickness (C) is weight.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">A small all-caps label like "TICKETS AT THE DOOR" looks cramped. What's the fix from the lesson?</div><div class="opts"><div class="opt correct">C) Add positive tracking</div></div><div class="why"><b>Why:</b> loosening tracking on small all-caps labels makes them feel deliberate and elegant. Tightening leading (B) is for big multi-line headlines.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">What is the most common fix on a beginner poster?</div><div class="opts"><div class="opt correct">A) Make the main line much bigger</div></div><div class="why"><b>Why:</b> weak hierarchy is the most common beginner mistake. If the 1st and 2nd lines are close in size, the hierarchy is too weak. More fonts (B) or accents everywhere (C) scatter the eye.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">How many fonts does the lesson recommend on one poster?</div><div class="opts"><div class="opt correct">B) One or two</div></div><div class="why"><b>Why:</b> one characterful display font for the title and one clean font for everything else. Create contrast through size and weight, not a "font circus."</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">Your text on a circular path is upside down along the bottom. What do you do?</div><div class="opts"><div class="opt correct">C) Drag across the path with the Path Selection tool to flip it, then reposition</div></div><div class="why"><b>Why:</b> this is normal behavior. The Path Selection tool flips text to the inside or the other side of the path and slides it along the curve.</div></div>
+  <div class="note lab"><div class="t">Lab reference: Fix the Hierarchy</div>
+    <p><b>A correct result:</b> <code class="inline">poster-working.psd</code> at 18 × 24 in, 150 ppi, dark background, with one type layer per line. The title (for the practice copy: SUMMER / MUSIC FESTIVAL) is dramatically larger than anything else, with tightened leading so its lines read as a unit. The date and place line is clearly second (the natural home for the single accent color, or a small "tickets" badge). Details are smaller; the fine print is smallest, in tracked all-caps. One or two fonts. At least one element (an arc or a circular badge stamp such as "EST · 2026 · LIVE") uses type on a path. A viewer names the reading order correctly at a glance.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>All lines similar in size</b>: timidity. Scale the 1st line up until it feels too big.</li>
+      <li><b>All text on one layer</b>: the learner kept clicking inside existing text. Commit, then click empty canvas.</li>
+      <li><b>Title cut off</b>: paragraph type in a too-small box. Retype it as point type.</li>
+      <li><b>Three to five fonts, accent on everything</b>: variety in place of hierarchy. Back to two fonts, one accent.</li>
+      <li><b>Type on a path missing</b>: usually the Ellipse tool was left in Shape mode, or the Type tool clicked beside the path rather than on it (wait for the wavy cursor).</li>
+    </ul>
+  </div>
+
+  <!-- L15 -->
+  <div class="sec"><h2>L15 · Shapes &amp; the Pen</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">Why does a vector shape stay crisp when you enlarge it?</div><div class="opts"><div class="opt correct">B) It is stored as math (instructions) and redrawn fresh at any size</div></div><div class="why"><b>Why:</b> a raster image is a grid of pixels, and enlarging it has no new pixels to show. A vector ("a circle of this radius here") is recomputed at the new size, from a stamp to a stadium banner.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">What is the Pen's "two-move rule"?</div><div class="opts"><div class="opt correct">A) Click for corners; click and drag for curves</div></div><div class="why"><b>Why:</b> clicking drops a corner anchor; click-and-drag drops a smooth anchor and pulls out handles that shape the curve. That is about 90% of the Pen; adding, deleting, and converting points is tidying up.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">Your Pen curve looks lumpy. What's the most likely cause?</div><div class="opts"><div class="opt correct">C) Too many anchor points</div></div><div class="why"><b>Why:</b> smooth curves need surprisingly few points: one wherever the curve changes direction. Also check that handles run roughly tangent to the curve.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">You draw a closed shape with the Pen set to Path mode. Where does it appear?</div><div class="opts"><div class="opt correct">B) As a Work Path in the Paths panel, not as a new layer</div></div><div class="why"><b>Why:</b> Shape mode makes a shape layer; Path mode makes a path you can then turn into a selection, a filled area, a stroke, or a vector mask (right-click with the Pen active).</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">How do you prove a shape layer stays sharp and a rasterized copy doesn't?</div><div class="opts"><div class="opt correct">A) Scale both up about 400% with Ctrl/⌘+T and compare at 100% zoom</div></div><div class="why"><b>Why:</b> just zooming in (B) won't show it, because Photoshop displays both as screen pixels at high zoom. The difference appears when you actually resize: the shape stays razor sharp; the raster copy goes soft.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">To subtract a small circle from your badge on the same shape layer, when do you choose Subtract Front Shape?</div><div class="opts"><div class="opt correct">C) With the badge layer active, before drawing the second shape</div></div><div class="why"><b>Why:</b> Path Operations are set before you draw the next shape (or hold Alt/⌥ as you start dragging to subtract). With the default New Layer setting, the second shape lands on its own layer instead.</div></div>
+  <div class="note lab"><div class="t">Lab reference: Vector Elements</div>
+    <p><b>A correct result:</b> in the Layers panel, shape layers (one thumbnail with a small shape badge) for: a frame (Fill: none, a few-pixel stroke in the accent color); a badge made from combined shapes on a single layer (for example a ring, from Subtract Front Shape), with the L14 type on a path around it; one custom Pen shape (mountain, soundwave, or leaf) with few anchor points and smooth curves. A Work Path in the Paths panel (or a vector mask) shows a path was reused, for example as a selection turned into a layer mask. Side by side after a 400% scale, the shape is crisp and the rasterized copy is soft. On <code class="inline">l15-pen-practice.png</code>, good tracings land close to the marked point counts.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Nothing in Layers after drawing</b>: the Pen was in Path mode. Check the Paths panel, or switch to Shape.</li>
+      <li><b>A solid rectangle covering the poster</b>: Fill wasn't set to none.</li>
+      <li><b>Badge on two layers</b>: Path Operations chosen after drawing, or left on New Layer.</li>
+      <li><b>Lumpy, wobbly Pen shape with 30+ points</b>: dragged like a brush or clicked everywhere. Redo with the two-move rule.</li>
+      <li><b>Both copies look identical after "the test"</b>: the learner only zoomed in instead of scaling with Ctrl/⌘+T.</li>
+      <li><b>Pixel-painted shapes</b>: the Shape tool was in Pixels mode; the result is raster and won't scale cleanly.</li>
+    </ul>
+  </div>
+
+  <!-- L16 -->
+  <div class="sec"><h2>L16 · Layer Styles &amp; the Poster</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">What is a layer style?</div><div class="opts"><div class="opt correct">C) A set of live, re-editable effects attached to the layer</div></div><div class="why"><b>Why:</b> effects live on the layer rather than being painted into it; change the text or recolor the shape and they re-render. Nothing is baked in, so (A) is wrong.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">How do you reuse the exact look of one styled layer on another?</div><div class="opts"><div class="opt correct">A) Right-click its fx ▸ Copy Layer Style, then right-click the other layer ▸ Paste Layer Style</div></div><div class="why"><b>Why:</b> reusing styles keeps the poster consistent, and consistency is what makes a design feel intentional. Merging (B) destroys the separate layers.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">Which title treatment does the lesson recommend?</div><div class="opts"><div class="opt correct">B) Gradient Overlay + a subtle Drop Shadow</div></div><div class="why"><b>Why:</b> restraint beats effects. A tasteful poster usually uses a gradient and a soft shadow. Stacks of bevels and glows (A) read as amateur and dated.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">You're exporting the poster for social media. Which settings are right?</div><div class="opts"><div class="opt correct">A) RGB, JPG or PNG, pixel dimensions that fit the platform</div></div><div class="why"><b>Why:</b> screens are RGB, and on screen the ppi number doesn't matter, only pixel dimensions. CMYK at 300 ppi as a PDF/X (B) is the print route.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">Your printer wants 0.125 in of bleed. Photoshop has no bleed setting. How do you add it?</div><div class="opts"><div class="opt correct">C) Image ▸ Canvas Size to add it on every side, then extend the background into it</div></div><div class="why"><b>Why:</b> you build the bleed into the canvas. Keep type well inside the trim, not at the edges (B). Export As (A) has no bleed option.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">After scaling a layer down, its stroke and shadow look too heavy. What fixes it?</div><div class="opts"><div class="opt correct">B) Right-click the fx ▸ Scale Effects (or adjust the values by hand)</div></div><div class="why"><b>Why:</b> transforming a layer doesn't resize its effects; they keep their pixel values. Scale Effects (also Layer ▸ Layer Style ▸ Scale Effects) resizes them to match. Image ▸ Image Size scales them only when Scale Styles is ticked.</div></div>
+  <div class="note lab"><div class="t">Lab reference: Finish the Poster (Module 5 deliverable)</div>
+    <p><b>A correct result:</b> the title shows an fx badge with Gradient Overlay (two tones of the accent) and a soft, low-opacity Drop Shadow that lifts it gently off the page. The badge has a Stroke and soft shadow, and the same style appears on at least one other element (pasted). The sponsor logo (<code class="inline">l16-sponsor-logo.png</code> or the learner's own) is a Smart Object; a hero image (<code class="inline">l16-hero-stage.jpg</code> or the learner's Module 4 composite) sits behind the type as a Smart Object via Place Embedded. No layer carries more than two or three effects. Margins are even; the hierarchy from L14 still reads at a squint. The layered .psd is intact and a screen JPG has been exported. (Homework print version: canvas enlarged by the bleed on every side with the background extended, type inside the trim, CMYK conversion on a copy or via the printer's PDF/X preset, saved with File ▸ Save a Copy as Photoshop PDF.)</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Hard, black, far-offset shadow</b>: default-ish values pushed up. Lower opacity, reduce distance, raise size a little.</li>
+      <li><b>Bevel, glow, stroke, and shadow on everything</b>: effect enthusiasm. Remove until each remaining effect has a job.</li>
+      <li><b>Soft, jaggy logo</b>: pasted as pixels and scaled up. Re-place it with File ▸ Place Embedded as a Smart Object.</li>
+      <li><b>Inconsistent badges</b>: each styled by hand. Copy/Paste Layer Style.</li>
+      <li><b>Hero image hides the type</b>: layer order. The photo goes at the bottom, above the background only.</li>
+      <li><b>Poster exported in CMYK for social, or colors look dull online</b>: the print route was used for screen. Screen = RGB JPG.</li>
+      <li><b>Only a flattened file exists</b>: the master was flattened. Reinforce: the .psd is the master, always.</li>
+    </ul>
+  </div>
+
+  <div class="foot">
+    <div class="who"><b>© 2026 Ray de la Paz</b><span class="bio">Instructor Kit · confidential, do not distribute to students</span></div>
+    <div class="ver">Answer Key · Module 5 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

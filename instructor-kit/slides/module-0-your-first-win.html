@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slides: Module 0</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#0b1220; --ink:#eaf1fb; --ink2:#9fb2cd;
+    --accent:#31A8FF; --accent2:#1473E6; --lab:#34d3bd; --warn:#fbbf24;
+    --line:#22314c; --code:#0a1526; color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;overflow:hidden}
+  .deck{height:100%;width:100%;position:relative}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 8vw;gap:20px}
+  .slide.on{display:flex}
+  h1,h2,h3{font-family:"Archivo",sans-serif;line-height:1.1;text-wrap:balance}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .slide h1{font-size:clamp(2rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+  .slide h2{font-size:clamp(1.5rem,4.2vw,2.8rem);font-weight:800;letter-spacing:-.01em}
+  .slide p.lead{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--ink2);max-width:34ch}
+  ul,ol.num{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  ul li{position:relative;padding-left:34px;font-size:clamp(1.05rem,2.3vw,1.6rem)}
+  ul li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+  ul.lab li::before{background:var(--lab)}
+  ol.num{counter-reset:n}
+  ol.num li{position:relative;padding-left:44px;font-size:clamp(1rem,2.1vw,1.45rem)}
+  ol.num li::before{counter-increment:n;content:counter(n);position:absolute;left:0;top:.1em;width:30px;height:30px;border-radius:50%;background:var(--accent2);color:#fff;font-family:"JetBrains Mono",monospace;font-size:.8em;font-weight:600;display:flex;align-items:center;justify-content:center}
+  code.k{font-family:"JetBrains Mono",monospace;color:#a9c7ff;font-size:.92em}
+  kbd{font-family:"JetBrains Mono",monospace;font-size:.85em;background:#16233a;border:1px solid #33496d;border-bottom-width:3px;border-radius:6px;padding:1px 8px;color:#dbe8ff}
+  .tag{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);color:var(--ink2)}
+  .tag .pill{background:var(--accent2);color:#fff;font-weight:700;border-radius:999px;padding:3px 12px;letter-spacing:.06em}
+  .tag .pill.lab{background:var(--lab);color:#062b26} .tag .pill.warn{background:var(--warn);color:#3a2a05}
+  .section{background:linear-gradient(135deg,#0f2447,#0b1220)}
+  .section .big{font-size:clamp(3rem,12vw,8rem);font-family:"Archivo";font-weight:800;color:var(--accent2);line-height:.9}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+  @media (max-width:760px){.two{grid-template-columns:1fr}}
+  table.ag{border-collapse:collapse;font-size:clamp(.9rem,1.8vw,1.2rem);max-width:900px}
+  table.ag td{padding:7px 14px;border-bottom:1px solid var(--line)}
+  table.ag td.t{font-family:"JetBrains Mono",monospace;color:var(--accent);white-space:nowrap}
+  .stack{display:flex;flex-direction:column;gap:10px;max-width:520px}
+  .pane{border-radius:10px;padding:14px 18px;font-family:"JetBrains Mono",monospace;font-size:clamp(.85rem,1.7vw,1.1rem);transform:skewX(-8deg)}
+  .pane.ghost{border:2px dashed #3a5178;color:var(--ink2)}
+  .pane.adj{background:#12325f;border:2px solid var(--accent);color:#dbe8ff}
+  .pane.photo{background:var(--accent2);color:#fff;font-weight:600}
+  .bar{position:fixed;left:0;top:0;height:4px;background:var(--accent2);width:0;transition:width .25s;z-index:5}
+  .count{position:fixed;right:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--ink2);z-index:5}
+  .nav{position:fixed;inset:auto 0 0 0;display:flex;justify-content:space-between;pointer-events:none;z-index:4}
+  .nav button{pointer-events:auto;background:transparent;border:none;color:transparent;width:22vw;height:100vh;cursor:pointer}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  .credit{position:fixed;left:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink2);opacity:.7;z-index:5}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <section class="slide on section">
+    <div class="eyebrow">Photoshop · Instructor Kit · Session 1 of 8 · 3 hours</div>
+    <h1>Module 0<br>Your First Win</h1>
+    <p class="lead">One photo, fixed and exported, before the theory. Session 1 is this module on its own: 3 hours.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Today's plan · 3 hours</div>
+    <h2>Session 1</h2>
+    <table class="ag">
+      <tr><td class="t">0:00</td><td>Welcome &amp; introductions</td></tr>
+      <tr><td class="t">0:15</td><td>How this course works</td></tr>
+      <tr><td class="t">0:35</td><td>Setup check + workspace tour</td></tr>
+      <tr><td class="t">0:55</td><td>L01 Fix &amp; Export One Photo (together)</td></tr>
+      <tr><td class="t">1:45</td><td>Break</td></tr>
+      <tr><td class="t">2:00</td><td>Your own photo (on your own)</td></tr>
+      <tr><td class="t">2:35</td><td>Share-out</td></tr>
+      <tr><td class="t">2:50</td><td>First journal entry + wrap-up</td></tr>
+    </table>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Welcome</div>
+    <h2>Introduce yourself</h2>
+    <ul>
+      <li>Your name</li>
+      <li>What you shoot or make</li>
+      <li>One image you'd <b>love</b> to be able to create</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">How this course works</div>
+    <h2>Project-driven, not a tool tour</h2>
+    <div class="two">
+      <ul>
+        <li>Every module ends in a <b>finished deliverable</b></li>
+        <li>You learn each skill when the project needs it</li>
+        <li>One module per session</li>
+      </ul>
+      <ol class="num">
+        <li>0 First Win · 1 Foundations</li>
+        <li>2 Light &amp; Color · 3 Retouching</li>
+        <li>4 Compositing · 5 Design &amp; Type</li>
+        <li>6 AI &amp; Speed · 7 Capstone</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">It spirals</div>
+    <h2>Four ideas that keep coming back</h2>
+    <ul>
+      <li><b>Non-destructive</b> editing</li>
+      <li>The <b>layer stack</b></li>
+      <li><b>Masks</b> as grayscale</li>
+      <li><b>Selections</b></li>
+    </ul>
+    <p class="lead">You won't "finish" them today. You'll keep meeting them until they're second nature.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Your two companions</div>
+    <h2>Recipes &amp; your journal</h2>
+    <div class="two">
+      <ul>
+        <li><b>Recipes library:</b> short how-tos, any order</li>
+        <li>Every lesson ends with a <b>recipe card</b></li>
+        <li>No need to memorize everything</li>
+      </ul>
+      <ul class="lab">
+        <li>Key concepts</li>
+        <li>What clicked</li>
+        <li>Questions</li>
+        <li>Ideas to try</li>
+        <li>Progress &amp; feelings</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide section">
+    <div class="eyebrow">A word before you start</div>
+    <h2>"Too much" is normal, and temporary</h2>
+    <p class="lead">Nobody has learned all of Photoshop. You'll learn the handful of ideas it's built on, then use them. Add the word <b>yet</b> to anything that feels hard today.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Setup check</div>
+    <h2>Four neighborhoods</h2>
+    <div class="two">
+      <ul>
+        <li><b>Tools</b>: left edge</li>
+        <li><b>Options bar</b>: along the top</li>
+        <li><b>Canvas</b>: the big middle</li>
+        <li><b>Layers panel</b>: bottom-right</li>
+      </ul>
+      <ul class="lab">
+        <li>Open <code class="k">l01-tilted-horizon.jpg</code></li>
+        <li>Window ▸ Workspace ▸ Reset Essentials</li>
+        <li>No Layers panel? Window ▸ Layers or <kbd>F7</kbd></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide section"><div class="big">L01</div><h2>Fix &amp; Export One Photo</h2><p class="lead">You don't need to understand everything. You need to finish one photo.</p></section>
+
+  <section class="slide">
+    <div class="eyebrow">One idea for the whole course</div>
+    <h2>Tracing paper</h2>
+    <div class="two">
+      <div class="stack" aria-label="The non-destructive stack">
+        <div class="pane ghost">(later) more sheets</div>
+        <div class="pane adj">◐ Brightness/Contrast</div>
+        <div class="pane photo">Your photo: never edited</div>
+      </div>
+      <ul>
+        <li>Sheets = <b>layers</b></li>
+        <li>Instruction-only sheets = <b>adjustment layers</b></li>
+        <li>Original always intact = <b>non-destructive</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Steps 1–2</div>
+    <h2>Protect it, then straighten it</h2>
+    <ol class="num">
+      <li>File ▸ Open → <b>File ▸ Save As</b> Photoshop (.psd): <code class="k">myphoto-working.psd</code></li>
+      <li><kbd>C</kbd> Crop: drag a corner inward to trim edges</li>
+      <li>Just <b>outside</b> a corner → bent arrow → rotate until the grid matches the horizon</li>
+      <li><kbd>Enter</kbd> / <kbd>Return</kbd> to commit</li>
+    </ol>
+    <div class="tag"><span class="pill warn">WATCH</span> Crop box stuck to a shape? Click Clear in the options bar.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Step 3</div>
+    <h2>Add ONE adjustment layer</h2>
+    <ul>
+      <li>Layers panel ▸ <b>◐</b> ▸ <b>Brightness/Contrast</b></li>
+      <li><b>Nudge</b> Brightness up; a little Contrast for punch</li>
+      <li>A new sheet now sits above your photo</li>
+    </ul>
+    <div class="tag"><span class="pill lab">THE MAGIC MOMENT</span> Click the eyeball off and on. The edit vanishes and returns.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Step 4</div>
+    <h2>Save vs. Export</h2>
+    <div class="two">
+      <ul>
+        <li><b>File ▸ Save</b> (<kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>S</kbd>)</li>
+        <li>= layered <b>.psd</b>, your editable master</li>
+      </ul>
+      <ul class="lab">
+        <li><b>File ▸ Export ▸ Export As</b>, JPG ~80%</li>
+        <li>= flat <b>.jpg</b> you share: <code class="k">myphoto-final.jpg</code></li>
+      </ul>
+    </div>
+    <div class="tag"><span class="pill warn">RULE</span> Never post the .psd. Never edit on the .jpg.</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Project completion checklist</div>
+    <h2>All five? Take the win.</h2>
+    <ul class="lab">
+      <li>Saved a working .psd before editing, and again after</li>
+      <li>Cropped, and the horizon looks level</li>
+      <li>A Brightness/Contrast layer sits above the photo</li>
+      <li>Its eyeball turns the edit off and on</li>
+      <li>Exported a .jpg; the original is untouched</li>
+    </ul>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">After the break · on your own</div>
+    <h2>Now You: your own photo</h2>
+    <ol class="num">
+      <li>Pick a photo that's <b>too bright</b> (or <code class="k">l01-too-bright.jpg</code>)</li>
+      <li>Same loop: Save As .psd → Crop → ◐ Brightness/Contrast, <b>lower</b> it a touch</li>
+      <li>◐ again ▸ <b>Vibrance</b>: push it up gently</li>
+      <li>Save, export with a new name, compare with the original</li>
+    </ol>
+    <div class="tag"><span class="pill lab">GOING FURTHER</span> Swap the two adjustment layers. Does anything change?</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Share-out, then journal</div>
+    <h2>"I ___ because ___."</h2>
+    <ul>
+      <li>Toggle your eyeballs: show the before/after</li>
+      <li>Name <b>one</b> choice you made, and why</li>
+    </ul>
+    <div class="tag"><span class="pill">JOURNAL</span> Why do you want to learn Photoshop? What's one image you dream of making?</div>
+  </section>
+
+  <section class="slide section">
+    <div class="eyebrow">Recipe card · the 5-step loop</div>
+    <h2>Open → Save .psd → Crop → Adjust → Save → Export</h2>
+    <ul class="lab">
+      <li>Edits live on adjustment layers, never on the photo</li>
+      <li>Before next time: run the loop on two more photos</li>
+      <li>Bring: a pale-sky landscape, a clear subject, a photo with a distraction</li>
+    </ul>
+    <p class="lead" style="margin-top:10px">Next: Session 2 · Module 1 Foundations: the layer stack and the mask.</p>
+  </section>
+
+</div>
+
+<div class="count" id="count">1 / 17</div>
+<div class="nav"><button id="prev" aria-label="Previous slide"></button><button id="next" aria-label="Next slide"></button></div>
+
+<div class="credit">© 2026 Ray de la Paz</div>
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'), count=document.getElementById('count');
+  let i=0;
+  function show(n){ i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    bar.style.width=((i+1)/slides.length*100)+'%'; count.textContent=(i+1)+' / '+slides.length; }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+    else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+  });
+  show(0);
+</script>
+</body>
+</html>

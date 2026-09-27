@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workbook: Module 1</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Student workbook —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">write in it · bring it to every session</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Photoshop Workbook · Module 1</div>
+    <h1>Foundations</h1>
+    <p class="sub">In Module 0 you changed a whole photo. Now you learn to change <em>only part</em> of one: read the layer stack, paint a mask, let Photoshop find edges for you, and clean up a photo without destroying a single pixel. Deliverable: a messy photo, cleaned up and exported.</p>
+    <div class="meta-row">
+      <span class="chip">Lessons <b>2–4</b></span>
+      <span class="chip"><b>3</b> lessons</span>
+      <span class="chip">Session <b>2</b> · 3 hours</span>
+      <span class="chip">Name: ____________________</span>
+    </div>
+  </header>
+
+  <div class="note">
+    <div class="t">How to use this workbook</div>
+    <p>Each lesson has <b>Key Ideas</b>, a <b>Worked Example</b> (the steps you'll follow in class), the lesson's <b>Recipe Card</b>, <b>Your Turn</b> exercises, a <b>Self-Check</b>, a <b>Journal</b> prompt, and space for <b>Notes</b>. Shortcuts are written Windows first, Mac second: <kbd>Alt</kbd>/<kbd>⌥</kbd> means Alt on Windows, Option on a Mac.</p>
+  </div>
+
+  <div class="note warn">
+    <div class="t">When "it's not doing anything," ask three questions</div>
+    <p>1. <b>Which layer is highlighted?</b> 2. <b>Which thumbnail has the border</b> (the image or the mask)? 3. <b>What does the options bar say</b> (Sample All Layers? Sample: Current &amp; Below?)? Nearly every stuck moment in this module is one of these three.</p>
+  </div>
+
+  <div class="sec"><h2>Module Progress Tracker</h2><span class="rule"></span></div>
+  <ul class="tick lab">
+    <li>☐ <b>L02</b> I darkened only the sky with a masked adjustment layer (<code class="inline">sky-rescue-final.jpg</code>)</li>
+    <li>☐ <b>L03</b> I cut out a subject with a layer mask, not the Eraser, and put it on a calmer background</li>
+    <li>☐ <b>L04</b> I cleaned up a photo on a separate <code class="inline">retouch</code> layer and exported <code class="inline">cleanup-final.jpg</code></li>
+    <li>☐ I wrote a journal entry after each lesson</li>
+  </ul>
+
+  <!-- L02 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L02</span><h3>The Layer Stack &amp; Your First Mask</h3><span class="dur">50 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Read a layer stack: what's on top wins, and why order matters</li>
+          <li>Explain a mask in one sentence: <b>black hides, white reveals, gray partly reveals</b></li>
+          <li>Paint on a layer mask to apply an adjustment to only part of a photo</li>
+          <li>Recover from mistakes by painting the mask back: no undo panic required</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li><b>The stack of glass.</b> Layers are sheets of glass in a frame; you look straight down. <b>Higher layers win where they're opaque.</b> <b>Order is meaning:</b> move a sheet and the picture changes.</li>
+          <li>Every adjustment layer comes with a <b>layer mask</b>: a grayscale card that decides, pixel by pixel, how much of the effect gets through.</li>
+          <li><b>Black hides. White reveals. Gray does a bit of both.</b></li>
+          <li>An adjustment layer shows <b>two thumbnails</b>: the effect (◐) and the mask (the white/black card). Click the <b>mask</b> thumbnail before you paint.</li>
+          <li>Masks make mistakes painless: press <kbd>X</kbd> to swap brush color and paint the mistake back. That's why pros mask instead of erase.</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 480 190" role="img" aria-label="A mask that is white at the top, gray in the middle, and black at the bottom: the darkening effect shows fully in the sky, partly at the horizon, and not at all on the land.">
+            <defs><linearGradient id="m1g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".42" stop-color="#ffffff"/><stop offset=".58" stop-color="#16202e"/><stop offset="1" stop-color="#16202e"/></linearGradient></defs>
+            <rect x="30" y="20" width="150" height="150" rx="6" fill="url(#m1g)" stroke="#1473E6" stroke-width="2"/>
+            <text x="105" y="186" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#6f7c8e">the mask</text>
+            <line x1="190" y1="50" x2="226" y2="50" stroke="#45536a" stroke-width="1.5"/>
+            <text x="236" y="54" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600" fill="#1473E6">white: effect shows (sky)</text>
+            <line x1="190" y1="95" x2="226" y2="95" stroke="#45536a" stroke-width="1.5"/>
+            <text x="236" y="99" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600" fill="#45536a">gray: partial, soft seam</text>
+            <line x1="190" y1="140" x2="226" y2="140" stroke="#45536a" stroke-width="1.5"/>
+            <text x="236" y="144" font-family="'JetBrains Mono',monospace" font-size="12" font-weight="600" fill="#0f766e">black: effect hidden (land)</text>
+          </svg>
+          <figcaption>Black hides, white reveals, gray blends.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: rescue the sky</div>
+        <ol class="steps">
+          <li>Open a landscape (or <code class="inline">l02-washed-sky.jpg</code>). <b>File ▸ Save As</b> ▸ <code class="inline">sky-rescue-working.psd</code>.</li>
+          <li>Layers panel ▸ <b>◐</b> ▸ <b>Brightness/Contrast</b>. Pull Brightness <b>down</b> until the sky looks rich. Ignore the land going dark.</li>
+          <li>Click the <b>mask thumbnail</b>. Press <kbd>D</kbd>, then <kbd>X</kbd> so black is the foreground. <b>Edit ▸ Fill…</b> ▸ Contents: <b>Black</b>, or <kbd>Alt</kbd>/<kbd>⌥</kbd> + <kbd>Backspace</kbd>/<kbd>Delete</kbd>. The darkening vanishes.</li>
+          <li>Press <kbd>B</kbd> for the Brush, <kbd>X</kbd> for white, pick a big soft brush, and paint over the sky. The darkening comes back only where you paint.</li>
+          <li>At the horizon, lower brush opacity to about <b>30%</b> and blend gently. Toggle the eyeball for the before/after. <b>File ▸ Save</b>, then <b>File ▸ Export ▸ Export As ▸ JPG 80%</b> → <code class="inline">sky-rescue-final.jpg</code>.</li>
+        </ol>
+      </div>
+      <div class="blk"><div class="h">Recipe card: Mask an adjustment to "only here"</div>
+        <ol class="steps">
+          <li>Add adjustment layer (◐) → push it too far on purpose</li>
+          <li>Click the mask thumbnail</li>
+          <li>Fill black (hide it everywhere): <kbd>Alt</kbd>/<kbd>⌥</kbd> + <kbd>Backspace</kbd> with black foreground</li>
+          <li>Brush white (<kbd>B</kbd>, soft, big) over the area you want the effect</li>
+          <li>Mistakes → press <kbd>X</kbd> to swap to black, paint them out</li>
+        </ol>
+        <p style="font-size:.88rem;color:var(--ink-2)"><b>Mantra:</b> black hides, white reveals, gray blends.</p>
+      </div>
+      <div class="blk lab"><div class="h">Your turn 1: Watch the stencil grow</div>
+        <p style="font-size:.92rem;margin:.2rem 0">While you paint the sky in, watch the mask thumbnail. Sketch what your finished mask looks like (shade the black areas):</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk lab"><div class="h">Your turn 2: Spotlight a subject</div>
+        <p style="font-size:.92rem;margin:.2rem 0">On a portrait or object photo (or <code class="inline">l02-spotlight-object.jpg</code>): add a Brightness/Contrast layer and <b>brighten</b>. Fill the mask black, then paint white only over the face or object: a gentle spotlight. Then add a second adjustment layer that <b>darkens</b>, masked so it only touches the background. What did the second layer do to how the subject stands out?</p>
+        <div class="write"></div>
+        <p style="font-size:.92rem;margin:.2rem 0"><b>Going further:</b> select a mask thumbnail and press <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>I</kbd> to invert it. What happened?</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Use <kbd>Alt</kbd>/<kbd>⌥</kbd> + Backspace to fill black, <b>not</b> <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + Backspace (that fills with the background color). Hard, obvious edge? Right-click the canvas, lower <b>Hardness</b>, and paint the seam at low opacity.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">In the stack-of-glass model, what happens where a higher layer is <strong>opaque</strong>?</div>
+          <div class="opts"><div class="opt">A) It blends evenly with the layer below</div><div class="opt">B) It covers what's below it</div><div class="opt">C) It disappears behind the layers below</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">You paint <strong>black</strong> on an adjustment layer's mask. What happens in that area?</div>
+          <div class="opts"><div class="opt">A) The adjustment is hidden there, and the original shows through</div><div class="opt">B) The photo turns black there</div><div class="opt">C) The adjustment gets twice as strong there</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">You selected the mask, pressed <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Backspace</kbd> to fill it black, and nothing changed. Why?</div>
+          <div class="opts"><div class="opt">A) Adjustment-layer masks can't be filled</div><div class="opt">B) You needed to be zoomed to 100% first</div><div class="opt">C) That shortcut fills with the background color, which was white</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">While painting white to reveal the sky, you painted over part of the land by mistake. What's the best fix?</div>
+          <div class="opts"><div class="opt">A) Delete the adjustment layer and start over</div><div class="opt">B) Press X to switch to black and paint over the mistake</div><div class="opt">C) Use the Eraser on the photo layer</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">An adjustment layer shows two thumbnails. Which should you click before painting, as a habit?</div>
+          <div class="opts"><div class="opt">A) The mask thumbnail (the white/black card)</div><div class="opt">B) The effect thumbnail (the half-moon ◐)</div><div class="opt">C) The photo layer underneath</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">Your masked edit has a hard, obvious line at the horizon. What went wrong, and how do you fix it?</div>
+          <div class="opts"><div class="opt">A) The adjustment is too strong; lower Brightness</div><div class="opt">B) The mask is inverted; press Ctrl/⌘ + I</div><div class="opt">C) The brush was too hard; lower Hardness and paint the seam at low opacity</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Describe, in your own words and without looking, what happens when you paint black on a mask versus white. If you can teach it to an imaginary friend, you own it.</em> Also note: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+        <div class="write tall"></div>
+      </div>
+      <div class="note"><div class="t">If masks feel weird right now</div><p>That's not a sign you're behind. It's the sign you just met the idea everyone wrestles with once and then never forgets. Give it one more photo. When it clicks, half of Photoshop opens up at once.</p></div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L03 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L03</span><h3>Selections That Hold Up</h3><span class="dur">50 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Explain the difference between a <b>selection</b> (a temporary request) and a <b>mask</b> (the saved answer)</li>
+          <li>Select a subject automatically with <b>Select Subject</b> and the <b>Object Selection</b> tool</li>
+          <li>Rescue tricky edges (hair, fur, motion) in the <b>Select &amp; Mask</b> workspace</li>
+          <li>Output a selection to a <b>layer mask</b> so your cutout stays non-destructive and re-editable</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li>A selection shows <b>marching ants</b>. It's temporary: you pointing and saying "these pixels, please." Click elsewhere and it's gone.</li>
+          <li>A <b>mask</b> is the request written down permanently: inside the ants becomes white (revealed), outside becomes black (hidden).</li>
+          <li>Pros make a good-enough selection, turn it into a mask, and refine the mask forever after. <b>Mask it, don't erase it.</b></li>
+        </ul>
+        <table class="timing">
+          <thead><tr><th>Tool</th><th>Best for</th><th>How it thinks</th></tr></thead>
+          <tbody>
+            <tr><td><b>Select Subject</b></td><td>A clear main subject on any background</td><td>AI guesses the whole subject instantly: your best first click</td></tr>
+            <tr><td><b>Object Selection</b></td><td>One object among several</td><td>Draw a loose box; it snaps to the object inside</td></tr>
+            <tr><td><b>Quick Selection</b></td><td>Fixing or extending a selection by hand</td><td>Paint and it grows to matching edges</td></tr>
+            <tr><td><b>Select &amp; Mask</b></td><td>Hair, fur, soft or motion edges</td><td>A whole room for refining the edge of any selection</td></tr>
+          </tbody>
+        </table>
+        <figure class="fig">
+          <svg viewBox="0 0 500 96" role="img" aria-label="The cutout pipeline: selection (temporary marching ants), refine the edge in Select and Mask, output to layer mask, and an editable permanent mask.">
+            <rect x="6" y="22" width="108" height="52" rx="6" fill="#f4f6fa" stroke="#1473E6" stroke-width="1.8" stroke-dasharray="5 4"/>
+            <text x="60" y="44" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#1473E6">Selection</text>
+            <text x="60" y="61" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#6f7c8e">temporary</text>
+            <line x1="116" y1="48" x2="130" y2="48" stroke="#45536a" stroke-width="1.6"/><polygon points="136,48 128,44 128,52" fill="#45536a"/>
+            <rect x="138" y="22" width="108" height="52" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="1.8"/>
+            <text x="192" y="44" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#1473E6">Refine edge</text>
+            <text x="192" y="61" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#6f7c8e">Select &amp; Mask</text>
+            <line x1="248" y1="48" x2="262" y2="48" stroke="#45536a" stroke-width="1.6"/><polygon points="268,48 260,44 260,52" fill="#45536a"/>
+            <rect x="270" y="22" width="108" height="52" rx="6" fill="#d7efe9" stroke="#0f766e" stroke-width="1.8"/>
+            <text x="324" y="44" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#0f766e">Output To:</text>
+            <text x="324" y="61" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="600" fill="#0f766e">Layer Mask</text>
+            <line x1="380" y1="48" x2="394" y2="48" stroke="#45536a" stroke-width="1.6"/><polygon points="400,48 392,44 392,52" fill="#45536a"/>
+            <rect x="402" y="22" width="92" height="52" rx="6" fill="#16202e"/>
+            <text x="448" y="44" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#ffffff">Mask</text>
+            <text x="448" y="61" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#bcc7d6">editable</text>
+          </svg>
+          <figcaption>Select, refine, and save the answer as a mask rather than erasing.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: cut out a subject</div>
+        <ol class="steps">
+          <li>Open a photo with one clear subject (or <code class="inline">l03-subject-busy-bg.jpg</code>). <b>Save As</b> <code class="inline">cutout-working.psd</code>.</li>
+          <li><b>Select ▸ Subject.</b> Marching ants appear. Not perfect? Expected and fine.</li>
+          <li>Quick Selection (<kbd>W</kbd>; <kbd>Shift</kbd> + <kbd>W</kbd> cycles the slot): paint to add missed subject; hold <kbd>Alt</kbd>/<kbd>⌥</kbd> and paint to subtract background.</li>
+          <li><b>Select and Mask…</b> in the options bar. View: <b>Overlay</b>. <b>Refine Edge Brush</b> along wispy edges. Nudge <b>Smooth</b> and <b>Feather</b>; <b>Shift Edge</b> slightly negative. Colored fringe? Check <b>Decontaminate Colors</b>.</li>
+          <li><b>Output To: Layer Mask</b> → <b>OK</b>. Add a layer beneath (<kbd>Ctrl</kbd>/<kbd>⌘</kbd>-click the New Layer icon), fill it with a calm color or place another photo there. <b>File ▸ Save</b>.</li>
+        </ol>
+      </div>
+      <div class="blk"><div class="h">Recipe card: Select → Mask</div>
+        <ol class="steps">
+          <li>Select ▸ Subject (let AI start)</li>
+          <li>Quick Selection (<kbd>W</kbd>): paint to add, <kbd>Alt</kbd>/<kbd>⌥</kbd>-paint to subtract</li>
+          <li>Select and Mask… → Refine Edge Brush on hair; nudge Smooth / Feather / Shift Edge (Decontaminate Colors for fringes)</li>
+          <li>Output To: Layer Mask → OK</li>
+          <li>New background layer beneath; paint the mask to fix strays; File ▸ Save</li>
+        </ol>
+        <p style="font-size:.88rem;color:var(--ink-2)"><b>Mantra:</b> mask it, don't erase it.</p>
+      </div>
+      <div class="blk lab"><div class="h">Your turn 1: Fix a stray, then flip the mask off</div>
+        <p style="font-size:.92rem;margin:.2rem 0">After your cutout, click the mask and paint one stray pixel away (black hides, white reveals). Then <kbd>Shift</kbd>-click the mask thumbnail to turn the mask off and on. What does this tell you about what happened to the background?</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk lab"><div class="h">Your turn 2: A harder subject</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Cut out something with wispy hair, fur, or leaves (or <code class="inline">l03-fuzzy-subject.jpg</code>). Lean on the Refine Edge Brush for the wispy parts. Place it on a photo of a different scene (or <code class="inline">l03-other-scene.jpg</code>). Do the colors clash? Note what you see (matching light is what Module 4 is about):</p>
+        <div class="write"></div>
+        <p style="font-size:.92rem;margin:.2rem 0"><b>Going further:</b> select your subject, then <b>Select ▸ Inverse</b> (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>). What's selected now?</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Never press <kbd>Delete</kbd> on a selection to remove a background: that destroys pixels. Always set <b>Output To: Layer Mask</b>. If Decontaminate Colors "hid" your original layer, it's still there: look for its eyeball.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">What's the difference between a <strong>selection</strong> and a <strong>mask</strong>?</div>
+          <div class="opts"><div class="opt">A) They're the same thing with different names</div><div class="opt">B) A selection is permanent; a mask disappears when you click elsewhere</div><div class="opt">C) A selection is a temporary request; a mask is the saved, editable answer</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">On a busy photo, Select Subject grabbed the wrong thing. What should you try?</div>
+          <div class="opts"><div class="opt">A) Run Select Subject again until it changes its mind</div><div class="opt">B) Use the Object Selection tool and draw a box around exactly the thing you want</div><div class="opt">C) Trace the subject with the Eraser</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">With the Quick Selection tool, how do you <strong>subtract</strong> background that got included?</div>
+          <div class="opts"><div class="opt">A) Hold Alt/⌥ while you paint over it</div><div class="opt">B) Hold Shift while you paint over it</div><div class="opt">C) Press Delete</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">Your subject's hair edges look chunky. Which tool rebuilds fine strands?</div>
+          <div class="opts"><div class="opt">A) A normal Brush on the mask, painting each strand</div><div class="opt">B) The Magic Wand</div><div class="opt">C) The Refine Edge Brush in Select &amp; Mask, painted along the hairline</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">In Select &amp; Mask, which <b>Output To</b> setting keeps your cutout non-destructive in this lesson's build?</div>
+          <div class="opts"><div class="opt">A) Selection, then press Delete</div><div class="opt">B) Layer Mask</div><div class="opt">C) New Document</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">Your cutout has a bright halo and a colored fringe from the old background. What helps?</div>
+          <div class="opts"><div class="opt">A) Shift Edge slightly negative, plus Decontaminate Colors</div><div class="opt">B) Raise Contrast in a Brightness/Contrast layer</div><div class="opt">C) Make the edge razor-sharp with Smooth and Feather at zero</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Which was harder: making the selection, or making the edge believable? That answer tells you where to point your practice next.</em> Also note: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+        <div class="write tall"></div>
+      </div>
+      <div class="note"><div class="t">You just learned a marketable skill</div><p>Selections used to be the thing that made people quit Photoshop. You met the modern, AI-assisted version and turned it into a non-destructive mask on your first try. If your edges aren't perfect yet, that's what practice is for: two more cutouts of increasing difficulty and Select &amp; Mask will feel familiar.</p></div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L04 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L04</span><h3>Cleaning Up: Spots, Distractions &amp; Edges</h3><span class="dur">50 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Remove small spots and blemishes with the <b>Spot Healing Brush</b></li>
+          <li>Choose between <b>healing</b> (blends texture) and <b>cloning</b> (copies exactly), and know when each wins</li>
+          <li>Erase a larger distraction with <b>Content-Aware Fill</b> or the <b>Remove tool</b></li>
+          <li>Work non-destructively by healing on a <b>separate layer</b>, then export your finished image</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li>Every cleanup tool <b>borrows good pixels to cover bad ones</b>. They differ only in how they blend.</li>
+          <li><b>Cloning</b> copies exactly: great for hard edges and patterns, ruthless if the lighting doesn't match.</li>
+          <li><b>Healing</b> copies texture, then blends color and brightness into the surroundings: magic on skin and skies.</li>
+          <li><b>Content-Aware</b> tools do it automatically over a whole region.</li>
+          <li><b>The habit:</b> clean up on an empty layer, with every tool sampling all layers: the <b>Sample All Layers</b> checkbox (Spot Healing Brush, Remove tool) or the <b>Sample:</b> menu set to <b>Current &amp; Below</b> or <b>All Layers</b> (Healing Brush, Clone Stamp).</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 520 180" role="img" aria-label="Decision tree: a tiny spot uses the Spot Healing Brush; a whole object surrounded by hard edges, lines, or patterns uses the Clone Stamp; a whole object on plain or textured surroundings uses the Remove tool or Content-Aware Fill; then blend and check at 100 percent.">
+            <rect x="185" y="6" width="150" height="34" rx="17" fill="#1473E6"/>
+            <text x="260" y="28" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="600" fill="#ffffff">What are you removing?</text>
+            <line x1="260" y1="40" x2="260" y2="58" stroke="#45536a" stroke-width="1.5"/>
+            <line x1="90" y1="58" x2="436" y2="58" stroke="#45536a" stroke-width="1.5"/>
+            <line x1="90" y1="58" x2="90" y2="74" stroke="#45536a" stroke-width="1.5"/>
+            <line x1="270" y1="58" x2="270" y2="74" stroke="#45536a" stroke-width="1.5"/>
+            <line x1="436" y1="58" x2="436" y2="74" stroke="#45536a" stroke-width="1.5"/>
+            <rect x="12" y="74" width="156" height="54" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="1.5"/>
+            <text x="90" y="93" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#6f7c8e">tiny spot or blemish</text>
+            <text x="90" y="112" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" font-weight="600" fill="#1473E6">Spot Healing Brush</text>
+            <rect x="186" y="74" width="168" height="54" rx="6" fill="#f4f6fa" stroke="#45536a" stroke-width="1.5"/>
+            <text x="270" y="89" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#6f7c8e">object by hard edges,</text>
+            <text x="270" y="101" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#6f7c8e">lines, or patterns</text>
+            <text x="270" y="119" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10.5" font-weight="600" fill="#45536a">Clone Stamp (S)</text>
+            <rect x="366" y="74" width="142" height="54" rx="6" fill="#d7efe9" stroke="#0f766e" stroke-width="1.5"/>
+            <text x="437" y="89" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#0f766e">object on sky,</text>
+            <text x="437" y="101" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#0f766e">sand, or grass</text>
+            <text x="437" y="119" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="600" fill="#0f766e">Remove / CA Fill</text>
+            <line x1="90" y1="128" x2="90" y2="140" stroke="#45536a" stroke-width="1.5"/>
+            <line x1="270" y1="128" x2="270" y2="140" stroke="#45536a" stroke-width="1.5"/>
+            <line x1="437" y1="128" x2="437" y2="140" stroke="#45536a" stroke-width="1.5"/>
+            <line x1="90" y1="140" x2="437" y2="140" stroke="#45536a" stroke-width="1.5"/>
+            <line x1="260" y1="140" x2="260" y2="148" stroke="#45536a" stroke-width="1.5"/>
+            <rect x="160" y="148" width="200" height="26" rx="13" fill="#16202e"/>
+            <text x="260" y="165" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="600" fill="#ffffff">blend &amp; check at 100%</text>
+          </svg>
+          <figcaption>When in doubt, try the Remove tool first: it's the most forgiving.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: clean &amp; export</div>
+        <ol class="steps">
+          <li>Open your messy photo (or <code class="inline">l04-dusty-sky.jpg</code>). <b>Save As</b> <code class="inline">cleanup-working.psd</code>. Click the <b>New Layer</b> icon; name it <code class="inline">retouch</code>.</li>
+          <li><b>Spot Healing Brush</b> (<kbd>J</kbd>), check <b>Sample All Layers</b>. Zoom to 100% (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>1</kbd>). Brush just a little larger than each spot; single-click it. Work left to right, top to bottom.</li>
+          <li><b>Big distraction, Option A:</b> <b>Remove</b> tool (healing group), Sample All Layers checked, brush over the whole object, release. <b>Option B:</b> click the <b>photo</b> layer, Lasso (<kbd>L</kbd>) a loose selection with margin, <b>Edit ▸ Content-Aware Fill…</b>, green-brush the areas to sample from, <b>Output To: New Layer</b>, OK. Then click <code class="inline">retouch</code> again.</li>
+          <li><b>Stubborn hard edge:</b> <b>Clone Stamp</b> (<kbd>S</kbd>), <b>Sample: Current &amp; Below</b>. <kbd>Alt</kbd>/<kbd>⌥</kbd>-click a clean area, then paint over the flaw.</li>
+          <li>Final 100% pass. <b>File ▸ Save</b>, then <b>File ▸ Export ▸ Export As ▸ JPG 80%</b> → <code class="inline">cleanup-final.jpg</code>.</li>
+        </ol>
+      </div>
+      <div class="blk"><div class="h">Recipe card: Clean a photo (distraction-free in five moves)</div>
+        <ol class="steps">
+          <li>New empty layer named <code class="inline">retouch</code> → every tool samples all layers (checkbox or Sample: menu)</li>
+          <li>Spot Healing Brush (<kbd>J</kbd>): click each tiny spot at 100% zoom</li>
+          <li>Big object → Remove tool (brush over) or Edit ▸ Content-Aware Fill</li>
+          <li>Stubborn edge → Clone Stamp (<kbd>S</kbd>, Sample: Current &amp; Below, <kbd>Alt</kbd>/<kbd>⌥</kbd>-sample)</li>
+          <li>100% final pass → Save .psd → Export JPG</li>
+        </ol>
+        <p style="font-size:.88rem;color:var(--ink-2)"><b>Mantra:</b> heal to blend, clone to copy, always on a fresh layer.</p>
+      </div>
+      <div class="blk lab"><div class="h">Your turn 1: Prove it's non-destructive</div>
+        <p style="font-size:.92rem;margin:.2rem 0">After your spot pass, toggle the <code class="inline">retouch</code> layer's eyeball. What comes back? How many spots did you remove?</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk lab"><div class="h">Your turn 2: Two ways, one distraction</div>
+        <p style="font-size:.92rem;margin:.2rem 0">On a photo with a photobomber, trash can, or power line (or <code class="inline">l04-photobomb.jpg</code>), remove it <b>twice</b>: once with the Remove tool, once with Content-Aware Fill. Zoom to 100% and hunt for smears, repeats, and halos; fix them with the Clone Stamp.</p>
+        <table class="timing">
+          <thead><tr><th></th><th>Remove tool</th><th>Content-Aware Fill</th></tr></thead>
+          <tbody>
+            <tr><td>What it did well</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>Tell-tale signs I found</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+            <tr><td>Winner for this photo</td><td colspan="2">&nbsp;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Nothing happens on your empty layer? Check <b>Sample All Layers</b>. Clone Stamp paints nothing? Its <b>Sample:</b> menu is a separate setting: set it to <b>Current &amp; Below</b>, and <kbd>Alt</kbd>/<kbd>⌥</kbd>-click a source first.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">What's the difference between <strong>healing</strong> and <strong>cloning</strong>?</div>
+          <div class="opts"><div class="opt">A) Healing is only for skin; cloning is only for skies</div><div class="opt">B) Healing blends the borrowed texture's color and brightness into its surroundings; cloning copies pixels exactly</div><div class="opt">C) Cloning is automatic; healing needs a selection</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">Why do all your cleanup on a separate, empty <code class="inline">retouch</code> layer?</div>
+          <div class="opts"><div class="opt">A) The healing tools only work on empty layers</div><div class="opt">B) It makes the exported JPEG smaller</div><div class="opt">C) The original photo is never touched, and a bad heal can simply be erased off that layer</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">You click a dust spot with the Spot Healing Brush on your empty <code class="inline">retouch</code> layer, and nothing happens. What's the likely cause?</div>
+          <div class="opts"><div class="opt">A) Sample All Layers is unchecked in the options bar</div><div class="opt">B) You're zoomed to 100%</div><div class="opt">C) The brush is a little larger than the spot</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">A pole stands right against a building's straight, hard roofline. Following the decision tree, which tool is best for the part along that edge?</div>
+          <div class="opts"><div class="opt">A) Spot Healing Brush</div><div class="opt">B) Content-Aware Fill with a huge selection</div><div class="opt">C) Clone Stamp</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">On your <code class="inline">retouch</code> layer, the Clone Stamp paints nothing at all. What do you do?</div>
+          <div class="opts"><div class="opt">A) Check Sample All Layers on the Spot Healing Brush</div><div class="opt">B) Set the Clone Stamp's Sample: menu to Current &amp; Below, then Alt/⌥-click a clean source</div><div class="opt">C) Switch to the photo layer and clone there</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">How do you know a photo is "clean enough"?</div>
+          <div class="opts"><div class="opt">A) One pass at 100% zoom, then view it fit-to-screen: if nothing pulls your eye from the subject, you're done</div><div class="opt">B) When it looks perfect at 400% zoom</div><div class="opt">C) After you've used every cleanup tool at least once</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Look back at your Module 0 journal entry: the image you dreamed of making. After finishing Module 1, which specific skill from these three lessons gets you closest to it?</em> Also note: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+        <div class="write tall"></div>
+      </div>
+      <div class="blk"><div class="h">Before the next module</div>
+        <ul class="tick">
+          <li>Run the full Module 1 workflow on one fresh photo end to end: mask an adjustment, cut out the subject, clean the frame, export.</li>
+          <li>Save your best result. You'll re-grade it in Module 2.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <div class="note">
+    <div class="t">You finished Module 1</div>
+    <p>Look at the arc: you can read a layer stack, target an edit with a mask, make a believable selection and bake it into a mask, and clean up a photo without destroying a pixel. That's not beginner luck; that's a method you now own, and it's the foundation for everything ahead. In Module 2 (Light &amp; Color) things start to get genuinely beautiful: Camera Raw, Curves, and Smart Objects.</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <span class="bio">© 2026 Ray de la Paz · Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Workbook · Module 1 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

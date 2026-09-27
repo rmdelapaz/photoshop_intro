@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Key: Module 1</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">answers &amp; solutions · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Answer Key</div>
+    <h1>Module 1: Answers &amp; Lab Notes</h1>
+    <p class="sub">Self-check answers with explanations, plus reference notes for each lab: what a correct result looks like, and the common wrong results and why they happen.</p>
+    <div class="meta-row"><span class="chip">Lessons <b>2–4</b></span><span class="chip"><b>18</b> quiz items</span><span class="chip"><b>3</b> guided builds + <b>3</b> solo variations</span></div>
+  </header>
+
+  <div class="note"><div class="t">Numbering matches the workbook</div><p>The participant workbook's self-check items use the same question numbers as this key. The lesson pages themselves don't carry quizzes; these items were written for the kit and test only what L02–L04 teach.</p></div>
+
+  <!-- L02 -->
+  <div class="sec"><h2>L02 · The Layer Stack &amp; Your First Mask</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">In the stack-of-glass model, what happens where a higher layer is <strong>opaque</strong>?</div><div class="opts"><div class="opt correct">B) It covers what's below it</div></div><div class="why"><b>Why:</b> "Higher layers win where they're opaque." Clear glass lets lower sheets show through; opaque paint on a higher sheet hides them. That's also why order is meaning.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">You paint <strong>black</strong> on an adjustment layer's mask. What happens in that area?</div><div class="opts"><div class="opt correct">A) The adjustment is hidden there, and the original shows through</div></div><div class="why"><b>Why:</b> Black hides, white reveals. Painting on a mask never paints the photo (B); it only controls how much of this layer's effect gets through, so it can't make the effect stronger than full (C).</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">You selected the mask, pressed Ctrl/⌘ + Backspace to fill it black, and nothing changed. Why?</div><div class="opts"><div class="opt correct">C) That shortcut fills with the background color, which was white</div></div><div class="why"><b>Why:</b> Ctrl/⌘ + Backspace/Delete fills with the <em>background</em> color. Use Alt/⌥ + Backspace/Delete with black as the foreground color, or Edit ▸ Fill… ▸ Contents: Black.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">While painting white to reveal the sky, you painted over part of the land by mistake. What's the best fix?</div><div class="opts"><div class="opt correct">B) Press X to switch to black and paint over the mistake</div></div><div class="why"><b>Why:</b> Masks make mistakes painless: you're only adjusting a stencil, so you can go back and forth forever. Starting over (A) wastes the work; the Eraser on the photo (C) is destructive and doesn't touch the mask at all.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">An adjustment layer shows two thumbnails. Which should you click before painting, as a habit?</div><div class="opts"><div class="opt correct">A) The mask thumbnail (the white/black card)</div></div><div class="why"><b>Why:</b> On an adjustment layer the brush lands on the mask anyway (it has no pixels of its own), but the habit matters on pixel layers with masks, where the image thumbnail being selected means you paint the photo itself. Clicking the photo layer (C) is the classic way to paint on the picture by accident.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">Your masked edit has a hard, obvious line at the horizon. What went wrong, and how do you fix it?</div><div class="opts"><div class="opt correct">C) The brush was too hard; lower Hardness and paint the seam at low opacity</div></div><div class="why"><b>Why:</b> Soft edges make believable masks. Right-click the canvas to reach Hardness, and blend the seam at about 30% opacity: that's "painting gray," a partial reveal.</div></div>
+
+  <div class="note lab"><div class="t">Lab reference: Rescue the Sky (<code class="inline">l02-washed-sky.jpg</code> or own landscape)</div>
+    <p><b>A correct result looks like:</b> <code class="inline">sky-rescue-working.psd</code> with two layers: the photo, and one Brightness/Contrast layer (Brightness pulled down) above it. The mask thumbnail is black over the land and white over the sky, with a soft gray band along the horizon. In <code class="inline">sky-rescue-final.jpg</code> the sky is noticeably deeper and cloud shapes are easier to see; the hills and tree look exactly as they did in the original.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>White or black streaks painted onto the image.</b> The photo layer was active, so the brush painted real pixels. Undo, click the adjustment layer's mask thumbnail, repaint.</li>
+      <li><b>Whole photo darkened, mask still all white.</b> The fill step was skipped or used Ctrl/⌘ + Backspace (background color = white).</li>
+      <li><b>Sky only faintly darker, even where fully painted.</b> Brush opacity was left at 30% from seam work, or the foreground wasn't pure white (press <kbd>D</kbd>).</li>
+      <li><b>A hard ridge or a dark band along the horizon.</b> Hard brush, or the darkening spilled onto the hilltops. Soft brush at low opacity; press <kbd>X</kbd> and paint black to pull it back off the land.</li>
+      <li><b>Land looks right but the sky looks gray and muddy.</b> Brightness pulled too far. The fix is the slider, not the mask: the adjustment stays editable.</li>
+    </ul>
+  </div>
+  <div class="note lab"><div class="t">Lab reference: Spotlight (<code class="inline">l02-spotlight-object.jpg</code> or own portrait/object)</div>
+    <p><b>A correct result looks like:</b> two adjustment layers above the photo: a brightening one whose mask is black except for a white subject-shape, and a darkening one whose mask is white over the background and black over the subject. The subject reads as gently lit and the background recedes. Going further: after Ctrl/⌘ + I the white and black swap, so the brightening moves to the background (the learner should describe the flip).</p>
+    <p><b>Common wrong results:</b> both masks painted over the same area (the effects cancel out), a visible "cutout" outline around the subject from a hard brush, or a single layer adjusted twice instead of two layers.</p>
+  </div>
+
+  <!-- L03 -->
+  <div class="sec"><h2>L03 · Selections That Hold Up</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">What's the difference between a <strong>selection</strong> and a <strong>mask</strong>?</div><div class="opts"><div class="opt correct">C) A selection is a temporary request; a mask is the saved, editable answer</div></div><div class="why"><b>Why:</b> Marching ants vanish when you deselect or click elsewhere. Converted to a mask, the same boundary is written down as white (inside) and black (outside), and you can paint on it later. B has the two backwards; the lesson FAQ calls them "cousins," not the same thing (A).</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">On a busy photo, Select Subject grabbed the wrong thing. What should you try?</div><div class="opts"><div class="opt correct">B) Use the Object Selection tool and draw a box around exactly the thing you want</div></div><div class="why"><b>Why:</b> Select Subject guesses the most prominent subject. The Object Selection tool lets you point: it snaps to the object inside your box. The Eraser (C) destroys pixels.</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">With the Quick Selection tool, how do you <strong>subtract</strong> background that got included?</div><div class="opts"><div class="opt correct">A) Hold Alt/⌥ while you paint over it</div></div><div class="why"><b>Why:</b> Paint to add, Alt/⌥-paint to subtract. Pressing Delete (C) would erase the selected pixels, the exact habit this lesson avoids.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">Your subject's hair edges look chunky. Which tool rebuilds fine strands?</div><div class="opts"><div class="opt correct">C) The Refine Edge Brush in Select &amp; Mask, painted along the hairline</div></div><div class="why"><b>Why:</b> It's built specifically to reconstruct fine strands; a normal brush can't (A). Paint along the hairline, not the solid interior.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">In Select &amp; Mask, which <b>Output To</b> setting keeps your cutout non-destructive in this lesson's build?</div><div class="opts"><div class="opt correct">B) Layer Mask</div></div><div class="why"><b>Why:</b> Output To: Layer Mask saves the answer as an editable mask on your photo layer. (If Decontaminate Colors is checked, Photoshop switches to New Layer with Layer Mask, which is also non-destructive: the original layer is kept, just hidden.) Deleting (A) destroys pixels.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">Your cutout has a bright halo and a colored fringe from the old background. What helps?</div><div class="opts"><div class="opt correct">A) Shift Edge slightly negative, plus Decontaminate Colors</div></div><div class="why"><b>Why:</b> Shift Edge slightly negative bites off leftover background; Decontaminate Colors removes the colored fringe. A razor-sharp edge (C) is itself a tell-tale sign of a bad cutout; a believable edge is slightly soft.</div></div>
+
+  <div class="note lab"><div class="t">Lab reference: Cut Out a Subject (<code class="inline">l03-subject-busy-bg.jpg</code> or own photo)</div>
+    <p><b>A correct result looks like:</b> <code class="inline">cutout-working.psd</code> with the subject layer carrying a layer mask (white subject silhouette on black) and a calm background layer beneath it (<code class="inline">l03-calm-background.jpg</code> or a solid fill). No bright halo, no razor-sharp edge. Shift-clicking the mask thumbnail brings the busy background back instantly, proof nothing was deleted.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Background layer is transparent checkerboard, no mask.</b> The learner pressed Delete on the selection. Undo (or reopen the original) and redo with Output To: Layer Mask.</li>
+      <li><b>Marching ants but no mask after OK.</b> Output To was left on Selection.</li>
+      <li><b>Calm background covers the subject.</b> The new layer was created above. Drag it below, or Ctrl/⌘-click the New Layer icon next time. If it won't go below, the photo is still a locked Background layer: click its lock first.</li>
+      <li><b>Thin light outline around the subject.</b> Halo: Shift Edge slightly negative, a touch of Feather, Decontaminate Colors.</li>
+      <li><b>Bits of the busy background left inside the subject shape.</b> Step 2 was skipped. Paint black on the mask to hide them (or Alt/⌥-subtract before refining).</li>
+    </ul>
+  </div>
+  <div class="note lab"><div class="t">Lab reference: Harder Subject (<code class="inline">l03-fuzzy-subject.jpg</code> onto <code class="inline">l03-other-scene.jpg</code>, or own hair/fur/plant photo)</div>
+    <p><b>A correct result looks like:</b> the wispy fibers survive as soft, slightly translucent strands over the new background instead of being chopped into a smooth blob; little or no green fringe from the original background. A clash in color or light between subject and new background is expected and should be noted, not fixed: that's Module 4. Going further: after Select ▸ Inverse, the <em>background</em> is selected.</p>
+    <p><b>Common wrong results:</b> a smooth, "helmet" edge (Refine Edge Brush not used, or used on the solid center); strands with a green cast (Decontaminate Colors off); strands missing because Smooth was pushed high.</p>
+  </div>
+
+  <!-- L04 -->
+  <div class="sec"><h2>L04 · Cleaning Up: Spots, Distractions &amp; Edges</h2><span class="rule"></span></div>
+  <div class="q"><div class="qn">Q1</div><div class="qt">What's the difference between <strong>healing</strong> and <strong>cloning</strong>?</div><div class="opts"><div class="opt correct">B) Healing blends the borrowed texture's color and brightness into its surroundings; cloning copies pixels exactly</div></div><div class="why"><b>Why:</b> Both borrow good pixels; they differ in how they blend. Heal to blend, clone to copy. Neither is limited to skin or skies (A), and neither needs a selection (C): Content-Aware Fill is the one that does.</div></div>
+  <div class="q"><div class="qn">Q2</div><div class="qt">Why do all your cleanup on a separate, empty <code class="inline">retouch</code> layer?</div><div class="opts"><div class="opt correct">C) The original photo is never touched, and a bad heal can simply be erased off that layer</div></div><div class="why"><b>Why:</b> It's the Module 0 tracing-paper principle applied to retouching. The tools work on any layer (A), and the export is flattened into one image anyway, so an extra layer doesn't make the JPEG smaller (B).</div></div>
+  <div class="q"><div class="qn">Q3</div><div class="qt">You click a dust spot with the Spot Healing Brush on your empty <code class="inline">retouch</code> layer, and nothing happens. What's the likely cause?</div><div class="opts"><div class="opt correct">A) Sample All Layers is unchecked in the options bar</div></div><div class="why"><b>Why:</b> Without it, the tool samples only the empty layer, so there's nothing to borrow. Zooming to 100% (B) and a brush slightly larger than the spot (C) are both what the lesson recommends.</div></div>
+  <div class="q"><div class="qn">Q4</div><div class="qt">A pole stands right against a building's straight, hard roofline. Following the decision tree, which tool is best for the part along that edge?</div><div class="opts"><div class="opt correct">C) Clone Stamp</div></div><div class="why"><b>Why:</b> Hard edges, straight lines, and patterns call for copying the structure exactly. Healing tools blend with whatever's nearby and smear hard edges (A); a huge content-aware selection (B) invites smears and repeats.</div></div>
+  <div class="q"><div class="qn">Q5</div><div class="qt">On your <code class="inline">retouch</code> layer, the Clone Stamp paints nothing at all. What do you do?</div><div class="opts"><div class="opt correct">B) Set the Clone Stamp's Sample: menu to Current &amp; Below, then Alt/⌥-click a clean source</div></div><div class="why"><b>Why:</b> The Clone Stamp's Sample: menu is a separate setting from the Spot Healing Brush's checkbox (A); on the default Current Layer it samples the empty layer. Cloning directly on the photo (C) breaks the non-destructive habit.</div></div>
+  <div class="q"><div class="qn">Q6</div><div class="qt">How do you know a photo is "clean enough"?</div><div class="opts"><div class="opt correct">A) One pass at 100% zoom, then view it fit-to-screen: if nothing pulls your eye from the subject, you're done</div></div><div class="why"><b>Why:</b> Straight from the lesson FAQ. Perfect at 400% that no one will ever see is wasted effort (B), and there's no need to use every tool (C).</div></div>
+
+  <div class="note lab"><div class="t">Lab reference: Clean &amp; Export (<code class="inline">l04-dusty-sky.jpg</code> or own photo)</div>
+    <p><b>A correct result looks like:</b> <code class="inline">cleanup-working.psd</code> with the untouched photo, a <code class="inline">retouch</code> layer holding the spot heals, Remove-tool work, and clone strokes (toggling its eyeball brings the dust spots back), and possibly a separate Content-Aware Fill output layer. In <code class="inline">cleanup-final.jpg</code>, at 100%: all dust spots in the sky are gone, the bird and the pole with its wire are gone with no obvious smear or repeated shape, and the rooftop edge beside the pole is still straight and crisp.</p>
+    <p><b>Common wrong results and why:</b></p>
+    <ul class="tick">
+      <li><b>Retouch layer is empty; the fixes are on the photo.</b> The photo layer was active. It still looks fine, but it isn't non-destructive: redo on the retouch layer if time allows, and name it in feedback.</li>
+      <li><b>A few spots remain.</b> The learner worked zoomed out or not methodically. Zoom to 100% and scan left to right, top to bottom.</li>
+      <li><b>Soft gray smudge where the pole was, or a wavy roofline.</b> A healing or content-aware tool blended a hard edge. Clone Stamp along the edge.</li>
+      <li><b>A cloud or the bird appears twice.</b> Content-aware repeat. Redo with a smaller selection, or clone out the remnant.</li>
+      <li><b>Content-Aware Fill produced nothing, or an error.</b> The empty retouch layer was active or there was no selection. Click the photo layer, select, then run it.</li>
+    </ul>
+  </div>
+  <div class="note lab"><div class="t">Lab reference: Two Ways (<code class="inline">l04-photobomb.jpg</code> or own photo)</div>
+    <p><b>A correct result looks like:</b> the trash can and the figure removed twice, once per method (on separate layers or in two saved versions), with a comparison filled in. There's no single right "winner": on the practice file's plain sand and sea, both usually work; a good answer names the tell-tale signs actually found (smear, repeat, halo) and what fixed them. Going further (combining L03 + L04) is optional.</p>
+    <p><b>Common wrong results:</b> removing the object only once; judging at fit-to-screen instead of 100%; cloning with Current Layer sampling and concluding "the Clone Stamp doesn't work."</p>
+  </div>
+
+  <div class="foot">
+    <div class="who"><span class="bio">Instructor Kit · confidential, do not distribute to students · © 2026 Ray de la Paz</span></div>
+    <div class="ver">Answer Key · Module 1 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

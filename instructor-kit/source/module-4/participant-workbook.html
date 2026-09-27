@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workbook — Module 4</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Student workbook —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">write in it · bring it to every session</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Photoshop Workbook · Module 4</div>
+    <h1>Compositing</h1>
+    <p class="sub">Two images in, one believable photograph out. You will cut a subject out cleanly, teach it the scene's light and color, then ground it with shadow and unify it with one grade. It is one file, built across three lessons, so save often.</p>
+    <div class="meta-row">
+      <span class="chip">Lessons <b>11–13</b></span>
+      <span class="chip"><b>3</b> lessons</span>
+      <span class="chip">Session <b>5</b></span>
+      <span class="chip">Name: ____________________</span>
+    </div>
+  </header>
+
+  <div class="note">
+    <div class="t">How to use this workbook</div>
+    <p>Each lesson has <b>By the end you can</b>, <b>Key ideas</b>, a <b>Worked example</b>, a <b>Your turn</b> activity (do it in Photoshop and write what happened), a <b>Self-check</b>, a <b>Journal</b> prompt, and <b>Notes</b>. Shortcuts are written <b>Windows / Mac</b>. Your practice files are in <code class="inline">labs/module-4/practice/</code>, or use your own photos.</p>
+  </div>
+
+  <div class="note lab">
+    <div class="t">Growth mindset: seeing is the skill</div>
+    <p>The first time you zoom in on a cutout and spot the fringe, it can feel like you did something wrong. You didn't. You just learned to <b>see</b> a flaw most people never notice, and seeing a bad edge is half of fixing one. Every composite you finish trains your eye a little more.</p>
+  </div>
+
+  <div class="sec"><h2>Module Progress Tracker</h2><span class="rule"></span></div>
+  <ul class="tick lab">
+    <li>☐ <b>L11</b>: my subject is on its own layer with a mask, fringe-free against a saturated test color</li>
+    <li>☐ <b>L12</b>: my subject matches the scene's brightness, color, and contrast, all adjustments clipped</li>
+    <li>☐ <b>L13</b>: contact + cast shadows, subtle haze, one grade on top; master saved, JPG exported 🏆</li>
+  </ul>
+
+  <!-- L11 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L11</span><h3>Cut It Out Cleanly</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Cut a subject out with <b>Select &amp; Mask</b>, tuned for compositing</li>
+          <li>Rescue fine hair with the <b>Refine Edge Brush</b></li>
+          <li>Kill the fringe with <b>Decontaminate Colors</b></li>
+          <li>Output a <b>new layer with a layer mask</b>, ready for any scene</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li><b>The background tells on you.</b> Edge pixels picked up color from whatever was behind the subject. On a new scene, that leftover color shows as a <b>fringe</b> (a halo).</li>
+          <li>A composite cutout has two jobs: choose the right pixels, <em>and</em> clean the old color out of the edge.</li>
+          <li><b>Decontaminate Colors</b> strips that fringe. It rewrites edge pixels, so Photoshop forces the result onto a <b>new layer</b>; keep your original as a hidden backup.</li>
+          <li>The <b>Refine Edge Brush</b> is for soft, wispy edges (hair, fur) only. On a hard edge it turns detail to mush.</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 520 120" role="img" aria-label="The composite cutout pipeline: select the subject, refine the edge, decontaminate colors, output a new layer with mask, drop into any scene.">
+            <g font-family="'JetBrains Mono',monospace" font-size="10.5" text-anchor="middle">
+              <rect x="6" y="40" width="92" height="48" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="1.6"/>
+              <text x="52" y="60" fill="#1473E6" font-weight="600">Select</text><text x="52" y="76" fill="#45536a">Subject</text>
+              <rect x="112" y="40" width="92" height="48" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="1.6"/>
+              <text x="158" y="60" fill="#1473E6" font-weight="600">Refine</text><text x="158" y="76" fill="#45536a">hair, fur</text>
+              <rect x="218" y="40" width="92" height="48" rx="6" fill="#fdf0dc" stroke="#b45309" stroke-width="2"/>
+              <text x="264" y="60" fill="#b45309" font-weight="600">Decontam.</text><text x="264" y="76" fill="#45536a">strip fringe</text>
+              <rect x="324" y="40" width="92" height="48" rx="6" fill="#e3efff" stroke="#1473E6" stroke-width="1.6"/>
+              <text x="370" y="60" fill="#1473E6" font-weight="600">Output</text><text x="370" y="76" fill="#45536a">layer + mask</text>
+              <rect x="430" y="40" width="84" height="48" rx="6" fill="#1473E6"/>
+              <text x="472" y="60" fill="#ffffff" font-weight="600">Any</text><text x="472" y="76" fill="#ffffff">scene</text>
+              <text x="264" y="26" fill="#b45309">the step beginners skip</text>
+            </g>
+            <g stroke="#45536a" stroke-width="1.5" fill="#45536a">
+              <line x1="98" y1="64" x2="110" y2="64"/><line x1="204" y1="64" x2="216" y2="64"/><line x1="310" y1="64" x2="322" y2="64"/><line x1="416" y1="64" x2="428" y2="64"/>
+            </g>
+          </svg>
+          <figcaption>The composite cutout pipeline. Decontamination is the step pros never skip.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: the settings that matter</div>
+        <ol class="steps">
+          <li>Select ▸ <b>Subject</b>, then Select ▸ <b>Select and Mask…</b> (<kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>R</kbd>). View: <b>On Layers</b> or <b>Overlay</b>.</li>
+          <li><b>Refine Hair</b> (options bar). Edge Detection: tick <b>Smart Radius</b>, raise <b>Radius</b> a few pixels.</li>
+          <li><b>Refine Edge Brush</b> along wispy hair. <b>Shift Edge</b> slightly negative. Smooth and Feather at or near 0 on hair.</li>
+          <li>Output Settings: tick <b>Decontaminate Colors</b>, raise <b>Amount</b> until the halo disappears (the lesson's diagram shows 90%).</li>
+          <li><b>Output To: New Layer with Layer Mask</b> → OK. Group it, name the group <code class="inline">SUBJECT</code>, keep the original hidden below. Save as <code class="inline">composite-working.psd</code>.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: a composite-ready cutout</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Cut out your subject (or <code class="inline">l11-figure-on-green.png</code>). Then run the <b>believability test</b>: add Layer ▸ New Fill Layer ▸ Solid Color in a wild color and drag it under the cutout. Record:</p>
+        <table class="timing">
+          <tbody>
+            <tr><td>Subject I used</td><td style="width:60%">&nbsp;</td></tr>
+            <tr><td>Where the fringe showed before decontaminating</td><td>&nbsp;</td></tr>
+            <tr><td>Decontaminate Amount that removed it</td><td>&nbsp;</td></tr>
+            <tr><td>Test colors I tried (aim for three)</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+        <ul class="tick lab">
+          <li>☐ Subject on its own layer with a mask (background hidden, not deleted)</li>
+          <li>☐ Hair edges look soft and natural, not chopped</li>
+          <li>☐ No colored fringe against a saturated test background</li>
+          <li>☐ Original layer kept as a hidden backup</li>
+          <li>☐ Cutout group named and saved</li>
+        </ul>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Don't over-brush.</b> The Refine Edge Brush on a shoulder or jaw turns crisp detail to mush. And it cannot invent hair the original selection never included: fix the selection first.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">Your cutout looked perfect on its original background but looks "pasted" on a sunset. What is the most likely cause?</div>
+          <div class="opts"><div class="opt">A) The subject's resolution is too low</div><div class="opt">B) The edge pixels still carry color from the old background (a fringe)</div><div class="opt">C) The layer mask is set to the wrong blend mode</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">What does <b>Decontaminate Colors</b> do?</div>
+          <div class="opts"><div class="opt">A) Removes noise from the whole photo</div><div class="opt">B) Replaces the old background's color in the edge pixels so the edge can adopt the new scene</div><div class="opt">C) Converts the image to black and white</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">With Decontaminate Colors ticked, which <b>Output To</b> setting does the lesson use?</div>
+          <div class="opts"><div class="opt">A) Selection</div><div class="opt">B) Layer Mask</div><div class="opt">C) New Layer with Layer Mask</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">Where should you paint with the <b>Refine Edge Brush</b>?</div>
+          <div class="opts"><div class="opt">A) Along every edge, including shoulders and jaws</div><div class="opt">B) Only on soft, wispy edges like hair and fur</div><div class="opt">C) Only inside the subject, to fill holes</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">What is the lesson's "believability test" for a finished cutout?</div>
+          <div class="opts"><div class="opt">A) Drop a saturated colored layer behind it and check whether a fringe appears</div><div class="opt">B) Zoom out to 25% and see if it looks okay</div><div class="opt">C) Turn the layer mask off and on</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">What is the keyboard shortcut for Select and Mask?</div>
+          <div class="opts"><div class="opt">A) <kbd>Ctrl</kbd>+<kbd>J</kbd> / <kbd>⌘</kbd>+<kbd>J</kbd></div><div class="opt">B) <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>G</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>G</kbd></div><div class="opt">C) <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>R</kbd></div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Before today, would you have noticed a fringe on a cutout? Now that you can see it, you cannot unsee it. Note one composite in the wild (an ad, a meme, a movie poster) where the cutout betrays itself.</em> Also note: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L12 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L12</span><h3>Make It Belong: Match Light &amp; Color</h3><span class="dur">45 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Diagnose a "pasted" look by checking <b>brightness, color, and contrast</b></li>
+          <li>Match the subject with <b>clipped adjustment layers</b></li>
+          <li>Pull the scene's color into the subject with <b>Curves</b> and <b>Color Balance</b></li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li>Everything in a real scene shares the same light, like a shared <b>accent</b>. A pasted subject has a foreign accent.</li>
+          <li><b>One rule:</b> match <b>brightness</b> first, <b>color</b> second, <b>contrast</b> third. Brightness alone often does eighty percent of the work.</li>
+          <li>A <b>clipped</b> adjustment affects only the layer directly below it. Clip with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>G</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>G</kbd>, or <kbd>Alt</kbd>/<kbd>⌥</kbd>-click the line between the two layers. A clipped layer shows an indent and a bent arrow (↳); the layer it clips to has its name underlined.</li>
+          <li><b>Warm light usually means cool shadows.</b> Warm the lit side; don't dip the whole subject in orange.</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 420 176" role="img" aria-label="Layer stack: Hue/Saturation, Color Balance and Curves are clipped to the SUBJECT layer above the background scene.">
+            <g font-family="'JetBrains Mono',monospace" font-size="11.5">
+              <rect x="70" y="10" width="300" height="30" rx="4" fill="#f4f6fa" stroke="#d6dee9"/><text x="86" y="30" fill="#45536a">↳ Hue/Saturation (clipped)</text>
+              <rect x="70" y="46" width="300" height="30" rx="4" fill="#f4f6fa" stroke="#d6dee9"/><text x="86" y="66" fill="#45536a">↳ Color Balance (clipped)</text>
+              <rect x="70" y="82" width="300" height="30" rx="4" fill="#f4f6fa" stroke="#d6dee9"/><text x="86" y="102" fill="#45536a">↳ Curves (clipped)</text>
+              <rect x="50" y="118" width="320" height="30" rx="4" fill="#e3efff" stroke="#1473E6" stroke-width="1.6"/><text x="64" y="138" fill="#1473E6" font-weight="600" text-decoration="underline">SUBJECT</text>
+              <rect x="50" y="152" width="320" height="22" rx="4" fill="#ffffff" stroke="#bcc7d6"/><text x="64" y="167" fill="#6f7c8e" font-size="10.5">Background scene (untouched)</text>
+            </g>
+            <path d="M384 14 L396 14 L396 142 L376 142" fill="none" stroke="#0f766e" stroke-width="2"/>
+            <text x="402" y="80" font-family="'JetBrains Mono',monospace" font-size="10" fill="#0f766e" transform="rotate(90 402 80)" text-anchor="middle">subject only</text>
+          </svg>
+          <figcaption>Every adjustment clipped to SUBJECT; the background never changes.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: diagnosing a pasted subject</div>
+        <p style="font-size:.92rem;margin:.2rem 0">A subject shot in a cool, bright studio is dropped into a warm, hazy sunset. Ask the three questions in order:</p>
+        <table class="timing">
+          <thead><tr><th>Question</th><th>What you see</th><th>Clipped fix</th></tr></thead>
+          <tbody>
+            <tr><td>1 · Brightness</td><td>Subject brighter than everything around it</td><td>Curves: pull the curve down until it sits in the scene's range (squint to check)</td></tr>
+            <tr><td>2 · Color</td><td>Subject bluish; scene orange</td><td>Color Balance: add red and yellow in midtones and highlights; a touch cooler in the shadows</td></tr>
+            <tr><td>3 · Contrast</td><td>Subject crisp and saturated; scene soft</td><td>Curves: flatten contrast a little; Hue/Saturation: Saturation down a few points</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: match the subject</div>
+        <p style="font-size:.92rem;margin:.2rem 0">File ▸ Place Embedded your background (or <code class="inline">l12-scene-sunset.jpg</code>), press <kbd>Enter</kbd>, drag it below <code class="inline">SUBJECT</code>. Right-click the group ▸ <b>Convert to Smart Object</b>, then <kbd>Ctrl</kbd>/<kbd>⌘</kbd>+<kbd>T</kbd> to size it with its feet on the ground. Match in order. Before you touch a slider, write your diagnosis:</p>
+        <table class="timing">
+          <tbody>
+            <tr><td>Brightness: too bright, too dark, or matched?</td><td style="width:50%">&nbsp;</td></tr>
+            <tr><td>Scene temperature (warm / cool / neutral)</td><td>&nbsp;</td></tr>
+            <tr><td>Scene contrast (soft and hazy / punchy and crisp)</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+        <ul class="tick lab">
+          <li>☐ Sized and positioned believably (feet on the ground)</li>
+          <li>☐ Brightness matches nearby scene elements</li>
+          <li>☐ The lit side carries the scene's color; shadows are not over-warmed</li>
+          <li>☐ Contrast and saturation match the scene</li>
+          <li>☐ Every adjustment is clipped (↳), background untouched</li>
+        </ul>
+        <p style="font-size:.88rem;color:var(--ink-2)"><b>Squint-and-flick test:</b> squint at the whole image, then toggle all your clipped layers off and on. The "off" version should look obviously wrong.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">In what order does the lesson match a subject to a scene?</div>
+          <div class="opts"><div class="opt">A) Brightness, then color, then contrast</div><div class="opt">B) Color, then contrast, then brightness</div><div class="opt">C) Contrast, then brightness, then color</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">What does clipping an adjustment layer do?</div>
+          <div class="opts"><div class="opt">A) Hides the adjustment until you click it</div><div class="opt">B) Merges the adjustment into the layer permanently</div><div class="opt">C) Limits the adjustment to the one layer directly below it</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">Which shortcut clips the active layer to the layer below?</div>
+          <div class="opts"><div class="opt">A) <kbd>Ctrl</kbd>+<kbd>T</kbd> / <kbd>⌘</kbd>+<kbd>T</kbd></div><div class="opt">B) <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>G</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>G</kbd></div><div class="opt">C) <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd> / <kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>N</kbd></div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">You warmed your subject evenly for a sunset and now it looks "dipped in orange." What does the lesson suggest?</div>
+          <div class="opts"><div class="opt">A) Remove all the warmth and start over</div><div class="opt">B) Add a touch of the opposite (cooler) temperature to the shadow side</div><div class="opt">C) Warm the background even more to match</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">Why convert the <code class="inline">SUBJECT</code> group to a Smart Object before scaling it?</div>
+          <div class="opts"><div class="opt">A) So resizing never degrades it</div><div class="opt">B) So adjustment layers can't affect it</div><div class="opt">C) So it automatically matches the scene's color</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">How can you judge a scene's color temperature, according to the lesson?</div>
+          <div class="opts"><div class="opt">A) Check the file's metadata</div><div class="opt">B) Look only at the subject's skin</div><div class="opt">C) Read the highlights and shadows on existing objects, or sample a neutral surface with the eyedropper</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Which of the three (brightness, color, contrast) was hardest for your eye to judge? That is the one worth training with a few extra composites.</em> Also note: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <!-- L13 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L13</span><h3>Ground It &amp; Grade It</h3><span class="dur">55 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">By the end you can</div>
+        <ul class="tick">
+          <li>Anchor a subject with a <b>contact shadow</b> and a soft <b>cast shadow</b></li>
+          <li>Add depth with <b>atmospheric perspective</b> (haze)</li>
+          <li>Tie everything together with <b>one unifying grade</b></li>
+          <li>Save a layered master and <b>export</b> a finished composite</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Key ideas</div>
+        <ul class="tick">
+          <li><b>Shadow (the object):</b> nothing real floats. A contact shadow is the strongest single cue that a subject belongs.</li>
+          <li><b>Depth (the space):</b> distant things are hazier, lighter, and lower in contrast. A whisper of haze restores distance.</li>
+          <li><b>Unity (the whole):</b> one grade over everything gives the image a single shared look, like one camera and lens.</li>
+          <li><b>One light, one shadow direction.</b> If the sun is high-right, shadows fall low-left.</li>
+        </ul>
+        <figure class="fig">
+          <svg viewBox="0 0 420 214" role="img" aria-label="The finishing stack from top to bottom: unifying grade, atmosphere, subject group, contact shadow, cast shadow, background scene.">
+            <g font-family="'JetBrains Mono',monospace" font-size="11.5">
+              <rect x="30" y="8" width="300" height="28" rx="4" fill="#1473E6"/><text x="44" y="27" fill="#ffffff" font-weight="600">Unifying Grade (over ALL)</text>
+              <rect x="30" y="42" width="300" height="28" rx="4" fill="#f4f6fa" stroke="#d6dee9"/><text x="44" y="61" fill="#45536a">Atmosphere / haze</text>
+              <rect x="30" y="76" width="300" height="28" rx="4" fill="#e3efff" stroke="#1473E6" stroke-width="1.6"/><text x="44" y="95" fill="#1473E6" font-weight="600">▸ SUBJECT (group)</text>
+              <rect x="30" y="110" width="300" height="28" rx="4" fill="#d7efe9" stroke="#0f766e"/><text x="44" y="129" fill="#0f766e">Contact Shadow (tight, never blurred)</text>
+              <rect x="30" y="144" width="300" height="28" rx="4" fill="#d7efe9" stroke="#0f766e"/><text x="44" y="163" fill="#0f766e">Cast Shadow (soft, blurred)</text>
+              <rect x="30" y="178" width="300" height="28" rx="4" fill="#ffffff" stroke="#bcc7d6"/><text x="44" y="197" fill="#6f7c8e">Background scene</text>
+              <text x="342" y="27" fill="#1473E6" font-size="10">grade on top</text>
+              <text x="342" y="146" fill="#0f766e" font-size="10">shadows</text><text x="342" y="159" fill="#0f766e" font-size="10">below</text>
+            </g>
+          </svg>
+          <figcaption>Shadows under, grade over, one light for all.</figcaption>
+        </figure>
+      </div>
+      <div class="blk"><div class="h">Worked example: the finishing moves</div>
+        <ol class="steps">
+          <li>New layer <b>below</b> the subject, named <code class="inline">Contact Shadow</code>. Soft black brush, low opacity: a small, dark pool right where the feet touch the ground. Never blur this layer.</li>
+          <li>New layer just below that, named <code class="inline">Cast Shadow</code>. A longer, softer shadow away from the light, lighter as it travels. Blur only this layer: Filter ▸ Blur ▸ Gaussian Blur.</li>
+          <li>For a mid or far subject: a low-opacity soft layer of the scene's haze color, masked to the distance.</li>
+          <li>At the very top: a <b>Color Lookup</b> or gentle <b>Curves</b> for one shared mood, plus a vignette (new layer, big soft black brush on the corners, lower the opacity).</li>
+          <li>File ▸ Save the layered master. File ▸ Export ▸ Export As ▸ JPG (flattened automatically).</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Your turn: find the light, then finish</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Before painting any shadow, study your background. Sketch the scene below: draw an arrow for where the light comes from and the direction the existing shadows fall. Then mark where your subject's contact and cast shadows will go.</p>
+        <div class="write tall"></div>
+        <ul class="tick lab">
+          <li>☐ A dark, tight contact shadow where the subject meets the ground</li>
+          <li>☐ A softer, blurred cast shadow on its own layer, same direction as the scene's shadows</li>
+          <li>☐ Distance reads through subtle atmosphere</li>
+          <li>☐ One unifying grade over the whole stack</li>
+          <li>☐ Layered master saved; finished JPG exported 🏆</li>
+        </ul>
+      </div>
+      <div class="blk warn"><div class="h">Watch out</div>
+        <p style="font-size:.9rem;margin:.2rem 0">A fake-looking shadow is usually <b>too uniform</b>: vary it from dark and sharp at the contact point to soft and light at the tip. And if you can clearly see your haze or your grade, it's too strong. Both are whispers.</p>
+      </div>
+      <div class="blk"><div class="h">Self-check</div>
+        <div class="q"><div class="qn">Q1</div><div class="qt">According to the lesson, what is the strongest single cue that a subject belongs in a scene?</div>
+          <div class="opts"><div class="opt">A) A strong vignette</div><div class="opt">B) A contact shadow where the subject meets the ground</div><div class="opt">C) Heavy atmospheric haze</div></div></div>
+        <div class="q"><div class="qn">Q2</div><div class="qt">Why do the contact shadow and the cast shadow go on separate layers?</div>
+          <div class="opts"><div class="opt">A) So you can blur the cast shadow without softening the contact point</div><div class="opt">B) Because Photoshop can't paint two shadows on one layer</div><div class="opt">C) So each can have a different blend mode for color</div></div></div>
+        <div class="q"><div class="qn">Q3</div><div class="qt">The sun in your background is high and to the right. Which way should your subject's cast shadow fall?</div>
+          <div class="opts"><div class="opt">A) High-right, toward the sun</div><div class="opt">B) Straight up</div><div class="opt">C) Low-left, away from the sun</div></div></div>
+        <div class="q"><div class="qn">Q4</div><div class="qt">Compared with nearby things, how do distant things look in a real scene?</div>
+          <div class="opts"><div class="opt">A) Darker, sharper, and more saturated</div><div class="opt">B) Hazier, lighter, and lower in contrast</div><div class="opt">C) Exactly the same</div></div></div>
+        <div class="q"><div class="qn">Q5</div><div class="qt">Where does the unifying grade go in the layer stack?</div>
+          <div class="opts"><div class="opt">A) At the very top, over everything</div><div class="opt">B) Clipped to the subject</div><div class="opt">C) Directly above the background, below the subject</div></div></div>
+        <div class="q"><div class="qn">Q6</div><div class="qt">What is the correct way to finish and deliver the composite?</div>
+          <div class="opts"><div class="opt">A) Flatten the image, then save over the .psd</div><div class="opt">B) Save the layered .psd master, then File ▸ Export ▸ Export As a JPG</div><div class="opt">C) Screenshot the canvas</div></div></div>
+      </div>
+      <div class="blk"><div class="h">Journal</div>
+        <p style="font-size:.92rem;margin:.2rem 0"><em>Of shadow, atmosphere, and grade, which made the biggest difference to your composite? That tells you which cue your eye is most sensitive to.</em> Also note: key concepts · what clicked · questions · ideas to try · your progress and feelings.</p>
+        <div class="write"></div>
+      </div>
+      <div class="blk"><div class="h">Notes</div><div class="notes-lines"></div></div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Module 4 Summary</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li>A composite cutout must survive a new background; <b>Decontaminate Colors</b> strips the fringe.</li>
+    <li>A pasted look is a mismatch of <b>brightness, color, or contrast</b>. Fix them in that order, every adjustment <b>clipped</b> to the subject.</li>
+    <li>A <b>contact shadow</b> grounds the subject; <b>haze</b> adds depth; <b>one grade</b> on top unifies the whole.</li>
+    <li>There is only one light: every shadow falls the same way.</li>
+  </ul>
+
+  <div class="note">
+    <div class="t">You finished Module 4 🎉</div>
+    <p>You took two separate images and made one believable photograph. That draws on every module so far: layers, masks, Curves, and painting light. Keep your exported JPG: in Module 5 you design a poster, and your composite can be its hero image.</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <b>© 2026 Ray de la Paz</b>
+      <span class="bio">Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Workbook · Module 4 · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

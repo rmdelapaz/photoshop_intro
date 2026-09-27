@@ -1,0 +1,24 @@
+POSTER BRIEF A: Summer Music Festival (the lesson's example)
+
+Line 1 (title):      SUMMER
+Line 2 (title):      MUSIC FESTIVAL
+Line 3 (key detail): July 18 · Riverside Park
+Line 4 (extras):     Live bands · Food trucks · All ages
+Line 5 (fine print): TICKETS AT THE DOOR
+Badge / path text:   EST · 2026 · LIVE
+Sponsor:             Riverside Radio (logo: l16-sponsor-logo.png)
+
+Document: 18 x 24 in at 150 ppi, dark background. Save as poster-working.psd.
+Rules: every line its own type layer; 1st line boldly biggest; two fonts maximum;
+one accent color on the most important line or a small "tickets" badge.
+
+POSTER BRIEF B: Community Night Market (alternative)
+
+Line 1 (title):      NIGHT MARKET
+Line 2 (key detail): Friday, August 8 · 6 to 11 PM
+Line 3 (place):      Old Town Square
+Line 4 (extras):     Street food · Local makers · Live DJ
+Line 5 (fine print): FREE ENTRY · FAMILY FRIENDLY
+Badge / path text:   EVERY SECOND FRIDAY
+
+Decide the reading order yourself before you size anything.

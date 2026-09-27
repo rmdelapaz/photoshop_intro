@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teach Photoshop</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="kit.css">
+<style>
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin:18px 0 6px; }
+  .statcard { background:var(--surface-2); border:1px solid var(--line); border-radius:10px; padding:14px 12px; text-align:center; }
+  .statcard .n { font-family:"Archivo",sans-serif; font-weight:800; font-size:1.7rem; color:var(--accent); line-height:1; }
+  .statcard .l { font-size:.72rem; color:var(--ink-3); margin-top:5px; text-transform:uppercase; letter-spacing:.04em; }
+  .tiers { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:14px 0; }
+  .tier { border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px 20px; background:var(--surface); display:flex; flex-direction:column; }
+  .tier.feature { border:2px solid var(--accent); box-shadow:0 1px 2px rgba(20,30,45,.05),0 8px 26px rgba(20,30,45,.07); }
+  .tier .name { font-family:"JetBrains Mono",monospace; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); }
+  .tier .price { font-family:"Archivo",sans-serif; font-weight:800; font-size:1.9rem; margin:6px 0 2px; letter-spacing:-.02em; }
+  .tier .price span { font-size:.8rem; font-weight:500; color:var(--ink-3); }
+  .tier ul { margin:10px 0 0; }
+  .tier .who { font-size:.82rem; color:var(--ink-2); margin-bottom:2px; }
+  .badge { display:inline-block; align-self:flex-start; font-family:"JetBrains Mono",monospace; font-size:.62rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:#fff; background:var(--accent); border-radius:999px; padding:2px 9px; margin-bottom:8px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  table.path { width:100%; border-collapse:collapse; margin:10px 0; font-size:.88rem; }
+  table.path th, table.path td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.path th { font-family:"JetBrains Mono",monospace; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600; }
+  table.path td.m { font-family:"JetBrains Mono",monospace; font-size:.78rem; color:var(--accent); font-weight:600; white-space:nowrap; }
+  table.path tr:last-child td { border-bottom:none; }
+  @media (max-width:680px){ .stats{grid-template-columns:1fr 1fr} .tiers{grid-template-columns:1fr} }
+  @media print { .tiers, table.path { break-inside:avoid; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Sell sheet:</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">for pitching the kit to other instructors</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Course-in-a-Box · Instructor License</div>
+    <h1>Teach Photoshop, Without Building It Yourself</h1>
+    <p class="sub">A complete, ready-to-deliver beginner curriculum that takes learners from "I've never opened Photoshop" to a presented portfolio piece in eight three-hour sessions. Every session ends with a finished, exported piece. Everything you need to walk in and teach: guides, slides, labs, practice files, workbooks, and answer keys.</p>
+    <div class="stats">
+      <div class="statcard"><div class="n">8</div><div class="l">Modules · 8 sessions</div></div>
+      <div class="statcard"><div class="n">22</div><div class="l">Lessons</div></div>
+      <div class="statcard"><div class="n">25</div><div class="l">Recipe cards</div></div>
+      <div class="statcard"><div class="n">24</div><div class="l">Instructional hours</div></div>
+    </div>
+  </header>
+
+  <div class="sec"><h2>One Module, One Session, One Finished Piece</h2><span class="rule"></span></div>
+  <table class="path">
+    <thead><tr><th>Session</th><th>Module</th><th>Learners leave with</th></tr></thead>
+    <tbody>
+      <tr><td class="m">S1</td><td>0 · Your First Win</td><td>One photo, fixed and exported</td></tr>
+      <tr><td class="m">S2</td><td>1 · Foundations</td><td>A messy photo cleaned up</td></tr>
+      <tr><td class="m">S3</td><td>2 · Light &amp; Color</td><td>A flat photo graded and alive</td></tr>
+      <tr><td class="m">S4</td><td>3 · Retouching</td><td>A natural portrait retouch</td></tr>
+      <tr><td class="m">S5</td><td>4 · Compositing</td><td>A believable two-image composite</td></tr>
+      <tr><td class="m">S6</td><td>5 · Design &amp; Type</td><td>A finished poster</td></tr>
+      <tr><td class="m">S7</td><td>6 · AI &amp; Speed</td><td>A generative edit plus an automated batch</td></tr>
+      <tr><td class="m">S8</td><td>7 · Capstone</td><td>A self-directed portfolio piece, presented</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec"><h2>What You Get</h2><span class="rule"></span></div>
+  <div class="grid2">
+    <div class="blk"><div class="h">For every module (×8)</div>
+      <ul class="tick">
+        <li><b>Facilitator guide:</b> timing, live-demo scripts, the beginner mistakes to pre-empt, checks for understanding</li>
+        <li><b>Participant workbook:</b> objectives, worked examples, write-in exercises, self-check quizzes</li>
+        <li><b>Answer key:</b> every quiz answered and explained, plus lab reference notes</li>
+        <li><b>Slide deck:</b> a self-contained projector deck (no software to install)</li>
+        <li><b>Labs with practice files:</b> generated, royalty-free images you can hand straight to learners</li>
+      </ul>
+    </div>
+    <div class="blk"><div class="h">Across the kit</div>
+      <ul class="tick">
+        <li><b>8-session syllabus</b> (3 hours each) in web and print formats: weekly, twice-weekly, or a 4-day intensive</li>
+        <li><b>Student setup guide</b>, including what photos to bring to each session</li>
+        <li><b>Final capstone assessment:</b> six brief options, a 9-row rubric built on the course's own critique questions, a peer-critique protocol, and a scoring sheet</li>
+        <li>The live course website, with 22 lessons and a <b>25-card Recipes library</b> learners keep using after class</li>
+        <li><b>Print-ready PDFs</b> throughout: hand out or project</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="sec"><h2>Why Instructors Choose It</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li><b>Minimal prep to teach.</b> The facilitator guide scripts each lesson: timing, demos, and the exact beginner mistakes to head off. Walk in and deliver.</li>
+    <li><b>Beginners actually finish.</b> A first win in Session 1, then a finished, exported piece every session, so learners never leave with half a project. The capstone gives them a portfolio piece to show.</li>
+    <li><b>The professional habits, from day one.</b> Non-destructive editing, masks, and Smart Objects run through every module, and each core idea comes back at greater depth, so nothing has to be unlearned.</li>
+    <li><b>Current and responsible.</b> Generative Fill and Expand are taught as tools in service of craft, with prompts, limits, ethics, and disclosure. Retouching is taught with consent and restraint.</li>
+    <li><b>No image licensing headaches.</b> Labs use generated practice files and learners' own photos, so there's no stock to license for your class.</li>
+    <li><b>Flexible delivery.</b> Weekly for eight weeks, twice a week, or a 4-day intensive. Community college, continuing ed, corporate L&amp;D, library, or solo trainer.</li>
+  </ul>
+
+  <div class="sec"><h2>Who It's For</h2><span class="rule"></span></div>
+  <div class="meta-row">
+    <span class="chip">Independent trainers</span>
+    <span class="chip">Community colleges &amp; CE</span>
+    <span class="chip">Corporate L&amp;D &amp; marketing teams</span>
+    <span class="chip">Libraries &amp; makerspaces</span>
+    <span class="chip">Workforce &amp; career programs</span>
+    <span class="chip">Photography clubs</span>
+  </div>
+
+  <div class="sec"><h2>License &amp; Pricing</h2><span class="rule"></span></div>
+  <div class="tiers">
+    <div class="tier">
+      <div class="name">Solo</div>
+      <div class="price">$499<span> one-time</span></div>
+      <div class="who">One named instructor · unlimited students</div>
+      <ul class="tick">
+        <li>Full kit, all 8 modules</li>
+        <li>Print the workbook for your class</li>
+        <li>Perpetual license</li>
+      </ul>
+    </div>
+    <div class="tier feature">
+      <div class="badge">Most popular</div>
+      <div class="name">Organization</div>
+      <div class="price">$1,997<span> one-time</span></div>
+      <div class="who">Multiple instructors at one org</div>
+      <ul class="tick">
+        <li>Everything in Solo</li>
+        <li>Unlimited instructors, one organization</li>
+        <li>Best value per seat</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <div class="name">White-label</div>
+      <div class="price">$4,997<span> one-time</span></div>
+      <div class="who">Multiple instructors · rebrand &amp; edit</div>
+      <ul class="tick">
+        <li>Everything in Organization</li>
+        <li>Add your own branding</li>
+        <li>Edit &amp; adapt the materials</li>
+      </ul>
+    </div>
+  </div>
+  <p style="font-size:.85rem;color:var(--ink-3)">Optional content-updates subscription: <b>$149/yr</b>, recommended for a course that tracks Photoshop's fast-moving generative tools. Volume and education pricing available. Learners need their own Photoshop access (Adobe plan, not included). See <code class="inline">LICENSE.md</code> for full terms.</p>
+
+  <div class="note lab">
+    <div class="t">Ready to teach it?</div>
+    <p>Get in touch for a sample module and licensing details.<br><b>Ray de la Paz</b> · via the contact form at rays-home.netlify.app.</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <span class="bio">Technical trainer, full-stack developer, and course developer with 30+ years of experience</span>
+    </div>
+    <div class="ver">Instructor Sell Sheet · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

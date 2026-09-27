@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="The Recipes library: short, standalone Photoshop how-tos you can jump to any time. Each recipe links back to the module that teaches it in depth.">
+    <meta name="description" content="The Recipes library: short, standalone Photoshop how-tos you can jump to any time. Most recipes link to the lesson that teaches them in depth; a few point to a related lesson.">
     <meta name="author" content="Ray de la Paz">
     <title>Recipes Library | Photoshop Course</title>
     <link rel="stylesheet" href="styles/main.css">
@@ -32,14 +32,14 @@
         <div class="container">
             <header>
                 <h1><span class="lesson-eyebrow">Parallel Track</span><span class="lesson-title">↔ Recipes Library</span></h1>
-                <p class="lead">Short, standalone answers to "how do I do that again?" Jump in any time, in any order. Every recipe assumes nothing and links back to the module that teaches the idea in depth, for when you want the why behind the how.</p>
+                <p class="lead">Short, standalone answers to "how do I do that again?" Jump in any time, in any order. Each recipe spells out its steps and links to a lesson, for when you want the why behind the how.</p>
 
                 <div class="card card-info">
                     <h2>📚 How to Use This</h2>
                     <ul>
                         <li><strong>Search or scan.</strong> Filter by keyword below, or browse the categories.</li>
                         <li><strong>Follow the quick steps.</strong> Each recipe is the short version, enough to get it done.</li>
-                        <li><strong>Go deeper when you want.</strong> The <strong>🔗 Deep dive</strong> link on each card opens the full lesson.</li>
+                        <li><strong>Go deeper when you want.</strong> A <strong>🔗 Deep dive</strong> link opens the lesson that teaches the recipe in full. A <strong>🔗 Related</strong> link points to a lesson that covers the building blocks when no lesson teaches that exact recipe.</li>
                     </ul>
                     <p><small>New here? The linear <a href="index.html#path">course path</a> teaches these skills in order. Recipes are the reference you keep open alongside it.</small></p>
                 </div>
@@ -71,54 +71,54 @@
                 </nav>
             </details>
 
-            <p class="recipe-none" id="recipe-none">No recipes match that search. Try a simpler word like "sky", "type", or "batch".</p>
+            <p class="recipe-none" id="recipe-none">No recipes match all of those words. Try fewer or simpler words, like "sky", "type", or "batch".</p>
 
             <!-- ===== Fix & Prepare ===== -->
             <section id="fix" class="lesson-section recipe-cat">
                 <h2>🩹 Fix &amp; Prepare</h2>
                 <div class="recipe-grid">
-                    <div class="card recipe" data-tags="straighten crooked horizon level rotate tilt crop">
+                    <div class="card recipe" data-tags="straighten crooked horizon level rotate tilt tilted skewed crop">
                         <h3>Straighten a crooked horizon</h3>
                         <p class="recipe-when">When the horizon or a wall is visibly tilted.</p>
                         <ol>
                             <li>Grab the <strong>Crop</strong> tool (<kbd>C</kbd>).</li>
-                            <li>Click <strong>Straighten</strong> in the options bar, then drag a line along what should be level.</li>
-                            <li>Photoshop rotates and re-crops. Press <kbd>Enter</kbd>.</li>
+                            <li>Move your cursor just outside a corner until it becomes a bent arrow, then drag to rotate until the grid lines match the horizon. (Or click <strong>Straighten</strong> in the options bar and drag a line along what should be level.)</li>
+                            <li>Press <kbd>Enter</kbd> / <kbd>Return</kbd> to commit.</li>
                         </ol>
                         <p class="recipe-deep">🔗 Deep dive: <a href="lesson_01.html">Module 0: Fix &amp; Export One Photo</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="crop size ratio aspect dimensions resize">
+                    <div class="card recipe" data-tags="crop size ratio aspect dimensions resize square trim print instagram 4x5 16:9">
                         <h3>Crop to an exact size or ratio</h3>
                         <p class="recipe-when">When you need a specific shape (square, 16:9, a print size).</p>
                         <ol>
                             <li><strong>Crop</strong> tool (<kbd>C</kbd>).</li>
-                            <li>In the options bar choose a <strong>Ratio</strong>, or type <strong>W × H × Resolution</strong>.</li>
-                            <li>Drag to frame it, then <kbd>Enter</kbd>.</li>
+                            <li>In the options bar, open the <strong>Ratio</strong> menu and pick a ratio (or type your own), or choose <strong>W x H x Resolution</strong> and enter exact dimensions.</li>
+                            <li>Drag to frame it, then press <kbd>Enter</kbd> / <kbd>Return</kbd>.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_01.html">Module 0: Fix &amp; Export One Photo</a></p>
+                        <p class="recipe-deep">🔗 Related: <a href="lesson_18.html">Lesson 6.2: Generative Expand &amp; Reframe</a> (the Crop tool's Ratio menu) · <a href="lesson_01.html">Module 0: Fix &amp; Export One Photo</a> (Crop tool basics)</p>
                     </div>
 
-                    <div class="card recipe" data-tags="dust spots blemish spot healing clean sensor speck">
+                    <div class="card recipe" data-tags="dust spots blemish spot healing clean clean up sensor speck scratch remove spots">
                         <h3>Remove dust spots &amp; specks</h3>
                         <p class="recipe-when">When little marks dot a sky or a wall.</p>
                         <ol>
                             <li>Add a new empty layer named <code>retouch</code>.</li>
-                            <li><strong>Spot Healing Brush</strong> (<kbd>J</kbd>), tick <strong>Sample All Layers</strong> in the options bar. (Using the Healing Brush or Clone Stamp instead? Set their <strong>Sample:</strong> menu to <strong>All Layers</strong>, or they will sample the empty layer.)</li>
-                            <li>At 100% zoom, single-click each spot.</li>
+                            <li><strong>Spot Healing Brush</strong> (<kbd>J</kbd>), tick <strong>Sample All Layers</strong> in the options bar. (Using the Healing Brush or Clone Stamp instead? Set their <strong>Sample:</strong> menu to <strong>Current &amp; Below</strong> (or All Layers), or they will sample the empty layer.)</li>
+                            <li>Zoom to 100% (<kbd>Ctrl/⌘ + 1</kbd>) and single-click each spot with a brush just larger than the spot.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_04.html">Module 1.3: Cleaning Up</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_04.html">Lesson 1.3: Cleaning Up: Spots, Distractions &amp; Edges</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="remove object distraction person photobomb content aware generative delete">
+                    <div class="card recipe" data-tags="remove object distraction person people tourist photobomb wires power lines erase clone clean up remove tool content aware generative delete">
                         <h3>Remove a distracting object</h3>
                         <p class="recipe-when">When something (a sign, a trash can, a photobomber) pulls the eye.</p>
                         <ol>
-                            <li>Loosely select the object with a little margin.</li>
-                            <li><strong>Generative Fill</strong> with an <em>empty</em> prompt, then Generate.</li>
-                            <li>Or use <strong>Edit ▸ Content-Aware Fill</strong> for a non-cloud option.</li>
+                            <li>Easiest first: on an empty <code>retouch</code> layer, pick the <strong>Remove</strong> tool (in the healing group, <kbd>J</kbd>), tick <strong>Sample All Layers</strong>, and brush over the whole object.</li>
+                            <li>Or loosely select the object with a little margin, click <strong>Generative Fill</strong> in the Contextual Task Bar, leave the prompt <em>empty</em>, and click <strong>Generate</strong>.</li>
+                            <li>Or, for a non-cloud option: click the photo layer, select the object, choose <strong>Edit ▸ Content-Aware Fill</strong>, and set <strong>Output To: New Layer</strong>.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_17.html">Module 6.1: Generative Fill</a> · <a href="lesson_04.html">Module 1.3: Cleaning Up</a> (Content-Aware Fill)</p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_04.html">Lesson 1.3: Cleaning Up: Spots, Distractions &amp; Edges</a> (Remove tool, Content-Aware Fill) · <a href="lesson_17.html">Lesson 6.1: Generative Fill</a></p>
                     </div>
                 </div>
             </section>
@@ -127,29 +127,29 @@
             <section id="select" class="lesson-section recipe-cat">
                 <h2>✂️ Select &amp; Cut Out</h2>
                 <div class="recipe-grid">
-                    <div class="card recipe" data-tags="remove background cut out subject isolate transparent knockout">
+                    <div class="card recipe" data-tags="remove background background removal erase background delete background cut out cutout subject select subject isolate transparent png white background knockout mask">
                         <h3>Remove a background</h3>
                         <p class="recipe-when">When you want to isolate a subject or drop it onto a new scene.</p>
                         <ol>
                             <li><strong>Select ▸ Subject</strong> for a first pass.</li>
-                            <li>Click <strong>Select and Mask</strong>, refine the edge, tick <strong>Decontaminate Colors</strong>.</li>
-                            <li><strong>Output To: New Layer with Layer Mask</strong>.</li>
+                            <li>Choose <strong>Select ▸ Select and Mask…</strong> (<kbd>Ctrl + Alt + R</kbd> / <kbd>⌘ + ⌥ + R</kbd>). Click <strong>Refine Hair</strong> if there is hair, then paint any missing wisps with the <strong>Refine Edge Brush</strong>.</li>
+                            <li>Under Output Settings, tick <strong>Decontaminate Colors</strong> and set <strong>Output To: New Layer with Layer Mask</strong>.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_11.html">Module 4.1: Cut It Out Cleanly</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_11.html">Lesson 4.1: Cut It Out Cleanly</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="hair fur wispy refine edge brush cut out">
+                    <div class="card recipe" data-tags="hair fur wispy pet animal refine edge brush refine hair smart radius select and mask halo fringe decontaminate cut out cutout">
                         <h3>Cut out wispy hair or fur</h3>
                         <p class="recipe-when">When a normal selection chops the hairline into a helmet.</p>
                         <ol>
-                            <li>Make your selection, then open <strong>Select and Mask</strong>.</li>
-                            <li>Use the <strong>Refine Edge Brush</strong> along the wispy edge only.</li>
-                            <li>Nudge <strong>Shift Edge</strong> slightly negative to kill the halo.</li>
+                            <li>Make your selection, then choose <strong>Select ▸ Select and Mask…</strong> (<kbd>Ctrl + Alt + R</kbd> / <kbd>⌘ + ⌥ + R</kbd>). Click <strong>Refine Hair</strong>, and under Edge Detection tick <strong>Smart Radius</strong> and raise <strong>Radius</strong> a few pixels.</li>
+                            <li>Paint the <strong>Refine Edge Brush</strong> along the wispy edge only (never across hard edges).</li>
+                            <li>Nudge <strong>Shift Edge</strong> slightly negative to bite off leftover background. To kill the colored halo, tick <strong>Decontaminate Colors</strong> and output to <strong>New Layer with Layer Mask</strong>.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_11.html">Module 4.1: Cut It Out Cleanly</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_11.html">Lesson 4.1: Cut It Out Cleanly</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="select sky replace mask gradient">
+                    <div class="card recipe" data-tags="select sky replace sky replacement clouds darken sky sunset mask gradient">
                         <h3>Select (or grade) just the sky</h3>
                         <p class="recipe-when">When you want to darken, warm, or replace only the sky.</p>
                         <ol>
@@ -157,18 +157,18 @@
                             <li>Add an adjustment layer; the selection becomes its mask automatically.</li>
                             <li>Grade away, sky only. (Or <strong>Edit ▸ Sky Replacement</strong>.)</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Related: <a href="lesson_03.html">Module 1.2: Selections That Hold Up</a> (selection basics; Select ▸ Sky itself is not covered in the course)</p>
+                        <p class="recipe-deep">🔗 Related: <a href="lesson_03.html">Lesson 1.2: Selections That Hold Up</a> (selection basics; Select ▸ Sky itself is not covered in the course)</p>
                     </div>
 
-                    <div class="card recipe" data-tags="selection into mask marching ants convert save">
+                    <div class="card recipe" data-tags="selection into mask layer mask marching ants convert save hide non destructive">
                         <h3>Turn a selection into a mask</h3>
                         <p class="recipe-when">When you have a good selection and want to keep it editable.</p>
                         <ol>
                             <li>With the selection active, pick the layer you want to mask.</li>
-                            <li>Click the <strong>Add Layer Mask</strong> button. The selection becomes white (revealed).</li>
+                            <li>Click the <strong>Add Layer Mask</strong> button at the bottom of the Layers panel. The selection becomes white (revealed).</li>
                             <li>Paint the mask later to refine: black hides, white reveals.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_02.html">Module 1.1: The Layer Stack &amp; Your First Mask</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_03.html">Lesson 1.2: Selections That Hold Up</a></p>
                     </div>
                 </div>
             </section>
@@ -177,48 +177,48 @@
             <section id="color" class="lesson-section recipe-cat">
                 <h2>🎨 Color &amp; Light</h2>
                 <div class="recipe-grid">
-                    <div class="card recipe" data-tags="color cast white balance temperature orange blue neutral camera raw">
+                    <div class="card recipe" data-tags="color cast white balance temperature tint orange blue yellow green warm cool neutral eyedropper camera raw">
                         <h3>Fix a color cast</h3>
                         <p class="recipe-when">When whites look orange, blue, or green.</p>
                         <ol>
-                            <li><strong>Filter ▸ Camera Raw Filter</strong> (convert to a Smart Object first).</li>
-                            <li>Grab the <strong>White Balance eyedropper</strong> and click something neutral gray or white.</li>
-                            <li>Fine-tune <strong>Temperature</strong> and <strong>Tint</strong>.</li>
+                            <li>Right-click the layer (on its name, not the thumbnail) ▸ <strong>Convert to Smart Object</strong>, then choose <strong>Filter ▸ Camera Raw Filter…</strong> (<kbd>Shift + Ctrl + A</kbd> / <kbd>⇧ + ⌘ + A</kbd>).</li>
+                            <li>Grab the <strong>White Balance eyedropper</strong> and click something that should be neutral gray or white.</li>
+                            <li>Fine-tune <strong>Temperature</strong> and <strong>Tint</strong>, then click OK. It stays re-editable as a Smart Filter.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_05.html">Module 2.1: The Develop Step</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_05.html">Lesson 2.1: The Develop Step: Camera Raw</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="contrast punch flat s-curve curves pop">
+                    <div class="card recipe" data-tags="contrast punch flat dull hazy depth tone s-curve curves pop">
                         <h3>Add punch with contrast</h3>
                         <p class="recipe-when">When a photo looks flat and hazy.</p>
                         <ol>
-                            <li>Add a <strong>Curves</strong> adjustment layer.</li>
+                            <li>Add a <strong>Curves</strong> adjustment layer (the ◐ button at the bottom of the Layers panel ▸ Curves).</li>
                             <li>Pull the shadows point gently <strong>down</strong>, the highlights point gently <strong>up</strong> (an S-curve).</li>
                             <li>Keep it subtle; small moves, big effect.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_06.html">Module 2.2: Curves</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_06.html">Lesson 2.2: Curves: Precise Tone &amp; Color</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="brighten one area dodge local mask spotlight">
+                    <div class="card recipe" data-tags="brighten lighten one area dodge local selective mask spotlight dark face underexposed">
                         <h3>Brighten just one area</h3>
                         <p class="recipe-when">When you want to lift a face or a subject, not the whole frame.</p>
                         <ol>
                             <li>Add a <strong>Curves</strong> layer and brighten it noticeably.</li>
-                            <li>Fill its mask <strong>black</strong> (with black as the foreground color, <kbd>Alt + Backspace</kbd> / <kbd>⌥ + Delete</kbd>; or press <kbd>Ctrl/⌘ + I</kbd> to invert the white mask).</li>
-                            <li>Paint <strong>white</strong> with a soft brush over the area to reveal the lift.</li>
+                            <li>Click its mask thumbnail, then fill the mask <strong>black</strong>: press <kbd>D</kbd>, then <kbd>X</kbd> so black is the foreground color, and press <kbd>Alt + Backspace</kbd> / <kbd>⌥ + Delete</kbd>. (Or press <kbd>Ctrl/⌘ + I</kbd> to invert the white mask.)</li>
+                            <li>Press <kbd>X</kbd> for white, then paint with a soft brush (<kbd>B</kbd>) over the area to reveal the lift.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_02.html">Module 1.1: The Layer Stack &amp; Your First Mask</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_02.html">Lesson 1.1: The Layer Stack &amp; Your First Mask</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="teal orange cinematic color grade channel curves split tone">
+                    <div class="card recipe" data-tags="teal orange cinematic film movie moody look color grade grading channel curves split tone">
                         <h3>Give it a cinematic grade</h3>
                         <p class="recipe-when">When you want a "teal and orange" film look.</p>
                         <ol>
-                            <li>Add a <strong>Curves</strong> layer, switch the channel to <strong>Blue</strong>.</li>
-                            <li>Lift the shadow end (cool shadows), drop the highlight end (warm highlights).</li>
+                            <li>Add a <strong>Curves</strong> layer, switch the channel menu from RGB to <strong>Blue</strong>.</li>
+                            <li>Lift the shadow end slightly (cool shadows), drop the highlight end slightly (warm highlights). For a truer teal, switch to <strong>Red</strong> and pull its shadow end down slightly (less red = more cyan).</li>
                             <li>Move in tiny amounts; channel curves are strong.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_06.html">Module 2.2: Curves</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_06.html">Lesson 2.2: Curves: Precise Tone &amp; Color</a></p>
                     </div>
                 </div>
             </section>
@@ -227,48 +227,48 @@
             <section id="retouch" class="lesson-section recipe-cat">
                 <h2>🧑‍🎨 Retouch</h2>
                 <div class="recipe-grid">
-                    <div class="card recipe" data-tags="whiten teeth eyes brighten smile portrait mask">
+                    <div class="card recipe" data-tags="whiten whitening teeth yellow teeth stained eyes whites iris brighten smile portrait mask">
                         <h3>Whiten teeth or eyes</h3>
                         <p class="recipe-when">When teeth or the whites of the eyes look dull.</p>
                         <ol>
                             <li>Add a <strong>Curves</strong> layer and brighten slightly. (Yellowish teeth? Add a <strong>Hue/Saturation</strong> layer too, masked the same way, and lower the Yellows saturation a touch.)</li>
-                            <li>Fill its mask <strong>black</strong>.</li>
-                            <li>Paint <strong>white</strong> over just the teeth or eye-whites. Keep it subtle.</li>
+                            <li>Click its mask thumbnail and press <kbd>Ctrl/⌘ + I</kbd> to turn the mask <strong>black</strong> (hiding the effect everywhere).</li>
+                            <li>Paint <strong>white</strong> with a small soft brush over just the teeth or eye-whites. Keep it subtle: clean, not glowing.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_10.html">Module 3.3: Dodge &amp; Burn</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_10.html">Lesson 3.3: Dodge &amp; Burn: Sculpting Light</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="smooth skin blotchy even frequency separation plastic soft">
+                    <div class="card recipe" data-tags="smooth skin blotchy even tone frequency separation plastic soft airbrush beauty retouch portrait pores texture complexion">
                         <h3>Smooth skin without plastic</h3>
                         <p class="recipe-when">When skin tone is blotchy but you want to keep pores.</p>
                         <ol>
-                            <li>Set up <strong>frequency separation</strong>: a blurred LOW (color) layer and a HIGH (texture) layer.</li>
-                            <li>Even the blotches on <strong>LOW</strong> with a soft brush or a small blur.</li>
-                            <li>Leave <strong>HIGH</strong> alone so texture stays sharp.</li>
+                            <li>Stamp Visible (<kbd>Ctrl + Alt + Shift + E</kbd> / <kbd>⌘ + ⌥ + ⇧ + E</kbd>), then duplicate it twice (<kbd>Ctrl/⌘ + J</kbd> ×2): name the lower copy <strong>LOW</strong> and the upper <strong>HIGH</strong>. Hide HIGH and apply <strong>Filter ▸ Blur ▸ Gaussian Blur</strong> to LOW until blotches and pores vanish.</li>
+                            <li>Show and select HIGH: <strong>Image ▸ Apply Image</strong>, Layer: LOW, Blending: <strong>Subtract</strong>, Scale <strong>2</strong>, Offset <strong>128</strong> (8-bit settings). Set HIGH's blend mode to <strong>Linear Light</strong>.</li>
+                            <li>Even the blotches on <strong>LOW</strong> with a soft brush or a small blur; fix texture only on <strong>HIGH</strong> (heal or clone, Sample: Current Layer).</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_09.html">Module 3.2: Frequency Separation</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_09.html">Lesson 3.2: Frequency Separation</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="blemish spot pimple heal skin temporary remove">
+                    <div class="card recipe" data-tags="blemish spot pimple acne zit heal spot healing skin face portrait retouch temporary remove">
                         <h3>Remove a blemish naturally</h3>
                         <p class="recipe-when">When there is a temporary spot you want gone.</p>
                         <ol>
                             <li>Add a new empty <code>retouch</code> layer.</li>
-                            <li><strong>Spot Healing Brush</strong> with <strong>Sample All Layers</strong> ticked: click the blemish (leave permanent freckles/moles). With the Healing Brush or Clone Stamp, set <strong>Sample: All Layers</strong> instead.</li>
-                            <li>Lower the layer opacity slightly if it looks too perfect.</li>
+                            <li><strong>Spot Healing Brush</strong> (<kbd>J</kbd>), Type: <strong>Content-Aware</strong>, <strong>Sample All Layers</strong> ticked: click the blemish (leave permanent freckles and moles). Near an edge, use the Healing Brush with <strong>Sample: Current &amp; Below</strong> (or All Layers) and <kbd>Alt/⌥</kbd>-click clean skin to sample.</li>
+                            <li>Lower the <code>retouch</code> layer's opacity to about 85–90% so it never looks too perfect.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_08.html">Module 3.1: Natural Skin</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_08.html">Lesson 3.1: Natural Skin: Heal, Don't Erase</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="dodge burn sculpt light shadow dimension face gray soft light">
+                    <div class="card recipe" data-tags="dodge burn sculpt contour contouring highlight light shadow dimension 3d cheekbones face portrait gray soft light">
                         <h3>Sculpt a face with light</h3>
                         <p class="recipe-when">When a portrait looks flat and needs dimension.</p>
                         <ol>
-                            <li><kbd>Alt/⌥</kbd>-New Layer, mode <strong>Soft Light</strong>, fill <strong>50% gray</strong>.</li>
-                            <li>Press <kbd>D</kbd>, then <kbd>X</kbd>, so white is the foreground. Soft brush at ~10%: paint <strong>white</strong> to dodge highlights.</li>
-                            <li>Press <kbd>X</kbd> again for <strong>black</strong> to burn the shadow planes.</li>
+                            <li><kbd>Alt/⌥</kbd>-click the New Layer button. Set Mode: <strong>Soft Light</strong> and tick <strong>Fill with Soft-Light-neutral color (50% gray)</strong>.</li>
+                            <li>Brush (<kbd>B</kbd>), soft, Opacity ~10%. Press <kbd>D</kbd>, then <kbd>X</kbd>, so white is the foreground, and paint <strong>white</strong> to dodge the highlights.</li>
+                            <li>Press <kbd>X</kbd> again for <strong>black</strong> to burn the shadow planes. Follow the photo's existing light and build up slowly.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_10.html">Module 3.3: Dodge &amp; Burn</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_10.html">Lesson 3.3: Dodge &amp; Burn: Sculpting Light</a></p>
                     </div>
                 </div>
             </section>
@@ -277,48 +277,48 @@
             <section id="design" class="lesson-section recipe-cat">
                 <h2>🔠 Design &amp; Type</h2>
                 <div class="recipe-grid">
-                    <div class="card recipe" data-tags="text title drop shadow layer style gradient type">
+                    <div class="card recipe" data-tags="text title headline drop shadow layer style fx text effect stroke outline glow gradient type poster">
                         <h3>Add a title that pops</h3>
                         <p class="recipe-when">When flat text needs to lift off the background.</p>
                         <ol>
                             <li>Set your text with the <strong>Type</strong> tool (<kbd>T</kbd>).</li>
-                            <li>Double-click the layer to open <strong>Layer Style</strong>.</li>
+                            <li>Double-click the empty area to the right of the layer's name (or choose <strong>Layer ▸ Layer Style</strong>) to open <strong>Layer Style</strong>.</li>
                             <li>Add a <strong>Gradient Overlay</strong> and a subtle <strong>Drop Shadow</strong>.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_16.html">Module 5.3: Layer Styles &amp; the Poster</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_16.html">Lesson 5.3: Layer Styles &amp; the Poster</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="curve text path type on a path arc badge circular">
+                    <div class="card recipe" data-tags="curve curved text path type on a path text on a path text on path arc arch badge circle circular round logo">
                         <h3>Curve text along a shape</h3>
                         <p class="recipe-when">When you want text arced over a title or around a badge.</p>
                         <ol>
-                            <li>Draw a path with the <strong>Pen</strong> or a Shape tool.</li>
-                            <li>Hover the <strong>Type</strong> tool over the path until the cursor shows a wavy line.</li>
-                            <li>Click and type; drag with <strong>Path Selection</strong> to reposition.</li>
+                            <li>Draw a path: pick the <strong>Ellipse</strong> tool (or the <strong>Pen</strong>), set its mode to <strong>Path</strong> in the options bar, and drag. (Any shape layer's edge works too.)</li>
+                            <li>Hover the <strong>Type</strong> tool (<kbd>T</kbd>) over the path until the cursor shows a wavy line.</li>
+                            <li>Click and type; drag with <strong>Path Selection</strong> (<kbd>A</kbd>) to slide the text along the path or flip it to the other side.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_14.html">Module 5.1: Type &amp; Hierarchy</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_14.html">Lesson 5.1: Type &amp; Hierarchy</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="hierarchy type layout headline readable size weight">
+                    <div class="card recipe" data-tags="hierarchy type typography font fonts layout headline readable size weight spacing leading tracking kerning">
                         <h3>Fix messy, flat type</h3>
                         <p class="recipe-when">When a layout has no clear "read me first".</p>
                         <ol>
                             <li>Give each line a job: 1st, 2nd, 3rd, fine print.</li>
-                            <li>Size boldly to match (make the main line much bigger).</li>
+                            <li>Size boldly to match (make the main line much bigger). In the <strong>Character</strong> panel, tighten leading on titles and add tracking to small all-caps labels.</li>
                             <li>One or two fonts, one accent color, generous spacing.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_14.html">Module 5.1: Type &amp; Hierarchy</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_14.html">Lesson 5.1: Type &amp; Hierarchy</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="vector shape crisp resize logo pen resolution scale">
+                    <div class="card recipe" data-tags="vector shape shape layer crisp sharp resize logo icon pen resolution scale">
                         <h3>Make a crisp, resizable graphic</h3>
                         <p class="recipe-when">When a logo or icon must stay sharp at any size.</p>
                         <ol>
-                            <li>Use the <strong>Shape</strong> tools or the <strong>Pen</strong> in <strong>Shape</strong> mode.</li>
+                            <li>Use the <strong>Shape</strong> tools (<kbd>U</kbd>) or the <strong>Pen</strong> (<kbd>P</kbd>) in <strong>Shape</strong> mode.</li>
                             <li>Set <strong>Fill</strong> and <strong>Stroke</strong> in the options bar.</li>
-                            <li>It scales forever without pixelating. Avoid rasterizing it.</li>
+                            <li>Inside your <code>.psd</code> it scales without pixelating, so avoid rasterizing it. Exported JPG or PNG files are pixels, so export at the size you need.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_15.html">Module 5.2: Shapes &amp; the Pen</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_15.html">Lesson 5.2: Shapes &amp; the Pen</a></p>
                     </div>
                 </div>
             </section>
@@ -327,59 +327,59 @@
             <section id="speed" class="lesson-section recipe-cat">
                 <h2>⚙️ AI, Speed &amp; Export</h2>
                 <div class="recipe-grid">
-                    <div class="card recipe" data-tags="add object generative fill describe prompt ai">
+                    <div class="card recipe" data-tags="add object insert element generative fill describe prompt firefly ai">
                         <h3>Add something that was not there</h3>
                         <p class="recipe-when">When the scene needs an extra element (a boat, clouds, a prop).</p>
                         <ol>
-                            <li>Select an empty area sized for what you want.</li>
-                            <li>Type a short, concrete prompt in the task bar.</li>
-                            <li><strong>Generate</strong>, then cycle the variations.</li>
+                            <li>Select an empty area sized and shaped for what you want.</li>
+                            <li>Click <strong>Generative Fill</strong> in the Contextual Task Bar (no task bar? use <strong>Edit ▸ Generative Fill</strong>) and type a short, concrete prompt.</li>
+                            <li>Click <strong>Generate</strong>, then cycle the three variations or generate again.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_17.html">Module 6.1: Generative Fill</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_17.html">Lesson 6.1: Generative Fill</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="expand uncrop extend canvas reframe aspect ratio generative">
+                    <div class="card recipe" data-tags="expand generative expand uncrop extend extend background widen outpaint canvas reframe aspect ratio banner landscape generative">
                         <h3>Uncrop or reframe a photo</h3>
                         <p class="recipe-when">When a subject is cropped too tight or you need a different shape.</p>
                         <ol>
-                            <li><strong>Crop</strong> tool, set <strong>Fill: Generative Expand</strong>.</li>
+                            <li><strong>Crop</strong> tool (<kbd>C</kbd>), set <strong>Fill: Generative Expand</strong> in the options bar.</li>
                             <li>Optionally pick a <strong>Ratio</strong>, then drag the handles <strong>outward</strong> past the photo.</li>
-                            <li>Optionally type a prompt in the task bar, then click <strong>Generate</strong>. Expand in small bites for big changes.</li>
+                            <li>Optionally type a prompt in the task bar, then click <strong>Generate</strong>. Expand in small bites for big changes, and check the seam at 100%.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_18.html">Module 6.2: Generative Expand</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_18.html">Lesson 6.2: Generative Expand &amp; Reframe</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="watermark batch folder action automate many files bulk">
+                    <div class="card recipe" data-tags="watermark logo copyright batch folder action automate droplet image processor resize web many multiple files bulk">
                         <h3>Watermark a whole folder</h3>
                         <p class="recipe-when">When you need the same treatment on many images.</p>
                         <ol>
-                            <li>Record an <strong>Action</strong>: <strong>File ▸ Automate ▸ Fit Image</strong>, place the watermark, <strong>Layer ▸ Flatten Image</strong>, Save As JPEG, close.</li>
-                            <li><strong>File ▸ Automate ▸ Batch</strong>: choose the Action, a <strong>Source</strong> folder and a <strong>Destination</strong> folder, and tick <strong>Override Action "Save As" Commands</strong>.</li>
-                            <li>Run it. For a desktop shortcut, save it as a <strong>droplet</strong>.</li>
+                            <li>Record an <strong>Action</strong> (Window ▸ Actions): <strong>Edit ▸ Convert to Profile</strong> (sRGB), <strong>File ▸ Automate ▸ Fit Image</strong>, <strong>File ▸ Place Embedded</strong> the watermark, <strong>Layer ▸ Flatten Image</strong>, Save As JPEG, close.</li>
+                            <li><strong>File ▸ Automate ▸ Batch</strong>: choose the Action, a <strong>Source</strong> folder and a <strong>Destination</strong> folder, and tick <strong>Override Action "Save As" Commands</strong>. Click OK to run it.</li>
+                            <li>For drag-and-drop reuse, turn the Action into a droplet: <strong>File ▸ Automate ▸ Create Droplet</strong>.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_19.html">Module 6.3: Actions, Batch &amp; Droplets</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_19.html">Lesson 6.3: Actions, Batch &amp; Droplets</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="export instagram print jpg pdf cmyk rgb resolution save social screen">
+                    <div class="card recipe" data-tags="export export as save for web instagram facebook social media web print printer bleed jpg png pdf cmyk rgb resolution save social screen">
                         <h3>Export for Instagram vs print</h3>
                         <p class="recipe-when">When the same image needs to go to screen and to a printer.</p>
                         <ol>
                             <li>Keep the layered <code>.psd</code> master.</li>
-                            <li><strong>Screen:</strong> Export As <strong>JPG</strong>, sRGB, at the platform's pixel size.</li>
-                            <li><strong>Print:</strong> 300 ppi with bleed added via Canvas Size; convert to CMYK with <strong>Edit ▸ Convert to Profile</strong> (or a PDF/X preset), then <strong>Save a Copy</strong> as <strong>Photoshop PDF</strong>. Confirm the specs with the printer.</li>
+                            <li><strong>Screen:</strong> <strong>File ▸ Export ▸ Export As</strong>, <strong>JPG</strong> (or PNG if you need transparency), sRGB, at the platform's pixel size.</li>
+                            <li><strong>Print:</strong> 300 ppi with bleed added via <strong>Image ▸ Canvas Size</strong>. On a copy (<strong>Image ▸ Duplicate</strong>), convert to CMYK with <strong>Edit ▸ Convert to Profile</strong> (or let a PDF/X preset convert it), then <strong>File ▸ Save a Copy</strong> as <strong>Photoshop PDF</strong>. Confirm the specs with the printer.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_16.html">Module 5.3: Layer Styles &amp; the Poster</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_16.html">Lesson 5.3: Layer Styles &amp; the Poster</a></p>
                     </div>
 
-                    <div class="card recipe" data-tags="resize smart object scale quality non destructive transform">
+                    <div class="card recipe" data-tags="resize enlarge shrink scale up scale down smart object smart filter free transform pixelated blurry quality non destructive transform">
                         <h3>Resize without wrecking quality</h3>
                         <p class="recipe-when">When you will scale a layer up and down repeatedly.</p>
                         <ol>
-                            <li>Right-click the layer, <strong>Convert to Smart Object</strong>.</li>
-                            <li>Scale it freely with <kbd>Ctrl/⌘ + T</kbd>; it re-renders crisp from the original.</li>
+                            <li>Right-click the layer (on its name, not the thumbnail) ▸ <strong>Convert to Smart Object</strong>.</li>
+                            <li>Scale it with <kbd>Ctrl/⌘ + T</kbd> as often as you like; it re-renders crisp from the original. (Scaling past the original pixel size still softens it.)</li>
                             <li>Filters on it become re-editable Smart Filters too.</li>
                         </ol>
-                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_07.html">Module 2.3: Smart Objects</a></p>
+                        <p class="recipe-deep">🔗 Deep dive: <a href="lesson_07.html">Lesson 2.3: Smart Objects &amp; Finishing the Grade</a></p>
                     </div>
                 </div>
             </section>
@@ -419,11 +419,12 @@
         const setCount = n => { if (countEl) countEl.textContent = n === total ? total + ' recipes' : n + ' of ' + total + ' recipes'; };
         setCount(total);
         input.addEventListener('input', () => {
-            const q = input.value.trim().toLowerCase();
+            const STOP = ['and', '&', 'the', 'a', 'an', 'to', 'of', 'for', 'in', 'on', 'my', 'how', 'do', 'i', 'with'];
+            const words = input.value.trim().toLowerCase().split(/\s+/).filter(w => w && !STOP.includes(w));
             let shown = 0;
             recipes.forEach(c => {
                 const hay = ((c.getAttribute('data-tags') || '') + ' ' + c.textContent).toLowerCase();
-                const match = q === '' || hay.includes(q);
+                const match = words.length === 0 || words.every(w => hay.includes(w) || (w.length > 4 && hay.includes(w.replace(/(ing|es|s)$/, ''))));
                 c.style.display = match ? '' : 'none';
                 if (match) shown++;
             });

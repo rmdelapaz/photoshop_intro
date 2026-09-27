@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slides: Module 5</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+  :root{
+    --bg:#0b1220; --ink:#eaf1fb; --ink2:#9fb2cd;
+    --accent:#31A8FF; --accent2:#1473E6; --lab:#34d3bd; --warn:#fbbf24;
+    --line:#1d3350; --code:#0a1a2e; color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;overflow:hidden}
+  .deck{height:100%;width:100%;position:relative}
+  .slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;padding:6vh 8vw;gap:20px}
+  .slide.on{display:flex}
+  h1,h2,h3{font-family:"Archivo",sans-serif;line-height:1.1;text-wrap:balance}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .slide h1{font-size:clamp(2rem,6vw,4rem);font-weight:800;letter-spacing:-.02em}
+  .slide h2{font-size:clamp(1.5rem,4.2vw,2.8rem);font-weight:800;letter-spacing:-.01em}
+  .slide p.lead{font-size:clamp(1.05rem,2.4vw,1.5rem);color:var(--ink2);max-width:30ch}
+  ul,ol.num{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:6px}
+  ul li{position:relative;padding-left:34px;font-size:clamp(1.05rem,2.3vw,1.6rem)}
+  ul li::before{content:"";position:absolute;left:0;top:.55em;width:12px;height:12px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+  ul.lab li::before{background:var(--lab)}
+  ol.num{counter-reset:n}
+  ol.num li{position:relative;padding-left:46px;font-size:clamp(1.05rem,2.3vw,1.6rem)}
+  ol.num li::before{counter-increment:n;content:counter(n);position:absolute;left:0;top:.05em;width:32px;height:32px;border-radius:50%;background:var(--accent2);color:#fff;font-family:"JetBrains Mono",monospace;font-size:1rem;font-weight:600;display:flex;align-items:center;justify-content:center}
+  code.k{font-family:"JetBrains Mono",monospace;color:#a9d4ff;font-size:.92em}
+  kbd{font-family:"JetBrains Mono",monospace;font-size:.8em;background:#10243d;border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:1px 7px;color:#dbeaff}
+  .panel{background:var(--code);border:1px solid var(--line);border-radius:12px;padding:18px 22px;font-family:"JetBrains Mono",monospace;font-size:clamp(.85rem,1.8vw,1.2rem);line-height:1.7}
+  .panel .row{display:flex;gap:10px;align-items:center;padding:3px 10px;border-radius:6px}
+  .panel .row.hi{background:#12325a;color:#fff}
+  .panel .row.lab{background:#0d3a36;color:#b8f5ea}
+  .panel .row.dim{color:var(--ink2)}
+  .tag{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:clamp(.7rem,1.4vw,.95rem);color:var(--ink2)}
+  .tag .pill{background:var(--accent2);color:#fff;font-weight:700;border-radius:999px;padding:3px 12px;letter-spacing:.06em}
+  .tag .pill.lab{background:var(--lab);color:#062b26} .tag .pill.warn{background:var(--warn);color:#3a2a05}
+  .section{background:linear-gradient(135deg,#0d2644,#071321)}
+  .section .big{font-size:clamp(3rem,12vw,8rem);font-family:"Archivo";font-weight:800;color:var(--accent2);line-height:.9}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+  @media (max-width:760px){.two{grid-template-columns:1fr}}
+  .bar{position:fixed;left:0;top:0;height:4px;background:var(--accent2);width:0;transition:width .25s;z-index:5}
+  .count{position:fixed;right:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--ink2);z-index:5}
+  .nav{position:fixed;inset:auto 0 0 0;display:flex;justify-content:space-between;pointer-events:none;z-index:4}
+  .nav button{pointer-events:auto;background:transparent;border:none;color:transparent;width:22vw;height:100vh;cursor:pointer}
+  .foot{position:fixed;left:16px;bottom:12px;font-family:"JetBrains Mono",monospace;font-size:.7rem;color:#5d7391;z-index:5}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bar" id="bar"></div>
+<div class="deck" id="deck">
+
+  <section class="slide on section">
+    <div class="eyebrow">Photoshop · Instructor Kit · Session 6 of 8 · 3 hours</div>
+    <h1>Module 5<br>Design &amp; Type</h1>
+    <p class="lead">Words, shapes, polish: build a poster from nothing.</p>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">The plan for today</div>
+    <h2>One poster, three layers of craft</h2>
+    <ul>
+      <li><b>L14</b> Type &amp; Hierarchy: decide what's read first</li>
+      <li><b>L15</b> Shapes &amp; the Pen: crisp vector structure</li>
+      <li><b>L16</b> Layer Styles &amp; the Poster: polish and export</li>
+    </ul>
+    <div class="tag"><span class="pill lab">DELIVERABLE</span> poster-working.psd + an exported screen JPG · completes the Practitioner tier</div>
+  </section>
+
+  <section class="slide section"><div class="big">L14</div><h2>Type &amp; Hierarchy</h2><p class="lead">Design is rules, not talent.</p></section>
+  <section class="slide">
+    <div class="eyebrow">Mental model</div>
+    <h2>Type has a job</h2>
+    <div class="two">
+      <ol class="num">
+        <li>The BIG line: what is this?</li>
+        <li>The key detail: when / where</li>
+        <li>Supporting info: the extras</li>
+        <li>The fine print: smallest</li>
+      </ol>
+      <ul>
+        <li><b>Size</b> reads first</li>
+        <li><b>Weight</b>: bold forward, light back</li>
+        <li><b>Space</b> makes things feel important</li>
+      </ul>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">The Character panel · Window ▸ Character</div>
+    <h2>Three space controls</h2>
+    <ul>
+      <li><b>Leading</b> = between lines: tighten on big titles</li>
+      <li><b>Tracking</b> = evenly across a word: loosen small all-caps labels</li>
+      <li><b>Kerning</b> = one specific pair of letters</li>
+    </ul>
+    <div class="tag"><span class="pill">TYPE</span> <kbd>T</kbd> · click = point type (titles) · drag a box = paragraph type (body) · commit <kbd>Ctrl</kbd>/<kbd>⌘</kbd><kbd>Enter</kbd></div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Confident type in five moves</div>
+    <h2>Size, weight, space</h2>
+    <ol class="num">
+      <li>Every line its own layer</li>
+      <li>Assign a reading order</li>
+      <li>Size boldly: a <b>much</b> bigger 1st line</li>
+      <li>Leading on titles, tracking on small caps</li>
+      <li>Two fonts max, one accent, a touch of type on a path</li>
+    </ol>
+    <div class="tag"><span class="pill warn">WATCH</span> weak hierarchy is the #1 beginner mistake: make the main thing bigger</div>
+  </section>
+
+  <section class="slide section"><div class="big">L15</div><h2>Shapes &amp; the Pen</h2><p class="lead">Math, not pixels.</p></section>
+  <section class="slide">
+    <div class="eyebrow">Raster vs vector</div>
+    <h2>Which survives being enlarged?</h2>
+    <div class="two">
+      <ul><li><b>Raster</b> = pixels</li><li>No new pixels to show → soft or blocky</li><li>Use for: <b>photos</b></li></ul>
+      <ul class="lab"><li><b>Vector</b> = math</li><li>Redrawn at any size → still crisp</li><li>Use for: <b>type, logos, icons, frames</b></li></ul>
+    </div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">How the Pen thinks</div>
+    <h2>The two-move rule</h2>
+    <ul>
+      <li><b>Straight:</b> click, click</li>
+      <li><b>Curve:</b> click and drag, then click and drag again</li>
+      <li>One anchor wherever the curve changes direction. No more.</li>
+      <li>Refine with <b>Direct Selection</b> (white arrow)</li>
+    </ul>
+    <div class="tag"><span class="pill warn">WATCH</span> the Pen places points; it doesn't paint where you drag</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Shapes &amp; paths</div>
+    <h2>Build it, combine it, reuse it</h2>
+    <ul>
+      <li>Shape mode: set <b>Fill</b> (none = red slash) and <b>Stroke</b></li>
+      <li>Path Operations <b>before</b> the next shape: Combine · Subtract · Intersect</li>
+      <li>Path mode → Work Path → right-click: Make Selection · Fill · Stroke · Vector Mask</li>
+      <li><kbd>Ctrl</kbd>/<kbd>⌘</kbd>-click a shape's thumbnail = its outline as a selection</li>
+    </ul>
+    <div class="tag"><span class="pill lab">TEST</span> rasterize a copy, scale both 400% with <kbd>Ctrl</kbd>/<kbd>⌘</kbd><kbd>T</kbd>, compare at 100%</div>
+  </section>
+
+  <section class="slide section"><div class="big">L16</div><h2>Layer Styles &amp; the Poster</h2><p class="lead">Live effects. Two is usually plenty.</p></section>
+  <section class="slide">
+    <div class="eyebrow">Double-click a layer (right of its name)</div>
+    <h2>Live, re-editable fx</h2>
+    <div class="two">
+      <div class="panel">
+        <div class="row dim">Bevel &amp; Emboss</div>
+        <div class="row hi">✓ Stroke</div>
+        <div class="row dim">Color Overlay</div>
+        <div class="row hi">✓ Gradient Overlay</div>
+        <div class="row dim">Outer Glow</div>
+        <div class="row hi">✓ Drop Shadow</div>
+      </div>
+      <ul>
+        <li>Title: Gradient Overlay + <b>subtle</b> Drop Shadow</li>
+        <li>Badge: Stroke + soft shadow</li>
+        <li>Right-click fx ▸ Copy / Paste Layer Style</li>
+      </ul>
+    </div>
+    <div class="tag"><span class="pill warn">WATCH</span> more than 2–3 effects on a layer? Ask what each one is doing.</div>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Assemble</div>
+    <h2>Smart Objects, a hero, alignment</h2>
+    <ul>
+      <li>File ▸ Place Embedded → logos and photos arrive as Smart Objects</li>
+      <li>Hero image behind the type (your Module 4 composite?)</li>
+      <li>Smart guides, even margins, then squint</li>
+      <li>Scaled a layer? Right-click fx ▸ <b>Scale Effects</b></li>
+    </ul>
+  </section>
+  <section class="slide">
+    <div class="eyebrow">Export · keep the .psd master, always</div>
+    <h2>Screen vs print</h2>
+    <div class="two">
+      <ul class="lab"><li><b>Screen:</b> RGB</li><li>Pixel dimensions for the platform</li><li>Export As ▸ JPG (PNG for transparency)</li></ul>
+      <ul><li><b>Print:</b> ask the printer first</li><li>CMYK, 300 ppi at final size</li><li>Bleed via Image ▸ Canvas Size</li><li>Save a Copy ▸ Photoshop PDF (PDF/X)</li></ul>
+    </div>
+    <div class="tag"><span class="pill">PROOF</span> View ▸ Proof Colors <kbd>Ctrl</kbd>/<kbd>⌘</kbd><kbd>Y</kbd> · neons shift most in print</div>
+  </section>
+
+  <section class="slide">
+    <div class="eyebrow">Poster gallery</div>
+    <h2>What did you read first?</h2>
+    <ul>
+      <li>Call out the 1st, 2nd, and 3rd thing you read</li>
+      <li>Where does the accent send your eye?</li>
+      <li>Maker: one style you reused, one effect you removed</li>
+    </ul>
+  </section>
+
+  <section class="slide section">
+    <div class="eyebrow">Module 5 complete · Practitioner tier complete</div>
+    <h2>You can retouch, composite, and design</h2>
+    <ul class="lab">
+      <li>A clear hierarchy</li>
+      <li>Crisp vector frames, badges, and Pen shapes</li>
+      <li>Restrained styles and a correct export</li>
+    </ul>
+    <p class="lead" style="margin-top:10px">Next: Module 6, AI &amp; Speed.</p>
+  </section>
+
+</div>
+
+<div class="count" id="count">1 / 16</div>
+<div class="foot">© 2026 Ray de la Paz</div>
+<div class="nav"><button id="prev" aria-label="Previous slide"></button><button id="next" aria-label="Next slide"></button></div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const bar=document.getElementById('bar'), count=document.getElementById('count');
+  let i=0;
+  function show(n){ i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+    bar.style.width=((i+1)/slides.length*100)+'%'; count.textContent=(i+1)+' / '+slides.length; }
+  document.getElementById('next').onclick=()=>show(i+1);
+  document.getElementById('prev').onclick=()=>show(i-1);
+  addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();show(i+1);}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(i-1);}
+    else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+  });
+  show(0);
+</script>
+</body>
+</html>

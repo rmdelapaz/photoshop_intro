@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facilitator Guide: Module 1</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="../../kit.css">
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="lbl">Instructor copy —</span>
+  <button type="button" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <span class="hint">contains answers &amp; timing · not for students</span>
+</div>
+
+<div class="sheet">
+
+  <header class="mast">
+    <div class="kit-eyebrow">Instructor Kit · Facilitator Guide</div>
+    <h1>Module 1: Foundations</h1>
+    <p class="sub">How to teach the three lessons that turn a first win into a working method: reading the layer stack, targeting an edit with a mask (black hides, white reveals), letting Photoshop find edges and baking the selection into a mask, and cleaning up a photo without destroying a pixel. This is the conceptual core of the whole course.</p>
+    <div class="meta-row">
+      <span class="chip"><b>3</b> lessons</span>
+      <span class="chip"><b>3 hrs</b> session</span>
+      <span class="chip">Lessons <b>L02–L04</b></span>
+      <span class="chip">Level <b>Beginner</b></span>
+      <span class="chip">Maps to <b>Session 2</b></span>
+    </div>
+  </header>
+
+  <div class="sec"><h2>How to Use This Guide</h2><span class="rule"></span></div>
+  <ul class="tick">
+    <li>Same rhythm as Module 0: <b>Frame</b> → <b>Demo</b> → <b>Guided build</b> → <b>Solo variation</b> → <b>Check</b>. Every lesson ends with a recipe card, a checklist, and a journal prompt; use them as your closers.</li>
+    <li><b>Demo live, step by step.</b> Demo one step, let the room do it, then move on. Name every click, and say both shortcut forms (<kbd>Alt</kbd>/<kbd>⌥</kbd>, <kbd>Ctrl</kbd>/<kbd>⌘</kbd>).</li>
+    <li><span style="color:var(--lab);font-weight:600">Teal</span> = hands-on, <span style="color:var(--warn);font-weight:600">amber</span> = watch-outs. In this module the watch-outs are mostly "wrong thing selected" problems: the wrong layer, the wrong thumbnail, the wrong Sample setting. Pre-empting them saves the most time.</li>
+  </ul>
+
+  <div class="note warn">
+    <div class="t">The #1 risk of Module 1: "it's not doing anything"</div>
+    <p>Almost every stuck learner in this module has the <b>wrong thing selected</b>: the photo layer instead of the mask, an empty layer with Sample All Layers unchecked, a Clone Stamp still on "Current Layer." Teach the room to diagnose before they click: <b>"Which layer is highlighted? Which thumbnail has the border? What does the options bar say?"</b> Write those three questions on the board.</p>
+  </div>
+
+  <div class="sec"><h2>Before Session 2</h2><span class="rule"></span></div>
+  <ul class="tick lab">
+    <li>☐ Copy <code class="inline">labs/module-1/practice/</code> to each machine (or a shared drive). As always, never hand out the course site's licensed <code class="inline">images/</code> folder.</li>
+    <li>☐ Remind learners (in the Session 1 wrap-up or by email) to bring: a <b>landscape with a pale, washed-out sky</b>; a photo with <b>one clear subject</b> (person, pet, or product; hair or fur for the stretch goal); a photo with <b>dust, a blemish, or a distracting object</b>. Details in <code class="inline">labs/module-1/README.md</code>.</li>
+    <li>☐ Check every machine is on Photoshop 2023 v24.5 or later (Help ▸ About Photoshop on Windows, Photoshop ▸ About Photoshop on Mac) so the <b>Remove tool</b> is there for L04.</li>
+    <li>☐ Open <b>lesson_02.html</b>, <b>lesson_03.html</b>, and <b>lesson_04.html</b> in browser tabs for the before/after sliders.</li>
+  </ul>
+
+  <div class="sec"><h2>Session 2 Agenda (3 hours)</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Clock</th><th>Segment</th><th>Min</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td class="t">0:00–0:10</td><td>Warm-up: recall the Module 0 loop</td><td class="t">10</td><td>Room recites Open → Save .psd → Crop → Adjust → Save → Export. Two volunteers show a homework photo (eyeball toggle).</td></tr>
+      <tr><td class="t">0:10–1:00</td><td><b>L02</b> The Layer Stack &amp; Your First Mask</td><td class="t">50</td><td>Build: rescue the sky.</td></tr>
+      <tr><td class="t">1:00–1:50</td><td><b>L03</b> Selections That Hold Up</td><td class="t">50</td><td>Build: cut out a subject, new background.</td></tr>
+      <tr><td class="t">1:50–2:05</td><td>Break</td><td class="t">15</td><td>Leave the L03 checklist on the projector for stragglers.</td></tr>
+      <tr><td class="t">2:05–2:55</td><td><b>L04</b> Cleaning Up: Spots, Distractions &amp; Edges</td><td class="t">50</td><td>Build: clean and export (the Module 1 deliverable). Solo variation starts here, finishes at home.</td></tr>
+      <tr><td class="t">2:55–3:00</td><td>Wrap-up &amp; exit ticket</td><td class="t">5</td><td>Recap the arc, assign homework, preview Session 3.</td></tr>
+      <tr><td class="t"><b>Total</b></td><td></td><td class="t"><b>180</b></td><td>Add a one-minute stand-and-stretch midway through L02; it comes out of demo time, not lab time.</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">The lesson pages estimate 45 + 50 + 50 minutes for a solo learner, which matches the room once the demos run alongside the builds. If you run long, protect the L04 guided build (it's the Module 1 deliverable) and move solo variations to homework.</p>
+
+  <div class="sec"><h2>Module at a Glance</h2><span class="rule"></span></div>
+  <table class="timing">
+    <thead><tr><th>Lesson</th><th>Topic</th><th>Time</th><th>Learners leave able to…</th></tr></thead>
+    <tbody>
+      <tr><td class="t">L02</td><td>The Layer Stack &amp; Your First Mask</td><td class="t">50m</td><td>Read a stack and paint a mask so an adjustment hits only part of a photo</td></tr>
+      <tr><td class="t">L03</td><td>Selections That Hold Up</td><td class="t">50m</td><td>Select a subject, refine the edge in Select &amp; Mask, and output to a layer mask</td></tr>
+      <tr><td class="t">L04</td><td>Cleaning Up: Spots, Distractions &amp; Edges</td><td class="t">50m</td><td>Heal, remove, and clone on a separate layer, then export a clean photo</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:.9rem;color:var(--ink-2)">The module is one story: <b>paint a stencil by hand → let Photoshop draw the stencil → cover bad pixels with good ones on a separate sheet.</b> The through-line is the Module 0 golden rule: never touch the original pixels.</p>
+
+  <div class="sec"><h2>Lesson Plans</h2><span class="rule"></span></div>
+
+  <!-- L02 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L02</span><h3>The Layer Stack &amp; Your First Mask</h3><span class="dur">50 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Read a layer stack: what's on top wins, and why order matters</li>
+          <li>Explain a mask in one sentence: black hides, white reveals, gray partly reveals</li>
+          <li>Paint on a layer mask to apply an adjustment to only part of a photo</li>
+          <li>Recover from mistakes by painting the mask back: no undo panic required</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Timing</div>
+        <table class="timing"><tbody>
+          <tr><td class="t">3m</td><td>The problem: one edit, two regions (lesson slider)</td></tr>
+          <tr><td class="t">4m</td><td>Mental model 1: the stack of glass</td></tr>
+          <tr><td class="t">6m</td><td>Mental model 2: a mask is a stencil</td></tr>
+          <tr><td class="t">3m</td><td>Reading the Layers panel: two thumbnails</td></tr>
+          <tr><td class="t">20m</td><td>Guided build: rescue the sky (Steps 1–4)</td></tr>
+          <tr><td class="t">7m</td><td>Now You: spotlight a subject</td></tr>
+          <tr><td class="t">7m</td><td>Self-check, recipe card, journal</td></tr>
+        </tbody></table>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence &amp; live-demo script</div>
+        <ol class="steps">
+          <li><b>The problem (3m).</b> Show the L02 slider. <b>Say:</b> "To get detail in the land, the camera blew the sky out. Darken everything and the land goes muddy. We want to darken the sky <em>only</em>. Notice the hills are identical on both sides."</li>
+          <li><b>Stack of glass (4m).</b> Upgrade the Module 0 metaphor. <b>Say:</b> "Layers are sheets of glass in a frame, and you look straight down. Paint on a higher sheet covers what's below; clear glass lets the lower sheets show." Write the two rules: <b>higher layers win where they're opaque</b> and <b>order is meaning</b>.</li>
+          <li><b>A mask is a stencil (6m).</b> Every adjustment layer comes with a <b>layer mask</b>, a grayscale card that decides, pixel by pixel, how much of the effect gets through. Have the whole room say the sentence aloud: <b>"Black hides. White reveals. Gray does a bit of both."</b> Sketch a card that's white at the top, black at the bottom, gray between. Then the superpower: <b>Say:</b> "Painted over something by accident? Switch to the opposite color and paint it back. Nothing is ever destroyed. That's why pros mask instead of erase."</li>
+          <li><b>Two thumbnails (3m).</b> Point at an adjustment layer: the effect (◐) and the mask (white card). <b>Say:</b> "Before you paint, click the mask thumbnail so it gets a highlighted border. On an adjustment layer your brush lands on the mask anyway, but on a pixel layer with a mask, painting with the image thumbnail selected paints the photo itself. Build the habit now."</li>
+          <li><b>Step 1 (2m).</b> Open <code class="inline">l02-washed-sky.jpg</code> (or a learner landscape). <b>File ▸ Save As</b> ▸ <code class="inline">sky-rescue-working.psd</code>. <b>Say:</b> "You know the rhythm: protect the original first."</li>
+          <li><b>Step 2 (3m).</b> ◐ ▸ <b>Brightness/Contrast</b>. Pull Brightness <b>down</b> until the sky looks rich. <b>Say:</b> "Ignore the land going too dark. The mask will fix that. Right now the mask is all white, all revealed, so the darkening hits everything."</li>
+          <li><b>Step 3 (8m).</b> Click the mask thumbnail. Press <kbd>D</kbd> (default colors), then <kbd>X</kbd> so black is the foreground. <b>Edit ▸ Fill…</b>, Contents: <b>Black</b>, or press <kbd>Alt</kbd>/<kbd>⌥</kbd> + <kbd>Backspace</kbd>/<kbd>Delete</kbd>. The darkening vanishes. <b>Say:</b> "Not <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + Backspace: that fills with the <em>background</em> color, which is white, so nothing happens." Press <kbd>B</kbd>, <kbd>X</kbd> for white, pick a big soft brush (<kbd>]</kbd> to enlarge), and paint over the sky. <b>Say:</b> "Watch the mask thumbnail: a white sky-shape is growing on the black card. That's your stencil." Deliberately paint onto a hill, then press <kbd>X</kbd> and paint it away.</li>
+          <li><b>Step 4 (5m).</b> Lower brush opacity to about <b>30%</b> (with the Brush active, pressing <kbd>3</kbd> sets 30%) and gently blend along the horizon. <b>Say:</b> "This is painting gray: a partial reveal." Toggle the eyeball for the before/after, <b>File ▸ Save</b>, then <b>File ▸ Export ▸ Export As ▸ JPG 80%</b> → <code class="inline">sky-rescue-final.jpg</code>.</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Rescue the Sky, then Now You</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Guided build on <code class="inline">l02-washed-sky.jpg</code>; solo variation on <code class="inline">l02-spotlight-object.jpg</code> or a learner's portrait/object photo: brighten with a Brightness/Contrast layer, fill the mask black, paint white only over the subject; then a second, darkening layer masked to the background. Details in <code class="inline">labs/module-1/README.md</code>.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> the mask thumbnail (not the photo) highlighted; a black mask with a white sky-shape in the thumbnail; a soft horizon, not a hard line.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> the lesson's five-item checklist: one Brightness/Contrast layer above the photo, mask black over the land and white over the sky, a richer sky with untouched land, a soft transition, .psd saved and JPG exported.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Painting on the photo.</b> If the Background (photo) layer is highlighted, the brush paints real white or black paint onto the picture. Symptom: white streaks in the sky. Fix: undo, click the mask thumbnail on the adjustment layer, paint again.</li>
+          <li><b>Fill did nothing.</b> They used <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Backspace</kbd> (background color = white). Use <kbd>Alt</kbd>/<kbd>⌥</kbd> + <kbd>Backspace</kbd> with black foreground, or Edit ▸ Fill ▸ Black.</li>
+          <li><b>Colors aren't pure black and white.</b> A previous color pick left a tinted foreground, so the reveal is partial everywhere. Press <kbd>D</kbd> to reset.</li>
+          <li><b>Opacity left at 30%.</b> After softening the seam, the next strokes barely reveal anything. Press <kbd>0</kbd> for 100% (with the Brush active).</li>
+          <li><b>Hard, obvious edge.</b> The brush Hardness is high. Right-click the canvas and lower Hardness, then paint the seam at low opacity.</li>
+          <li><b>Undo panic.</b> Learners hammer <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Z</kbd> after every slip. Redirect: "Press <kbd>X</kbd> and paint it back."</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding: self-check + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> B) It covers what's below it; <b>Q2</b> A) The adjustment is hidden there; <b>Q3</b> C) Ctrl/⌘ + Backspace fills with the background color (white); <b>Q4</b> B) Press X and paint black over the mistake; <b>Q5</b> A) Click the mask thumbnail; <b>Q6</b> C) Lower brush Hardness and paint the seam at low opacity. Full set in the Answer Key.</p>
+        <p style="font-size:.9rem;margin:.2rem 0">Journal (3 min, finish at home if needed): <em>Describe, in your own words and without looking, what happens when you paint black on a mask versus white. If you can teach it to an imaginary friend, you own it.</em> Pair-share option: learners explain it to a neighbor first, then write.</p>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Fast finishers:</b> the lesson's "Going further": select the mask thumbnail and press <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>I</kbd> to invert it and watch the reveal flip. Then try the opposite workflow from the FAQ: start with a white mask and paint black to subtract, and decide which needs less painting for this shot. <kbd>Alt</kbd>/<kbd>⌥</kbd>-clicking the mask thumbnail shows the mask itself on the canvas (click again to return), a great way to inspect a seam.</p>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Struggling learners:</b> skip Step 4's seam softening at first; get a black mask with a white sky first. Hand them the recipe card and the three diagnosis questions. If the black/white logic won't stick, have them paint black and white stripes on the mask and toggle the eyeball: seeing the effect switch on and off stripe by stripe usually makes it click.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- L03 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L03</span><h3>Selections That Hold Up</h3><span class="dur">50 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Explain the difference between a selection (a temporary request) and a mask (the saved answer)</li>
+          <li>Select a subject automatically with Select Subject and the Object Selection tool</li>
+          <li>Rescue tricky edges (hair, fur, motion) in the Select &amp; Mask workspace</li>
+          <li>Output a selection to a layer mask so the cutout stays non-destructive and re-editable</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Timing</div>
+        <table class="timing"><tbody>
+          <tr><td class="t">3m</td><td>The goal: a believable cutout (lesson slider)</td></tr>
+          <tr><td class="t">5m</td><td>Mental model: request vs. answer</td></tr>
+          <tr><td class="t">6m</td><td>The selection toolkit tour</td></tr>
+          <tr><td class="t">24m</td><td>Guided build: Steps 1–4 (4 + 6 + 10 + 4)</td></tr>
+          <tr><td class="t">6m</td><td>Now You: a wispy subject (finish during the break or at home)</td></tr>
+          <tr><td class="t">6m</td><td>Self-check, recipe card, journal</td></tr>
+        </tbody></table>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence &amp; live-demo script</div>
+        <ol class="steps">
+          <li><b>The goal (3m).</b> Show the L03 slider. <b>Say:</b> "Last lesson we painted a mask by hand. Perfect for a sky, hopeless for hair or the crisp edge of a bottle. Today Photoshop finds the edge for us."</li>
+          <li><b>Request vs. answer (5m).</b> Make a quick selection and point at the <b>marching ants</b>. <b>Say:</b> "This outline is temporary. It's me pointing and saying 'these pixels, please.' Click elsewhere and it's gone. A mask is that request written down permanently: inside the ants becomes white, outside becomes black." Then the warning: <b>Say:</b> "Beginners chase a perfect selection and then delete the background, destroying pixels forever. Pros make a good-enough selection, turn it into a mask, and refine the mask forever after."</li>
+          <li><b>Toolkit (6m).</b> Walk the lesson's table: <b>Select Subject</b> (one click, AI guesses the main subject: your best first click), <b>Object Selection</b> (draw a loose box, it snaps to the object inside), <b>Quick Selection</b> (paint and it grows to matching edges), <b>Select &amp; Mask</b> (a whole room for refining edges). <b>Say:</b> "Match the tool to the subject."</li>
+          <li><b>Step 1 (4m).</b> Open <code class="inline">l03-subject-busy-bg.jpg</code>, <b>Save As</b> <code class="inline">cutout-working.psd</code>. <b>Select ▸ Subject</b>. <b>Say:</b> "It won't be perfect. That's expected and fine." (If it grabs the wrong thing on this synthetic file, switch to the Object Selection tool and draw a box around the subject: that's also a lesson FAQ.)</li>
+          <li><b>Step 2 (6m).</b> Press <kbd>W</kbd> for Quick Selection (<kbd>Shift</kbd> + <kbd>W</kbd> cycles if Object Selection or Magic Wand appears). Paint over missed subject to add; hold <kbd>Alt</kbd>/<kbd>⌥</kbd> and paint over included background to subtract. <b>Say:</b> "Get the big shape right. The fiddly edges have their own room."</li>
+          <li><b>Step 3 (10m).</b> Click <b>Select and Mask…</b> in the options bar. Set <b>View: Overlay</b> (masked-out areas turn a red film). Pick the <b>Refine Edge Brush</b> and paint gently along any wispy edge. Nudge <b>Smooth</b> and <b>Feather</b> a touch; set <b>Shift Edge</b> slightly negative to bite off a halo. For a colored fringe, check <b>Decontaminate Colors</b> in Output Settings. <b>Say:</b> "That switches the output to New Layer with Layer Mask. Still non-destructive: your original layer is kept, just hidden."</li>
+          <li><b>Step 4 (4m).</b> Set <b>Output To: Layer Mask</b>, click <b>OK</b>. Point at the new mask: "Exactly the black and white card from L02." Add a layer below: <kbd>Ctrl</kbd>/<kbd>⌘</kbd>-click the New Layer icon (or drag the new layer down), then <b>Edit ▸ Fill…</b> with a calm color, or place <code class="inline">l03-calm-background.jpg</code> there. <b>File ▸ Save</b>. Then the payoff: paint the mask to fix a stray, and <kbd>Shift</kbd>-click the mask thumbnail to turn it off and on. <b>Say:</b> "You never deleted a thing."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Cut Out a Subject, then Now You</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Guided build on <code class="inline">l03-subject-busy-bg.jpg</code> (or a learner's person, pet, or product photo) placed onto <code class="inline">l03-calm-background.jpg</code> or a solid color. Solo variation: <code class="inline">l03-fuzzy-subject.jpg</code> (or a learner's hair, fur, or leafy-plant photo) using the Refine Edge Brush for the wispy parts, placed on a photo background of a different scene (<code class="inline">l03-other-scene.jpg</code>, a warm sunset that deliberately clashes). Details in <code class="inline">labs/module-1/README.md</code>.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> Output To set to <b>Layer Mask</b> (or New Layer with Layer Mask), not Selection; the new background layer <em>below</em> the subject; no bright halo.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> the background is hidden by a mask, not erased; the edge has no halo and isn't razor-sharp; a calmer background sits beneath; the learner can paint the mask to fix a stray; .psd saved.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Pressing Delete.</b> The most destructive habit in the course. If you see someone press <kbd>Delete</kbd>/<kbd>Backspace</kbd> on a selection, undo with them and say "mask it, don't erase it."</li>
+          <li><b>Output To: Selection.</b> They click OK and get marching ants back, but no mask. Reopen Select and Mask (<b>Select ▸ Select and Mask…</b>, <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd> / <kbd>⌘</kbd>+<kbd>⌥</kbd>+<kbd>R</kbd>) and set Output To: Layer Mask.</li>
+          <li><b>"Select and Mask" button missing.</b> It appears in the options bar only while a selection tool is active. Press <kbd>W</kbd> or use the Select menu.</li>
+          <li><b>"My original layer disappeared!"</b> Decontaminate Colors makes a new masked layer and hides the original. Show them the hidden layer's eyeball: nothing was lost.</li>
+          <li><b>New background layer lands on top</b> and covers the subject. New layers appear above the active one; <kbd>Ctrl</kbd>/<kbd>⌘</kbd>-click the New Layer icon or drag it below. If the photo is still a locked <b>Background</b> layer, nothing can go beneath it: click its lock icon to turn it into a normal layer first.</li>
+          <li><b>Refine Edge Brush on the solid interior.</b> It's built for the hairline, not the middle of the subject. Paint <em>along</em> the edge.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding: self-check + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> C) A selection is temporary; a mask is the saved, editable answer; <b>Q2</b> B) Use the Object Selection tool and draw a box around the thing you want; <b>Q3</b> A) Hold Alt/⌥ while painting; <b>Q4</b> C) The Refine Edge Brush, along the hairline; <b>Q5</b> B) Layer Mask; <b>Q6</b> A) Shift Edge slightly negative and Decontaminate Colors. Full set in the Answer Key.</p>
+        <p style="font-size:.9rem;margin:.2rem 0">Journal (3–5 min): <em>Which was harder: making the selection, or making the edge believable?</em> Tell the room: "That answer tells you where to point your practice next."</p>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Fast finishers:</b> the lesson's "Going further": select the subject, then <b>Select ▸ Inverse</b> (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>I</kbd>) to feel how a selection is just a boundary you can flip. In Select &amp; Mask, try the <b>Refine Hair</b> button before brushing. Ask them to note whether the cutout's colors clash with its new background: that's the Module 4 (Compositing) question.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Struggling learners:</b> stay on the high-contrast practice file, skip Decontaminate Colors, and aim for one thing: Output To: Layer Mask. A slightly rough edge on a real mask beats a perfect edge made by deleting pixels. Pair them with a neighbor for the Select and Mask settings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- L04 -->
+  <section class="lesson">
+    <div class="lesson-head"><span class="lcode">L04</span><h3>Cleaning Up: Spots, Distractions &amp; Edges</h3><span class="dur">50 min</span></div>
+    <div class="lesson-body">
+      <div class="blk"><div class="h">Objectives</div>
+        <ul class="tick">
+          <li>Remove small spots and blemishes with the Spot Healing Brush</li>
+          <li>Choose between healing (blends texture) and cloning (copies exactly), and know when each wins</li>
+          <li>Erase a larger distraction with Content-Aware Fill or the Remove tool</li>
+          <li>Work non-destructively by healing on a separate layer, then export the finished image</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Timing</div>
+        <table class="timing"><tbody>
+          <tr><td class="t">5m</td><td>The goal + mental model: borrow good pixels</td></tr>
+          <tr><td class="t">5m</td><td>Which tool for which mess? (decision tree) + the retouch-layer habit</td></tr>
+          <tr><td class="t">28m</td><td>Guided build: Steps 1–4 (2 + 8 + 10 + 8)</td></tr>
+          <tr><td class="t">5m</td><td>Now You: start the two-ways removal (finish at home)</td></tr>
+          <tr><td class="t">7m</td><td>Self-check, recipe card, journal, Module 1 recap</td></tr>
+        </tbody></table>
+      </div>
+      <div class="blk"><div class="h">Teaching sequence &amp; live-demo script</div>
+        <ol class="steps">
+          <li><b>Borrow good pixels (5m).</b> Show the L04 slider. <b>Say:</b> "Every cleanup tool does one silly-simple thing: it takes pixels from a good part of the image and lays them over a bad part. The tools differ only in how they blend." <b>Cloning</b> copies exactly (great for hard edges and patterns, ruthless if lighting differs); <b>healing</b> copies texture and then blends color and brightness in (magic on skin and skies); <b>Content-Aware</b> tools do it automatically over a whole region.</li>
+          <li><b>Decision tree + the habit (5m).</b> Draw the tree: tiny spot → <b>Spot Healing Brush</b>; whole object with hard edges, straight lines, or patterns around it → <b>Clone Stamp</b>; whole object on plain or textured surroundings (sky, sand, grass) → <b>Remove tool</b> or <b>Content-Aware Fill</b>; then blend and check at 100%. <b>Say:</b> "When in doubt, try the Remove tool first. It's the most forgiving." Then the habit: all cleanup on an <b>empty layer</b>, each tool set to sample all layers.</li>
+          <li><b>Step 1 (2m).</b> Open <code class="inline">l04-dusty-sky.jpg</code>, <b>Save As</b> <code class="inline">cleanup-working.psd</code>. Click the <b>New Layer</b> icon, double-click the name and type <code class="inline">retouch</code>. Press <kbd>J</kbd> for the Spot Healing Brush and check <b>Sample All Layers</b> in the options bar. <b>Say:</b> "Everything I fix lands on this sheet. Hide it and the original is pristine."</li>
+          <li><b>Step 2 (8m).</b> Zoom to 100% (<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>1</kbd>). Set the brush just a little larger than a spot (<kbd>[</kbd> and <kbd>]</kbd> resize) and single-click it. Work left to right, top to bottom. <b>Say:</b> "Methodical beats fast. Don't miss any."</li>
+          <li><b>Step 3 (10m).</b> <b>Option A, Remove tool</b> (in the healing group; Photoshop 2023 v24.5 and later): still on <code class="inline">retouch</code>, check Sample All Layers, brush over the whole pole or bird, release. Touch up with a second pass. <b>Option B, Content-Aware Fill:</b> click the <b>photo</b> layer first (it may not be able to sample from an empty layer), loosely select the object with the Lasso (<kbd>L</kbd>) leaving a margin, <b>Edit ▸ Content-Aware Fill…</b>, green-brush where it should sample from, set <b>Output To: New Layer</b>, <b>OK</b>. <b>Say:</b> "Now click the retouch layer again before the next step." Demo both on two different distractions so the room sees each.</li>
+          <li><b>Step 4 (8m).</b> Find a hard edge the healing smeared (the roofline in the practice file). Press <kbd>S</kbd> for the Clone Stamp and set <b>Sample: Current &amp; Below</b> (or All Layers). <b>Say:</b> "This is a separate setting from the Spot Healing checkbox. Left on Current Layer, it samples our empty layer and paints nothing." <kbd>Alt</kbd>/<kbd>⌥</kbd>-click a clean area to sample, then paint over the flaw. Final 100% pass, <b>File ▸ Save</b>, <b>File ▸ Export ▸ Export As ▸ JPG 80%</b> → <code class="inline">cleanup-final.jpg</code>. <b>Say:</b> "Module 1 deliverable: done."</li>
+        </ol>
+      </div>
+      <div class="blk lab"><div class="h">Lab: Clean &amp; Export, then Now You</div>
+        <p style="font-size:.92rem;margin:.2rem 0">Guided build on <code class="inline">l04-dusty-sky.jpg</code> (or a learner photo with dust or a distraction). Solo variation on <code class="inline">l04-photobomb.jpg</code> or a learner photo with a photobomber, trash can, or power line: remove it once with the Remove tool and once with Content-Aware Fill, compare, and clean the tell-tale signs with the Clone Stamp. Start it in class; finish it at home. Details in <code class="inline">labs/module-1/README.md</code>.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Circulate for:</b> a <code class="inline">retouch</code> layer that actually has paint on it (toggle its eyeball: the spots should come back); zoom at 100% during spot work; Clone Stamp Sample menu not on Current Layer.</p>
+        <p style="font-size:.9rem;color:var(--ink-2);margin:.2rem 0"><b>Definition of done:</b> all cleanup on a separate layer; no spots at 100%; the main distraction gone with no obvious smear or repeat; crisp edges near the repair; .psd saved and <code class="inline">cleanup-final.jpg</code> exported.</p>
+      </div>
+      <div class="blk warn"><div class="h">Beginner mistakes to pre-empt</div>
+        <ul class="tick">
+          <li><b>Healing does nothing on the empty layer.</b> Sample All Layers is unchecked. Check it in the options bar.</li>
+          <li><b>Clone Stamp paints nothing</b> or warns that the area to clone hasn't been defined. Either Sample is still on Current Layer, or they never <kbd>Alt</kbd>/<kbd>⌥</kbd>-clicked a source point.</li>
+          <li><b>Retouching straight onto the photo.</b> The photo layer was highlighted. Toggle the retouch layer's eyeball: if nothing changes, the work went onto the photo. Undo and redo on retouch.</li>
+          <li><b>Content-Aware Fill grayed out or odd.</b> It needs an active selection, and the photo layer should be active when you open it. Afterward, click back on retouch.</li>
+          <li><b>Working zoomed out.</b> Spots look fine at fit-to-screen and obvious at 100%. Make <kbd>Ctrl</kbd>/<kbd>⌘</kbd> + <kbd>1</kbd> a reflex.</li>
+          <li><b>Brush far bigger than the spot</b> drags in neighboring edges and smears. "Just a little larger than the spot."</li>
+          <li><b>Repeats and smears</b> from content-aware tools. Check at 100%; redo with a smaller selection or clean the remnant with the Clone Stamp.</li>
+        </ul>
+      </div>
+      <div class="blk"><div class="h">Check for understanding: self-check + journal</div>
+        <p style="font-size:.9rem;margin:.2rem 0">Answers: <b>Q1</b> B) Healing blends texture into its surroundings; cloning copies pixels exactly; <b>Q2</b> C) So the original is never touched and mistakes are easy to erase; <b>Q3</b> A) Sample All Layers is unchecked; <b>Q4</b> C) Clone Stamp; <b>Q5</b> B) Set Sample to Current &amp; Below and Alt/⌥-click a clean source; <b>Q6</b> A) One pass at 100%, then view fit-to-screen. Full set in the Answer Key.</p>
+        <p style="font-size:.9rem;margin:.2rem 0">Journal (3–5 min): <em>Look back at your Module 0 journal entry, the image you dreamed of making. Which specific skill from these three lessons gets you closest to it?</em></p>
+      </div>
+      <div class="blk"><div class="h">Differentiation</div>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Fast finishers:</b> the lesson's "Going further": combine L03 and L04 by cutting out a subject and cleaning the background behind it, a mini version of Module 4 compositing. Or try the <b>Healing Brush</b> (not Spot), where they <kbd>Alt</kbd>/<kbd>⌥</kbd>-click their own sample point, near an edge the Spot Healing Brush smeared.</p>
+        <p style="font-size:.9rem;margin:.2rem 0"><b>Struggling learners:</b> two tools only today: Spot Healing Brush for spots and the Remove tool for the pole. Skip Content-Aware Fill and the Clone Stamp; the recipe card covers them for later. The must-haves are the retouch layer and the export.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sec"><h2>Closing the Session</h2><span class="rule"></span></div>
+  <div class="note lab">
+    <div class="t">Module 1 wrap-up (5 min, 2:55–3:00)</div>
+    <p>Recap the arc: <b>read a layer stack → target an edit with a mask → make a believable selection and bake it into a mask → clean up without destroying a pixel.</b> Exit ticket (on a sticky note): "Black ___, white ___." Homework from the lesson's "Before the Next Module": run the full Module 1 workflow on one fresh photo end to end (mask an adjustment, cut out the subject, clean the frame, export), finish the L04 solo variation, and <b>save your best result</b>: learners will re-grade it in Session 3. Preview Session 3 (Module 2): "Your photo is clean and controlled. Next we make it beautiful: Camera Raw, Curves, and Smart Objects."</p>
+  </div>
+
+  <div class="foot">
+    <div class="who">
+      <span class="bio">© 2026 Ray de la Paz · Photoshop: From First Win to Finished Work</span>
+    </div>
+    <div class="ver">Instructor Kit · Module 1 · Facilitator Guide · v1.0</div>
+  </div>
+
+</div>
+</body>
+</html>

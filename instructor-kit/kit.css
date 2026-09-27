@@ -1,0 +1,177 @@
+/* ============================================================
+   Photoshop Course Instructor Kit — shared stylesheet
+   Print-first, light palette, Photoshop-blue identity.
+   ============================================================ */
+:root{
+  --surface:#ffffff;
+  --surface-2:#f4f6fa;
+  --band:#eef2f8;
+  --ink:#16202e;
+  --ink-2:#45536a;
+  --ink-3:#6f7c8e;
+  --line:#d6dee9;
+  --line-strong:#bcc7d6;
+  --accent:#1473E6;      /* Photoshop blue: structure / concept */
+  --accent-soft:#e3efff;
+  --lab:#0f766e;         /* hands-on / teal */
+  --lab-soft:#d7efe9;
+  --warn:#b45309;        /* watch-outs / amber */
+  --warn-soft:#fdf0dc;
+  --code-bg:#0f1729;     /* code listings */
+  --code-ink:#e8eefc;
+  --code-key:#7dd3fc;
+  --code-str:#86efac;
+  --code-com:#8493ab;
+  --radius:12px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{background:#e9edf3}
+body{
+  margin:0;color:var(--ink);
+  font-family:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+.sheet{max-width:860px;margin:0 auto;background:var(--surface);padding:38px 46px 56px}
+.mono{font-family:"JetBrains Mono",ui-monospace,Menlo,monospace}
+h1,h2,h3,h4{font-family:"Archivo","Source Sans 3",sans-serif;margin:0;line-height:1.14;text-wrap:balance}
+p{margin:.55rem 0}
+a{color:var(--accent);text-decoration:none}
+strong{font-weight:600;color:var(--ink)}
+
+/* Toolbar (screen only) */
+.toolbar{position:sticky;top:0;z-index:20;background:#0e1726;color:#e8eef6;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 16px;font-size:.84rem}
+.toolbar .lbl{color:#9fb0c7}
+.toolbar button{font:inherit;font-weight:600;cursor:pointer;border:none;border-radius:7px;padding:8px 15px;background:#2563eb;color:#fff}
+.toolbar button:hover{background:#1d4ed8}
+.toolbar button:focus-visible{outline:3px solid #93b4ff;outline-offset:2px}
+.toolbar .hint{margin-left:auto;color:#7f92ab;font-family:"JetBrains Mono",monospace;font-size:.74rem}
+
+/* Masthead */
+.mast{border-bottom:3px solid var(--accent);padding-bottom:22px;margin-bottom:10px}
+.kit-eyebrow{font-family:"JetBrains Mono",monospace;font-size:.7rem;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--accent)}
+.mast h1{font-size:2rem;font-weight:800;letter-spacing:-.02em;margin:10px 0 6px}
+.mast .sub{font-size:1.02rem;color:var(--ink-2);font-weight:500;max-width:62ch}
+.meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chip{font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:500;color:var(--ink-2);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.chip b{color:var(--ink);font-weight:600}
+
+/* Section labels */
+.sec{display:flex;align-items:baseline;gap:12px;margin:34px 0 14px}
+.sec h2{font-size:.95rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2)}
+.sec .rule{flex:1;height:1px;background:var(--line-strong)}
+
+/* Lesson block */
+.lesson{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:20px;background:var(--surface)}
+.lesson-head{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:15px 20px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.lcode{font-family:"Archivo",sans-serif;font-weight:800;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:#fff;background:var(--accent);padding:4px 10px;border-radius:999px;white-space:nowrap;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.lesson-head h3{font-size:1.16rem;font-weight:700;letter-spacing:-.01em;flex:1;min-width:160px}
+.dur{font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--ink-3)}
+.lesson-body{padding:16px 20px 20px}
+
+/* Generic labeled block */
+.blk{margin:14px 0}
+.blk > .h{font-family:"JetBrains Mono",monospace;font-size:.68rem;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3);margin-bottom:7px;display:flex;align-items:center;gap:7px}
+.blk > .h::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--accent);transform:rotate(45deg);
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.blk.lab > .h::before{background:var(--lab)}
+.blk.warn > .h::before{background:var(--warn)}
+
+/* Lists */
+ul.tick,ol.steps{margin:.3rem 0;padding-left:0;list-style:none}
+ul.tick li{position:relative;padding:4px 0 4px 22px}
+ul.tick li::before{content:"";position:absolute;left:3px;top:11px;width:7px;height:7px;border-radius:2px;
+  background:var(--accent);transform:rotate(45deg);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ul.tick.lab li::before{background:var(--lab)}
+ol.steps{counter-reset:s}
+ol.steps li{position:relative;padding:5px 0 5px 30px;margin:2px 0}
+ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:4px;
+  width:20px;height:20px;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+  font-family:"JetBrains Mono",monospace;font-size:.72rem;font-weight:600;display:flex;align-items:center;justify-content:center;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+ol.steps.lab li::before{background:var(--lab-soft);color:var(--lab)}
+
+/* Callout cards */
+.note{border-left:4px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;padding:11px 15px;margin:12px 0}
+.note.lab{border-color:var(--lab);background:var(--lab-soft)}
+.note.warn{border-color:var(--warn);background:var(--warn-soft)}
+.note .t{font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px}
+.note.warn .t{color:var(--warn)}
+.note.lab .t{color:var(--lab)}
+.note p{margin:.2rem 0;font-size:.92rem}
+
+/* Code listing */
+pre.code{background:var(--code-bg);color:var(--code-ink);border-radius:9px;padding:14px 16px;overflow-x:auto;
+  font-family:"JetBrains Mono",monospace;font-size:.82rem;line-height:1.5;margin:11px 0;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+pre.code .k{color:var(--code-key)} pre.code .s{color:var(--code-str)} pre.code .c{color:var(--code-com);font-style:italic}
+code.inline{font-family:"JetBrains Mono",monospace;font-size:.86em;background:var(--band);border:1px solid var(--line);
+  border-radius:5px;padding:1px 6px;color:var(--ink)}
+
+/* Quiz */
+.q{margin:12px 0;padding:12px 15px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+.q .qn{font-family:"JetBrains Mono",monospace;font-size:.72rem;color:var(--accent);font-weight:600}
+.q .qt{font-weight:600;margin:3px 0 8px}
+.q .opts{display:grid;gap:5px}
+.q .opt{font-size:.92rem;color:var(--ink-2);padding:5px 11px;border:1px solid var(--line);border-radius:7px}
+.q .opt.correct{border-color:var(--lab);background:var(--lab-soft);color:var(--ink);font-weight:600;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact}
+.q .why{font-size:.86rem;color:var(--ink-2);margin-top:8px;padding-left:12px;border-left:3px solid var(--lab)}
+.q .why b{color:var(--lab)}
+
+/* Write-in space (workbook) */
+.write{border:1px dashed var(--line-strong);border-radius:8px;background:repeating-linear-gradient(
+  transparent,transparent 27px,var(--line) 27px,var(--line) 28px);min-height:88px;margin:8px 0}
+.write.tall{min-height:150px}
+.notes-lines{border:1px dashed var(--line-strong);border-radius:8px;min-height:120px;
+  background:repeating-linear-gradient(transparent,transparent 27px,var(--line) 27px,var(--line) 28px);margin:8px 0}
+
+/* Figures / diagrams */
+.fig{margin:16px 0;text-align:center}
+.fig svg{max-width:100%;height:auto;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.fig figcaption{font-family:"JetBrains Mono",monospace;font-size:.74rem;color:var(--ink-3);
+  margin-top:8px;letter-spacing:.02em}
+
+/* Two-col */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* Timing table */
+table.timing{width:100%;border-collapse:collapse;margin:10px 0;font-size:.9rem}
+table.timing th,table.timing td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line)}
+table.timing th{font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+table.timing td.t{font-family:"JetBrains Mono",monospace;color:var(--ink-2);white-space:nowrap;font-variant-numeric:tabular-nums}
+table.timing tr:last-child td{border-bottom:none}
+
+/* Footer */
+.foot{margin-top:34px;padding-top:18px;border-top:2px solid var(--line-strong);
+  display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:baseline}
+.foot .who{font-size:.9rem;color:var(--ink-2)}
+.foot .who b{color:var(--ink)}
+.foot .who .bio{display:block;color:var(--ink-3);font-size:.78rem;margin-top:2px}
+.foot .ver{font-family:"JetBrains Mono",monospace;font-size:.7rem;color:var(--ink-3)}
+
+@media (max-width:680px){
+  .sheet{padding:26px 18px}
+  .grid2{grid-template-columns:1fr}
+}
+@page{size:Letter;margin:.55in}
+@media print{
+  html,body{background:#fff}
+  .toolbar{display:none!important}
+  .sheet{max-width:none;margin:0;padding:0;width:100%}
+  .lesson,.q,.note,.foot,pre.code{break-inside:avoid}
+  .sec{break-after:avoid}
+  a{color:var(--ink)}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* Phones: wide tables scroll inside their box instead of widening the page */
+@media screen and (max-width:600px){
+  table.timing, table.rubric{display:block;overflow-x:auto;max-width:100%}
+}
